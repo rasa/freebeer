@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<freebeer>
+  <!-- HTTPS protocol configuration settings -->
+  <!--	
+  	Multiline
+  	comments
+  	are
+  	supported
+  -->
+
+  <mysql>
+    <host>localhost</host>
+    <user>root</user>
+    <password></password>
+    <database></database>
+    <persistent>1</persistent>
+  </mysql>
+
+  <adodb>
+    <driver>mysqlt</driver>
+    <host>localhost</host>
+    <user>root</user>
+    <password></password>
+    <database>test</database>
+    <persistent>1</persistent>
+    <sessions>
+      <table>adodb_sessions</table>
+      <!--
+        <database></database>
+      	<lifetime></lifetime>
+        <sync_seconds></sync_seconds>
+        <clob></clob>
+        <data_field_name></data_field_name>
+        <encryption_key></encryption_key>
+      -->
+    </sessions>
+  </adodb>
+  
+  <https>
+
+    <!-- Enable HTTPS redirection? -->
+    <!-- Default: 1 (yes) -->
+    <enabled>0</enabled>
+
+    <!-- HTTP host hame -->
+    <!-- Default: $_SERVER['HTTP_HOST'] -->
+    <http_host>http_host.com</http_host>
+
+    <!-- HTTP port -->
+    <!-- Default: 80 -->
+    <http_port>8080</http_port>
+
+    <!-- HTTP path -->
+    <!-- Default: (none) -->
+    <http_path>/http_path</http_path>
+
+    <!-- HTTPS host hame -->
+    <!-- Default: $_SERVER['HTTP_HOST'] -->
+    <https_host>https_host.com</https_host>
+
+    <!-- HTTPS port -->
+    <!-- Default: 443 -->
+    <https_port>8443</https_port>
+
+    <!-- HTTPS path -->
+    <!-- Default: (none) -->
+    <https_path>/https_path</https_path>
+
+    <!-- Convert <input src='/path/to/image.png' /> type tags? -->
+    <!-- Default: 0 (no) -->
+    <convert_input_src>1</convert_input_src>
+
+  </https>
+</freebeer>

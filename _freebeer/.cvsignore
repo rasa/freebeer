@@ -1,0 +1,5 @@
+# $CVSHeader: _freebeer/.cvsignore,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $
+
+.project
+project.index
+tags

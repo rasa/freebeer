@@ -1,0 +1,114 @@
+<%*
+
+// $CVSHeader: _freebeer/html/smarty.html,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+
+// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+
+*%>
+
+<% $html_header %>
+
+<table>
+<tr>
+<td>
+&lt;% $time %&gt;
+</td>
+<td>
+<% $time %>
+</td>
+</tr>
+
+<tr>
+<td>
+&lt;%php%&gt;
+echo strftime('%c');
+&lt;%/php%&gt;
+</td>
+<td>
+<%php%>
+echo strftime('%c');
+<%/php%>
+</td>
+</tr>
+
+</table>
+
+<form>
+
+<hr />
+html_checkboxes options=$checkbox_options
+<% html_checkboxes options=$checkbox_options %>
+<hr />
+html_options options=$checkbox_options
+<select name="html_options1">
+<% html_options options=$checkbox_options %>
+</select>
+<hr />
+
+html_radios options=$checkbox_options
+<% html_radios options=$checkbox_options %>
+<hr />
+
+html_select_date
+<% html_select_date %>
+<hr />
+
+html_select_time
+<% html_select_time %>
+<hr />
+
+html_table loop=$table_loop
+<% html_table loop=$table_loop %>
+<hr />
+
+
+</form>
+
+<%*
+
+html_checkboxes values=$checkbox_values
+<br />
+<%html_checkboxes values=$checkbox_values %>
+<br />
+html_checkboxes values=$checkbox_values output=$checkbox_output
+<br />
+<% html_checkboxes values=$checkbox_values output=$checkbox_output %>
+<br />
+html_checkboxes values=$checkbox_values output=$checkbox_output separator='<br>' name='box'
+<br />
+<% html_checkboxes values=$checkbox_values output=$checkbox_output separator='<br>' name='box' %>
+<br />
+html_checkboxes values=$checkbox_values output=$checkbox_output separator='<br>' checked=$checkbox_checked
+<br />
+<% html_checkboxes values=$checkbox_values output=$checkbox_output separator='<br>' checked=$checkbox_checked %>
+<br />
+
+*%>
+
+<pre>
+
+smarty.get.page=<%$smarty.get.page%>
+smarty.post.page=<%$smarty.post.page%>
+smarty.server.SERVER_NAME=<%$smarty.server.SERVER_NAME%>
+smarty.session.id=<%$smarty.session.id%>
+smarty.request.username=<%$smarty.request.username%>
+smarty.server.REQUEST_URI=<%$smarty.server.REQUEST_URI%>
+$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"=<% $smarty.now|date_format:"%Y-%m-%d %H:%M:%S" %>
+
+$GLOBALS['smarty']=
+<%php%>
+print_r($GLOBALS['smarty'])
+<%/php%>
+
+</pre>
+<p>
+See
+<br />
+<a target='_blank' href='http://smarty.php.net/'>Smarty : Template Engine</a>
+</p>
+<address>
+$CVSHeader: _freebeer/html/smarty.html,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+</address>
+</body>
+</html>

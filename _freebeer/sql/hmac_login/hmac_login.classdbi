@@ -1,0 +1,45 @@
+package DBI;
+
+# 
+# Created by SQL::Translator::Producer::ClassDBI
+# Created on Mon Sep 15 12:18:44 2003
+# 
+
+use strict;
+use base 'Class::DBI::mysql';
+
+DBI->set_db('Main', 'dbi:mysql:_', '', '');
+
+# -------------------------------------------------------------------
+package challenges;
+use base 'DBI';
+use Class::DBI::Pager;
+
+challenges->table('challenges');
+challenges->columns(Primary   => qw/id/);
+challenges->columns(Essential => qw/challenge used login ip_address user_agent referer created modified/);
+
+#
+# Primary key accessor
+#
+sub challenges {
+    shift->id
+}
+
+# -------------------------------------------------------------------
+package logins;
+use base 'DBI';
+use Class::DBI::Pager;
+
+logins->table('logins');
+logins->columns(Primary   => qw/id/);
+logins->columns(Essential => qw/login password/);
+
+#
+# Primary key accessor
+#
+sub logins {
+    shift->id
+}
+
+1;

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /CVS
+Disallow: /cgi-bin
+
+# $CVSHeader: _freebeer/robots.txt,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $

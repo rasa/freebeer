@@ -1,0 +1,4 @@
+# $CVSHeader: _freebeer/etc/geo/.cvsignore,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+
+geo-ips.txt
+geo-ips-binary.txt

@@ -1,0 +1,89 @@
+// $CVSHeader: _freebeer/etc/tidyrc,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+
+break-before-br:	no
+//clean:		yes
+doctype:		loose 	// omit, auto, strict, loose or "-//ACME//DTD HTML 3.14159//EN"
+indent-attributes:	no
+indent:			no	// no, yes, auto
+literal-attributes:	yes
+output-xhtml:		yes
+wrap:			132
+//word-2000:		yes
+tidy-mark:		no
+wrap-asp:		no
+wrap-php:		no
+wrap-script-literals:	yes
+
+// indent-spaces:		2
+// wrap-attributes:	yes
+// wrap-script-literals:	no
+// wrap-sections:		yes
+// wrap-asp:		yes
+// wrap-jste:		yes
+// wrap-php:		yes
+// literal-attributes:	yes
+// tab-size:		4
+// markup:			yes
+// quiet:			yes
+// tidy-mark:		no
+// indent:			auto
+// indent-attributes:	no
+// hide-endtags:		no
+// input-xml:		no
+// output-xml:		no
+// output-xhtml:		yes
+// output-html:		no
+// add-xml-pi:		no
+// add-xml-decl:		no
+// assume-xml-procins:	no
+// raw:			no
+// uppercase-tags:		no
+// uppercase-attributes:	no
+// bare:			no
+// clean:			no
+// logical-emphasis:	no
+// word-2000:		no
+// drop-empty-paras:	no
+// drop-font-tags:		no
+// drop-proprietary-attribute:	no
+// enclose-text:		no
+// enclose-block-text:	no
+// alt-text:			// String                                             
+// add-xml-space:		no
+// fix-bad-comments:	no
+// split:			no
+// break-before-br:	no
+// numeric-entities:	no
+// quote-marks:		no
+// quote-nbsp:		no
+// quote-ampersand:	no
+// write-back:		no
+// keep-time:		no
+// show-warnings:		no
+// error-file:		tidy.log
+// show-body-only:		no
+// slide-style:		// Name                                               
+// new-inline-tags:	// Tag names  tagX, tagY, ...                         
+// new-blocklevel-tags:	// Tag names  tagX, tagY, ...                         
+// new-empty-tags:		// Tag names  tagX, tagY, ...                         
+// new-pre-tags:		// Tag names  tagX, tagY, ...                         
+// char-encoding:		// ascii, latin1, raw, utf8, iso2022, mac, win1252                                 
+// input-encoding:		// ascii, latin1, raw, utf8, iso2022, mac, win1252                                 
+// output-encoding:	// ascii, latin1, raw, utf8, iso2022, mac, win1252                                 
+// doctype:		auto	// auto, omit, strict, loose, transitional, user specified fpi (string)             
+// fix-backslash:		no
+// gnu-emacs:		no
+// fix-uri:		no
+// lower-literals:		no
+// hide-comments:		no
+// indent-cdata:		no
+// force-output:		no
+// show-errors:		0	// 0, 1, 2, ...                            
+// ascii-chars:		no
+// join-classes:		no
+// join-styles:		no
+// escape-cdata:		no
+// repeated-attributes:	keep-first // keep-last                   
+// output-bom:		auto
+// replace-color:		no
+// css-prefix:

@@ -1,0 +1,82 @@
+database_conventions.txt
+
+*	For portability, table/field names should be lower case. 
+	
+	This allows us to use Postgres more easily, as it requires quotes
+	around names with mixed case names.
+
+*	For portability, table/field names should be 31 characters
+	or less in length.
+	
+	In fact, the combined length of a table name, and an included 
+	field name should not exceed 27 characters.
+	This allow us to name our related objects as
+	i_tablename_fieldname (index), 
+	s_tablename_fieldname (sequence)
+	c_tablename_fieldname (constraint), etc.
+
+*	For readability, table/field names should use a '_' character between 
+	words.
+
+	For example, use order_item, not orderitem.
+
+*	For consistency, table names should be plural, and 
+	field names should be singular.
+
+	For example, use order_items, not order_item.
+
+*	For portability, avoid naming tables/fields that are potential
+	reserved words (see reserved_words.txt list for a complete list).
+
+	To avoid using a potential reserved word, you may break rule 4.
+	For example, use orders instead of order for a field name.
+
+*	For consistency, identity fields should be named tablename_id.
+
+	For example, use cust_id for the identity field in the cust table.
+
+*	For consistency, foreign key fields should be named the same as 
+	the foreign key the field is related to.
+
+*	For portability, avoid using database specific features.
+
+	For example, in MySQL, avoid using ENUM and SET fields, the
+	UNSIGNED, and ZEROFILL attributes, and other MySQL specific
+	constructs.
+
+*	In queries, prepend a '~' to each tablename.
+
+	For example, refer to the cust table as ~cust.
+
+	This allows us to define a unique prefix for each table name,
+	to allow for installation on shared servers.
+
+*	Define a short unique alias for each table.  The alias should be
+	the first letter of each word in a table name.
+	
+	For example:
+	
+	customers c
+	orders o
+	order_items oi
+	
+	If two tables start with the same letter, add an additional 
+	letter to the less commonly used table.  For example:
+	
+	customers c
+	customer_address ca
+
+*	Always use this alias for each table used in multi table queries.
+
+	For example:
+	
+	SELECT
+		c.cust_id,
+		o.order_date 
+	FROM
+		~cust   c,
+		~orders o
+	WHERE
+		c.cust_id = o.cust_id
+	ORDER BY
+		c.name

@@ -1,0 +1,11 @@
+# Deny from all
+
+# You should set Apache's DocumentRoot to be the /www directory.
+
+# If you are unable to do this, then this file will redirect all
+# requests to the /www directory.
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule ^(.*)$ /www$1 [L,QSA]
+</IfModule>

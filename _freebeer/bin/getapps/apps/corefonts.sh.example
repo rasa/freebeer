@@ -1,0 +1,55 @@
+#!/bin/sh
+
+# $CVSHeader: _freebeer/bin/getapps/apps/corefonts.sh.example,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+
+# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+
+if [ -z "$FREEBEER_BASE" ]; then
+	FREEBEER_BASE=`dirname $0`
+	if [ "$FREEBEER_BASE" = "." ]; then
+		FREEBEER_BASE=`pwd`
+	fi
+	while [ ! -f "$FREEBEER_BASE/lib/System.php" ];
+	do
+		FREEBEER_BASE=`dirname $FREEBEER_BASE`
+	done
+fi
+
+uname | grep -i CYGWIN
+if [ $? != 0 ]; then
+	echo Must be run under Cygwin as .exe's are not executable otherwise
+	exit
+fi
+
+set -x
+
+XTMPDIR=$FREEBEER_BASE/var/tmp
+
+DIR=corefonts
+URLROOT=http://easynews.dl.sourceforge.net/sourceforge/corefonts
+VTAG=$DIR
+RTAG=R_HEAD
+
+CD=`pwd`
+cd $XTMPDIR
+TMPDIR=$TEMP/corefonts
+rm -fr $TMPDIR
+mkdir $TMPDIR
+for FILE in andale32.exe arial32.exe arialb32.exe comic32.exe courie32.exe georgi32.exe impact32.exe times32.exe trebuc32.exe verdan32.exe webdin32.exe 
+do
+	URL=$URLROOT/$FILE
+	if [ ! -f $FILE ]; then
+		wget $URL || exit 1
+	fi
+	chmod +x $FILE
+	./$FILE /q /t:`cygpath -w $TMPDIR`\\$FILE /c
+done
+mkdir allfonts
+cd allfonts
+cp `find $TMPDIR -name '*.TTF'` .
+cvs import -I ! -m "Import of $URL to _$DIR" _$DIR $VTAG $RTAG
+cd ..
+rm -fr allfonts
+rm -fr $TMPDIR
+cd $CD

@@ -1,0 +1,11 @@
+--- HTML.php.orig	2003-12-28 21:35:38.000000000 -0800
++++ HTML.php	2003-12-28 21:35:44.000000000 -0800
+@@ -85,7 +85,7 @@
+ 
+                 $aSuiteResult['results'] = $this->_prepareResult($result,$showPassed);
+ 
+-                $per = 100/$result->runCount();
++                $per = $result->runCount() ? 100/$result->runCount() : 0;
+                 $failed = ($per*$result->errorCount())+($per*$result->failureCount());
+                 $aSuiteResult['percent'] = round(100-$failed,2);
+             } else {

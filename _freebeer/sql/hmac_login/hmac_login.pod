@@ -1,0 +1,231 @@
+=pod
+
+=head1 DESCRIPTION
+
+Schema
+
+=head1 TABLES
+
+=head2 challenges
+
+=head3 FIELDS
+
+=head4 id
+
+=over 4
+
+=item * BIGINT(20)
+
+=item * PRIMARY KEY
+
+=item * Default '0' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 challenge
+
+=over 4
+
+=item * CHAR(22)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 used
+
+=over 4
+
+=item * CHAR(1)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 login
+
+=over 4
+
+=item * VARCHAR(80)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 ip_address
+
+=over 4
+
+=item * VARCHAR(30)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 user_agent
+
+=over 4
+
+=item * VARCHAR(80)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 referer
+
+=over 4
+
+=item * VARCHAR(255)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 created
+
+=over 4
+
+=item * DATETIME
+
+=item * Default '0' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 modified
+
+=over 4
+
+=item * DATETIME
+
+=item * Default '0' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head3 INDICES
+
+=head4 NORMAL
+
+=over 4
+
+=item * Fields = used
+
+=back
+
+=head4 NORMAL
+
+=over 4
+
+=item * Fields = modified
+
+=back
+
+=head4 NORMAL
+
+=over 4
+
+=item * Fields = login
+
+=back
+
+=head3 CONSTRAINTS
+
+=head4 UNIQUE
+
+=over 4
+
+=item * Fields = challenge
+
+=back
+
+=head4 PRIMARY KEY
+
+=over 4
+
+=item * Fields = id
+
+=back
+
+=head2 logins
+
+=head3 FIELDS
+
+=head4 id
+
+=over 4
+
+=item * INT(11)
+
+=item * PRIMARY KEY
+
+=item * Default '0' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 login
+
+=over 4
+
+=item * VARCHAR(80)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head4 password
+
+=over 4
+
+=item * VARCHAR(80)
+
+=item * Default '' 
+
+=item * Nullable 'No' 
+
+=back
+
+=head3 CONSTRAINTS
+
+=head4 UNIQUE
+
+=over 4
+
+=item * Fields = login
+
+=back
+
+=head4 PRIMARY KEY
+
+=over 4
+
+=item * Fields = id
+
+=back
+
+=head1 PRODUCED BY
+
+SQL::Translator::Producer::POD
+
+=cut

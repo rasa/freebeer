@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# $CVSHeader: _freebeer/bin/getapps/apps/crystalicons.sh.example,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+
+# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+
+if [ -z "$FREEBEER_BASE" ]; then
+	FREEBEER_BASE=`dirname $0`
+	if [ "$FREEBEER_BASE" = "." ]; then
+		FREEBEER_BASE=`pwd`
+	fi
+	while [ ! -f "$FREEBEER_BASE/lib/System.php" ];
+	do
+		FREEBEER_BASE=`dirname $FREEBEER_BASE`
+	done
+fi
+
+set -x
+
+XTMPDIR=$FREEBEER_BASE/var/tmp
+
+if [ -z "$CRYSTALICONSVER" ]; then
+	CRYSTALICONSVER=09
+fi
+
+DIR=crystalicons
+URLROOT=http://linuxcult.com/forum/crystal/
+FILE=crystal${CRYSTALICONSVER}.tar.gz
+VTAG=$DIR
+RTAG=R_${CRYSTALICONSVER}
+
+URL=$URLROOT/$FILE
+
+cd $XTMPDIR
+if [ ! -f $FILE ]; then
+	wget $URL || exit 1
+fi
+rm -fr $DIR
+tar -xvzf $FILE
+mv crystal $DIR
+cd $DIR
+cvs import -I ! -m "Import of $URL to $DIR" _$DIR $VTAG $RTAG
+cd ..
+rm -fr $DIR
