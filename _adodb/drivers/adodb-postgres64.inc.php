@@ -1,6 +1,6 @@
 <?php
 /*
- V4.10 12 Jan 2003  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
+ V4.20 22 Feb 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -97,6 +97,8 @@ WHERE relkind = 'r' AND (c.relname='%s' or c.relname = lower('%s'))
 	var $random = 'random()';		/// random function
 	var $autoRollback = true; // apparently pgsql does not autorollback properly before 4.3.4
 							// http://bugs.php.net/bug.php?id=25404
+							
+	var $_bindInputArray = false; // requires postgresql 7.3+ and ability to modify database
 	
 	// The last (fmtTimeStamp is not entirely correct: 
 	// PostgreSQL also has support for time zones, 
@@ -380,12 +382,15 @@ select viewname,'V' from pg_views where viewname like $mask";
 	}
 	
 
-	// converts field names to lowercase 
-	function &MetaColumns($table,$upper=true,$schema=false) 
+	// for schema support, pass in the $table param "$schema.$tabname".
+	// converts field names to lowercase, $upper is ignored
+	function &MetaColumns($table,$upper=true) 
 	{
 	global $ADODB_FETCH_MODE;
 	
-		//if (strncmp(PHP_OS,'WIN',3) === 0);
+		$schema = false;
+		$this->_findschema($table,$schema);
+		
 		$table = strtolower($table);
 
 		$save = $ADODB_FETCH_MODE;
@@ -485,16 +490,29 @@ select viewname,'V' from pg_views where viewname like $mask";
 	}
 
 	  function &MetaIndexes ($table, $primary = FALSE)
-        {
-                global $ADODB_FETCH_MODE;
+      {
+         global $ADODB_FETCH_MODE;
                 
-                $sql = '
+				$schema = false;
+				$this->_findschema($table,$schema);
+				
+				if ($schema) { // requires pgsql 7.3+ - pg_namespace used.
+					$sql = '
+SELECT c.relname as "Name", i.indisunique as "Unique", i.indkey as "Columns" 
+FROM pg_catalog.pg_class c 
+JOIN pg_catalog.pg_index i ON i.indexrelid=c.oid 
+JOIN pg_catalog.pg_class c2 ON c2.oid=i.indrelid
+	,pg_namespace n 
+WHERE c2.relname=\'%s\' and c.relnamespace=c2.relnamespace and c.relnamespace=n.oid and n.nspname=\'%s\' AND i.indisprimary=false';
+				} else {
+	                $sql = '
 SELECT c.relname as "Name", i.indisunique as "Unique", i.indkey as "Columns"
 FROM pg_catalog.pg_class c
 JOIN pg_catalog.pg_index i ON i.indexrelid=c.oid
 JOIN pg_catalog.pg_class c2 ON c2.oid=i.indrelid
 WHERE c2.relname=\'%s\'';
-                
+    			}
+				            
                 if ($primary == FALSE) {
                         $sql .= ' AND i.indisprimary=false;';
                 }
@@ -505,7 +523,7 @@ WHERE c2.relname=\'%s\'';
                         $savem = $this->SetFetchMode(FALSE);
                 }
                 
-                $rs = $this->Execute(sprintf($sql,$table));
+                $rs = $this->Execute(sprintf($sql,$table,$schema));
                 
                 if (isset($savem)) {
                         $this->SetFetchMode($savem);
@@ -597,16 +615,44 @@ WHERE c2.relname=\'%s\'';
 	{
 		return $this->_connect($str,$user,$pwd,$db,1);
 	}
+	
 
 	// returns queryID or false
 	function _query($sql,$inputarr)
 	{
+		
+		if ($inputarr) {
 		/*
-		if (is_array($sql)) {
-			if (!$sql[1]) {
+			It appears that PREPARE/EXECUTE is slower for many queries.
 			
-				$sqltxt = $sql[0];
-				$plan = $sql[1] = 'P'.md5($sqltxt);
+			For query executed 1000 times:
+			"select id,firstname,lastname from adoxyz 
+				where firstname not like ? and lastname not like ? and id = ?"
+				
+			with plan = 1.51861286163 secs
+			no plan =   1.26903700829 secs
+
+			
+
+		*/
+			$plan = 'P'.md5($sql);
+				
+			$execp = '';
+			foreach($inputarr as $v) {
+				if ($execp) $execp .= ',';
+				if (is_string($v)) {
+					if (strncmp($v,"'",1) !== 0) $execp .= $this->qstr($v);
+				} else {
+					$execp .= $v;
+				}
+			}
+			
+			if ($execp) $exsql = "EXECUTE $plan ($execp)";
+			else $exsql = "EXECUTE $plan";
+			
+			$rez = @pg_exec($this->_connectionID,$exsql);
+			if (!$rez) {
+			# Perhaps plan does not exist? Prepare/compile plan.
 				$params = '';
 				foreach($inputarr as $v) {
 					if ($params) $params .= ',';
@@ -618,40 +664,26 @@ WHERE c2.relname=\'%s\'';
 						$params .= "REAL";
 					}
 				}
-				$sqlarr = explode('?',$sqltxt);
-				$sqltxt = '';
+				$sqlarr = explode('?',$sql);
+				//print_r($sqlarr);
+				$sql = '';
 				$i = 1;
 				foreach($sqlarr as $v) {
-					$sqltxt .= $v.'$'.$i;
+					$sql .= $v.' $'.$i;
 					$i++;
 				}
-				$s = "PREPARE $plan ($params) AS ".substr($sqltxt,0,strlen($sqltxt)-2);		
-				adodb_pr($s);
+				$s = "PREPARE $plan ($params) AS ".substr($sql,0,strlen($sql)-2);		
+				//adodb_pr($s);
 				pg_exec($this->_connectionID,$s);
 				echo $this->ErrorMsg();
-			} else {
-				$plan = $sql[1];
-			}
-			$params = '';
-			foreach($inputarr as $v) {
-				if ($params) $params .= ',';
-				if (is_string($v)) {
-					if (strncmp($v,"'",1) !== 0) $params .= $this->qstr($v.'TEST');
-				} else {
-					$params .= $v;
-				}
 			}
 			
-			if ($params) $sql = "EXECUTE $plan ($params)";
-			else $sql = "EXECUTE $plan";
-			
-			adodb_pr(">>>>>".$sql);
-			pg_exec($this->_connectionID,$s);
-		}*/
-		
-		$this->_errorMsg = false;
-		
-		$rez = pg_exec($this->_connectionID,$sql);
+			$rez = pg_exec($this->_connectionID,$exsql);
+		} else {
+			$this->_errorMsg = false;
+			//adodb_backtrace();
+			$rez = pg_exec($this->_connectionID,$sql);
+		}
 		// check if no data returned, then no need to create real recordset
 		if ($rez && pg_numfields($rez) <= 0) {
 			if (is_resource($this->_resultid) && get_resource_type($this->_resultid) === 'pgsql result') {
