@@ -8,6 +8,7 @@
 /*!
 	\file Backport.php
 	\brief Backwards compatibility functions and definitions
+
 */
 
 if (defined('_fbBackport_loaded')) {
@@ -39,6 +40,31 @@ if (!function_exists('array_combine')) {
  		return $rv;
  	}
 }
+
+// Computes the difference of arrays with additional index check which is performed by a user supplied callback function (PHP 5 CVS only)
+// array_diff_uassoc()
+
+/// \todo implement array_diff_uassoc() function
+
+// Computes the difference of arrays by using a callback function for data comparison (PHP 5 CVS only)
+// array_udiff()
+
+/// \todo implement array_udiff() function
+
+// Computes the difference of arrays with additional index check. (PHP 5 CVS only)
+// array_udiff_assoc()
+
+/// \todo implement array_udiff_assoc() function
+
+// Computes the difference of arrays with additional index check. (PHP 5 CVS only)
+// array_udiff_uassoc()
+
+/// \todo implement array_udiff_uassoc() function
+
+// Apply a user function recursively to every member of an array (PHP 5 CVS only)
+// array_walk_recursive()
+
+/// \todo implement array_walk_recursive() function
 
 // Raise an arbitrary precision number to another, reduced by a specified modulus. (PHP 5 CVS only)
 // string bcpowmod ( string x, string y, string modulus [, int scale] )
@@ -100,7 +126,7 @@ if (!function_exists('fprintf')) {
 	}
 }
 
-// Write a string to a file
+// Write a string to a file (PHP 5 CVS only)
 // int file_put_contents ( string filename, string data [, int flags [, resource context]])
 
 // flags can take FILE_USE_INCLUDE_PATH and/or FILE_APPEND,
@@ -131,6 +157,95 @@ if (!function_exists('file_put_contents')) {
 		return $rv;
 	}
 }
+
+// Generate URL-encoded query string (PHP 5 CVS only)
+// string http_build_query ( array formdata [, string numeric_prefix])
+
+/// \todo test http_build_query() emulation function
+
+// see http://www.php.net/manual/en/function.http-build-query.php#38808
+
+if (!function_exists('http_build_query')) {
+	function http_build_query($formdata, $numeric_prefix = '') {
+		return _http_build_query($formdata, $numeric_prefix);
+	}
+	function _http_build_query($formdata, $numeric_prefix = '', $key_prefix='') {
+		if ($numeric_prefix != '' && !is_numeric($numeric_prefix)) {
+			$prefix = $numeric_prefix;
+		} else {
+			$prefix = '';
+		}
+		if (!is_array($formdata)) {
+			return '';
+		}
+		$str = '';
+		foreach($formdata as $key => $val) {
+			if (is_numeric($key)) {
+				$key = $prefix.$key;
+			}
+			if ($str != '') {
+				$str .= '&';
+			}
+			if ($key_prefix != '') {
+				$mykey = $key_prefix ."[$key]";
+			} else {
+				$mykey = &$key;
+			}
+			if (is_array($val)) {
+				$str .= _http_build_query($val, '', $mykey);
+			} else {
+				$str .= $mykey . '=' . urlencode($val);
+			}
+		}
+		return $str;
+	}
+}
+
+// idate() - Format a local time/date as integer 
+
+/// \todo implement idate() function
+
+// proc_nice --  Change the priority of the current process  (PHP 5 CVS only)
+// bool proc_nice ( int priority)
+
+if (!function_exists('proc_nice')) {
+	function proc_nice($priority) {
+		if (preg_match('/^win/i', PHP_OS)) {
+		 	return false;
+		}
+		$cmd = sprintf('renice +%d %d', $priority, getmypid());
+		exec($cmd, $dummy, $rv);
+		return $rv == 0;
+	}
+
+	//You also need a shutdown function if you don't want to leave your http deamons with a modified priority
+	function _proc_nice_shutdown_function() {
+		// Restore priority
+		proc_nice(0);
+	}
+
+	register_shutdown_function('_proc_nice_shutdown_function');
+}
+
+// Convert a string to an array (PHP 5 CVS only)
+// array str_split ( string string [, int split_length])
+
+/// \todo implement str_split() function
+
+// Search a string for any of a set of characters (PHP 5 CVS only)
+// strpbrk()
+
+/// \todo implement strpbrk() function
+
+// Binary safe optionally case insensitive comparison of 2 strings from an offset, up to length characters (PHP 5 CVS only)
+// int substr_compare ( string main_str, string str, int offset [, int length [, bool case_sensitivity]])
+
+/// \todo implement substr_compare() function
+
+// Delay for a number of seconds and nano seconds (PHP 5 CVS only)
+// time_nanosleep()
+
+/// \todo implement time_nanosleep() function
 
 // Tells whether the filename is executable (PHP 3, PHP 4 ) 
 // bool is_executable ( string filename )
