@@ -1,6 +1,6 @@
 <?php
 /*
-V4.20 22 Feb 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.52 10 Aug 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -11,6 +11,9 @@ V4.20 22 Feb 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights rese
   
  28 Feb 2001: MetaColumns bug fix - suggested by  Freek Dijkstra (phpeverywhere@macfreek.com)
 */ 
+
+// security - hide paths
+if (!defined('ADODB_DIR')) die();
 
 if (! defined("_ADODB_MYSQL_LAYER")) {
  define("_ADODB_MYSQL_LAYER", 1 );
@@ -26,7 +29,6 @@ class ADODB_mysql extends ADOConnection {
 	var $hasLimit = true;
 	var $hasMoveFirst = true;
 	var $hasGenID = true;
-	var $upperCase = 'upper';
 	var $isoDates = true; // accepts dates in ISO format
 	var $sysDate = 'CURDATE()';
 	var $sysTimeStamp = 'NOW()';
@@ -39,6 +41,7 @@ class ADODB_mysql extends ADOConnection {
 	
 	function ADODB_mysql() 
 	{			
+		if (defined('ADODB_EXTENSION')) $this->rsPrefix .= 'ext_';
 	}
 	
 	function ServerInfo()
@@ -55,16 +58,18 @@ class ADODB_mysql extends ADOConnection {
 	
 	function &MetaTables($ttype=false,$showSchema=false,$mask=false) 
 	{	
+		$save = $this->metaTablesSQL;
+		if ($showSchema && is_string($showSchema)) {
+			$this->metaTablesSQL .= " from $showSchema";
+		}
+		
 		if ($mask) {
-			$save = $this->metaTablesSQL;
 			$mask = $this->qstr($mask);
 			$this->metaTablesSQL .= " like $mask";
 		}
 		$ret =& ADOConnection::MetaTables($ttype,$showSchema);
 		
-		if ($mask) {
-			$this->metaTablesSQL = $save;
-		}
+		$this->metaTablesSQL = $save;
 		return $ret;
 	}
 	
@@ -148,14 +153,22 @@ class ADODB_mysql extends ADOConnection {
 	
 	function GetOne($sql,$inputarr=false)
 	{
-		$rs =& $this->SelectLimit($sql,1,-1,$inputarr);
-		if ($rs) {
-			$rs->Close();
-			if ($rs->EOF) return false;
-			return reset($rs->fields);
+		if (strncasecmp($sql,'sele',4) == 0) {
+			$rs =& $this->SelectLimit($sql,1,-1,$inputarr);
+			if ($rs) {
+				$rs->Close();
+				if ($rs->EOF) return false;
+				return reset($rs->fields);
+			}
+		} else {
+			return ADOConnection::GetOne($sql,$inputarr);
 		}
-		
 		return false;
+	}
+	
+	function BeginTrans()
+	{
+		if ($this->debug) ADOConnection::outp("Transactions not supported in 'mysql' driver. Use 'mysqlt' or 'mysqli' driver");
 	}
 	
 	function _affectedrows()
@@ -231,17 +244,21 @@ class ADODB_mysql extends ADOConnection {
 		for ($i=0; $i < $len; $i++) {
 			$ch = $fmt[$i];
 			switch($ch) {
+				
+			default:
+				if ($ch == '\\') {
+					$i++;
+					$ch = substr($fmt,$i,1);
+				}
+				/** FALL THROUGH */
+			case '-':
+			case '/':
+				$s .= $ch;
+				break;
+				
 			case 'Y':
 			case 'y':
 				$s .= '%Y';
-				break;
-			case 'Q':
-			case 'q':
-				$s .= "'),Quarter($col)";
-				
-				if ($len > $i+1) $s .= ",DATE_FORMAT($col,'";
-				else $s .= ",('";
-				$concat = true;
 				break;
 			case 'M':
 				$s .= '%b';
@@ -253,6 +270,15 @@ class ADODB_mysql extends ADOConnection {
 			case 'D':
 			case 'd':
 				$s .= '%d';
+				break;
+			
+			case 'Q':
+			case 'q':
+				$s .= "'),Quarter($col)";
+				
+				if ($len > $i+1) $s .= ",DATE_FORMAT($col,'";
+				else $s .= ",('";
+				$concat = true;
 				break;
 			
 			case 'H': 
@@ -276,14 +302,7 @@ class ADODB_mysql extends ADOConnection {
 				$s .= '%p';
 				break;
 				
-			default:
-				
-				if ($ch == '\\') {
-					$i++;
-					$ch = substr($fmt,$i,1);
-				}
-				$s .= $ch;
-				break;
+
 			}
 		}
 		$s.="')";
@@ -431,6 +450,8 @@ class ADODB_mysql extends ADOConnection {
 	function &SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false,$secs=0)
 	{
 		$offsetStr =($offset>=0) ? "$offset," : '';
+		// jason judge, see http://phplens.com/lens/lensforum/msgs.php?id=9220
+		if ($nrows < 0) $nrows = '18446744073709551615'; 
 		
 		if ($secs)
 			$rs =& $this->CacheExecute($secs,$sql." LIMIT $offsetStr$nrows",$inputarr);
@@ -438,7 +459,6 @@ class ADODB_mysql extends ADOConnection {
 			$rs =& $this->Execute($sql." LIMIT $offsetStr$nrows",$inputarr);
 		return $rs;
 	}
-	
 	
 	// returns queryID or false
 	function _query($sql,$inputarr)
@@ -466,8 +486,6 @@ class ADODB_mysql extends ADOConnection {
 		if (empty($this->_connectionID))  return @mysql_errno();
 		else return @mysql_errno($this->_connectionID);
 	}
-	
-
 	
 	// returns true or false
 	function _close()
@@ -498,6 +516,7 @@ class ADODB_mysql extends ADOConnection {
 /*--------------------------------------------------------------------------------------
 	 Class Name: Recordset
 --------------------------------------------------------------------------------------*/
+
 
 class ADORecordSet_mysql extends ADORecordSet{	
 	
@@ -532,7 +551,6 @@ class ADORecordSet_mysql extends ADORecordSet{
 	
 	function &FetchField($fieldOffset = -1) 
 	{	
-	
 		if ($fieldOffset != -1) {
 			$o = @mysql_fetch_field($this->_queryID, $fieldOffset);
 			$f = @mysql_field_flags($this->_queryID,$fieldOffset);
@@ -578,29 +596,20 @@ class ADORecordSet_mysql extends ADORecordSet{
 		return @mysql_data_seek($this->_queryID,$row);
 	}
 	
-	
-	// 10% speedup to move MoveNext to child class
-	function MoveNext() 
+	function MoveNext()
 	{
-	//global $ADODB_EXTENSION;if ($ADODB_EXTENSION) return adodb_movenext($this);
-	
-		if ($this->EOF) return false;
-				
-		$this->_currentRow++;
-		$this->fields = @mysql_fetch_array($this->_queryID,$this->fetchMode);
-		if (is_array($this->fields)) return true;
-		
-		$this->EOF = true;
-		
-		/* -- tested raising an error -- appears pointless
-		$conn = $this->connection;
-		if ($conn && $conn->raiseErrorFn && ($errno = $conn->ErrorNo())) {
-			$fn = $conn->raiseErrorFn;
-			$fn($conn->databaseType,'MOVENEXT',$errno,$conn->ErrorMsg().' ('.$this->sql.')',$conn->host,$conn->database);
+		//return adodb_movenext($this);
+		//if (defined('ADODB_EXTENSION')) return adodb_movenext($this);
+		if (@$this->fields =& mysql_fetch_array($this->_queryID,$this->fetchMode)) {
+			$this->_currentRow += 1;
+			return true;
 		}
-		*/
+		if (!$this->EOF) {
+			$this->_currentRow += 1;
+			$this->EOF = true;
+		}
 		return false;
-	}	
+	}
 	
 	function _fetch()
 	{
@@ -667,5 +676,32 @@ class ADORecordSet_mysql extends ADORecordSet{
 	}
 
 }
+
+class ADORecordSet_ext_mysql extends ADORecordSet_mysql {	
+	function ADORecordSet_ext_mysql($queryID,$mode=false) 
+	{
+		if ($mode === false) { 
+			global $ADODB_FETCH_MODE;
+			$mode = $ADODB_FETCH_MODE;
+		}
+		switch ($mode)
+		{
+		case ADODB_FETCH_NUM: $this->fetchMode = MYSQL_NUM; break;
+		case ADODB_FETCH_ASSOC:$this->fetchMode = MYSQL_ASSOC; break;
+		default:
+		case ADODB_FETCH_DEFAULT:
+		case ADODB_FETCH_BOTH:$this->fetchMode = MYSQL_BOTH; break;
+		}
+	
+		$this->ADORecordSet($queryID);	
+	}
+	
+	function MoveNext()
+	{
+		return adodb_movenext($this);
+	}
+}
+
+
 }
 ?>

@@ -1,6 +1,5 @@
 <?php
 
-// $CVSHeader$
 
 /*
 V4.01 23 Oct 2003  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
@@ -581,6 +580,7 @@ class ADODB_Session {
 		}
 
 		if (!$clob) {	// no lobs, simply use replace()
+			$arr[$data] = $conn->qstr($val);
 			$rs = $conn->Replace($table, $arr, 'sesskey', $autoQuote = true);
 			ADODB_Session::_dumprs($rs);
 		} else {
@@ -680,8 +680,8 @@ class ADODB_Session {
 			if (!$rs->EOF) {
 				$ref = $rs->fields[0];
 				$key = $rs->fields[1];
-				assert('$ref');
-				assert('$key');
+				//assert('$ref');
+				//assert('$key');
 				$fn($ref, $key);
 			}
 			$rs->Close();

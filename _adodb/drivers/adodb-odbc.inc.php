@@ -1,15 +1,18 @@
 <?php
 /* 
-V4.20 22 Feb 2004  (c) 2000-2004 John Lim (jlim#natsoft.com.my). All rights reserved.
+V4.52 10 Aug 2004  (c) 2000-2004 John Lim (jlim#natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
 Set tabs to 4 for best viewing.
   
-  Latest version is available at http://php.weblogs.com/
+  Latest version is available at http://adodb.sourceforge.net
   
   Requires ODBC. Works on Windows and Unix.
 */
+// security - hide paths
+if (!defined('ADODB_DIR')) die();
+
   define("_ADODB_ODBC_LAYER", 2 );
 	 
 /*--------------------------------------------------------------------------------------
@@ -34,6 +37,7 @@ class ADODB_odbc extends ADOConnection {
 	var $_haserrorfunctions = true;
 	var $_has_stupid_odbc_fetch_api_change = true;
 	var $_lastAffectedRows = 0;
+	var $uCaseTables = true; // for meta* functions, uppercase table names
 	
 	function ADODB_odbc() 
 	{ 	
@@ -53,7 +57,7 @@ class ADODB_odbc extends ADOConnection {
 			
 			while(true) {
 				
-				$rez = odbc_data_source($this->_connectionID,
+				$rez = @odbc_data_source($this->_connectionID,
 					$first ? SQL_FETCH_FIRST : SQL_FETCH_NEXT);
 				$first = false;
 				if (!is_array($rez)) break;
@@ -157,15 +161,15 @@ class ADODB_odbc extends ADOConnection {
 	{
 	global $php_errormsg;
 		
-		if (!function_exists('odbc_connect')) return false;
+		if (!function_exists('odbc_connect')) return null;
 		
-		if ($this->debug && $argDatabasename) {
+		if ($this->debug && $argDatabasename && $this->databaseType != 'vfp') {
 			ADOConnection::outp("For odbc Connect(), $argDatabasename is not used. Place dsn in 1st parameter.");
 		}
-		$php_errormsg = '';
+		if (isset($php_errormsg)) $php_errormsg = '';
 		if ($this->curmode === false) $this->_connectionID = odbc_connect($argDSN,$argUsername,$argPassword);
 		else $this->_connectionID = odbc_connect($argDSN,$argUsername,$argPassword,$this->curmode);
-		$this->_errorMsg = $php_errormsg;
+		$this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
 		if (isset($this->connectStmt)) $this->Execute($this->connectStmt);
 		
 		//if ($this->_connectionID) odbc_autocommit($this->_connectionID,true);
@@ -177,9 +181,10 @@ class ADODB_odbc extends ADOConnection {
 	{
 	global $php_errormsg;
 	
-		if (!function_exists('odbc_connect')) return false;
+		if (!function_exists('odbc_connect')) return null;
 		
-		$php_errormsg = '';
+		if (isset($php_errormsg)) $php_errormsg = '';
+		$this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
 		if ($this->debug && $argDatabasename) {
 			ADOConnection::outp("For odbc PConnect(), $argDatabasename is not used. Place dsn in 1st parameter.");
 		}
@@ -187,7 +192,7 @@ class ADODB_odbc extends ADOConnection {
 		if ($this->curmode === false) $this->_connectionID = odbc_connect($argDSN,$argUsername,$argPassword);
 		else $this->_connectionID = odbc_pconnect($argDSN,$argUsername,$argPassword,$this->curmode);
 		
-		$this->_errorMsg = $php_errormsg;
+		$this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
 		if ($this->_connectionID && $this->autoRollback) @odbc_rollback($this->_connectionID);
 		if (isset($this->connectStmt)) $this->Execute($this->connectStmt);
 		
@@ -228,9 +233,13 @@ class ADODB_odbc extends ADOConnection {
 	{
 	global $ADODB_FETCH_MODE;
 	
+		if ($this->uCaseTables) $table = strtoupper($table);
+		$schema = '';
+		$this->_findschema($table,$schema);
+
 		$savem = $ADODB_FETCH_MODE;
 		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
-		$qid = @odbc_primarykeys($this->_connectionID,'','',$table);
+		$qid = @odbc_primarykeys($this->_connectionID,'',$schema,$table);
 		
 		if (!$qid) {
 			$ADODB_FETCH_MODE = $savem;
@@ -357,14 +366,14 @@ class ADODB_odbc extends ADOConnection {
 	{
 	global $ADODB_FETCH_MODE;
 	
-		$table = strtoupper($table);
-		$schema = false;
+		if ($this->uCaseTables) $table = strtoupper($table);
+		$schema = '';
 		$this->_findschema($table,$schema);
 		
 		$savem = $ADODB_FETCH_MODE;
 		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
 	
-		if (false) { // after testing, confirmed that the following does not work becoz of a bug
+		/*if (false) { // after testing, confirmed that the following does not work becoz of a bug
 			$qid2 = odbc_tables($this->_connectionID);
 			$rs = new ADORecordSet_odbc($qid2);		
 			$ADODB_FETCH_MODE = $savem;
@@ -383,12 +392,19 @@ class ADODB_odbc extends ADOConnection {
 			$rs->Close();
 			
 			$qid = odbc_columns($this->_connectionID,$q,$o,strtoupper($table),'%');
-		} else switch ($this->databaseType) {
+		} */
+		
+		switch ($this->databaseType) {
 		case 'access':
 		case 'vfp':
-		case 'db2':
-			$qid = odbc_columns($this->_connectionID);
+			$qid = odbc_columns($this->_connectionID);#,'%','',strtoupper($table),'%');
 			break;
+		
+		
+		case 'db2':
+            $colname = "%";
+            $qid = odbc_columns($this->_connectionID, "", $schema, $table, $colname);
+            break;
 			
 		default:
 			$qid = @odbc_columns($this->_connectionID,'%','%',strtoupper($table),'%');
@@ -466,7 +482,7 @@ class ADODB_odbc extends ADOConnection {
 	function _query($sql,$inputarr=false) 
 	{
 	GLOBAL $php_errormsg;
-		$php_errormsg = '';
+		if (isset($php_errormsg)) $php_errormsg = '';
 		$this->_error = '';
 		
 		if ($inputarr) {
@@ -476,7 +492,7 @@ class ADODB_odbc extends ADOConnection {
 				$stmtid = odbc_prepare($this->_connectionID,$sql);
 	
 				if ($stmtid == false) {
-					$this->_errorMsg = $php_errormsg;
+					$this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
 					return false;
 				}
 			}
@@ -518,13 +534,13 @@ class ADODB_odbc extends ADOConnection {
 				$this->_errorMsg = '';
 				$this->_errorCode = 0;
 			} else
-				$this->_errorMsg = $php_errormsg;
+				$this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
 		} else {
 			if ($this->_haserrorfunctions) {
 				$this->_errorMsg = odbc_errormsg();
 				$this->_errorCode = odbc_error();
 			} else
-				$this->_errorMsg = $php_errormsg;
+				$this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
 		}
 		return $stmtid;
 	}
