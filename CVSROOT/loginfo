@@ -33,6 +33,27 @@
 # I'm commenting out for now, til I do more testing
 #ALL $CVSROOT/CVSROOT/enforce_directories.sh
 
-CVSROOT $CVSROOT/CVSROOT/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
+#
+# After the commit, I'm getting:
+# cvs commit: Rebuilding administrative file database
+# Traceback (most recent call last):
+#   File "/cvsroot/freebeer/CVSROOT/syncmail", line 324, in ?
+#     main()
+#   File "/cvsroot/freebeer/CVSROOT/syncmail", line 317, in main
+#     blast_mail(subject, people, specs[1:], contextlines, fromhost)
+#   File "/cvsroot/freebeer/CVSROOT/syncmail", line 223, in blast_mail
+#     conn.connect(MAILHOST, MAILPORT)
+#   File "/usr/lib/python2.2/smtplib.py", line 276, in connect
+#     for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):
+# socket.gaierror: (-2, 'Name or service not known')
+#
+# so I'm commenting out the following, and using what follows, as described in
+# http://sourceforge.net/docman/display_doc.php?docid=772&group_id=1#scriptsyncmail
 
-DEFAULT $CVSROOT/CVSROOT/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
+#CVSROOT $CVSROOT/CVSROOT/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
+
+#DEFAULT $CVSROOT/CVSROOT/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
+
+CVSROOT /cvsroot/sitedocs/CVSROOT/cvstools/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
+
+DEFAULT /cvsroot/sitedocs/CVSROOT/cvstools/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
