@@ -19,7 +19,7 @@ fbHTTP::sendNoCacheHeaders();
 
 $file = isset($_REQUEST['file']) ? $_REQUEST['file'] : false;
 
-if (strpos($file, getDocRoot()) !== 0) {
+if (strpos($file, fbWeb::getDocRoot()) !== 0) {
 	exit;
 }
 
