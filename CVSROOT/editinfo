@@ -1,3 +1,5 @@
+# $CVSHeader: CVSROOT/editinfo,v 1.2 2004/01/18 00:10:28 ross Exp $
+
 # The "editinfo" file is used to allow verification of logging
 # information.  It works best when a template (as specified in the
 # rcsinfo file) is provided for the logging procedure.  Given a
@@ -19,3 +21,7 @@
 # One thing that should be noted is the the ALL keyword is not
 # supported.  There can be only one entry that matches a given
 # repository.
+#
+# Note there is no "edit" example script currently available....
+#
+#DEFAULT		$CVSROOT/CVSROOT/edit "%s"

@@ -1,3 +1,5 @@
+# $CVSHeader: CVSROOT/modules,v 1.2 2004/01/18 00:10:28 ross Exp $
+
 # Three different line formats are valid:
 #	key	-a    aliases...
 #	key [options] directory
@@ -24,3 +26,79 @@
 # character to interpose another module into the current module.  This
 # can be useful for creating a module that consists of many directories
 # spread out over the entire source repository.
+
+_freebeer		_freebeer
+
+freebeer		-o $CVSROOT/CVSROOT/checkout.sh \
+			_freebeer	\
+			&adodb		\
+			&jsunit		\
+			&pear		\
+			&smarty
+
+all			-o $CVSROOT/CVSROOT/checkout.sh \
+			_freebeer	\
+			&adodb		\
+			&chora		\
+			&ezpdf		\
+			&ezpdffonts	\
+			&horde		\
+			&htmlarea	\
+			&jpgraph	\
+			&jscalendar	\
+			&jsrs		\
+			&jsunit		\
+			&overlib	\
+			&pajhome	\
+			&pear		\
+			&phplayersmenu	\
+			&phpmailer	\
+			&smarty
+
+_adodb			_adodb
+adodb			-d opt/adodb			_adodb
+
+_chora			_chora
+chora			-d opt/horde/chora		_chora
+
+_ezpdf			_ezpdf
+ezpdf			-d opt/ezpdf			_ezpdf
+
+_ezpdffonts		_ezpdffonts
+ezpdffonts		-d opt/ezpdffonts		_ezpdffonts
+
+_horde			_horde
+horde			-d opt/horde			_horde
+
+_htmlarea		_htmlarea
+htmlarea		-d www/opt/htmlarea		_htmlarea
+
+_jpgraph		_jpgraph
+jpgraph			-d opt/jpgraph			_jpgraph
+
+_jscalendar		_jscalendar
+jscalendar		-d www/opt/jscalendar		_jscalendar
+
+_jsrs			_jsrs
+jsrs			-d www/opt/jsrs			_jsrs
+
+_jsunit			_jsunit
+jsunit			-d www/opt/jsunit.net		_jsunit
+
+_overlib		_overlib
+overlib			-d www/opt/overlib		_overlib
+
+_pajhome		_pajhome
+pajhome			-d www/opt/pajhome.org.uk	_pajhome
+
+_pear			_pear
+pear			-d opt/pear			_pear
+
+_phplayersmenu		_phplayersmenu
+phplayersmenu		-d www/opt/phplayersmenu	 _phplayersmenu
+
+_phpmailer		_phpmailer
+phpmailer		-d opt/phpmailer		_phpmailer
+
+_smarty			_smarty
+smarty			-d opt/smarty			_smarty

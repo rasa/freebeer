@@ -1,3 +1,5 @@
+# $CVSHeader: CVSROOT/notify,v 1.2 2004/01/18 00:10:28 ross Exp $
+
 # The "notify" file controls where notifications from watches set by
 # "cvs watch add" or "cvs edit" are sent.  The first entry on a line is
 # a regular expression which is tested against the directory that the
@@ -9,4 +11,4 @@
 # "ALL" or "DEFAULT" can be used in place of the regular expression.
 #
 # For example:
-#ALL mail -s "CVS notification" %s
+#ALL mail %s -s "CVS notification"

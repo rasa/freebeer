@@ -1,3 +1,5 @@
+# $CVSHeader: CVSROOT/loginfo,v 1.2 2004/01/18 00:10:28 ross Exp $
+
 # The "loginfo" file controls where "cvs commit" log information
 # is sent.  The first entry on a line is a regular expression which must match
 # the directory that the change is being made to, relative to the
@@ -24,3 +26,11 @@
 #DEFAULT (echo ""; id; echo %s; date; cat) >> $CVSROOT/CVSROOT/commitlog
 # or
 #DEFAULT (echo ""; id; echo %{sVv}; date; cat) >> $CVSROOT/CVSROOT/commitlog
+
+#ALL $CVSROOT/CVSROOT/enforce_permissions.sh
+
+#ALL $CVSROOT/CVSROOT/enforce_directories.sh
+
+CVSROOT $CVSROOT/CVSROOT/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
+
+DEFAULT $CVSROOT/CVSROOT/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net

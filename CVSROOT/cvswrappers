@@ -1,4 +1,10 @@
+# $CVSHeader: CVSROOT/cvswrappers,v 1.2 2004/01/18 00:10:28 ross Exp $
+
 # This file affects handling of files based on their names.
+#
+# The -t/-f options allow one to treat directories of files
+# as a single file, or to transform a file in other ways on
+# its way in and out of CVS.
 #
 # The -m option specifies whether CVS attempts to merge files.
 #
@@ -17,3 +23,57 @@
 #  and value is a single-quote delimited value.
 # For example:
 #*.gif -k 'b'
+
+# if -k 'b' is specified, -m 'COPY' is not required, per 
+# <http://www.cvshome.org/docs/manual/cvs-1.11.10/cvs_18.html#SEC156>
+
+*.ai	-k 'b'
+*.asf	-k 'b'
+*.asx	-k 'b'
+*.bin	-k 'b'
+*.bmp	-k 'b'
+*.bz2	-k 'b'
+*.cab	-k 'b'
+*.chm	-k 'b'
+*.com	-k 'b'
+*.dat	-k 'b'
+*.dia	-k 'b'
+*.dll	-k 'b'
+*.doc	-k 'b'
+*.dos	-k 'b'
+*.dsp	-k 'b'
+*.dsw	-k 'b'
+*.eps	-k 'b'
+*.er1	-k 'b'
+*.exe	-k 'b'
+*.flw	-k 'b'
+*.gif	-k 'b'
+*.gz	-k 'b'
+*.hlp	-k 'b'
+*.ico	-k 'b'
+*.ide	-k 'b'
+*.img	-k 'b'
+*.jar	-k 'b'
+*.jpeg	-k 'b'
+*.jpg	-k 'b'
+*.lha	-k 'b'
+*.lib	-k 'b'
+*.mdb	-k 'b'
+*.mdp	-k 'b'
+*.mo	-k 'b'
+*.mod	-k 'b'
+*.msg	-k 'b'
+*.pdf	-k 'b'
+*.png	-k 'b'
+*.ps	-k 'b'
+*.res	-k 'b'
+*.rtf	-k 'b'
+*.swf	-k 'b'
+*.sys	-k 'b'
+*.tar	-k 'b'
+*.tgz	-k 'b'
+*.tif	-k 'b'
+*.vsd	-k 'b'
+*.vxd	-k 'b'
+*.xls	-k 'b'
+*.zip	-k 'b'

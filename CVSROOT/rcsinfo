@@ -1,3 +1,5 @@
+# $CVSHeader: CVSROOT/rcsinfo,v 1.2 2004/01/18 00:10:28 ross Exp $
+
 # The "rcsinfo" file is used to control templates with which the editor
 # is invoked on commit and import.
 #

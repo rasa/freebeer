@@ -1,3 +1,5 @@
+# $CVSHeader: CVSROOT/commitinfo,v 1.2 2004/01/18 00:10:28 ross Exp $
+
 # The "commitinfo" file is used to control pre-commit checks.
 # The filter on the right is invoked with the repository and a list 
 # of files to check.  A non-zero exit of the filter program will 
@@ -13,3 +15,11 @@
 #
 # If the name "ALL" appears as a regular expression it is always used
 # in addition to the first matching regex or "DEFAULT".
+
+# source <http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/sitedocs/CVSROOT/>
+# see <http://sourceforge.net/docman/display_doc.php?docid=772&group_id=1#docscvsacls>
+ALL $CVSROOT/CVSROOT/cvs_acls
+
+# source <http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/sitedocs/CVSROOT/>
+# modified from the original to support passing of $CVSROOT
+# ALL $CVSROOT/CVSROOT/enforce_naming.pl $CVSROOT
