@@ -100,7 +100,7 @@ class fbTimer {
 		\return \c string
 	*/
 	function toString() {
-		return $this->sprintf('%d:%02d:%02.7f', $this->elapsed());
+		return $this->sprintf('%d:%02d:%010.7f', $this->elapsed());
 	}
 
 	/*!
