@@ -160,7 +160,7 @@ class fbRandom {
 		255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
 		255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
 		255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
-255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
+		255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
 	);
 
 	/*!
@@ -207,13 +207,12 @@ class fbRandom {
 
 		This is how PHP encodes the session hash when
 		session.hash_bits_per_character is set to '6' in php.ini
-		(I'm not sure if the sequence is the same though)
 		
 		\param $length \c int
 		\return \c string
 	*/
 	function nextURL64String($length = 1) {
-		static $url64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-,';
+		static $url64 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,-';
 
 		assert('$length >= 0');
 

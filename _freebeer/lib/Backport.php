@@ -542,8 +542,8 @@ if (!function_exists('sha1_file')) {
 }
 
 defined('STDIN')	|| define('STDIN',  fopen('php://stdin', 'r'));
-defined('STDOUT')	|| define('STDOUT', fopen('php://stdout', 'r'));
-defined('STDERR')	|| define('STDERR', fopen('php://stderr', 'r'));
+defined('STDOUT')	|| define('STDOUT', fopen('php://stdout', 'w'));
+defined('STDERR')	|| define('STDERR', fopen('php://stderr', 'w'));
 register_shutdown_function(
 	create_function('' , 'fclose(STDIN); fclose(STDOUT); fclose(STDERR); return true;' )
 );
