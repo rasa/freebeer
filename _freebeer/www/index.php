@@ -33,22 +33,23 @@ $exclude = array(
 	'^opt$',
 );
 
-$dh = opendir($root_dir);
 $files = array();
-while ($file = readdir($dh)) {
-	$path = $root_dir . '/' . $file;
-	if (!is_dir($path)) {
-		continue;
-	}
-	foreach ($exclude as $pattern) {
-		if (preg_match("/$pattern/", $file)) {
-			continue 2;
+$dh = opendir($root_dir);
+if ($dh) {
+	while ($file = readdir($dh)) {
+		$path = $root_dir . '/' . $file;
+		if (!is_dir($path)) {
+			continue;
 		}
+		foreach ($exclude as $pattern) {
+			if (preg_match("/$pattern/", $file)) {
+				continue 2;
+			}
+		}
+		$files[] = $file;
 	}
-	$files[] = $file;
+	closedir($dh);
 }
-closedir($dh);
-
 sort($files);
 
 $body_text = '';

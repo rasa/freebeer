@@ -31,11 +31,11 @@ if (phpversion() <= '5.0.0b3') {
 		fbErrorHandler::init();
 
 	or:
-	
+
 		set_error_handler(array('fbErrorHandler', 'errorHandler'));
 
 	or:
-	
+
 		$error_handler = &new fbErrorHandler();
 		set_error_handler(array($error_handler, 'errorHandler'));
 
@@ -46,13 +46,13 @@ if (phpversion() <= '5.0.0b3') {
 		}
 
 		set_error_handler('fbErrorHandler');
-	
+
 */
 
 /*!
 	\enum FB_ERROR_HANDLER_IGNORE
 	Ignore the error
-*/ 
+*/
 define('FB_ERROR_HANDLER_IGNORE',	0x0001);
 
 /*!
@@ -112,7 +112,7 @@ define('FB_ERROR_HANDLER_SHOW_HIDDEN_ERRORS',	0x0200);
 /*!
 	\class fbErrorHandler ErrorHandler.php
 	\brief Error handler class
-	
+
 	\static
 */
 class fbErrorHandler {
@@ -122,7 +122,7 @@ class fbErrorHandler {
 	*/
 	function &_action() {
 		static $_action = null;
-		
+
 		if (is_null($_action)) {
 			/// \todo output errors: debugging on/web: STDOUT, debugging on/cli: STDERR, debugging off: LOG
 			$_action = array(
@@ -140,40 +140,40 @@ class fbErrorHandler {
 				E_STRICT			=> FB_ERROR_HANDLER_LOG | FB_ERROR_HANDLER_IGNORE,
 			);
 		}
-		
+
 		return $_action;
 	}
-	
+
 	/*!
 		\static
 	*/
 	function getAction($error_level) {
 		static $_action = null;
-		
+
 		if (is_null($_action)) {
 			$_action = &	fbErrorHandler::_action();
 		}
-		
+
 		return isset($_action[$error_level]) ? $_action[$error_level] : false;
 	}
-	
+
 	/*!
 		\static
 	*/
 	function setAction($error_level, $action) {
 		static $_action = null;
-		
+
 		if (is_null($_action)) {
 			$_action = &	fbErrorHandler::_action();
 		}
-		
+
 		$rv = $_action[$error_level];
-		
+
 		$_action[$error_level] = $action;
 
 		return $rv;
 	}
-	
+
 
 	/*!
 		\private
@@ -181,28 +181,28 @@ class fbErrorHandler {
 	*/
 	function _email_address($email_address = null) {
 		static $_email_address = null;
-		
+
 		if (!is_null($email_address)) {
 			$_email_address = (string) $email_address;
 		}
-		
+
 		return $_email_address;
 	}
-	
+
 	/*!
 		\static
 	*/
 	function getEmailAddress() {
 		return fbErrorHandler::_email_address();
 	}
-	
+
 	/*!
 		\static
 	*/
 	function setEmailAddress($email_address) {
 		fbErrorHandler::_email_address($email_address);
 	}
-	
+
 	/*!
 		\private
 		\static
@@ -264,12 +264,12 @@ class fbErrorHandler {
 				break;
 			}
 		}
-		
+
 		if ($ignorable_error) {
 //echo "ignoring error '$error'\n<br/>\n";
 			return;
 		}
-*/		
+*/
 
 		$action = fbErrorHandler::getAction($code);
 
@@ -279,7 +279,7 @@ class fbErrorHandler {
 				return;
 			}
 		}
-		
+
 		$type = isset($error_type[$code]) ? $error_type[$code] : 'error ' . $code;
 
 		$errmsg = sprintf('%s(%s): %s (%s)', basename($file), $line, ucfirst($type) . ': ' . $error, $file);
@@ -292,7 +292,7 @@ class fbErrorHandler {
 
 		// \todo use better CLI/Web determination
 		$cli = fbSystem::isCLI();
-		
+
 		if ($action & FB_ERROR_HANDLER_LOG) {
 			if (!$cli) {
 				// write to web server's error log
@@ -305,7 +305,7 @@ class fbErrorHandler {
 		if ($action & FB_ERROR_HANDLER_IGNORE) {
 			return;
 		}
- 
+
 		if (!ini_get('display_errors')) {
 			// \todo display default error page
 echo $logmsg;
@@ -349,6 +349,10 @@ echo "\n\todo Display default error page\n";
 				foreach ($stack as $frame) {
 					// \todo change extract() to hash
 					extract($frame);
+
+					if (!isset($args)) {
+						continue;
+					}
 
 					$a = array();
 					foreach ($args as $key => $value) {
@@ -735,7 +739,7 @@ echo "\n\todo Display default error page\n";
 	function init() {
 		return set_error_handler(array('fbErrorHandler', 'errorHandler'));
 	}
-	
+
 }
 
 ?>

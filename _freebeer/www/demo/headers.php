@@ -47,7 +47,7 @@ function toRFC1123($time = null) {
 	if (is_null($time)) {
 		$time = time();
 	}
-	
+
 	return gmdate('D, d M Y H:i:s \G\M\T', $time);
 }
 
@@ -71,7 +71,9 @@ foreach ($headers as $header) {
 
 $body_text = "<pre>Headers submitted:\n" . join("\n", $submit_headers);
 $body_text .= "\n" . strftime('%c') . "\n";
-$body_text .= "\n" . $_SERVER['UNIQUE_ID'] . "\n";
+if (isset($_SERVER['UNIQUE_ID'])) {
+	$body_text .= "\n" . $_SERVER['UNIQUE_ID'] . "\n";
+}
 
 $body_text .= @"This page has been viewed {$_SESSION['counter']} times in this session\n";
 

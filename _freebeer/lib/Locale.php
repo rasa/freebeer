@@ -29,33 +29,33 @@ if (preg_match('/^win/i', PHP_OS)) {
 
 // include_once 'fbDateTime.php'; // included below as needed
 
-/*!	
+/*!
 	\class fbLocale
 	\brief Locale related functions
 
 	On both Debian Linux (sid) and Windows XP Home SP1:
-	
+
 		echo setlocale($category, 'Italian'),"\n";
 		echo setlocale($category, null),"\n";
-	
+
 	will return:
-	
+
 		Italian_Italy.1252
 		English_United States.1252
 
 	It seems, contrary to what the documentation states,
 	that setlocale($category, null) does *not* return the current locale.
-	
+
 	Therefore, we have to cache the last return value from setlocale()
 	and hope no one else ever calls setlocale() directly.
-	
+
 	If they do, they should call fbLocale::setLocale() when they're done,
 	to let us know what the current locale should be.
 
 	\todo look up default locale in config file, instead of guessing
 	\todo add getNearestLocale() logic back
-	\todo don't call setlocale() if the current locale is the same	
-	\todo Passing multiple locales at once if >= 4.3.0 
+	\todo don't call setlocale() if the current locale is the same
+	\todo Passing multiple locales at once if >= 4.3.0
 
 	\static
 */
@@ -76,7 +76,7 @@ class fbLocale {
 	*/
 	function &_locale() {
 		static $_locale = null;
-		
+
 		if (is_null($_locale)) {
 			$_locale = array(
 				LC_ALL		=> false,
@@ -87,7 +87,7 @@ class fbLocale {
 				LC_TIME		=> false,
 			);
 		};
-		
+
 		return $_locale;
 	}
 
@@ -134,11 +134,11 @@ fbDebug::leave($rv);
 fbDebug::leave($rv);
 		return $rv;
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL (default), LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\return \c string
-		
+
 		\static
 	*/
 	function _getLocale($category = LC_ALL) {
@@ -157,29 +157,29 @@ fbDebug::leave($rv);
 	*/
 	function &_locale_cache() {
 		static $_locale_cache = array();
-		
+
 		return $_locale_cache;
 	}
 
 	/*!
 		Parses locale string returned by setlocale().
-		
+
 		Returns a hash.
-		
+
 		For example, _parseLocale('en_US.ISO8859-1') returns:
-		
+
 		array(
 			'locale'		=> 'en_US.ISO8859-1',
 			'language_id'	=> 'EN',
 			'language'		=> 'English',
 			'country_id'	=> 'US',
-			'country'		=> 'United States', 
+			'country'		=> 'United States',
 			'charset'		=> 'ISO8859-1',
 			'codepage'		=> '1252',
 		);
-		
+
 		This function can parse Windows locales as well.
-		
+
 		For example, _parseLocale('English_United Kingdom.1252') returns:
 
 		array(
@@ -187,7 +187,7 @@ fbDebug::leave($rv);
 			'language_id'	=> 'EN',
 			'language'		=> 'English',
 			'country_id'	=> 'GB',
-			'country'		=> 'United Kingdom', 
+			'country'		=> 'United Kingdom',
 			'charset'		=> 'ISO8859-1',
 			'codepage'		=> '1252',
 		);
@@ -206,7 +206,7 @@ fbDebug::leave($rv);
 			'1254'	=> 'ISO8859-9',
 			'1257'	=> 'ISO8859-13',
 		);
-			
+
 		if (is_null($locale)) {
 			$locale = fbLocale::_getLocale(LC_ALL);
 		}
@@ -232,7 +232,7 @@ fbDebug::leave($rv);
 			}
 
 			/// \todo deal with ll-CC
-			
+
 			if (preg_match('/([^\._]+)[\._]*(.*)/i', $lang, $matches)) {
 				$lang = $matches[1];
 				$coun = $matches[2];
@@ -240,7 +240,7 @@ fbDebug::leave($rv);
 				if (preg_match('/([^\._]+)[\._]*(.*)/i', $coun, $matches)) {
 					$coun = $matches[1];
 					$charset = $matches[2];
-				}			
+				}
 			}
 
 if ($lang == 'C') {
@@ -249,7 +249,7 @@ if ($lang == 'C') {
 			'language_id'	=> '',
 			'language'		=> '',
 			'country_id'	=> '',
-			'country'		=> '', 
+			'country'		=> '',
 			'charset'		=> '',
 			'codepage'		=> '',
 		);
@@ -268,7 +268,7 @@ if ($lang == 'C') {
 			}
 
 			$iso_locale = strtolower($language_id);
-			
+
 			$country		= fbISO3166::getCountryName($coun);
 			if ($country) {
 				$country_id = strtoupper($coun);
@@ -281,13 +281,13 @@ if ($lang == 'C') {
 			}
 
 			$iso_locale .= '_' . strtoupper($country_id);
-			
+
 			if ($charset) {
 				if (isset($_codepage_to_charset_map[$charset])) {
 					$codepage = $charset;
 					$charset = $_codepage_to_charset_map[$charset];
 				} else {
-					$_charset_to_codepage_map = array_flip($_codepage_to_map);
+					$_charset_to_codepage_map = array_flip($_codepage_to_charset_map);
 					if (isset($_charset_to_codepage_map[$charset])) {
 						$codepage = $_charset_to_codepage_map[$charset];
 					} else {
@@ -299,13 +299,13 @@ if ($lang == 'C') {
 				$iso_locale .= '.' . $charset;
 			}
 		} while (false);
-		
+
 		return array(
 			'locale'		=> $iso_locale,
 			'language_id'	=> strtoupper($language_id),
 			'language'		=> $language,
 			'country_id'	=> strtoupper($country_id),
-			'country'		=> $country, 
+			'country'		=> $country,
 			'charset'		=> strtoupper($charset),
 			'codepage'		=> $codepage,
 		);
@@ -331,7 +331,7 @@ fbDebug::dump($locale, '$locale');
 fbDebug::dump($locale, '$locale');
 
 			if (!$locale || $locale == 'C') {
-				$locale = fbLocale::getDefaultLocale();			
+				$locale = fbLocale::getDefaultLocale();
 			}
 fbDebug::dump($locale, '$locale');
 		}
@@ -367,12 +367,12 @@ fbDebug::leave($rv);
 		if (is_null($locale)) {
 			$locale = fbLocale::getLocale($category, $locale);
 		}
-		
+
 		return isset($_locale_cache[$category][$locale][$key])
 			? $_locale_cache[$category][$locale][$key]
 			: false;
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL (default), LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\param $locale \c string (default is current locale) locale string
@@ -382,7 +382,7 @@ fbDebug::leave($rv);
 	function getLanguageID($category = LC_ALL, $locale = null) {
 		return fbLocale::_get($category, $locale, 'language_id');
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL (default), LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\param $locale \c string (default is current locale) locale string
@@ -392,7 +392,7 @@ fbDebug::leave($rv);
 	function getLanguageName($category = LC_ALL, $locale = null) {
 		return fbLocale::_get($category, $locale, 'language');
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL (default), LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\param $locale \c string (default is current locale) locale string
@@ -402,7 +402,7 @@ fbDebug::leave($rv);
 	function getCountryID($category = LC_ALL, $locale = null) {
 		return fbLocale::_get($category, $locale, 'country_id');
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL (default), LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\param $locale \c string (default is current locale) locale string
@@ -412,7 +412,7 @@ fbDebug::leave($rv);
 	function getCountryName($category = LC_ALL, $locale = null) {
 		return fbLocale::_get($category, $locale, 'country');
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL (default), LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\param $locale \c string (default is current locale) locale string
@@ -422,7 +422,7 @@ fbDebug::leave($rv);
 	function getCharset($category = LC_ALL, $locale = null) {
 		return fbLocale::_get($category, $locale, 'charset');
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL (default), LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\param $locale \c string (default is current locale) locale string
@@ -432,7 +432,7 @@ fbDebug::leave($rv);
 	function getCodepage($category = LC_ALL, $locale = null) {
 		return fbLocale::_get($category, $locale, 'codepage');
 	}
-	
+
 	/*!
 		\return \c string
 		\static
@@ -440,7 +440,7 @@ fbDebug::leave($rv);
 	function getDefaultLanguageID() {
 		return fbLocale::_get($category, 'C', 'language_id');
 	}
-	
+
 	/*!
 		\return \c string
 		\static
@@ -448,7 +448,7 @@ fbDebug::leave($rv);
 	function getDefaultLanguageName() {
 		return fbLocale::_get($category, 'C', 'language');
 	}
-	
+
 	/*!
 		\return \c string
 		\static
@@ -456,7 +456,7 @@ fbDebug::leave($rv);
 	function getDefaultCountryID() {
 		return fbLocale::_get($category, 'C', 'country_id');
 	}
-	
+
 	/*!
 		\return \c string
 		\static
@@ -464,7 +464,7 @@ fbDebug::leave($rv);
 	function getDefaultCountryName() {
 		return fbLocale::_get($category, 'C', 'country');
 	}
-	
+
 	/*!
 		\return \c string
 		\static
@@ -482,9 +482,9 @@ fbDebug::leave($rv);
 	}
 
 	/*!
-		If setlocale() returns 'C', _guessLocale() determines the current locale by comparing all 
+		If setlocale() returns 'C', _guessLocale() determines the current locale by comparing all
 		the long month names returned by strftime against a known list.
-		
+
 		\return \c array
 		\private
 		\static
@@ -551,7 +551,7 @@ fbDebug::enter();
 		}
 
 		static $months_language_map;
-		
+
 		if (!isset($months_language_map)) {
 			$t = array_flip($language_months_map);
 			$lc = array_change_key_case($t);
@@ -572,22 +572,22 @@ fbDebug::enter();
 		/// \todo Look up country_id using fbISO639_ISO3166_Map::getCountryID()?
 		/// \todo default to ISO8559-1 charset?
 		/// \todo default to 1252 codepage?
-		
+
 		return array(
 			'locale'		=> $iso_locale,
 			'language_id'	=> $language_id,
 			'language'		=> $language,
 			'country_id'	=> '', // strtoupper($country_id),
-			'country'		=> '', // $country, 
+			'country'		=> '', // $country,
 			'charset'		=> '', // strtoupper($charset),
 			'codepage'		=> '', // $codepage,
 		);
 	}
 
 	/*!
-		If setlocale() returns false or 'C', getDefaultLocale() determines the current locale by comparing all 
+		If setlocale() returns false or 'C', getDefaultLocale() determines the current locale by comparing all
 		the long month names returned by strftime against a known list.
-		
+
 		\return \c string
 		\static
 	*/
@@ -652,11 +652,11 @@ fbDebug::leave($locale);
 	function _setLocaleWindows($category, $locale) {
 fbDebug::enter();
 		static $locale_cache = array();
-		
+
 		if (isset($locale_cache[$locale])) {
 			return fbLocale::_setLocale($category, $locale_cache[$locale]);
 		}
-			
+
 		$language_id2 = $locale;
 		if (preg_match('/^([^_]+)_(.*)$/', $locale, $matches)) {
 			$language_id2 = $matches[1];
@@ -710,7 +710,7 @@ fbDebug::leave($rv);
 
 		return $rv;
 	}
-	
+
 	/*!
 		\param $category \c int (LC_ALL, LC_COLLATE, LC_TYPE, LC_MONETARY, LC_NUMERIC, or LC_TIME)
 		\param $locales \c mixed locale string or array of strings
@@ -751,7 +751,7 @@ fbDebug::dump($locale_map, '$locale_map');
 
 		// it's been reported that this is needed to on some systems
 		fbSystem::putEnv('LANGUAGE', $locale);
-		
+
 		if (!preg_match('/^win/i', PHP_OS)) {
 			$rv = fbLocale::_setLocale($category, $locale);
 		} else {
@@ -850,7 +850,7 @@ fbDebug::leave($rv);
 	function &parseAcceptLanguages($http_accept_language = null) {
 fbDebug::enter();
 		global $_SERVER; // < 4.1.0
-		
+
 		static $http_accept_language_map;
 
 		if (is_null($http_accept_language)) {
@@ -932,7 +932,7 @@ fbDebug::leave($locales[$dir]);
 
 	/*!
 		\todo support multiple locales
-		
+
 		\param $locales \c mixed A single locale, or an array of locales
 		\return \c string
 		\static
@@ -1048,7 +1048,7 @@ fbDebug::leave($locale_map[$locale_key]);
 		\param $digits \c int
 		\param $locale \c string (default is current locale) locale string
 		\return \c string
-		\static			
+		\static
 	*/
 	function numberFormat($number, $digits = null, $locale = null) {
 fbDebug::enter();

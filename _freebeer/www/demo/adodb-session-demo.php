@@ -102,6 +102,10 @@ foreach ($dirs as $dir) {
 	}
 }
 
+if (!defined('ADODB_SESSION_CODE_DIR')) {
+	trigger_error(sprintf('Cannot find file: \'%s\'', adodb-session.php), E_USER_ERROR);
+}
+
 include_once ADODB_SESSION_CODE_DIR . '/adodb-session.php';
 
 $title = 'ADODB Sessions';

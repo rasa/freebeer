@@ -7,7 +7,7 @@
 
 /*!
 	\file HTTPS.php
-	\brief Rewrite HTML page with https:// or http:// links 
+	\brief Rewrite HTML page with https:// or http:// links
 */
 
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
@@ -19,8 +19,8 @@ require_once FREEBEER_BASE . '/lib/System.php';	// $_SERVER vars
 
 /*!
 	\class fbHTTPS
-	\brief Rewrite HTML page with https:// or http:// links 
-	
+	\brief Rewrite HTML page with https:// or http:// links
+
 	Singleton
 */
 class fbHTTPS {
@@ -48,7 +48,7 @@ class fbHTTPS {
 			$this->_https_host = getenv('HTTP_HOST');
 		}
 	}
-	
+
 	/*!
 		\return \c array
 		\static
@@ -62,7 +62,7 @@ class fbHTTPS {
 
 		return $instance;
 	}
-	
+
 	/*!
 		\return \c bool
 	*/
@@ -370,7 +370,7 @@ class fbHTTPS {
 
 		// Don't linkify absolute URLs
 		$purl = parse_url($url);
-		if ($purl['scheme']) {
+		if (isset($purl['scheme']) && $purl['scheme']) {
 			return $quote . $url;
 		}
 
