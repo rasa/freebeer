@@ -96,6 +96,8 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 		'_header.php',
  	);
 
+	$script_dir = dirname($_SERVER['SCRIPT_FILENAME']);
+
 	$hfiles = '';
 	foreach ($files as $file) {
 		$bfile = basename($file);
@@ -104,7 +106,15 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 			continue;
 		}
 
-		$encfile = urlencode($file);
+		if (substr($file, 0, 1) != '/') {
+			$file = $script_dir . '/' . $file;
+		}
+		$rfile = realpath($file);
+		if (!$rfile) {
+			$bfile = "<blink><i>$bfile</i></blink>";
+		}		
+		$encfile = urlencode($rfile);
+
 		$hfiles .= sprintf("\n&nbsp;\n<a target='%s' href='%s/_source.php?file=%s'>%s</a>",
 			$file, fbWeb::getWebRoot(), $encfile, $bfile);
 	}
@@ -112,7 +122,14 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 	foreach ($included_files as $file) {
 		$bfile = basename($file);
 
-		$encfile = urlencode($file);
+		if (substr($file, 0, 1) != '/') {
+			$file = $script_dir . '/' . $file;
+		}		
+		$rfile = realpath($file);
+		if (!$rfile) {
+			$bfile = "<blink><i>$bfile</i></blink>";
+		}		
+		$encfile = urlencode($rfile);
 		$hfiles .= sprintf(
 			"\n&nbsp;\n<a target='%s' href='%s/%s_source.php?file=%s'>%s</a>",
 				$file, fbWeb::getWebRoot(), $path2, $encfile, $bfile);
