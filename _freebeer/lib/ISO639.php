@@ -294,6 +294,7 @@ class fbISO639 {
 			$NAME_TO_ID_HASH_UC = array_change_key_case($NAME_TO_ID_HASH, CASE_UPPER);
 		}
 
+		/// \todo make multibyte saavy
 		$name = strtoupper($name);
 		return isset($NAME_TO_ID_HASH_UC[$name]) ? $NAME_TO_ID_HASH_UC[$name] : false;
 	}
@@ -306,6 +307,7 @@ class fbISO639 {
 	*/
 	function getLanguageName($id) {
 		$ID_TO_NAME_HASH = &fbISO639::getIDToNameHash();
+		/// \todo make multibyte saavy
 		$id = strtoupper($id);
 		return isset($ID_TO_NAME_HASH[$id]) ? $ID_TO_NAME_HASH[$id] : false;
 	}
@@ -318,6 +320,7 @@ class fbISO639 {
 	*/
 	function getLocalizedLanguageName($id) {
 		$ID_TO_LOCALIZED_NAME_HASH = &fbISO639::getIDToLocalizedNameHash();
+		/// \todo make multibyte saavy
 		$id = strtoupper($id);
 		return isset($ID_TO_LOCALIZED_NAME_HASH[$id]) ? $ID_TO_LOCALIZED_NAME_HASH[$id] : false;
 	}

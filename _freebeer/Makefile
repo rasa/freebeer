@@ -6,7 +6,7 @@
 # per http://www.gnu.org/manual/make/html_mono/make.html
 # \todo add make dist: clean changelog
 # \todo add make check
-# \todo add make setup and lockdown to doc/makehelp.txt
+# \todo add make unlock and lock to doc/makehelp.txt
 
 DEBIAN=$(shell cat /etc/debian_version 2>/dev/null)
 
@@ -151,15 +151,16 @@ help:
 	@cat doc/Makefile.txt
 
 links:
-	cd www && ln -s ../var/doc/doxygen/html doxygen
-	cd www && ln -s ../doc doc
-	
+	-cd www && rm -f doc doxygen
+	-cd www && ln -s ../doc doc
+	-cd www && ln -s ../var/doc/doxygen/html doxygen
+
 lint:
 	@bin/lint.sh
 
 lock:	
 ifeq ('$(UID)', '0')
-	-chmod -R g-w,o-rw etc
+	-chmod -R go-w,o-r etc
 else
 	-chmod -R go-w etc
 endif
