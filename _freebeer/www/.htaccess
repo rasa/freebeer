@@ -67,7 +67,7 @@ ErrorDocument 500 /error.php
 #	php_value session.cache_expire    200000
 #	php_value session.cookie_lifetime 2000000
 #	php_value session.auto_start      0
-#	php_value session.save_handler    user
+	php_value session.save_handler    files
 #	php_value session.cache_limiter   none
 	# don't know why this is here
 	#php_value allow_call_time_pass_reference  0
