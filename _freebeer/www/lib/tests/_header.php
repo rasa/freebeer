@@ -10,6 +10,16 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 
 require_once FREEBEER_BASE . '/lib/HTTP.php';
 
+require_once FREEBEER_BASE . '/www/fbWeb.php';
+
+$www_root = fbWeb::getWebRoot();
+$doc_root = fbWeb::getDocRoot();
+//$root_dir = $doc_root . $www_root;
+
+if (isset($test_name)) {
+	$test_name = $www_root . $test_name;
+}
+
 fbHTTP::sendNoCacheHeaders();
 
 ?>
@@ -25,15 +35,12 @@ Licensed under the BSD or LGPL License. See doc/license.txt for details.
 -->
   <head>
     <title><?php echo $test_name ?>Test Suite</title>
-    <link rel="stylesheet" type="text/css" href="/opt/jsunit.net/css/jsUnitStyle.css">
-<script language="JavaScript" type="text/javascript" src="/opt/jsunit.net/app/jsUnitCore.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo $www_root ?>/opt/jsunit.net/css/jsUnitStyle.css">
+<script language="JavaScript" type="text/javascript" src="<?php echo $www_root ?>/opt/jsunit.net/app/jsUnitCore.js"></script>
 <?php
 
-defined('FREEBEER_WWWROOT') ||
- define('FREEBEER_WWWROOT', FREEBEER_BASE . '/www');
-
-if (isset($test_name) && !is_file(FREEBEER_WWWROOT . $test_name)) {
-	$file = FREEBEER_WWWROOT . $test_name;
+if (isset($test_name) && !is_file($doc_root . $test_name)) {
+	$file = $doc_root . $test_name;
 	echo <<<EOD
 </head>
 <body>

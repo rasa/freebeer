@@ -8,7 +8,7 @@
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(dirname(dirname(__FILE__)))));
 
-$test_name = '/lib/pajhome.org.uk/md5.js';
+$test_name = $www_root . '/lib/pajhome.org.uk/md5.js';
 
 include_once FREEBEER_BASE . '/www/lib/tests/_header.php';
 

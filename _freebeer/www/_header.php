@@ -8,50 +8,15 @@
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(__FILE__)));
 
-/// \todo move to fbHTTP class?
-
-function getDocRoot() {
-	static $doc_root = null;
-	
-	if (is_null($doc_root)) {
-		if (isset($_SERVER['DOCUMENT_ROOT'])) {
-			$doc_root = $_SERVER['DOCUMENT_ROOT'];
-		} else {
-			assert('$_SERVER["PATH_TRANSLATED"]');
-			assert('$_SERVER["SCRIPT_NAME"]');
-			$a 	= dirname($_SERVER['SCRIPT_NAME']);
-			$b	= dirname($_SERVER['PATH_TRANSLATED']);
-			if (substr($b, -strlen($a)) == $a) {
-				$doc_root = substr($b, 0, strlen($b) - strlen($a));
-			}
-		}	
-	}
-
-	return $doc_root;
-}
-
-function getWebRoot() {
-	static $web_root = null;
-	
-	if (is_null($web_root)) {
-//		assert('$_SERVER["SCRIPT_NAME"]');
-//		$web_root = dirname($_SERVER['SCRIPT_NAME']);
-		$web_root = dirname(__FILE__);
-		if (strpos($web_root, getDocRoot()) === 0) {
-			$web_root = substr($web_root, strlen(getDocRoot()));
-		}
-	}
-
-	return $web_root;
-}
+require_once FREEBEER_BASE . '/www/fbWeb.php';
 
 function html_header_home($title = null, $included_files = null, $path = null, $no_cache = true) {
 	$hash = array(
-		'Home' => getWebRoot(),
+		'Home' => fbWeb::getWebRoot(),
 	);
 
 	if ($title) {
-		$hash['Home'] = getWebRoot();
+		$hash['Home'] = fbWeb::getWebRoot();
 		$hash[$title] = '';
 	}
 
@@ -60,8 +25,8 @@ function html_header_home($title = null, $included_files = null, $path = null, $
 
 function html_header_demo($title = null, $included_files = null, $path = null, $no_cache = true) {
 	$hash = array(
-		'Home' => getWebRoot(),
-		'Demos' => getWebRoot() . '/demo',
+		'Home' => fbWeb::getWebRoot(),
+		'Demos' => fbWeb::getWebRoot() . '/demo',
 	);
 
 	if ($title) {
@@ -73,6 +38,8 @@ function html_header_demo($title = null, $included_files = null, $path = null, $
 
 
 function html_header($hash, $included_files = null, $path = null, $no_cache = true) {
+	$www_root = fbWeb::getWebRoot();
+
 	if (preg_match('/wget/i', $_SERVER['HTTP_USER_AGENT'])) {
 		@ini_set('html_errors', false);
 	}
@@ -124,6 +91,7 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 	static $skip_files = array(
 		'HTTP.php',
 		'System.php',
+		'fbWeb.php',
 		'_demo.php',
 		'_header.php',
  	);
@@ -138,7 +106,7 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 
 		$encfile = urlencode($file);
 		$hfiles .= sprintf("\n&nbsp;\n<a target='%s' href='%s/_source.php?file=%s'>%s</a>",
-			$file, getWebRoot(), $encfile, $bfile);
+			$file, fbWeb::getWebRoot(), $encfile, $bfile);
 	}
 
 	foreach ($included_files as $file) {
@@ -147,7 +115,7 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 		$encfile = urlencode($file);
 		$hfiles .= sprintf(
 			"\n&nbsp;\n<a target='%s' href='%s/%s_source.php?file=%s'>%s</a>",
-				$file, getWebRoot(), $path2, $encfile, $bfile);
+				$file, fbWeb::getWebRoot(), $path2, $encfile, $bfile);
 	}
 
 	if (preg_match('/wget/i', $_SERVER['HTTP_USER_AGENT'])) {
@@ -182,6 +150,7 @@ Licensed under the BSD or LGPL License. See doc/license.txt for details.
     // ]]> -->
 
 </script>
+<link rel='stylesheet' href='$www_root/main.css' type='text/css' />
 </head>
 <body>
 <table width='100%' border='0'>

@@ -143,7 +143,11 @@ EOD;
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	$freebeer_base);
 
-\$test_name = '$www_file';
+require_once FREEBEER_BASE . '/www/fbWeb.php';
+
+\$www_root = fbWeb::getWebRoot();
+
+\$test_name = \$www_root . '$www_file';
 
 include_once FREEBEER_BASE . '/www/lib/tests/_header.php';
 

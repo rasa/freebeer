@@ -14,8 +14,8 @@
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-#	RewriteCond %{REQUEST_URI} (.*)
-#	RewriteRule !^www /www%1 [L,QSA] 
+	RewriteCond %{REQUEST_URI} (.*)
+	RewriteRule !^www /www%1 [L,QSA] 
 </IfModule>
 
 # If mod_rewrite isn't available, then you will need to 

@@ -15,7 +15,11 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 
 require_once FREEBEER_BASE . '/lib/File.php'; // scandir()
 
-$rootdir = '/lib/tests/';
+require_once FREEBEER_BASE . '/www/fbWeb.php';
+
+$www_root = fbWeb::getWebRoot();
+
+$rootdir = $www_root . '/lib/tests/';
 
 $files = fbFile::scandir('.', null, true);
 
@@ -105,8 +109,8 @@ $body_html .= "<p>The JsUnit JavaScript code to execute this test suite is:</p> 
 <html>
   <head>
     <title>Freebeer JavaScript Library Test Suite</title>
-    <link rel="stylesheet" type="text/css" href="/opt/jsunit.net/css/jsUnitStyle.css">
-<script language="JavaScript" type="text/javascript" src="/opt/jsunit.net/app/jsUnitCore.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo $www_root ?>/opt/jsunit.net/css/jsUnitStyle.css">
+<script language="JavaScript" type="text/javascript" src="<?php echo $www_root ?>/opt/jsunit.net/app/jsUnitCore.js"></script>
 <script language="JavaScript" type="text/javascript">
 <!-- // <![CDATA[
 <?php echo $js_html ?>

@@ -12,8 +12,8 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 
 require_once './_header.php';
 
-$www_root = getWebRoot();
-$doc_root = getDocRoot();
+$www_root = fbWeb::getWebRoot();
+$doc_root = fbWeb::getDocRoot();
 $root_dir = $doc_root . $www_root;
 
 echo html_header_home();
@@ -70,7 +70,7 @@ foreach ($files as $file) {
 
 if (@is_dir($root_dir . '/opt/jsunit.net')) {
 	$https = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '';
-	$prefix = 'http' . $https . '://' . $_SERVER['HTTP_HOST'] . $root_dir;
+	$prefix = 'http' . $https . '://' . $_SERVER['HTTP_HOST'] . $www_root;
 	$url = $prefix . '/opt/jsunit.net/testRunner.html?testPage=' . $prefix . '/lib/tests/index.php';
 	$links['JavaScript Unit Tests'] = $url;
 }
