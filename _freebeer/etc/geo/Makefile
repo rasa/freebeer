@@ -18,17 +18,15 @@ ifeq ('$(PHP)', '')
 	PHP=$(shell which php)
 endif
 
-CWD=`pwd`
-
 .PHONY: all clean regen test
 	
 all:	geo-ips.txt geo-ips-binary.txt
 	
 geo-ips.txt:	ips-ascii.txt
-	$(PHP) -q ../../bin/geo-ip-convert.php ${CWD}/$< ${CWD}/$@
+	$(PHP) -q ../../bin/geo-ip-convert.php $< $@
 	
 geo-ips-binary.txt:	ips-ascii.txt
-	$(PHP) -q ../../bin/geo-ip-convert.php ${CWD}/$< ${CWD}/$@ "%c%c%c%c%c%c%c%c%2.2s"
+	$(PHP) -q ../../bin/geo-ip-convert.php $< $@ "%c%c%c%c%c%c%c%c%2.2s"
 
 clean:
 	rm -f geo-ips.txt geo-ips-binary.txt

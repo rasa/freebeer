@@ -62,24 +62,24 @@ class fbGeoIP_Free_Utilities {
 //			assert('$ip == join(".", $rv)');
 			return $rv;
 	}
-	
+
 	function convertFile($input_file, $output_file, $format = null) {
 		if (!$format) {
 			$format = "%03d.%03d.%03d.%03d\t%03d.%03d.%03d.%03d\t%2s\n";
 		}
 
 		$argv0 = basename(__FILE__);
-		
+
 		$trace_errors = @ini_set('trace_errors', true);
 		$php_errormsg = '';
 
-		$fp = fopen($input_file, 'r');
+		$fp = @fopen($input_file, 'r');
 
 		if (!$fp) {
 			die(sprintf("Can't open '%s': %s", $input_file, $php_errormsg));
 		}
 
-		$fp2 = fopen($output_file, 'wb');
+		$fp2 = @fopen($output_file, 'wb');
 
 		if (!$fp2) {
 			die(sprintf("Can't create '%s': %s", $output_file, $php_errormsg));
@@ -117,7 +117,7 @@ class fbGeoIP_Free_Utilities {
 				}
 
 				$done172 = true;
-				
+
 				// 172.16.0.0 to 172.31.255.255
 				$ips[0] = 172;
 				$ips[1] = 16;
@@ -158,7 +158,7 @@ class fbGeoIP_Free_Utilities {
 		if (!$rv) {
 			die(sprintf("Can't close '%s': %s", $output_file, $php_errormsg));
 		}
-		
+
 		@ini_set('trace_errors', $trace_errors);
 		return true;
 	}
