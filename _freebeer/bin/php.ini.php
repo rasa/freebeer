@@ -329,7 +329,9 @@ if (isset($extensions['php_gd.dll']) && isset($extensions['php_gd2.dll']) ) {
 }
 
 if (phpversion() >= '5.0.0') {
-	$excludes['php_exif.dll']		= 'Unable to load';
+	if (isset($extensions['php_exif.dll'])) {
+		$excludes['php_exif.dll']		= 'Requires php_mbstring.dll to be loaded first';
+	}
 	$excludes['php_iisfunc.dll']	= 'Segfaults PHP 5.0.1';
 	$excludes['php_yaz.dll']		= 'Entry point not found';
 	$excludes['php_imagick.dll']	= 'Entry point not found';
@@ -505,6 +507,14 @@ foreach($extensions as $filename => $count) {
 	fputs($fpt, $line);
 }
 
+if (isset($excludes['php_exif.dll']) && isset($extensions['php_mbstring.dll'])) {
+	$line = sprintf("\nextension = %-20s\t; %s\n", 'php_exif.dll', $excludes['php_exif.dll']);
+	$bytes = fputs($fpt, $line);
+	if ($bytes != strlen($line)) {
+		die(sprintf("Can't write to '%s': %s", $php_ini_tmp, $php_errormsg));
+	}
+
+}
 
 fclose($fp);
 fclose($fpt);

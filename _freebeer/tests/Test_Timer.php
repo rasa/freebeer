@@ -11,15 +11,14 @@ require_once FREEBEER_BASE . '/lib/Timer.php';
 
 class _Test_Timer extends fbTestCase {
 
+	var $_buggy_sprintf = null;
+	
 	function _Test_Timer($name) {
         parent::__construct($name);
+		$this->_buggy_sprintf = version_compare(phpversion(), '4.3.8', '>='); // && version_compare(phpversion(), '5.0', '<');
 	}
 
-	var $_buggy_sprintf;
-	
 	function setUp() {
-		$this->_buggy_sprintf = version_compare(phpversion(), '4.3.8', '>='); // && version_compare(phpversion(), '5.0', '<');
-
 	}
 
 	function tearDown() {
@@ -96,7 +95,7 @@ class _Test_Timer extends fbTestCase {
 
 	function test_tostring_1() {
 		if ($this->_buggy_sprintf) {
-			trigger_error(sprintf('test_tostring_1() skipped as sprintf is inconsistent in PHP %s', phpversion()), E_USER_WARNING);
+			trigger_error(sprintf('fbTimer::test_tostring_1() skipped as sprintf() is inconsistent in PHP %s', phpversion()), E_USER_WARNING);
 		} else {
 			$o = &new fbTimer();
 			$expected = '0:00:00.0000000';
@@ -109,7 +108,7 @@ class _Test_Timer extends fbTestCase {
 
 	function test_sprintf_2() {
 		if ($this->_buggy_sprintf) {
-			trigger_error(sprintf('test_sprintf_2() skipped as sprintf is inconsistent in PHP %s', phpversion()), E_USER_WARNING);
+			trigger_error(sprintf('fbTimer::test_sprintf_2() skipped as sprintf() is inconsistent in PHP %s', phpversion()), E_USER_WARNING);
 		} else {
 			$format = '%d:%02d:%02.3f';
 			$expected = '0:00:000000.000';
@@ -119,7 +118,7 @@ class _Test_Timer extends fbTestCase {
 
 	function test_sprintf_1() {
 		if ($this->_buggy_sprintf) {
-			trigger_error(sprintf('test_sprintf_1() skipped as sprintf is inconsistent in PHP %s', phpversion()), E_USER_WARNING);
+			trigger_error(sprintf('fbTimer::test_sprintf_1() skipped as sprintf() is inconsistent in PHP %s', phpversion()), E_USER_WARNING);
 		} else {
 			$format = '%d:%02d:%02.3f';
 			$expected = '1:01:01.001';

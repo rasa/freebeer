@@ -33,7 +33,10 @@ class fbGeoIP_Free_Ascii {
 		if ($l == -1 && $ip != '255.255.255.255') {
 			return false;
 		}
-
+		if ($l === false && $ip == '255.255.255.255') {
+			return $ip;
+		}
+		
 		$tuple1 = $l >> 24;
 		if ($tuple1 < 0) {
 			$tuple1 += 256;

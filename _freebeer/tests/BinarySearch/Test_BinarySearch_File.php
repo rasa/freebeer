@@ -47,7 +47,7 @@ class _Test_BinarySearch_File extends fbTestCase {
 			$bsf = &new fbBinarySearch_File($this->_file);
 			$rv = $bsf->search($ipf);
 			$rv = trim($rv);
-			$this->assertEquals($expected, $rv, "ip='$ip' ipf='$ipf'");
+			$this->assertEquals($expected, $rv, "ip='$ip' ipf='$ipf' gettype(expected)=" . gettype($expected) . ' gettype(rv)=' . gettype($rv));
 		}
 	}
 
