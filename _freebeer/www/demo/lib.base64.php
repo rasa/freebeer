@@ -22,7 +22,7 @@ if (!isset($_REQUEST['t_base64decode'])) {
 }
 
 ?>
-<script type="text/javascript" language="javascript1.2" src="/lib/Base64.js">
+<script type="text/javascript" language="javascript1.2" src="../lib/Base64.js">
 </script>
 <script type="text/javascript" language="javascript1.2">
 <!-- // <![CDATA[
