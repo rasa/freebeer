@@ -5,20 +5,21 @@ make all       Same as above
 make changelog Update ChangeLog file from cvs commit log messages
 make check     Check that the installation is correct
 make clean     Delete all cache, temporary, and documentation files in /var
-make dirs      Create and set permissions for directories
-make dist      Create a tarball distribution, ex: make dist TAG=R1_0_0 VER=1.0.0
+make dirs      Create and set permissions for required directories not in cvs
+make dist      Create a tarball distribution: make dist TAG=R1_0_0 VER=1.0.0
 make docs      Generate user and system documentation
 make doxygen   Generate system documentation using Doxygen
 make help      Display options for make command
+make links     Create links in /www to /var/doc/doxygen, /doc, etc.
 make lint      Report syntax errors in .php files in /bin, /lib & /www
-make lockdown  Lock /etc directory to disallow config files to be modified
-make pretty    Reformat .css, .js, .html & .php files using Trita (requires Cygwin)
-make setup     Unlock /etc directory to allow config files to be created/updated
+make lock      Lock /etc directory to disallow config files to be modified
+make pretty    Reformat .css/.js/.html/.php files using Trita (needs Cygwin)
 make test      Run PHP regression tests on .php files in /lib
 make testall   Same as: make lint test testurls testjs
 make testjs    Run JavaScript regression tests on .js files in /www/lib
 make testurls  Run regression tests on .php files in /lib
 make tidy      Report errors in .html files in /tpl and /www
+make unlock    Unlock /etc directory to allow config files to be updated
 make varrights Set permissions for /var directories
 
 $CVSHeader: _freebeer/doc/Makefile.txt,v 1.2 2004/03/08 04:29:16 ross Exp $
