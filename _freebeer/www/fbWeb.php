@@ -23,9 +23,10 @@ class fbWeb {
 				if (substr($b, -strlen($a)) == $a) {
 					$doc_root = substr($b, 0, strlen($b) - strlen($a));
 				}
-			}	
+			}
 		}
 
+		$doc_root = str_replace("\\", '/', $doc_root);
 		return $doc_root;
 	}
 
@@ -36,6 +37,7 @@ class fbWeb {
 	//		assert('$_SERVER["SCRIPT_NAME"]');
 	//		$web_root = dirname($_SERVER['SCRIPT_NAME']);
 			$web_root = dirname(__FILE__);
+			$web_root = str_replace("\\", '/', $web_root);
 			if (strpos($web_root, fbWeb::getDocRoot()) === 0) {
 				$web_root = substr($web_root, strlen(fbWeb::getDocRoot()));
 			}
