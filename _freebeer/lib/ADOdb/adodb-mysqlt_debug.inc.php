@@ -7,6 +7,11 @@
 
 // Copyright (c) 2001-2003, Bold New World, Inc. (http://bnw.com/) All rights reserved.  Used by permission.
 
+/*!
+	\file ADOdb/adodb-mysqlt_debug.inc.php
+	\brief ADOdb mysqlt debug class
+*/
+
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(dirname(__FILE__))));
 
@@ -16,6 +21,12 @@ require_once FREEBEER_BASE . '/lib/ADOdb/ADOdb_Debug.php';
 
 require_once ADODB_DIR . '/drivers/adodb-mysqlt.inc.php';
 
+/*!
+	\class ADODB_mysqlt_debug
+	\brief ADOdb mysqlt debug class
+
+	\static
+*/
 class ADODB_mysqlt_debug extends ADODB_mysqlt {
 	/*!
 	*/

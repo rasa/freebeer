@@ -9,7 +9,8 @@ require_once './_demo.php';
 
 echo html_header_demo();
 
-$dir = '/demo';
+$www_dir = dirname($_SERVER['SCRIPT_NAME']);
+
 $dh = opendir(dirname(__FILE__)); // /todo fixme
 $files = array();
 while ($file = readdir($dh)) {
@@ -27,7 +28,7 @@ sort($files);
 $body_text = '';
 
 foreach ($files as $file) {
-	$body_text .= sprintf("<a href=\"%s\">%s</a><br />\n", $dir . '/' . $file, $file);
+	$body_text .= sprintf("<a href=\"%s\">%s</a><br />\n", $www_dir . '/' . $file, $file);
 }
 
 echo $body_text;

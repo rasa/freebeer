@@ -12,27 +12,38 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 
 require_once './_header.php';
 
+$www_root = getWebRoot();
+$doc_root = getDocRoot();
+$root_dir = $doc_root . $www_root;
+
 echo html_header_home();
 
-$dir = '/';
+//echo "<pre>";
+//echo 'www_root=',$www_root,"\n";
+//echo 'doc_root=',$doc_root,"\n";
+//echo 'root_dir=',$root_dir,"\n";
 
-$document_root = FREEBEER_BASE . '/www';
+$exclude = array(
+	'^\.\.?$',
+	'^cgi-bin$',
+	'^css$',
+	'^CVS$',
+	'^img$',
+	'^lib$',
+	'^opt$',
+);
 
-$dh = opendir($document_root);
+$dh = opendir($root_dir);
 $files = array();
 while ($file = readdir($dh)) {
-	if (!is_dir($file)) {
+	$path = $root_dir . '/' . $file;
+	if (!is_dir($path)) {
 		continue;
 	}
-	if (
-		preg_match('/^\.\.?$/', $file) ||
-		preg_match('/^cgi-bin$/', $file) ||
-		preg_match('/^css$/', $file) ||
-		preg_match('/^CVS$/', $file) ||
-		preg_match('/^img$/', $file) ||
-		preg_match('/^lib$/', $file) ||
-		preg_match('/^opt$/', $file)) {
-		continue;
+	foreach ($exclude as $pattern) {
+		if (preg_match("/$pattern/", $file)) {
+			continue 2;
+		}
 	}
 	$files[] = $file;
 }
@@ -43,8 +54,9 @@ sort($files);
 $body_text = '';
 
 $map = array(
-	'demo'		=> 'Demos',
-	'doxygen'	=> 'PHP Library API Documentation (via doxygen)',
+	'demo'			=> 'Demos',
+	'doc'			=> 'Developer Documentation (Preliminary)',
+	'doxygen'		=> 'PHP Library API Documentation (via doxygen)',
 	'phpxref'		=> 'Source Code Cross Reference (via phpxref)',
 	'tests'			=> 'PHP Unit Tests',
 );
@@ -53,12 +65,12 @@ $links = array();
 
 foreach ($files as $file) {
 	$text = isset($map[$file]) ? $map[$file] : $file;
-	$links[$text] = $dir . $file;
+	$links[$text] = $www_root . '/' . $file;
 }
 
-if (@is_dir($document_root . '/opt/jsunit.net')) {
+if (@is_dir($root_dir . '/opt/jsunit.net')) {
 	$https = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '';
-	$prefix = 'http' . $https . '://' . $_SERVER['HTTP_HOST'];
+	$prefix = 'http' . $https . '://' . $_SERVER['HTTP_HOST'] . $root_dir;
 	$url = $prefix . '/opt/jsunit.net/testRunner.html?testPage=' . $prefix . '/lib/tests/index.php';
 	$links['JavaScript Unit Tests'] = $url;
 }

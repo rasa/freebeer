@@ -62,6 +62,7 @@ endif
 	docs \
 	doxygen \
 	help \
+	links \
 	lint \
 	lock \
 	logs \
@@ -149,6 +150,10 @@ doxygen:
 help:
 	@cat doc/Makefile.txt
 
+links:
+	cd www && ln -s ../var/doc/doxygen/html doxygen
+	cd www && ln -s ../doc doc
+	
 lint:
 	@bin/lint.sh
 

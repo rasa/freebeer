@@ -1,0 +1,82 @@
+$CVSHeader: _freebeer/doc/freebeer/features.txt,v 1.3 2003/09/01 19:55:56 ross Exp $
+
+Freebeer Features
+
+Uses PHP best practices
+	Best of breed third party currently included:
+	ADOdb, Horde, PEAR, Smarty, etc.
+	Other third party sub-systems can be easily incorporated and updated thru CVS modules.
+	
+Optimized for performance
+	Uses templates caching (Smarty)
+	Uses database caching (ADOdb)
+	Uses output compression, if client supports it
+
+Form and function are separated
+	Uses Smarty and/or XSLT templates
+
+Supports internationalization
+	Uses gettext, or an emulation layer if the 
+	gettext functions are not available.
+
+Platform independent
+	Runs on Unix/Linux and Windows platforms
+	Runs on any web server (Apache is recommended)
+
+Database independent
+	Runs on any database supported by ADOdb (MySQL, PostgreSQL, Oracle, etc.)
+	All DDL SQL statements are processed via SQLFairy to support 
+	Oracle, MySQL, PostgreSQL, SQLite, Sybase databases
+
+Secure
+	Designed to run with register_globals = off (recommended)
+	Designed to run with safe_mode = on
+	Uses HMAC hashing for secure signon
+	All web content lives under a sub-directory of the main directory
+	
+Complete debugging framework
+	Uses assert()s extensively
+	Debug to browser, file, syslog/event log, or any combination
+	Program/database errors and missing pages (404s) can optionally be emailed to developer
+
+Search engine friendly
+	Can use PATH_INFO data instead of query string variables, if required.
+	
+Backwards compatibility
+	Emulation layer to support missing PHP functions for older versions
+
+Modular Structure
+	Ex: bin/add.sh module_name
+	Install will check if already installed
+	If not, then it will check if files are from CVS
+	and install the module from CVS,
+	otherwise it will download module from web
+	
+Complete API for custom extensions
+
+Easy wizard based installation
+
+Numerous authentification methods, including:
+	db (pear)
+	file (pear)
+	imap (pear)
+	ldap (pear)
+	mdb (pear)
+	pam (tutos, http://www.math.ohio-state.edu/~ccunning/pam_auth/)
+	pop3 (pear)
+	radius (pear)
+	smbpasswd (pear)
+	soap (pear)
+	vpopmail (pear)
+	x509 (tutos)
+	yahoo, etc. (drupal)
+
+Full-featured database administration tools
+	phpmyadmin or phpFriendlyAdmin
+
+Requirements
+	PHP 4.10 or higher
+	Any web server that supports PHP
+	Any database supported by ADOdb (mysql, postgres, oracle, mssql, etc.)
+
+License: BSD or LGPL License

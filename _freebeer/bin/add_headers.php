@@ -125,6 +125,10 @@ foreach($files as $file) {
 			continue;
 	}
 
+	if (preg_match('~.pod$~', $file)) {
+		continue;
+	}
+
 	if (preg_match('~cvs2cl.pl~', $file)) {
 		continue;
 	}

@@ -9,14 +9,13 @@
 #   ServerAdmin webmaster@example.com
 # </VirtualHost>
 
-# If you are unable to do this, then assuming the rewrite is loaded,
+# If you are unable to do this, then assuming the mod_rewrite module is available,
 # the following rewrite rules will redirect all requests to the /www directory:
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-
-        RewriteCond %{REQUEST_URI} (.*)
-        RewriteRule !^www/ /www%1 [L,QSA] 
+#	RewriteCond %{REQUEST_URI} (.*)
+#	RewriteRule !^www /www%1 [L,QSA] 
 </IfModule>
 
 # If mod_rewrite isn't available, then you will need to 
@@ -25,5 +24,12 @@
 # Note: using this last solution, all links in the website will need to be 
 # relative links. Absolute links will *not* work, using this solution.
 
-# Added so update_htaccess.php doesn't add it:
-# Deny from all
+# Leave the following line so /bin/update_htaccess.php doesn't add a "Deny from all"
+Allow from all
+
+# Deny access to all CVS related files
+<FilesMatch "^(\.cvsignore|.cvswrappers|CVS)$">
+	Deny from all
+</FilesMatch>
+
+Options +Indexes

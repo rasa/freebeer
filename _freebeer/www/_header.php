@@ -8,11 +8,50 @@
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(__FILE__)));
 
+/// \todo move to fbHTTP class?
+
+function getDocRoot() {
+	static $doc_root = null;
+	
+	if (is_null($doc_root)) {
+		if (isset($_SERVER['DOCUMENT_ROOT'])) {
+			$doc_root = $_SERVER['DOCUMENT_ROOT'];
+		} else {
+			assert('$_SERVER["PATH_TRANSLATED"]');
+			assert('$_SERVER["SCRIPT_NAME"]');
+			$a 	= dirname($_SERVER['SCRIPT_NAME']);
+			$b	= dirname($_SERVER['PATH_TRANSLATED']);
+			if (substr($b, -strlen($a)) == $a) {
+				$doc_root = substr($b, 0, strlen($b) - strlen($a));
+			}
+		}	
+	}
+
+	return $doc_root;
+}
+
+function getWebRoot() {
+	static $web_root = null;
+	
+	if (is_null($web_root)) {
+//		assert('$_SERVER["SCRIPT_NAME"]');
+//		$web_root = dirname($_SERVER['SCRIPT_NAME']);
+		$web_root = dirname(__FILE__);
+		if (strpos($web_root, getDocRoot()) === 0) {
+			$web_root = substr($web_root, strlen(getDocRoot()));
+		}
+	}
+
+	return $web_root;
+}
+
 function html_header_home($title = null, $included_files = null, $path = null, $no_cache = true) {
-	$hash = array('Home' => '');
+	$hash = array(
+		'Home' => getWebRoot(),
+	);
 
 	if ($title) {
-		$hash['Home'] = '/';
+		$hash['Home'] = getWebRoot();
 		$hash[$title] = '';
 	}
 
@@ -20,7 +59,10 @@ function html_header_home($title = null, $included_files = null, $path = null, $
 }
 
 function html_header_demo($title = null, $included_files = null, $path = null, $no_cache = true) {
-	$hash = array('Home' => '/', 'Demos' => '/demo');
+	$hash = array(
+		'Home' => getWebRoot(),
+		'Demos' => getWebRoot() . '/demo',
+	);
 
 	if ($title) {
 		$hash[$title] = '';
@@ -95,14 +137,17 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 		}
 
 		$encfile = urlencode($file);
-		$hfiles .= "\n&nbsp;\n<a target='$file' href='/_source.php?file=$encfile'>$bfile</a>";
+		$hfiles .= sprintf("\n&nbsp;\n<a target='%s' href='%s/_source.php?file=%s'>%s</a>",
+			$file, getWebRoot(), $encfile, $bfile);
 	}
 
 	foreach ($included_files as $file) {
 		$bfile = basename($file);
 
 		$encfile = urlencode($file);
-		$hfiles .= "\n&nbsp;\n<a target='$file' href='/{$path2}_source.php?file=$encfile'>$bfile</a>";
+		$hfiles .= sprintf(
+			"\n&nbsp;\n<a target='%s' href='%s/%s_source.php?file=%s'>%s</a>",
+				$file, getWebRoot(), $path2, $encfile, $bfile);
 	}
 
 	if (preg_match('/wget/i', $_SERVER['HTTP_USER_AGENT'])) {

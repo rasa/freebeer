@@ -1,4 +1,4 @@
-database_conventions.txt
+$CVSHeader$
 
 *	For portability, table/field names should be lower case. 
 	

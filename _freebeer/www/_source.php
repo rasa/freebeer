@@ -12,10 +12,16 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 
 require_once FREEBEER_BASE . '/lib/HTTP.php';
 
+require_once './_header.php';
+
 // required for Opera 7.x
 fbHTTP::sendNoCacheHeaders();
 
-$file = $_REQUEST['file'];
+$file = isset($_REQUEST['file']) ? $_REQUEST['file'] : false;
+
+if (strpos($file, getDocRoot()) !== 0) {
+	exit;
+}
 
 if (!preg_match('/\.(php|js)$/i', $file)) {
 	exit;

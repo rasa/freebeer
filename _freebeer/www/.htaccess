@@ -3,10 +3,10 @@
 # \todo clean this mess up!
 # \todo test this to make sure it works
 
-<Files ~ "^\.cvs[ignore|wrappers]$">
-	Order deny,allow
+# Deny access to all CVS related files
+<FilesMatch "^(\.cvsignore|.cvswrappers|CVS)$">
 	Deny from all
-</Files>
+</FilesMatch>
 
 # disallow everything
 #<FilesMatch ".">

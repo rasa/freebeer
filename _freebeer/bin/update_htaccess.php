@@ -17,14 +17,17 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 
 require_once FREEBEER_BASE . '/lib/File.php'; // scandir
 
-function update_htaccess($dir) {
-	if (preg_match('|/opt/|', $dir)) {
+function update_htaccess($dir, $depth) {
+	if (preg_match('|/CVS$|', $dir)) {
 			return true;
 	}
-	if (preg_match('|/CVS/|', $dir)) {
+	if (preg_match('|/opt$|', $dir)) {
 			return true;
 	}
-	if (preg_match('|/wip/|', $dir)) {
+	if (preg_match('|/wip$|', $dir)) {
+			return true;
+	}
+	if (preg_match('|/www$|', $dir)) {
 			return true;
 	}
 	
@@ -56,17 +59,18 @@ function update_htaccess($dir) {
 		if ($lines === false) {
 			die(sprintf("Can't open '%s': %s", $file, $php_errormsg));
 		}
+
 		for ($i = 0; $i < count($lines); ++$i) {
-			if (preg_match('/deny\s+from\s+all/i', $lines[$i])) {
+			if (preg_match('/(allow|deny)\s+from\s+all/i', $lines[$i])) {
 				$deny_found = true;
-				break;
 			}
 			if (preg_match('/\$CVSHeader[^\$]*\$/', $lines[$i])) {
 				$cvsheader_found = true;
+			}
+			if ($deny_found && $cvsheader_found) {
 				break;
 			}
 		}
-		
 	}
 
 	if (!$deny_found || !$cvsheader_found) {
@@ -77,8 +81,12 @@ function update_htaccess($dir) {
 			$lines[] = "\n# \$CVSHeader\$\n";
 		}
 
-		$file_tmp = $path . '.tmp';
-		$file_bak = $path . '.bak';
+		if ($found) {
+			$file_tmp = $path . '.tmp';
+			$file_bak = $path . '.bak';
+		} else {
+			$file_tmp = $path;
+		}
 		
 		$fp = fopen($file_tmp, 'wb');
 		if (!$fp) {
@@ -91,26 +99,28 @@ function update_htaccess($dir) {
 		fclose($fp);
 			
 		printf("Updated %s\n", $path);
-/*		
-		if (!@rename($file, $file_bak)) {
-			die(sprintf("Can't rename '%s' to '%s': %s", $file, $file_bak, $php_errormsg));
+		if ($found) {
+			if (!@rename($path, $file_bak)) {
+				die(sprintf("Can't rename '%s' to '%s': %s", $path, $file_bak, $php_errormsg));
+			}
+			if (!@rename($file_tmp, $path)) {
+				die(sprintf("Can't rename '%s' to '%s': %s", $file_tmp, $path, $php_errormsg));
+			}
 		}
-		if (!@rename($file_tmp, $file)) {
-			die(sprintf("Can't rename '%s' to '%s': %s", $file_tmp, $file, $php_errormsg));
-		}
-*/
-	} // if (!$deny_found)
-	
-	foreach ($dirs as $dir) {
-		if (!update_htaccess($dir)) {
-			return false;
+	} // if (!$deny_found || !$cvsheader_found)
+
+	if ($depth == 0) {
+		foreach ($dirs as $dir) {
+			if (!update_htaccess($dir, $depth + 1)) {
+				return false;
+			}
 		}
 	}
-	
+
 	return true;
 } // function update_htaccess($dir)
 
-update_htaccess(FREEBEER_BASE);
+update_htaccess(FREEBEER_BASE, 0);
 
 printf("Command completed successfully\n");
 

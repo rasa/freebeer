@@ -81,9 +81,13 @@ Base64.decode = function(data) {
 	for (var i = 0; i < n; ) {
 		var a = [];
 		for (var j = 0; j < 4 && i < n; i++) {
-			var c = Base64.decode_map[data.charCodeAt(i)];
-			if (c != -1) {
-				a[j++] = c;
+			var c = data.charCodeAt(i);
+			if (c == ' ') {
+				c = '+';
+			}
+			var d = Base64.decode_map[c];
+			if (d != -1) {
+				a[j++] = d;
 			}
 		}
 		if (j < 4) {

@@ -7,7 +7,6 @@
 
 require_once './_demo.php';
 
-require_once FREEBEER_BASE . '/lib/Locale.php';
 require_once FREEBEER_BASE . '/lib/DateTime.php';
 
 echo html_header_demo('fbDateTime Class (Improved strftime())');
@@ -72,9 +71,9 @@ $unsupported = '';
 $windows = '';
 
 foreach ($formats as $char => $description) {
-	$s = strftime("%" . $char, $date);
-	$result = sprintf("%3s: %-40s: %s\n", "%$char", $s, $description);
-	if ($s !== false) {
+	$s = strftime('%' . $char, $date);
+	$result = sprintf("%3s: %-40s: %s\n", '%' . $char, "'" . $s . "'", $description);
+	if ($s !== false && ($s != $char || $char == '%')) {
 		if (strpos($char, '#') !== false) {
 			$windows .= $result;
 		} else {
@@ -103,6 +102,7 @@ $date_formats = array(
 	'a'	=> "Lowercase Ante meridiem and Post meridiem am or pm",
 	'A'	=> "Uppercase Ante meridiem and Post meridiem AM or PM",
 	'B'	=> "Swatch Internet time 000 through 999",
+	'c'	=> "ISO 8601 date (added in PHP 5)",
 	'd'	=> "Day of the month, 2 digits with leading zeros 01 to 31",
 	'D'	=> "A textual representation of a day, three letters Mon through Sun",
 	'F'	=> "A full textual representation of a month, such as January or March January through December",
@@ -139,7 +139,7 @@ $unsupported = '';
 foreach ($date_formats as $char => $description) {
 	$s = date($char, $date);
 	$result = sprintf("%3s: %-40s: %s\n", $char, $s, $description);
-	if ($s !== false) {
+	if ($s !== false && $s != $char) {
 		$supported .= $result;
 	} else {
 		$unsupported .= $result;
@@ -161,9 +161,9 @@ $unsupported = '';
 $windows = '';
 
 foreach ($formats as $char => $description) {
-	$s = fbDateTime::strftime("%" . $char, $date);
-	$result = sprintf("%3s: %-40s: %s\n", "%$char", "'" . $s . "'", $description);
-	if ($s !== false) {
+	$s = fbDateTime::strftime('%' . $char, $date);
+	$result = sprintf("%3s: %-40s: %s\n", '%' . $char, "'" . $s . "'", $description);
+	if ($s !== false && ($s != $char || $char == '%')) {
 		if (strpos($char, '#') !== false) {
 			$windows .= $result;
 		} else {
