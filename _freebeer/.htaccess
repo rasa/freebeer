@@ -7,5 +7,5 @@
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteRule ^(.*)$ /www$1 [L,QSA]
+	RewriteRule ^(.*)$ www$1 [L,QSA]
 </IfModule>
