@@ -1,0 +1,34 @@
+A very rough roadmap for future Chora features.
+
+------
+ 1.1+
+------
+
+o External pretty-print support via GNU enscript and other utilities.
+
+o Other utility support (lint support for C files, pod2html for perl,
+  PHPDoc for PHP)
+
+o Provide compressed versions of files/directories on a given tag,
+  for downloading (might wait till version 2.x).
+
+o Intelligent diff based on MIME type.  For example, if it is an image,
+  then show the old and new version side-by-side.  Investigate engines
+  other than plain-old-diff to see if they can do a better job.
+
+------
+ 2.0+
+------
+
+o Provide a database and caching backend for advanced searching.
+
+o Generate per-directory and per-repository visual branch views,
+  instead of only per-file.
+
+o Assign Commit IDs, and view all the changes in a given commit,
+  instead of a given file.
+
+o Integration with Subversion / Perforce and other revision
+  control systems.
+
+$Horde: chora/docs/GOALS,v 1.4 2001/06/08 20:50:21 avsm Exp $

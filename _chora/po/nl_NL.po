@@ -1,0 +1,360 @@
+# Chora Dutch translation.
+# Copyright (C) 2001 Jan Kuipers.
+# Jan Kuipers <jrkuipers@lauwerscollege.nl>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Chora v2.0-cvs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-18 13:00+0100\n"
+"PO-Revision-Date: 2004-01-18 13:02+0100\n"
+"Last-Translator: Jan Kuipers <jrkuipers@lauwerscollege.nl>\n"
+"Language-Team: Dutch <dev@lists.horde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "#"
+msgstr "#"
+
+#, c-format
+msgid "%s ago"
+msgstr "%s geleden"
+
+#, c-format
+msgid "Added in v.%s"
+msgstr "Toegevoegd in v.%s"
+
+msgid "All Branches"
+msgstr "Alle vertakkingen"
+
+msgid "Annotate"
+msgstr "Annoteren"
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Back"
+msgstr "Terug"
+
+msgid "Branch Point for:"
+msgstr "Vertakkingspunt voor:"
+
+msgid "Branch:"
+msgstr "Vertakking:"
+
+msgid "Branches"
+msgstr "Vertakkingen"
+
+msgid "Branching to"
+msgstr "Vertakt naar:"
+
+#, c-format
+msgid "CVS Graph for %s"
+msgstr "CVS grafiek voor %s"
+
+msgid "CVS Tags:"
+msgstr "CVS Tags:"
+
+#, c-format
+msgid "Changed since <b>%s</b>"
+msgstr "Gewijzigd sinds <b>%s</b>"
+
+#, c-format
+msgid "Changed: %s"
+msgstr "Gewijzigd: %s"
+
+#, c-format
+msgid "Checkout of %s (revision %s)"
+msgstr "Controle van %s (revisie %s)"
+
+msgid ""
+"Chora is not correctly configured or there was an error loading "
+"configuration files."
+msgstr ""
+"Chora is niet juist geconfigureerd of er was een fout bij het laden van de "
+"configutiebestanden."
+
+msgid ""
+"Click on the links in between revisions to get a diff between those "
+"revisions."
+msgstr ""
+"Klik op de links tussen revisies om een verschil tussen deze revisies te "
+"verkrijgen."
+
+msgid "Click on the revisions and branches to display the file."
+msgstr "Klik op de revisies en vertakkingen om een bestand weer te geven."
+
+msgid "Colored"
+msgstr "Gekleurd"
+
+msgid "Commits"
+msgstr "Commits"
+
+msgid "Context"
+msgstr "Samenhang"
+
+msgid "Customize tasks to run upon logging in to Chora."
+msgstr ""
+"Aanpassen van taken welke uitgevoerd worden tijdens aanmelding bij Chora."
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Deleted File"
+msgstr "Bestand verwijderd"
+
+msgid "Deleted"
+msgstr "Verwijderd"
+
+msgid "Deselect"
+msgstr "Deselecteren"
+
+msgid "Diff All Files"
+msgstr "Verschillen van alle bestanden"
+
+#, c-format
+msgid "Diff for %s between version %s and %s"
+msgstr "Verschil in %s tussen versie %s en %s"
+
+msgid "Diff"
+msgstr "Verschil"
+
+#, c-format
+msgid "Diffs to <b>%s</b>"
+msgstr "Verschillen in <b>%s</b>"
+
+#, c-format
+msgid "Diffs to version %s"
+msgstr "Verschillen in versie %s"
+
+msgid "Directory"
+msgstr "Directory"
+
+msgid "Download"
+msgstr "Downloaden"
+
+msgid "Ed Script"
+msgstr "Ed Script"
+
+msgid "Error Encountered"
+msgstr "Er heeft zich een fout voorgedaan"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "File"
+msgstr "Bestand"
+
+msgid "Files Changed:"
+msgstr "Bestanden gewijzigd:"
+
+msgid "Get Diffs"
+msgstr "Haal verschillen"
+
+msgid "Graph"
+msgstr "Grafiek"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "Hide Deleted Files"
+msgstr "Verberg verwijderde bestanden"
+
+msgid "Human Readable"
+msgstr "\"Human Readable\""
+
+#, c-format
+msgid "Last Log Message for rev %s:"
+msgstr "Laatste logbericht voor rev %s:"
+
+msgid "Last Log"
+msgstr "Laatste log"
+
+msgid "Legend:"
+msgstr "Legenda:"
+
+#, c-format
+msgid "Line %s"
+msgstr "Regel %s"
+
+msgid "Line"
+msgstr "Regel"
+
+msgid "Location:"
+msgstr "Locatie:"
+
+msgid "Log:"
+msgstr "Log:"
+
+msgid "Login Tasks"
+msgstr "Aanmeldtaken"
+
+msgid "Logs"
+msgstr "Logs"
+
+msgid "Long"
+msgstr "Lang"
+
+msgid "Malformed Query"
+msgstr "Misvormde query"
+
+msgid "New File"
+msgstr "Nieuw bestand"
+
+msgid "No Viewable Change"
+msgstr "Geen weer te geven wijziging"
+
+msgid "NoWhitespaceChanges"
+msgstr "Geen witruimtewijzigingen"
+
+msgid "Options"
+msgstr "Opties"
+
+msgid "Other Options"
+msgstr "Andere opties"
+
+msgid "Other Repositories"
+msgstr "Andere depots"
+
+msgid "Parent Directory"
+msgstr "Voorgaande directory"
+
+#, c-format
+msgid "PatchSet %s</span> by %s"
+msgstr "Patchset %s</span> door %s"
+
+#, c-format
+msgid "Patchsets for %s"
+msgstr "Patchsets voor %s"
+
+msgid "Patchsets"
+msgstr "Patchsets"
+
+msgid "Please contact"
+msgstr "Neem contact op, a.u.b."
+
+#, c-format
+msgid "Removed in v.%s"
+msgstr "Verwijderd in v.%s"
+
+msgid "Retrieve diffs between:"
+msgstr "Haal verschillen op tussen:"
+
+msgid "Rev"
+msgstr "Revisie"
+
+#, c-format
+msgid "Revision %s for file %s not found."
+msgstr "Revisie %s van bestand %s niet gevonden."
+
+#, c-format
+msgid "Revision <b>%s</b>, <i>%s</i> (%s ago) by %s"
+msgstr "Revisie <b>%s</b>, <i>%s</i> (%s geleden) door %s"
+
+msgid "Select for Diff"
+msgstr "Selecteer voor ophalen van verschillen"
+
+msgid "Show Deleted Files"
+msgstr "Toon verwijderde bestanden"
+
+msgid "Side-by-Side"
+msgstr "Zij aan zij"
+
+msgid "Sort Order"
+msgstr "Sorteervolgorde"
+
+#, c-format
+msgid "Source Annotation of %s for version %s"
+msgstr "Bron annotatie van %s voor versie %s"
+
+#, c-format
+msgid "Source Branching View for %s"
+msgstr "Bron vertakkingsweergave voor %s"
+
+#, c-format
+msgid "Source Directory of /%s"
+msgstr "Bron directory van /%s"
+
+#, c-format
+msgid "Source Log for %s"
+msgstr "Bron log voor %s"
+
+msgid ""
+"SourceRoot not found! This could be a misconfiguration by the server "
+"administrator, or the server could be having temporary problems. Please try "
+"again later."
+msgstr ""
+"BronRoot niet gevonden! Dit kan een misconfiguratie van de serverbeheerder "
+"zijn, of de server kan tijdelijke problemen hebben. Probeer later opnieuw, a."
+"u.b."
+
+#, c-format
+msgid "Statistics for %s"
+msgstr "Statistieken voor %s"
+
+msgid "Statistics"
+msgstr "Statistieken"
+
+msgid "Tags:"
+msgstr "Tags:"
+
+msgid ""
+"This form allows you to request diffs between any two revisions of a file.  "
+"You may select a symbolic revision name using the selection box or you may "
+"type in a numeric name using the type-in text box."
+msgstr ""
+"Met dit formulier kunt u de verschillen tussen twee revisies van een bestand "
+"opvragen. U kunt een symbolische revisienaam selecteren m.b.v. de "
+"selectiebox of u kunt een numerieke naam invoeren in de tekstbox."
+
+msgid "Tracking Branch"
+msgstr "Vertakking volgen"
+
+msgid "Type:"
+msgstr "Type:"
+
+msgid "Unified"
+msgstr "\"Unified\""
+
+msgid "Use Text Field"
+msgstr "Gebruik tekstveld"
+
+msgid "Use last viewed file or directory at login time"
+msgstr "Gebruik het laatst weergegeven bestand of directory bij aanmelding"
+
+msgid "User Options"
+msgstr "Gebruikeropties"
+
+msgid "View Branch"
+msgstr "Vertakking weergeven"
+
+msgid "View revisions on:"
+msgstr "Revisies weergeven van:"
+
+msgid "View"
+msgstr "Weergeven"
+
+msgid "View:"
+msgstr "Weergeven:"
+
+msgid "and:"
+msgstr "en:"
+
+#, c-format
+msgid "by %s"
+msgstr "door %s"
+
+msgid "changed lines"
+msgstr "gewijzigde regels"
+
+msgid "for further information."
+msgstr "voor verdere informatie."
+
+#, c-format
+msgid "revision %s"
+msgstr "revisie %s"
+
+#, c-format
+msgid "version %s"
+msgstr "versie %s"

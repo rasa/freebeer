@@ -1,0 +1,485 @@
+# French translation for Chora
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Mathieu Arnold <mat@absolight.net>, 2001
+# Copyright (C) 2002 Thierry Thomas.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Chora 2.0-cvs\n"
+"POT-Creation-Date: 2002-12-18 03:09+0100\n"
+"PO-Revision-Date: 2003-01-04 14:46+0100\n"
+"Last-Translator: Thierry Thomas <thierry@pompo.net>\n"
+"Language-Team: French <i18n@lists.horde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: templates/log/request.inc:5
+msgid ""
+" This form allows you to request diffs between any two revisions of a file.  "
+"You may select a symbolic revision name using the selection box or you may "
+"type in a numeric name using the type-in text box."
+msgstr ""
+" Ce formulaire vous permet de demander des deltas entre n'importe quelle "
+"révision d'un fichier. Vous pouvez sélectionner un nom de révision "
+"symbolique en utilisant le menu de sélection ou vous pouvez inscrire un "
+"numéro de révision dans le champ texte."
+
+#: templates/annotate/header.inc:4
+msgid "#"
+msgstr "N°"
+
+#: templates/log/rev.inc:14
+#, php-format
+msgid "%s ago"
+msgstr "il y a %s"
+
+#: templates/diff/hr/footer.inc:19
+#, php-format
+msgid "Added in v.%s"
+msgstr "Ajouté en v.%s"
+
+#: templates/log/request.inc:57
+msgid "All Branches"
+msgstr "Toutes les branches"
+
+#: co.php:65 templates/log/rev.inc:8
+msgid "Annotate"
+msgstr "Annoter"
+
+#: templates/annotate/header.inc:5 templates/directory/header.inc:20
+msgid "Author"
+msgstr "Auteur"
+
+#: templates/directory/back.inc:4
+msgid "Back"
+msgstr "Retour"
+
+#: templates/log/rev.inc:23
+msgid "Branch Point for:"
+msgstr "Embranchement pour :"
+
+#: templates/log/rev.inc:16
+msgid "Branch:"
+msgstr "Branche :"
+
+#: cvs.php:131 history.php:155 stats.php:22
+msgid "Branches"
+msgstr "Branches"
+
+#: templates/history/branch_cell.inc:2
+msgid "Branching to"
+msgstr "Embranchement pour"
+
+#: annotate.php:26
+#, php-format
+msgid "CVS Annotation of %s for version %s"
+msgstr "Annotations de %s pour la version %s"
+
+#: history.php:153
+#, php-format
+msgid "CVS Branching View for %s"
+msgstr "Vue par branches pour %s"
+
+#: co.php:63
+#, php-format
+msgid "CVS Checkout of %s (revision %s)"
+msgstr "Checkout de %s (révision %s)"
+
+#: cvs.php:35
+#, php-format
+msgid "CVS Directory of /%s"
+msgstr "Répertoire /%s"
+
+#: cvs.php:123
+#, php-format
+msgid "CVS Log for %s"
+msgstr "Journal CVS de %s"
+
+#: stats.php:45
+#, php-format
+msgid "CVS Statistics for %s"
+msgstr "Statistiques CVS de %s"
+
+#: templates/log/rev.inc:19
+msgid "CVS Tags:"
+msgstr "Tags :"
+
+#: templates/log/rev.inc:27
+#, php-format
+msgid "Changed since <b>%s</b>"
+msgstr "Modifications depuis <b>%s</b> "
+
+#: templates/history/rev.inc:8
+#, php-format
+msgid "Changed: %s"
+msgstr "Modifications : %s"
+
+#: templates/headerbar.inc:11
+msgid "Chora Homepage"
+msgstr "Page d'accueil de Chora"
+
+#: templates/index/notconfigured.inc:4
+msgid "Chora is not properly configured"
+msgstr "Chora n'est pas correctement configuré"
+
+#: templates/log/request.inc:28
+msgid "Context"
+msgstr "Contexte"
+
+#: lib/CVSLib/Checkout.php:43
+msgid "Couldn't perform checkout of the requested file"
+msgstr "Impossible de récupérer le fichier demandé"
+
+#: config/prefs.php.dist:7
+msgid "Customize tasks to run upon logging in to Chora."
+msgstr "Paramétrer les tâches à exécuter lors de la connexion à Chora."
+
+#: templates/directory/header.inc:25
+msgid "Date"
+msgstr "Date"
+
+#: templates/directory/file.inc:6 templates/directory/file.inc:18
+msgid "Deleted File"
+msgstr "Fichier supprimé"
+
+#: diff.php:66
+#, php-format
+msgid "Diff for %s between version %s and %s"
+msgstr "Delta de %s entre les versions %s et %s"
+
+#: templates/log/rev.inc:42
+#, php-format
+msgid "Diffs ignoring whitespace to version %s"
+msgstr "Delta en ignorant les espaces avec la version %s"
+
+#: templates/log/rev.inc:48
+#, php-format
+msgid "Diffs to selected version %s"
+msgstr "Delta avec la version %s"
+
+#: templates/log/rev.inc:38
+#, php-format
+msgid "Diffs to version %s"
+msgstr "Delta avec la version %s"
+
+#: templates/directory/dir.inc:5 templates/directory/dir.inc:7
+msgid "Directory"
+msgstr "Répertoire"
+
+#: annotate.php:29 co.php:66 templates/log/rev.inc:10
+msgid "Download"
+msgstr "Télécharger"
+
+#: templates/log/request.inc:30
+msgid "Ed Script"
+msgstr "Script Ed"
+
+#: templates/error_page.inc:4
+msgid "Error"
+msgstr "Erreur"
+
+#: templates/error_page.inc:7
+msgid "Error Encountered"
+msgstr "Une erreur est survenue"
+
+#: lib/CVSLib/File.php:218
+msgid "Failed to spawn rlog to retrieve file log information"
+msgstr "Échec lors du lancement de rlog pour récupérer le journal du fichier"
+
+#: templates/directory/file.inc:8 templates/directory/file.inc:20
+#: templates/directory/header.inc:10
+msgid "File"
+msgstr "Fichier"
+
+#: templates/log/request.inc:44
+msgid "Get Diffs"
+msgstr "Récupérer le delta"
+
+#: templates/menu/menu.inc:21
+msgid "Help"
+msgstr "Aide"
+
+#: cvs.php:39
+msgid "Hide Deleted Files"
+msgstr "Cacher les fichiers supprimés"
+
+#: templates/log/request.inc:26
+msgid "Human Readable"
+msgstr "Embellie"
+
+#: lib/CVSLib/Checkout.php:30
+msgid "Invalid revision number"
+msgstr "Numéro de révision invalide"
+
+#: templates/directory/header.inc:27
+msgid "Last Log"
+msgstr "Dernier message du journal"
+
+#: templates/diff/hr/header.inc:5
+#, php-format
+msgid "Last Log Message for rev %s:"
+msgstr "Dernier message du journal pour la révision %s :"
+
+#: templates/annotate/header.inc:7
+msgid "Line"
+msgstr "Ligne"
+
+#: templates/diff/hr/row.inc:3 templates/diff/hr/row.inc:7
+#, php-format
+msgid "Line %s"
+msgstr "Ligne %s"
+
+#: templates/headerbar.inc:26
+msgid "Location:"
+msgstr "Emplacement :"
+
+#: config/prefs.php.dist:6
+msgid "Login Tasks"
+msgstr "Tâches à la connexion"
+
+#: cvs.php:131 history.php:155 stats.php:22
+msgid "Logs"
+msgstr "Journaux"
+
+#: templates/diff/hr/nochange.inc:6
+msgid "No Viewable Change"
+msgstr "Aucun changement visible"
+
+#: lib/CVSLib/File.php:124 lib/CVSLib/File.php:147
+msgid "No revisions"
+msgstr "Pas de révisions"
+
+#: templates/menu/menu.inc:13
+msgid "Options"
+msgstr "Options"
+
+#: config/prefs.php.dist:5
+msgid "Other Options"
+msgstr "Autres options"
+
+#: lib/Chora.php:297
+msgid "Other Repositories"
+msgstr "Autres dépôts"
+
+#: templates/directory/back.inc:4
+msgid "Parent Directory"
+msgstr "Répertoire parent"
+
+#: templates/error_page.inc:13
+msgid "Please contact"
+msgstr "Veuillez contactez"
+
+#: templates/diff/hr/footer.inc:11
+#, php-format
+msgid "Removed in v.%s"
+msgstr "Supprimé en v.%s"
+
+#: templates/log/request.inc:14
+msgid "Retrieve diffs between:"
+msgstr "Récupérer les deltas entre :"
+
+#: templates/annotate/header.inc:6 templates/directory/header.inc:15
+msgid "Rev"
+msgstr "Rév"
+
+#: templates/log/rev.inc:33
+msgid "Select for Diff"
+msgstr "Sélect. pour delta"
+
+#: cvs.php:41
+msgid "Show Deleted Files"
+msgstr "Afficher les fichiers supprimés"
+
+#: templates/log/request.inc:29
+msgid "Side-by-Side"
+msgstr "Côte à côte"
+
+#: templates/index/notconfigured.inc:13
+msgid "Some of Chora's configuration files are missing:"
+msgstr "Les fichiers de configuration suivants sont absents :"
+
+#: templates/directory/header.inc:9 templates/directory/header.inc:14
+#: templates/directory/header.inc:19 templates/directory/header.inc:24
+msgid "Sort Order"
+msgstr "Ordre de tri"
+
+#: cvs.php:131 history.php:155 stats.php:22
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: templates/index/notconfigured.inc:46
+msgid ""
+"This file controls the default preferences for Chora, and also controls "
+"which preferences users can alter."
+msgstr ""
+"Ce fichier contrôle les préférences par défaut de Chora, ainsi que les "
+"préférences modifiables par les utilisateurs."
+
+#: templates/index/notconfigured.inc:39
+msgid ""
+"This file controls the stylesheet that is used to set colors and fonts in "
+"addition to or overriding Horde defaults."
+msgstr ""
+"Ce fichier définit la feuille de style utilisée pour ajouter des définitions "
+"de couleurs ou de polices de caractères aux définitions fournies par Horde, "
+"ou pour redéfinir certaines de celles-ci."
+
+#: templates/index/notconfigured.inc:25
+msgid ""
+"This file defines all of the cvs repositories that you wish Chora to display."
+msgstr ""
+"Ce fichier définit tous les dépôts CVS que vous voulez afficher dans Chora."
+
+#: templates/index/notconfigured.inc:32
+msgid "This file defines any special MIME-type handling for Chora."
+msgstr ""
+"Ce fichier définit les traitements spécifiques des types MIME pour Chora."
+
+#: templates/index/notconfigured.inc:18
+msgid ""
+"This is the main Chora configuration file. It contains paths and options for "
+"all Chora scripts."
+msgstr ""
+"Ceci est le fichier de configuration principal de Chora. Il contient les "
+"chemins et les options pour tous les scripts de Chora."
+
+#: templates/headerbar.inc:32
+msgid "Tracking Branch"
+msgstr "Branche suivie"
+
+#: templates/log/request.inc:23
+msgid "Type:"
+msgstr "Type :"
+
+#: templates/log/request.inc:27
+msgid "Unified"
+msgstr "Unifié"
+
+#: templates/log/rev.inc:31
+msgid "Unselect"
+msgstr "Dé-sélectionner"
+
+#: templates/log/request.inc:18 templates/log/request.inc:38
+msgid "Use Text Field"
+msgstr "Utiliser le champ texte"
+
+#: config/prefs.php.dist:33
+msgid "Use last viewed file or directory at login time"
+msgstr "Revenir au dernier endroit visité lors de la connexion"
+
+#: prefs.php:25
+msgid "User Options"
+msgstr "Préférences de l'utilisateur"
+
+#: annotate.php:28 templates/log/rev.inc:9
+msgid "View"
+msgstr "Voir"
+
+#: templates/log/request.inc:60
+msgid "View Branch"
+msgstr "Voir les branches"
+
+#: templates/log/request.inc:54
+msgid "View revisions on:"
+msgstr "Voir les révisions pour :"
+
+#: cvs.php:131 history.php:155 stats.php:22
+msgid "View:"
+msgstr "Voir :"
+
+#: templates/log/request.inc:35
+msgid "and:"
+msgstr "et :"
+
+#: templates/log/rev.inc:6 templates/history/rev.inc:4
+#, php-format
+msgid "by %s"
+msgstr "par %s"
+
+#: templates/diff/hr/footer.inc:15
+msgid "changed lines"
+msgstr "lignes modifiées"
+
+#: lib/CVSLib/File.php:292
+msgid "day"
+msgstr "jour"
+
+#: lib/CVSLib/File.php:292
+msgid "days"
+msgstr "jours"
+
+#: templates/error_page.inc:14
+msgid "for further information."
+msgstr "pour de plus amples informations."
+
+#: lib/CVSLib/File.php:291
+msgid "hour"
+msgstr "heure"
+
+#: lib/CVSLib/File.php:291
+msgid "hours"
+msgstr "heures"
+
+#: templates/log/rev.inc:39 templates/log/rev.inc:43 templates/log/rev.inc:49
+msgid "long"
+msgstr "long"
+
+#: lib/CVSLib/File.php:290
+msgid "minute"
+msgstr "minute"
+
+#: lib/CVSLib/File.php:290
+msgid "minutes"
+msgstr "minutes"
+
+#: lib/CVSLib/File.php:294
+msgid "month"
+msgstr "mois"
+
+#: lib/CVSLib/File.php:294
+msgid "months"
+msgstr "mois"
+
+#: templates/history/branch_cell.inc:6
+#, php-format
+msgid "revision %s"
+msgstr "révision %s"
+
+#: lib/CVSLib/File.php:289
+msgid "second"
+msgstr "seconde"
+
+#: lib/CVSLib/File.php:289
+msgid "seconds"
+msgstr "secondes"
+
+#: templates/log/rev.inc:40 templates/log/rev.inc:44 templates/log/rev.inc:50
+msgid "unified"
+msgstr "unifié"
+
+#: templates/diff/hr/header.inc:13 templates/diff/hr/header.inc:14
+#, php-format
+msgid "version %s"
+msgstr "version %s"
+
+#: lib/CVSLib/File.php:303
+msgid "very little time"
+msgstr "très peu de temps"
+
+#: lib/CVSLib/File.php:293
+msgid "week"
+msgstr "semaine"
+
+#: lib/CVSLib/File.php:293
+msgid "weeks"
+msgstr "semaines"
+
+#: lib/CVSLib/File.php:295
+msgid "year"
+msgstr "année"
+
+#: lib/CVSLib/File.php:295
+msgid "years"
+msgstr "années"

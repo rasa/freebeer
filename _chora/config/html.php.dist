@@ -1,0 +1,41 @@
+<?php
+/**
+ * $Horde: chora/config/html.php.dist,v 1.24 2003/09/04 15:35:40 chuck Exp $
+ *
+ * CSS properties unique to Chora.
+ * This file is parsed by css.php, and used to produce a stylesheet.
+ */
+
+$css['.title']['font-size'] = '15px';
+$css['.title']['font-weight'] = 'bold';
+
+$css['.outline-lite']['background-color'] = '#cdcdcd';
+$css['.outline-menu']['background-color'] = '#9999cc';
+
+$css['.attic']['background-color'] = '#eedddd';
+$css['.attic']['font-style'] = 'italic';
+
+$css['.diff-selected'] = $css['.control'];
+$css['.diff-selected']['background-color'] = '#e0daaa';
+
+$css['.diff-back']['background-color'] = '#ffffff';
+$css['.diff-log']['background-color'] = '#eeeeee';
+
+$css['.annotate-back']['background-color'] = '#ffffff';
+$css['.annotate-header']['background-color'] = '#dddddd';
+$css['.annotate-author']['background-color'] = '#eeeeff';
+$css['.annotate-rev']['background-color'] = '#ffeeee';
+
+$css['.hr-diff-back']['background-color'] = '#ffffff';
+$css['.hr-diff-add']['background-color'] = '#ccccff';
+$css['.hr-diff-change']['background-color'] = '#99ff99';
+$css['.hr-diff-nochange']['background-color'] = '#99cc99';
+$css['.hr-diff-remove']['background-color'] = '#ff9999';
+$css['.hr-diff-grey']['background-color'] = '#cccccc';
+$css['.hr-diff-context']['background-color'] = '#eeeeee';
+$css['.hr-diff-linenum']['background-color'] = '#99cccc';
+
+$css['.history']['background-color'] = '#f2f3ff';
+$css['.history-branch']['background-color'] = '#cceebb';
+
+$css['.checkout']['background-color'] = '#fafafa';

@@ -1,0 +1,494 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Horde Project
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: chora\n"
+"POT-Creation-Date: 2003-01-03 14:30+0100\n"
+"PO-Revision-Date: 2003-09-24 20:30+0800\n"
+"Last-Translator: liaobin <liaobin@jite.net>\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=gb2312\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/log/request.inc:5
+msgid ""
+" This form allows you to request diffs between any two revisions of a file.  "
+"You may select a symbolic revision name using the selection box or you may "
+"type in a numeric name using the type-in text box."
+msgstr ""
+
+#: templates/annotate/header.inc:4
+msgid "#"
+msgstr "#"
+
+#: templates/log/rev.inc:14
+#, php-format
+msgid "%s ago"
+msgstr "%s 以前"
+
+#: templates/diff/hr/footer.inc:19
+#, php-format
+msgid "Added in v.%s"
+msgstr ""
+
+#: templates/log/request.inc:57
+msgid "All Branches"
+msgstr "所有分支"
+
+#: prefs.php:77
+msgid "An illegal value was specified."
+msgstr ""
+
+#: co.php:65 templates/log/rev.inc:8
+msgid "Annotate"
+msgstr "注释"
+
+#: templates/annotate/header.inc:5 templates/directory/header.inc:17
+msgid "Author"
+msgstr "作者"
+
+#: templates/directory/back.inc:4
+msgid "Back"
+msgstr "返回"
+
+#: templates/log/rev.inc:23
+msgid "Branch Point for:"
+msgstr ""
+
+#: templates/log/rev.inc:16
+msgid "Branch:"
+msgstr "分支："
+
+#: templates/history/branch_cell.inc:2
+msgid "Branching to"
+msgstr ""
+
+#: annotate.php:26
+#, php-format
+msgid "CVS Annotation of %s for version %s"
+msgstr "%s 的CVS注释(版本 %s)"
+
+#: history.php:153
+#, php-format
+msgid "CVS Branching View for %s"
+msgstr "%s 的CVS分支视图"
+
+#: co.php:63
+#, php-format
+msgid "CVS Checkout of %s (revision %s)"
+msgstr "%s 的CVS取出(版本 %s)"
+
+#: cvs.php:35
+#, php-format
+msgid "CVS Directory of /%s"
+msgstr "%s 的CVS目录"
+
+#: cvs.php:123
+#, php-format
+msgid "CVS Log for %s"
+msgstr "%s 的CVS 日志"
+
+#: templates/log/rev.inc:19
+msgid "CVS Tags:"
+msgstr "CVS 标签："
+
+#: templates/log/rev.inc:27
+#, php-format
+msgid "Changed since <b>%s</b>"
+msgstr "自<b>%s</b>的变更"
+
+#: templates/history/rev.inc:8
+#, php-format
+msgid "Changed: %s"
+msgstr "已变更：%s"
+
+#: templates/headerbar.inc:11
+msgid "Chora Homepage"
+msgstr "Chora主页"
+
+#: templates/index/notconfigured.inc:4
+msgid "Chora is not properly configured"
+msgstr "Chora没有被配置好"
+
+#: templates/log/request.inc:28
+msgid "Context"
+msgstr "上下文"
+
+#: lib/CVSLib/Checkout.php:43
+msgid "Couldn't perform checkout of the requested file"
+msgstr ""
+
+#: config/prefs.php.dist:7
+msgid "Customize tasks to run upon logging in to Chora."
+msgstr ""
+
+#: templates/directory/header.inc:21
+msgid "Date"
+msgstr "日期"
+
+#: templates/directory/file.inc:6 templates/directory/file.inc:18
+msgid "Deleted File"
+msgstr "已删除的文件"
+
+#: diff.php:66
+#, php-format
+msgid "Diff for %s between version %s and %s"
+msgstr "对 %s 在版本 %s 和 %s 间比较"
+
+#: templates/log/rev.inc:42
+#, php-format
+msgid "Diffs ignoring whitespace to version %s"
+msgstr "同版本 %s 比较时忽略空格"
+
+#: templates/log/rev.inc:48
+#, php-format
+msgid "Diffs to selected version %s"
+msgstr "同选择的版本 %s 的比较"
+
+#: templates/log/rev.inc:38
+#, php-format
+msgid "Diffs to version %s"
+msgstr "同版本 %s 的比较"
+
+#: templates/directory/dir.inc:5 templates/directory/dir.inc:7
+msgid "Directory"
+msgstr "目录"
+
+#: annotate.php:29 co.php:66 templates/log/rev.inc:10
+msgid "Download"
+msgstr "下载"
+
+#: templates/log/request.inc:30
+msgid "Ed Script"
+msgstr ""
+
+#: status.php:19 templates/error_page.inc:4
+msgid "Error"
+msgstr "错误"
+
+#: templates/error_page.inc:7
+msgid "Error Encountered"
+msgstr ""
+
+#: lib/CVSLib/File.php:218
+msgid "Failed to spawn rlog to retrieve file log information"
+msgstr ""
+
+#: templates/directory/file.inc:8 templates/directory/file.inc:20
+#: templates/directory/header.inc:9
+msgid "File"
+msgstr "文件"
+
+#: templates/log/request.inc:44
+msgid "Get Diffs"
+msgstr ""
+
+#: templates/menu/menu.inc:26
+msgid "Help"
+msgstr "帮助"
+
+#: cvs.php:39
+msgid "Hide Deleted Files"
+msgstr "隐藏删除的文件"
+
+#: templates/log/request.inc:26
+msgid "Human Readable"
+msgstr ""
+
+#: lib/CVSLib/Checkout.php:30
+msgid "Invalid revision number"
+msgstr "无效版本号"
+
+#: templates/directory/header.inc:23
+msgid "Last Log"
+msgstr "最后日志"
+
+#: templates/diff/hr/header.inc:5
+#, php-format
+msgid "Last Log Message for rev %s:"
+msgstr "版本 %s 的最后日志信息："
+
+#: templates/diff/hr/footer.inc:5
+msgid "Legend:"
+msgstr "图例："
+
+#: templates/annotate/header.inc:7
+msgid "Line"
+msgstr "行"
+
+#: templates/diff/hr/row.inc:3 templates/diff/hr/row.inc:7
+#, php-format
+msgid "Line %s"
+msgstr "行 %s"
+
+#: templates/headerbar.inc:26
+msgid "Location:"
+msgstr "位置："
+
+#: config/prefs.php.dist:6
+msgid "Login Tasks"
+msgstr "登录任务"
+
+#: status.php:32
+msgid "Message"
+msgstr "消息"
+
+#: templates/diff/hr/nochange.inc:6
+msgid "No Viewable Change"
+msgstr "没有可以查看的更改"
+
+#: lib/CVSLib/File.php:124 lib/CVSLib/File.php:147
+msgid "No revisions"
+msgstr "没有版本号"
+
+#: templates/menu/menu.inc:13
+msgid "Options"
+msgstr "选项"
+
+#: config/prefs.php.dist:5
+msgid "Other Options"
+msgstr "其他选项"
+
+#: lib/Chora.php:349
+msgid "Other Repositories"
+msgstr "其他仓库"
+
+#: templates/directory/back.inc:4
+msgid "Parent Directory"
+msgstr "上级目录"
+
+#: templates/error_page.inc:13
+msgid "Please contact"
+msgstr "请联系"
+
+#: templates/menu/menu.inc:18
+msgid "Problem?"
+msgstr "问题？"
+
+#: templates/diff/hr/footer.inc:11
+#, php-format
+msgid "Removed in v.%s"
+msgstr ""
+
+#: templates/log/request.inc:14
+msgid "Retrieve diffs between:"
+msgstr ""
+
+#: templates/annotate/header.inc:6 templates/directory/header.inc:13
+msgid "Rev"
+msgstr "版本"
+
+#: templates/log/rev.inc:33
+msgid "Select for Diff"
+msgstr "选择后察看更改"
+
+#: cvs.php:41
+msgid "Show Deleted Files"
+msgstr "显示已经删除的文件"
+
+#: templates/log/request.inc:29
+msgid "Side-by-Side"
+msgstr ""
+
+#: templates/index/notconfigured.inc:13
+msgid "Some of Chora's configuration files are missing:"
+msgstr ""
+
+#: templates/directory/header.inc:8 templates/directory/header.inc:12
+#: templates/directory/header.inc:16 templates/directory/header.inc:20
+msgid "Sort Order"
+msgstr "排序顺序"
+
+#: status.php:23
+msgid "Success"
+msgstr "成功"
+
+#: cvs.php:131
+msgid "Switch to Branch View"
+msgstr "转换为分支视图"
+
+#: history.php:155
+msgid "Switch to Log View"
+msgstr "转换为日志试图"
+
+#: templates/index/notconfigured.inc:46
+msgid ""
+"This file controls the default preferences for Chora, and also controls "
+"which preferences users can alter."
+msgstr ""
+
+#: templates/index/notconfigured.inc:39
+msgid ""
+"This file controls the stylesheet that is used to set colors and fonts in "
+"addition to or overriding Horde defaults."
+msgstr ""
+
+#: templates/index/notconfigured.inc:25
+msgid ""
+"This file defines all of the cvs repositories that you wish Chora to display."
+msgstr ""
+
+#: templates/index/notconfigured.inc:32
+msgid "This file defines any special MIME-type handling for Chora."
+msgstr ""
+
+#: templates/index/notconfigured.inc:18
+msgid ""
+"This is the main Chora configuration file. It contains paths and options for "
+"all Chora scripts."
+msgstr ""
+
+#: prefs.php:86
+msgid "This number must be at least one."
+msgstr ""
+
+#: prefs.php:84
+msgid "This value must be a number."
+msgstr ""
+
+#: templates/headerbar.inc:32
+msgid "Tracking Branch"
+msgstr ""
+
+#: templates/log/request.inc:23
+msgid "Type:"
+msgstr "类型："
+
+#: templates/log/request.inc:27
+msgid "Unified"
+msgstr ""
+
+#: templates/log/rev.inc:31
+msgid "Unselect"
+msgstr "取消选择"
+
+#: templates/log/request.inc:18 templates/log/request.inc:38
+msgid "Use Text Field"
+msgstr ""
+
+#: config/prefs.php.dist:33
+msgid "Use last viewed file or directory at login time"
+msgstr ""
+
+#: prefs.php:133
+msgid "User Options"
+msgstr "用户选项"
+
+#: annotate.php:28 templates/log/rev.inc:9
+msgid "View"
+msgstr "察看"
+
+#: templates/log/request.inc:60
+msgid "View Branch"
+msgstr "察看分支"
+
+#: templates/log/request.inc:54
+msgid "View revisions on:"
+msgstr "察看版本在："
+
+#: status.php:27
+msgid "Warning"
+msgstr "警告"
+
+#: prefs.php:118
+msgid "Your options have been updated."
+msgstr "您的选项已经更新"
+
+#: templates/log/request.inc:35
+msgid "and:"
+msgstr "和："
+
+#: templates/log/rev.inc:6 templates/history/rev.inc:4
+#, php-format
+msgid "by %s"
+msgstr "由 %s"
+
+#: templates/diff/hr/footer.inc:15
+msgid "changed lines"
+msgstr "更改的行数"
+
+#: lib/CVSLib/File.php:292
+msgid "day"
+msgstr "天"
+
+#: lib/CVSLib/File.php:292
+msgid "days"
+msgstr "天"
+
+#: templates/error_page.inc:14
+msgid "for further information."
+msgstr ""
+
+#: lib/CVSLib/File.php:291
+msgid "hour"
+msgstr "小时"
+
+#: lib/CVSLib/File.php:291
+msgid "hours"
+msgstr "小时"
+
+#: templates/log/rev.inc:39 templates/log/rev.inc:43 templates/log/rev.inc:49
+msgid "long"
+msgstr ""
+
+#: lib/CVSLib/File.php:290
+msgid "minute"
+msgstr "分"
+
+#: lib/CVSLib/File.php:290
+msgid "minutes"
+msgstr "分"
+
+#: lib/CVSLib/File.php:294
+msgid "month"
+msgstr "月"
+
+#: lib/CVSLib/File.php:294
+msgid "months"
+msgstr "月"
+
+#: templates/history/branch_cell.inc:6
+#, php-format
+msgid "revision %s"
+msgstr "版本 %s"
+
+#: lib/CVSLib/File.php:289
+msgid "second"
+msgstr "秒"
+
+#: lib/CVSLib/File.php:289
+msgid "seconds"
+msgstr "秒"
+
+#: templates/log/rev.inc:40 templates/log/rev.inc:44 templates/log/rev.inc:50
+msgid "unified"
+msgstr ""
+
+#: templates/diff/hr/header.inc:13 templates/diff/hr/header.inc:14
+#, php-format
+msgid "version %s"
+msgstr "版本 %s"
+
+#: lib/CVSLib/File.php:303
+msgid "very little time"
+msgstr ""
+
+#: lib/CVSLib/File.php:293
+msgid "week"
+msgstr "周"
+
+#: lib/CVSLib/File.php:293
+msgid "weeks"
+msgstr "周"
+
+#: lib/CVSLib/File.php:295
+msgid "year"
+msgstr "年"
+
+#: lib/CVSLib/File.php:295
+msgid "years"
+msgstr "年"

@@ -1,0 +1,375 @@
+# Chora  Swedish translation
+# Copyright (C) 2002 Andreas Dahlén.
+# Andreas Dahlén <andreas@dahlen.ws>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Chora 2.0-cvs\n"
+"POT-Creation-Date: 2002-08-26 19:51+0200\n"
+"PO-Revision-Date: 2002-12-19 13:32+0100\n"
+"Last-Translator: Andreas Dahlén <andreas@dahlen.ws>\n"
+"Language-Team: Swedish <dev@lists.horde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+" This form allows you to request diffs between any two revisions of a file.  "
+"You may select a symbolic revision name using the selection box or you may "
+"type in a numeric name using the type-in text box."
+msgstr ""
+" Det här formuläret låter dig ta fram skillnader mellan två revisioner av en "
+"fil. Du kan välja en symbolisk revisionsnamn mha listan eller ange ett "
+"numeriskt namn via textfältet."
+
+msgid "#"
+msgstr "#"
+
+#, c-format
+msgid "%s ago"
+msgstr "för %s sedan"
+
+#, c-format
+msgid "Added in v.%s"
+msgstr "Tillagd i v.%s"
+
+msgid "All Branches"
+msgstr "Alla grenar"
+
+msgid "Annotate"
+msgstr "Kommentera"
+
+msgid "Author"
+msgstr "Författare"
+
+msgid "Back"
+msgstr "Tillbaka"
+
+msgid "Branch Point for:"
+msgstr "Grenpunkt för:"
+
+msgid "Branch:"
+msgstr "Gren:"
+
+msgid "Branches"
+msgstr "Grenar"
+
+msgid "Branching to"
+msgstr "Förgrenar till"
+
+#, c-format
+msgid "CVS Annotation of %s for version %s"
+msgstr "CVS-kommentar av %s för version %s"
+
+#, c-format
+msgid "CVS Branching View for %s"
+msgstr "CVS-grenvy för %s"
+
+#, c-format
+msgid "CVS Checkout of %s (revision %s)"
+msgstr "CVS-utcheckning av %s (revision %s)"
+
+#, c-format
+msgid "CVS Directory of /%s"
+msgstr "CVS-katalog /%s"
+
+#, c-format
+msgid "CVS Log for %s"
+msgstr "CVS-loggning av %s"
+
+#, c-format
+msgid "CVS Statistics for %s"
+msgstr "CVS-statistik för %s"
+
+msgid "CVS Tags:"
+msgstr "CVS-märken:"
+
+#, c-format
+msgid "Changed since <b>%s</b>"
+msgstr "Ädrad sedan <b>%s</b>"
+
+#, c-format
+msgid "Changed: %s"
+msgstr "Ändrad: %s"
+
+msgid "Chora Homepage"
+msgstr "Hemsida för Chora"
+
+msgid "Chora is not properly configured"
+msgstr "Chora är inte korrekt konfigurerat"
+
+msgid "Chora"
+msgstr "Chora"
+
+msgid "Context"
+msgstr "Kontext"
+
+msgid "Couldn't perform checkout of the requested file"
+msgstr "Kunde inte checka ut begärd fil"
+
+msgid "Customize tasks to run upon logging in to Chora."
+msgstr "Skräddarsy aktiviteter som körs vid inlogning till Chora."
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Deleted File"
+msgstr "Raderar fil"
+
+#, c-format
+msgid "Diff for %s between version %s and %s"
+msgstr "Skillnader för %s mellan version %s och %s"
+
+#, c-format
+msgid "Diffs ignoring whitespace to version %s"
+msgstr "Skillnad, förutom whitespace, mot version %s"
+
+#, c-format
+msgid "Diffs to selected version %s"
+msgstr "Skillnad mot vald version %s"
+
+#, c-format
+msgid "Diffs to version %s"
+msgstr "Skillnad mot version %s"
+
+msgid "Directory"
+msgstr "Katalog"
+
+msgid "Download"
+msgstr "Ladda ner"
+
+msgid "Ed Script"
+msgstr "Editera script"
+
+msgid "Error Encountered"
+msgstr "Fel uppstod"
+
+msgid "Error"
+msgstr "Fel"
+
+msgid "File"
+msgstr "Fil"
+
+msgid "Get Diffs"
+msgstr "Hämta skillnader"
+
+msgid "Help"
+msgstr "Hjälp"
+
+msgid "Hide Deleted Files"
+msgstr "Göm raderade filer"
+
+msgid "Human Readable"
+msgstr "Läsbar för människor"
+
+msgid "Invalid revision number"
+msgstr "Felaktigt revisionsnummer"
+
+#, c-format
+msgid "Last Log Message for rev %s:"
+msgstr "Senaste meddelande i loggen för revision %s:"
+
+msgid "Last Log"
+msgstr "Sennaste loggning"
+
+#, c-format
+msgid "Line %s"
+msgstr "Rad %s"
+
+msgid "Line"
+msgstr "Rad"
+
+msgid "Location:"
+msgstr "Plats:"
+
+msgid "Login Tasks"
+msgstr "Loginaktiviteter"
+
+msgid "Logs"
+msgstr "Loggar"
+
+msgid "No Viewable Change"
+msgstr "Inga synbara skillnader"
+
+msgid "No revisions"
+msgstr "Inga revisioner"
+
+msgid "Options"
+msgstr "Inställningar"
+
+msgid "Other Options"
+msgstr "Andra inställningar"
+
+msgid "Other Repositories"
+msgstr "Andra förvaringsplatser"
+
+msgid "Parent Directory"
+msgstr "Ovanståendet katalog"
+
+msgid "Please contact"
+msgstr "Var god kontakta"
+
+msgid "Problem?"
+msgstr "Problem?"
+
+#, c-format
+msgid "Removed in v.%s"
+msgstr "Borttagen i v.%s"
+
+msgid "Retrieve diffs between:"
+msgstr "Hämta skillnader mellan:"
+
+msgid "Rev"
+msgstr "Rev"
+
+msgid "Select for Diff"
+msgstr "Välj för skillnader"
+
+msgid "Show Deleted Files"
+msgstr "Visa raderade filer"
+
+msgid "Side-by-Side"
+msgstr "Sida vid sida"
+
+msgid "Some of Chora's configuration files are missing:"
+msgstr "Några av Choras konfigurationsfiler saknas:"
+
+msgid "Sort Order"
+msgstr "Sorteringsordning"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid ""
+"This file controls the default preferences for Chora, and also controls "
+"which preferences users can alter."
+msgstr ""
+"Den här filen kontrollerar grundinställningar för Chora samt vilka "
+"inställningar som användaren kan ändra."
+
+msgid ""
+"This file controls the stylesheet that is used to set colors and fonts in "
+"addition to or overriding Horde defaults."
+msgstr ""
+"Den här filen kontrollerar de stylesheet som används för att bestämma färger "
+"och typsnitt."
+
+msgid ""
+"This file defines all of the cvs repositories that you wish Chora to display."
+msgstr ""
+"Den här filen definierar alla CVS-förvaringsplatser som Chora kan visa."
+
+msgid "This file defines any special MIME-type handling for Chora."
+msgstr "Den här filen definierar speciell hantering av MIME-typer i Chora."
+
+msgid ""
+"This is the main Chora configuration file. It contains paths and options for "
+"all Chora scripts."
+msgstr ""
+"Det här är huvudkonfigurationsfilen för Chora. Den innehåller sökvägar och "
+"inställningar för Choras script."
+
+msgid "Tracking Branch"
+msgstr "Spårar gren"
+
+msgid "Type:"
+msgstr "Typ:"
+
+msgid "Unified"
+msgstr "Enad"
+
+msgid "Unselect"
+msgstr "Avmarkera"
+
+msgid "Use Text Field"
+msgstr "Anväänd textfält"
+
+msgid "Use last viewed file or directory at login time"
+msgstr "Använd senast visad fil elelr katalog vid inloggning"
+
+msgid "User Options"
+msgstr "Användarinställningar"
+
+msgid "View Branch"
+msgstr "Visa gren"
+
+msgid "View revisions on:"
+msgstr "Visa revisioner för:"
+
+msgid "View"
+msgstr "Visa"
+
+msgid "View:"
+msgstr "Visa:"
+
+msgid "and:"
+msgstr "och:"
+
+#, c-format
+msgid "by %s"
+msgstr "vid %s"
+
+msgid "changed lines"
+msgstr "ändrade rader"
+
+msgid "day"
+msgstr "dag"
+
+msgid "days"
+msgstr "dagar"
+
+msgid "for further information."
+msgstr "för ytterligare information."
+
+msgid "hour"
+msgstr "timme"
+
+msgid "hours"
+msgstr "timmar"
+
+msgid "long"
+msgstr "lång"
+
+msgid "minute"
+msgstr "minut"
+
+msgid "minutes"
+msgstr "minuter"
+
+msgid "month"
+msgstr "månad"
+
+msgid "months"
+msgstr "månader"
+
+#, c-format
+msgid "revision %s"
+msgstr "revision %s"
+
+msgid "second"
+msgstr "sekund"
+
+msgid "seconds"
+msgstr "sekunder"
+
+msgid "unified"
+msgstr "enad"
+
+#, c-format
+msgid "version %s"
+msgstr "version %s"
+
+msgid "very little time"
+msgstr "väldigt lite tid"
+
+msgid "week"
+msgstr "vecka"
+
+msgid "weeks"
+msgstr "veckor"
+
+msgid "year"
+msgstr "år"
+
+msgid "years"
+msgstr "år"

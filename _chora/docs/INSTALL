@@ -1,0 +1,42 @@
+----------------------------------------------------------------------
+=--- Chora Installation Guide ---------------------------- INSTALL --=
+----------------------------------------------------------------------
+
+Before you install Chora, make sure that you have the Horde libraries
+correctly installed.
+
+System Requirements:
+
+ o PHP-4.1.0+ (http://www.php.net)
+ o Horde libraries (http://horde.org)
+ o RCS and CVS binaries on the system (http://www.cvshome.org)
+ o CVSROOT directory (either local or NFS).  A CVS checkout will
+   not do - you need to have the full repository available!
+
+After that, installation of Chora is pretty simple.
+
+- In the config/ directory, make copies of all of the configuration
+  "dist" files without the "dist" suffix:
+
+      cd config/
+      for foo in *.dist; do cp $foo `basename $foo .dist`; done
+
+- Edit each of these configuration files, following the comments
+  beside each value.
+
+- Go to the Chora URL, and test out all the functionality to
+  ensure it is working.
+
+If you run into a problem with annotations, it is because some
+versions of CVS insist on having the CVSROOT/history file as
+world-writable.  Either make this file world-writable, or simply
+delete it (you don't need to have it for CVS to work).
+
+If you have any further questions, look at http://horde.org/mail/
+for details on the Chora mailing lists and archives.
+
+Have fun!
+
+--
+The Chora Team
+$Horde: chora/docs/INSTALL,v 1.3 2002/07/21 12:57:35 jan Exp $

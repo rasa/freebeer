@@ -1,0 +1,449 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Horde Project
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: dev@lists.horde.org\n"
+"POT-Creation-Date: 2004-02-14 13:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/annotate/header.inc:4
+msgid "#"
+msgstr ""
+
+#: templates/patchsets/ps.inc:12 templates/log/rev.inc:24
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: templates/diff/hr/footer.inc:19
+#, php-format
+msgid "Added in v.%s"
+msgstr ""
+
+#: templates/log/request.inc:57
+msgid "All Branches"
+msgstr ""
+
+#: co.php:60 templates/log/rev.inc:8
+msgid "Annotate"
+msgstr ""
+
+#: templates/directory/header.inc:18 templates/stats/stats.inc:3
+#: templates/annotate/header.inc:5
+msgid "Author"
+msgstr ""
+
+#: templates/directory/back.inc:4
+msgid "Back"
+msgstr ""
+
+#: templates/checkout/checkout.inc:27 templates/log/rev.inc:29
+msgid "Branch Point for:"
+msgstr ""
+
+#: templates/checkout/checkout.inc:11 templates/patchsets/ps.inc:14
+#: templates/log/rev.inc:26
+msgid "Branch:"
+msgstr ""
+
+#: lib/Chora.php:395
+msgid "Branches"
+msgstr ""
+
+#: templates/history/branch_cell.inc:2
+msgid "Branching to"
+msgstr ""
+
+#: cvsgraph.php:48
+#, php-format
+msgid "CVS Graph for %s"
+msgstr ""
+
+#: templates/checkout/checkout.inc:19 templates/patchsets/ps.inc:17
+msgid "CVS Tags:"
+msgstr ""
+
+#: templates/checkout/checkout.inc:35 templates/log/rev.inc:35
+#, php-format
+msgid "Changed since <b>%s</b>"
+msgstr ""
+
+#: templates/history/rev.inc:8
+#, php-format
+msgid "Changed: %s"
+msgstr ""
+
+#: co.php:58
+#, php-format
+msgid "Checkout of %s (revision %s)"
+msgstr ""
+
+#: templates/cvsgraph/cvsgraph.inc:11
+msgid ""
+"Click on the links in between revisions to get a diff between those "
+"revisions."
+msgstr ""
+
+#: templates/cvsgraph/cvsgraph.inc:10
+msgid "Click on the revisions and branches to display the file."
+msgstr ""
+
+#: templates/log/rev.inc:40 templates/log/rev.inc:49
+msgid "Colored"
+msgstr ""
+
+#: templates/stats/stats.inc:4
+msgid "Commits"
+msgstr ""
+
+#: templates/log/request.inc:28
+msgid "Context"
+msgstr ""
+
+#: config/prefs.php.dist:11
+msgid "Customize tasks to run upon logging in to Chora."
+msgstr ""
+
+#: templates/directory/header.inc:23
+msgid "Date"
+msgstr ""
+
+#: patchsets.php:65
+msgid "Deleted"
+msgstr ""
+
+#: templates/directory/file.inc:6 templates/directory/file.inc:18
+msgid "Deleted File"
+msgstr ""
+
+#: templates/log/rev.inc:13
+msgid "Deselect"
+msgstr ""
+
+#: patchsets.php:62
+msgid "Diff"
+msgstr ""
+
+#: patchsets.php:45
+msgid "Diff All Files"
+msgstr ""
+
+#: diff.php:68
+#, php-format
+msgid "Diff for %s between version %s and %s"
+msgstr ""
+
+#: templates/log/rev.inc:48
+#, php-format
+msgid "Diffs to <b>%s</b>"
+msgstr ""
+
+#: templates/log/rev.inc:39
+#, php-format
+msgid "Diffs to version %s"
+msgstr ""
+
+#: templates/directory/dir.inc:5 templates/directory/dir.inc:7
+msgid "Directory"
+msgstr ""
+
+#: annotate.php:29 co.php:61 templates/log/rev.inc:10
+msgid "Download"
+msgstr ""
+
+#: templates/log/request.inc:30
+msgid "Ed Script"
+msgstr ""
+
+#: templates/error_page.inc:4
+msgid "Error"
+msgstr ""
+
+#: templates/error_page.inc:7
+msgid "Error Encountered"
+msgstr ""
+
+#: templates/directory/file.inc:8 templates/directory/file.inc:20
+#: templates/directory/header.inc:8
+msgid "File"
+msgstr ""
+
+#: templates/patchsets/ps.inc:21
+msgid "Files Changed:"
+msgstr ""
+
+#: templates/log/request.inc:44
+msgid "Get Diffs"
+msgstr ""
+
+#: lib/Chora.php:398
+msgid "Graph"
+msgstr ""
+
+#: templates/menu/menu.inc:21
+msgid "Help"
+msgstr ""
+
+#: cvs.php:40
+msgid "Hide Deleted Files"
+msgstr ""
+
+#: templates/log/request.inc:26
+msgid "Human Readable"
+msgstr ""
+
+#: templates/directory/header.inc:25
+msgid "Last Log"
+msgstr ""
+
+#: templates/diff/hr/header.inc:5
+#, php-format
+msgid "Last Log Message for rev %s:"
+msgstr ""
+
+#: templates/diff/hr/footer.inc:5
+msgid "Legend:"
+msgstr ""
+
+#: templates/annotate/header.inc:7
+msgid "Line"
+msgstr ""
+
+#: templates/diff/hr/row.inc:3 templates/diff/hr/row.inc:7
+#, php-format
+msgid "Line %s"
+msgstr ""
+
+#: templates/headerbar.inc:12
+msgid "Location:"
+msgstr ""
+
+#: templates/checkout/checkout.inc:42
+msgid "Log:"
+msgstr ""
+
+#: config/prefs.php.dist:10
+msgid "Login Tasks"
+msgstr ""
+
+#: lib/Chora.php:389
+msgid "Logs"
+msgstr ""
+
+#: templates/log/rev.inc:41 templates/log/rev.inc:50
+msgid "Long"
+msgstr ""
+
+#: diff.php:60
+msgid "Malformed Query"
+msgstr ""
+
+#: patchsets.php:58
+msgid "New File"
+msgstr ""
+
+#: templates/diff/hr/nochange.inc:6
+msgid "No Viewable Change"
+msgstr ""
+
+#: templates/log/rev.inc:42 templates/log/rev.inc:51
+msgid "NoWhitespaceChanges"
+msgstr ""
+
+#: templates/menu/menu.inc:13
+msgid "Options"
+msgstr ""
+
+#: config/prefs.php.dist:9
+msgid "Other Options"
+msgstr ""
+
+#: lib/Chora.php:304
+msgid "Other Repositories"
+msgstr ""
+
+#: templates/directory/back.inc:4
+msgid "Parent Directory"
+msgstr ""
+
+#: templates/patchsets/ps.inc:6
+#, php-format
+msgid "PatchSet %s</span> by %s"
+msgstr ""
+
+#: lib/Chora.php:392
+msgid "Patchsets"
+msgstr ""
+
+#: patchsets.php:26
+#, php-format
+msgid "Patchsets for %s"
+msgstr ""
+
+#: templates/error_page.inc:13
+msgid "Please contact"
+msgstr ""
+
+#: templates/diff/hr/footer.inc:11
+#, php-format
+msgid "Removed in v.%s"
+msgstr ""
+
+#: templates/log/request.inc:14
+msgid "Retrieve diffs between:"
+msgstr ""
+
+#: templates/directory/header.inc:13 templates/annotate/header.inc:6
+msgid "Rev"
+msgstr ""
+
+#: co.php:65
+#, php-format
+msgid "Revision %s for file %s not found."
+msgstr ""
+
+#: templates/checkout/checkout.inc:4
+#, php-format
+msgid "Revision <b>%s</b>, <i>%s</i> (%s ago) by %s"
+msgstr ""
+
+#: templates/log/rev.inc:15
+msgid "Select for Diff"
+msgstr ""
+
+#: cvs.php:42
+msgid "Show Deleted Files"
+msgstr ""
+
+#: templates/log/request.inc:29
+msgid "Side-by-Side"
+msgstr ""
+
+#: templates/directory/header.inc:7 templates/directory/header.inc:12
+#: templates/directory/header.inc:17 templates/directory/header.inc:22
+msgid "Sort Order"
+msgstr ""
+
+#: annotate.php:26
+#, php-format
+msgid "Source Annotation of %s for version %s"
+msgstr ""
+
+#: history.php:159
+#, php-format
+msgid "Source Branching View for %s"
+msgstr ""
+
+#: cvs.php:32
+#, php-format
+msgid "Source Directory of /%s"
+msgstr ""
+
+#: cvs.php:125
+#, php-format
+msgid "Source Log for %s"
+msgstr ""
+
+#: lib/Chora.php:125
+msgid ""
+"SourceRoot not found! This could be a misconfiguration by the server "
+"administrator, or the server could be having temporary problems. Please try "
+"again later."
+msgstr ""
+
+#: lib/Chora.php:400
+msgid "Statistics"
+msgstr ""
+
+#: stats.php:26
+#, php-format
+msgid "Statistics for %s"
+msgstr ""
+
+#: templates/log/rev.inc:32
+msgid "Tags:"
+msgstr ""
+
+#: templates/log/request.inc:5
+msgid ""
+"This form allows you to request diffs between any two revisions of a file.  "
+"You may select a symbolic revision name using the selection box or you may "
+"type in a numeric name using the type-in text box."
+msgstr ""
+
+#: templates/headerbar.inc:17
+msgid "Tracking Branch"
+msgstr ""
+
+#: templates/log/request.inc:23
+msgid "Type:"
+msgstr ""
+
+#: templates/log/request.inc:27
+msgid "Unified"
+msgstr ""
+
+#: templates/log/request.inc:18 templates/log/request.inc:38
+msgid "Use Text Field"
+msgstr ""
+
+#: config/prefs.php.dist:37
+msgid "Use last viewed file or directory at login time"
+msgstr ""
+
+#: prefs.php:24
+msgid "User Options"
+msgstr ""
+
+#: annotate.php:28 templates/log/rev.inc:9
+msgid "View"
+msgstr ""
+
+#: templates/log/request.inc:60
+msgid "View Branch"
+msgstr ""
+
+#: templates/log/request.inc:54
+msgid "View revisions on:"
+msgstr ""
+
+#: lib/Chora.php:402
+msgid "View:"
+msgstr ""
+
+#: templates/log/request.inc:35
+msgid "and:"
+msgstr ""
+
+#: templates/history/rev.inc:4 templates/log/rev.inc:5
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: templates/diff/hr/footer.inc:15
+msgid "changed lines"
+msgstr ""
+
+#: templates/error_page.inc:14
+msgid "for further information."
+msgstr ""
+
+#: templates/history/branch_cell.inc:6
+#, php-format
+msgid "revision %s"
+msgstr ""
+
+#: templates/diff/hr/header.inc:13 templates/diff/hr/header.inc:14
+#, php-format
+msgid "version %s"
+msgstr ""

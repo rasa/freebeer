@@ -1,0 +1,389 @@
+# Finnish translation for Chora
+# Tero Matinlassi <terom@iki.fi>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Chora 1.2\n"
+"POT-Creation-Date: 2002-12-29 02:59+0200\n"
+"PO-Revision-Date: 2002-12-31 13:02+0100\n"
+"Last-Translator: Tero Matinlassi <terom@iki.fi>\n"
+"Language-Team: Finnish <i18n@lists.horde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+" This form allows you to request diffs between any two revisions of a file.  "
+"You may select a symbolic revision name using the selection box or you may "
+"type in a numeric name using the type-in text box."
+msgstr ""
+" T‰ll‰ lomakkeella voi pyyt‰‰ vertailuja mink‰ tahansa kahden tiedoston "
+"revision v‰lill‰. Voit valita symbolisen revision nimen k‰ytt‰en "
+"valintalaatikkoa tai voit syˆtt‰‰ numeerisen nimen tekstikentt‰‰n."
+
+msgid "#"
+msgstr "Nro"
+
+#, c-format
+msgid "%s ago"
+msgstr "%s sitten"
+
+#, c-format
+msgid "Added in v.%s"
+msgstr "Lis‰tty v.%s"
+
+msgid "All Branches"
+msgstr "Kaikki haarat"
+
+msgid "An illegal value was specified."
+msgstr "Ep‰kelpo arvo syˆtettiin."
+
+msgid "Annotate"
+msgstr "Muistiinpanot"
+
+msgid "Author"
+msgstr "Tekij‰"
+
+msgid "Back"
+msgstr "Takaisin"
+
+msgid "Branch Point for:"
+msgstr "Haarautumispiste tiedostolle:"
+
+msgid "Branch:"
+msgstr "Haara:"
+
+msgid "Branching to"
+msgstr ""
+
+#, c-format
+msgid "CVS Annotation of %s for version %s"
+msgstr "CVS muistiinpanot tiedostolle %s versiota %s"
+
+#, c-format
+msgid "CVS Branching View for %s"
+msgstr "CVS haaran‰kym‰ tiedostolle %s"
+
+#, c-format
+msgid "CVS Checkout of %s (revision %s)"
+msgstr "CVS haku tiedostolle %s (revisio %s)"
+
+#, c-format
+msgid "CVS Directory of /%s"
+msgstr "Hakemisto /%s"
+
+#, c-format
+msgid "CVS Log for %s"
+msgstr "Tiedoston %s CVS-loki"
+
+msgid "CVS Tags:"
+msgstr "CVS tagit:"
+
+#, c-format
+msgid "Changed since <b>%s</b>"
+msgstr "Muutettu <b>%s</b>"
+
+#, c-format
+msgid "Changed: %s"
+msgstr "Muutettu: %s"
+
+msgid "Chora Homepage"
+msgstr "Choran kotisivu"
+
+msgid "Chora is not properly configured"
+msgstr "Choraa ei ole asetettu oikein"
+
+msgid "Context"
+msgstr "Konteksti"
+
+msgid "Couldn't perform checkout of the requested file"
+msgstr "Ei voitu hakea tiedostoa"
+
+msgid "Customize tasks to run upon logging in to Chora."
+msgstr "Aseta Choraan sis‰‰nkirjautumisen yhteydess‰ teht‰v‰t asiat."
+
+msgid "Date"
+msgstr "P‰iv‰ys"
+
+msgid "Deleted File"
+msgstr "Poistettu tiedosto"
+
+#, c-format
+msgid "Diff for %s between version %s and %s"
+msgstr "Muutokset tiedostossa %s versioiden %s ja %s v‰lill‰"
+
+#, c-format
+msgid "Diffs ignoring whitespace to version %s"
+msgstr "Muutokset tyhj‰t merkit huomioimatta versiolle %s"
+
+#, c-format
+msgid "Diffs to selected version %s"
+msgstr "Muutokset valittuun versioon %s"
+
+#, c-format
+msgid "Diffs to version %s"
+msgstr "Muutokset versioon %s"
+
+msgid "Directory"
+msgstr "Hakemisto"
+
+msgid "Download"
+msgstr "Lataa"
+
+msgid "Ed Script"
+msgstr ""
+
+msgid "Error Encountered"
+msgstr "Tapahtui virhe"
+
+msgid "Error"
+msgstr "Virhe"
+
+msgid "Failed to spawn rlog to retrieve file log information"
+msgstr ""
+
+msgid "File"
+msgstr "Tiedosto"
+
+msgid "Get Diffs"
+msgstr "Hae muutokset"
+
+msgid "Help"
+msgstr "Apua"
+
+msgid "Hide Deleted Files"
+msgstr "Piilota poistetut tiedostot"
+
+msgid "Human Readable"
+msgstr ""
+
+msgid "Invalid revision number"
+msgstr "Ep‰kelpo revisionumero"
+
+#, c-format
+msgid "Last Log Message for rev %s:"
+msgstr "Viimeisin lokiviesti revisiolle %s:"
+
+msgid "Last Log"
+msgstr "Viimeisin lokiviesti"
+
+msgid "Legend"
+msgstr "Selite"
+
+#, c-format
+msgid "Line %s"
+msgstr "Rivi %s"
+
+msgid "Line"
+msgstr "Rivi"
+
+msgid "Location:"
+msgstr "Paikka:"
+
+msgid "Login Tasks"
+msgstr "Teht‰v‰t sis‰‰nkirjautumisessa"
+
+msgid "Message"
+msgstr "Viesti"
+
+msgid "No Viewable Change"
+msgstr "Ei katsottavissa olevia muutoksia"
+
+msgid "No revisions"
+msgstr "Ei revisioita"
+
+msgid "Options"
+msgstr "Asetukset"
+
+msgid "Other Options"
+msgstr "Muut asetukset"
+
+msgid "Other Repositories"
+msgstr "Muut"
+
+msgid "Parent Directory"
+msgstr "Edellinen hakemisto"
+
+msgid "Please contact"
+msgstr "Ota yhteys"
+
+msgid "Problem?"
+msgstr "Ongelma?"
+
+#, c-format
+msgid "Removed in v.%s"
+msgstr "Poistettu versiossa %s"
+
+msgid "Retrieve diffs between:"
+msgstr "Hae muutokset v‰lill‰:"
+
+msgid "Rev"
+msgstr "Rev."
+
+msgid "Select for Diff"
+msgstr "Valitse muutosten katselua varten"
+
+msgid "Show Deleted Files"
+msgstr "N‰yt‰ poistetut tiedostot"
+
+msgid "Side-by-Side"
+msgstr "Vierekk‰in"
+
+msgid "Some of Chora's configuration files are missing:"
+msgstr "Jotkin Choran asetustiedostoista puuttuvat:"
+
+msgid "Sort Order"
+msgstr "J‰rjestyksen suunta"
+
+msgid "Success"
+msgstr "Onnistui"
+
+msgid "Switch to Branch View"
+msgstr "Vaihda haaran‰kym‰‰n"
+
+msgid "Switch to Log View"
+msgstr "Vaihda lokin‰kym‰‰n"
+
+msgid ""
+"This file controls the default preferences for Chora, and also controls "
+"which preferences users can alter."
+msgstr ""
+"T‰ss‰ tiedostossa asetetaan Choran oletusasetukset ja myˆs k‰ytt‰jien "
+"muutettavissa olevat asetukset."
+
+msgid ""
+"This file controls the stylesheet that is used to set colors and fonts in "
+"addition to or overriding Horde defaults."
+msgstr ""
+"T‰ss‰ tiedostossa asetetaan tyylim‰‰ritykset, joita k‰ytet‰‰n v‰rien ja "
+"kirjasimien asettamiseen Horden oletusten lis‰ksi."
+
+msgid ""
+"This file defines all of the cvs repositories that you wish Chora to display."
+msgstr ""
+"T‰ss‰ tiedostossa m‰‰ritell‰‰n kaikki cvs-talletuspaikat, joita haluat "
+"Choran n‰ytt‰v‰n."
+
+msgid "This file defines any special MIME-type handling for Chora."
+msgstr "T‰ss‰ tiedostossa m‰‰ritell‰‰n erityisi‰ MIME-tyyppej‰ Choraa varten."
+
+msgid ""
+"This is the main Chora configuration file. It contains paths and options for "
+"all Chora scripts."
+msgstr ""
+"T‰m‰ on Choran p‰‰asetustiedosto. Se sis‰lt‰‰ polut ja asetukset kaikille "
+"Choran tiedostoille."
+
+msgid "This number must be at least one."
+msgstr "T‰m‰n numeron t‰ytyy olla v‰hint‰‰n yksi."
+
+msgid "This value must be a number."
+msgstr "T‰m‰n arvon t‰ytyy olla numero."
+
+msgid "Tracking Branch"
+msgstr "Haaran eriytt‰minen"
+
+msgid "Type:"
+msgstr "Tyyppi:"
+
+msgid "Unified"
+msgstr "Yhdistetty"
+
+msgid "Unselect"
+msgstr "Poista valinta"
+
+msgid "Use Text Field"
+msgstr "K‰yt‰ tekstikentt‰‰"
+
+msgid "Use last viewed file or directory at login time"
+msgstr "K‰yt‰ viimeksi katsottua tiedostoa tai hakemistoa sis‰‰nkirjautuessa"
+
+msgid "User Options"
+msgstr "K‰ytt‰j‰n asetukset"
+
+msgid "View Branch"
+msgstr "N‰yt‰ haara"
+
+msgid "View revisions on:"
+msgstr "N‰yt‰ revisiot:"
+
+msgid "View"
+msgstr "N‰yt‰"
+
+msgid "Warning"
+msgstr "Varoitus"
+
+msgid "Your options have been updated."
+msgstr "Asetuksesi on p‰ivitetty."
+
+msgid "and:"
+msgstr "ja:"
+
+#, c-format
+msgid "by %s"
+msgstr ""
+
+msgid "changed lines"
+msgstr "muutettua rivi‰"
+
+msgid "day"
+msgstr "p‰iv‰"
+
+msgid "days"
+msgstr "p‰iv‰‰"
+
+msgid "for further information."
+msgstr "saadaksesi lis‰tietoja."
+
+msgid "hour"
+msgstr "tunti"
+
+msgid "hours"
+msgstr "tuntia"
+
+msgid "long"
+msgstr "pitk‰"
+
+msgid "minute"
+msgstr "minuutti"
+
+msgid "minutes"
+msgstr "minuuttia"
+
+msgid "month"
+msgstr "kuukausi"
+
+msgid "months"
+msgstr "kuukautta"
+
+#, c-format
+msgid "revision %s"
+msgstr "revisio %s"
+
+msgid "second"
+msgstr "sekunti"
+
+msgid "seconds"
+msgstr "sekunteja"
+
+msgid "unified"
+msgstr "yhdistetty"
+
+#, c-format
+msgid "version %s"
+msgstr "versio %s"
+
+msgid "very little time"
+msgstr "hyvin v‰h‰n aikaa"
+
+msgid "week"
+msgstr "viikko"
+
+msgid "weeks"
+msgstr "viikkoa"
+
+msgid "year"
+msgstr "vuosi"
+
+msgid "years"
+msgstr "vuotta"

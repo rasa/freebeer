@@ -1,0 +1,51 @@
+Chora
+Version 2.0
+
+What is Chora?
+--------------
+
+Chora is a web interface to viewing files, revisions, diffs, etc. from
+a CVS repository, written in PHP and utilizing the Horde Application
+Framework.
+
+This software is OSI Certified Open Source Software.
+OSI Certified is a certification mark of the Open Source Initiative.
+
+
+Release Documentation
+---------------------
+
+COPYING       - Copyright license (GPL)
+README        - This file
+docs/INSTALL  - Installation instructions and notes
+docs/CHANGES  - Changes, by release
+docs/CREDITS  - Development credits
+
+
+Installation
+------------
+
+Note: You must have the Horde package installed and configured
+      before you can install Chora. For more information, consult
+      the documentation in the Horde distribution.
+
+All Chora documentation is located in the docs/ subdirectory.  Start by
+reading the docs/INSTALL file.
+
+
+Need Help?
+----------
+
+If you run into problems during the installation, there are multiple
+resources as your disposal. It is highly suggested that you consult them
+in this order:
+
+    1)  The Chora documentation (located in the docs/ subdirectory).
+    2)  The mailing lists. More information at http://horde.org/mail/.
+
+Failing to read the documentation before asking a simple question answered
+therein will no doubt result in a less-than-welcome response from the mailing
+lists. You've been warned. =)
+
+The Chora Team
+chora@lists.horde.org

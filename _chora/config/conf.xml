@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!-- $Horde: chora/config/conf.xml,v 1.6 2004/03/02 10:13:49 jan Exp $ -->
+<configuration>
+
+ <configtab name="paths" desc="Paths and Locations">
+  <configsection name="paths">
+   <configheader>Paths and Locations</configheader>
+   <configdescription>Location of RCS and other binaries you must have installed as part of CVS</configdescription>
+   <configstring name="ci" desc="ci">/usr/bin/ci</configstring>
+   <configstring name="co" desc="co">/usr/bin/co</configstring>
+   <configstring name="rcs" desc="rcs">/usr/bin/rcs</configstring>
+   <configstring name="rcsdiff" desc="rcsdiff">/usr/bin/rcsdiff</configstring>
+   <configstring name="rlog" desc="rlog">/usr/bin/rlog</configstring>
+   <configstring name="cvs" desc="cvs">/usr/bin/cvs</configstring>
+
+   <configstring name="diff" desc="diff">/usr/bin/diff</configstring>
+   <configstring name="svn" desc="svn">/usr/bin/svn</configstring>
+
+   <configstring name="cvsps" required="false" desc="If you have cvsps installed, we can generate patchset information. You need at least version 2.0b6 of cvsps.">/usr/local/bin/cvsps</configstring>
+   <configstring name="cvsps_home" desc="Directory where the .cvsps cache files can be created - it must be writeable by the webserver.">/tmp</configstring>
+
+   <configstring name="cvsgraph" desc="If you have CvsGraph installed, we can generate repository graphs.">/usr/bin/cvsgraph</configstring>
+   <configphp name="cvsgraph_conf" desc="CvsGraph configuration file">dirname(__FILE__) . '/cvsgraph.conf'</configphp>
+  </configsection>
+ </configtab>
+
+ <configtab name="tickets" desc="Interaction with other systems">
+  <configsection name="tickets">
+   <configheader>Interaction with other systems</configheader>
+   <configstring name="regexp" required="false" desc="You can define a regular expression, or an
+    array of regexps, which if matched, will link a string to a
+    ticket-tracking/bug-tracking system. The replacement is the second argument
+    to preg_replace(), so you can backreference anything you match in the
+    matching regexp. 
+ Example: &lt;code&gt;&lt;nobr&gt;'|bug:? #?(\d+)|i'&lt;/nobr&gt;&lt;/code&gt;"/>
+   <configstring name="replacement" required="false" desc="Replacement string. Example: &lt;code&gt;&lt;nobr&gt;'&amp;lt;a href=&quot;http://bugs.example.com/show_bug.cgi?id=\1&quot;&amp;gt;\0&amp;lt;/a&amp;gt;'&lt;/nobr&gt;&lt;/code&gt;"/>
+  </configsection>
+ </configtab>
+
+ <configtab name="options" desc="Look And Feel Configuration">
+  <configsection name="options">
+   <configheader>Look And Feel Configuration</configheader>
+   <configstring name="adminName" desc="The name displayed in the page footer.
+   This is generally the name of the repository
+   administrator.">Webmaster</configstring>
+   <configstring name="adminEmail" desc="The email address displayed in the
+   page footer.">root@example.com</configstring>
+   <configinteger name="shortLogLength" desc="In the directory view, a short
+   summary of the last logentry is shown.  The value here determines how many
+   characters of this to show before truncating it, and appending '...' to
+   indicate there is more to show.">75</configinteger>
+   <configenum name="defaultsort" desc="In the directory view, set a default sort order.">VC_SORT_NAME
+    <values>
+     <value desc="no sort">VC_SORT_NONE</value>
+     <value desc="sort by age">VC_SORT_AGE</value>
+     <value desc="sort by filename">VC_SORT_NAME</value>
+     <value desc="sort by revision number">VC_SORT_REV</value>
+     <value desc="sort by author name">VC_SORT_AUTHOR</value>
+    </values>
+   </configenum>
+   <configboolean name="use_path_info" desc="Does your web server support the
+   PATH_INFO method of passing URL data (some Windows web servers do not)? 
+   If this option is unchecked, pathnames will be propagated using a GET
+   variable instead.">true</configboolean>
+  </configsection>
+
+  <configlist name="restrictions" required="false" desc="If you wish to protect
+   a file pattern on a global basis (i.e. across all sourceroots defined in
+   sourceroots.php) list the perl-style regex file patterns in this array. For
+   example: &lt;code&gt;&lt;nobr&gt;'^/?CVSROOT'&lt;/nobr&gt;&lt;/code&gt;"/>
+
+  <configboolean name="hide_restricted" desc="If you wish to hide restricted
+  files, check this option, and restricted files will not be
+  displayed.">true</configboolean>
+ </configtab>
+
+ <configtab name="menu" desc="Menu Settings">
+  <configsection name="menu">
+   <configheader>Menu Settings</configheader>
+   <configmultienum name="apps" desc="Select any applications that should be linked in Chora's menu">
+    <values>
+     <configspecial name="list-horde-apps" />
+    </values>
+   </configmultienum>
+  </configsection>
+ </configtab>
+</configuration>

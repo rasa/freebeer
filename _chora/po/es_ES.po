@@ -1,0 +1,331 @@
+# Chora Spanish translation.
+# Copyright (C) 2001 Julian Jares.
+# Julian Jares <jjares@techie.com>, 2001.
+# Raul Alvarez Venegas <rav@tecoman.ucol.mx>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Chora 2.0-cvs\n"
+"POT-Creation-Date: 2002-01-12 23:31-0600\n"
+"PO-Revision-Date: 2001-08-06 09:26-0300\n"
+"Last-Translator: Raul Alvarez Venegas <rav@tecoman.ucol.mx>\n"
+"Language-Team: Spanish <dev@horde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+msgid ""
+" This form allows you to request diffs between any two revisions of a file.  "
+"You may select a symbolic revision name using the selection box or you may "
+"type in a numeric name using the type-in text box."
+msgstr ""
+" Este formulario le permite solicitar diffs (diferencias) entre dos "
+"revisiones de un archivo.  Puede solicitar un nombre de revisión simbólico "
+"en la casilla de selección o puede escribir un nombre numérico usando la "
+"casilla de texto."
+
+#, c-format
+msgid "%s ago"
+msgstr "hace %s"
+
+#, c-format
+msgid "Added in v.%s"
+msgstr "Agregado en la v.%s"
+
+msgid "All Branches"
+msgstr "Todas las Ramas"
+
+msgid "Annotate"
+msgstr "Anotar"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Back"
+msgstr "Atrás"
+
+msgid "Branch Point for:"
+msgstr "Punto de Ramificación de:"
+
+msgid "Branch:"
+msgstr "Rama:"
+
+msgid "Branching to"
+msgstr "Ramificación"
+
+#, c-format
+msgid "CVS Annotation of %s for version %s"
+msgstr "Anotación del CVS para %s, versión %s"
+
+#, c-format
+msgid "CVS Branching View for %s"
+msgstr "Vista Ramificada del CVS para %s"
+
+#, c-format
+msgid "CVS Checkout of %s (revision %s)"
+msgstr "Inspección del CVS de %s (revisión %s)"
+
+#, c-format
+msgid "CVS Directory of /%s"
+msgstr "Directorio de /%s en CVS"
+
+#, c-format
+msgid "CVS Log for %s"
+msgstr "Registro Histórico del CVS para %s"
+
+msgid "CVS Tags:"
+msgstr "Etiquetas del CVS:"
+
+#, c-format
+msgid "Changed since <b>%s</b>"
+msgstr "Cambió desde <b>%s</b>"
+
+#, c-format
+msgid "Changed: %s"
+msgstr "Cambió: %s"
+
+msgid "Chora Homepage"
+msgstr "Página principal de Chora"
+
+msgid "Chora is not properly configured"
+msgstr "Chora no está correctamente configurado"
+
+msgid "Context"
+msgstr "Contexto"
+
+msgid "Couldn't perform checkout of the requested file"
+msgstr "No se pudo efectuar la inspección del archivo solicitado"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Deleted File"
+msgstr "Archivo Borrado"
+
+#, c-format
+msgid "Diff for %s between version %s and %s"
+msgstr "Diff de %s entre versión %s y %s"
+
+#, c-format
+msgid "Diffs ignoring whitespace to version %s"
+msgstr "Ignorar espacios en blanco en Diffs hasta la versión %s"
+
+#, c-format
+msgid "Diffs to selected version %s"
+msgstr "Diffs hasta la versión %s seleccionada"
+
+#, c-format
+msgid "Diffs to version %s"
+msgstr "Diffs hasta la versión %s"
+
+msgid "Directory"
+msgstr "Directorio"
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Ed Script"
+msgstr "Script Ed"
+
+msgid "Error Encountered"
+msgstr "Error Encontrado"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "File"
+msgstr "Archivo"
+
+msgid "Get Diffs"
+msgstr "Obtener Diffs"
+
+msgid "Hide Deleted Files"
+msgstr "Ocultar Archivos Borrados"
+
+msgid "Human Readable"
+msgstr "Legible por Ser Humano"
+
+msgid "Invalid revision number"
+msgstr "Número de revisión no válido"
+
+#, c-format
+msgid "Last Log Message for rev %s:"
+msgstr "Último Mensaje del Registro Histórico para la rev %s:"
+
+msgid "Last Log Message:"
+msgstr "Último Mensaje del Registro Histórico:"
+
+msgid "Last Log"
+msgstr "Último Registro Histórico"
+
+#, c-format
+msgid "Line %s"
+msgstr "Línea %s"
+
+msgid "Line"
+msgstr "Línea"
+
+msgid "Location:"
+msgstr "Ubicación:"
+
+msgid "No Viewable Change"
+msgstr "Cambio No Visible"
+
+msgid "Other Repositories"
+msgstr "Otros Depósitos"
+
+msgid "Parent Directory"
+msgstr "Directorio Anterior"
+
+msgid "Please contact"
+msgstr "Por favor contacte a"
+
+#, c-format
+msgid "Removed in v.%s"
+msgstr "Borrado en v.%s"
+
+msgid "Retrieve diffs between:"
+msgstr "Obtener diffs entre:"
+
+msgid "Rev"
+msgstr "Rev"
+
+msgid "Select for Diff"
+msgstr "Seleccionar para Diff"
+
+msgid "Show Deleted Files"
+msgstr "Mostrar Archivos Borrados"
+
+msgid "Side-by-Side"
+msgstr "Lado-a-Lado"
+
+msgid "Some of Chora's configuration files are missing:"
+msgstr "Faltan algunos archivos de configuración de Chora:"
+
+msgid "Sort Order"
+msgstr "Tipo de Orden"
+
+msgid "Switch to Branch View"
+msgstr "Cambiar a Vista Ramificada"
+
+msgid "Switch to Log View"
+msgstr "Cambiar a Vista del Histórico"
+
+msgid ""
+"This file controls the stylesheet that is used to set colors and fonts in "
+"addition to or overriding Horde defaults."
+msgstr ""
+"Este archivo controla la hoja de estilo utilizada para fijar los colores "
+"ytipos de letra, además anula las configuraciones por defecto de Horde."
+
+msgid ""
+"This file defines all of the cvs repositories that you wish Chora to display."
+msgstr ""
+"Este archivo define todos los depósitos de cvs que desee mostrar con Chora."
+
+msgid "This file defines any special MIME-type handling for Chora."
+msgstr ""
+"Este archivo define el manejo de cualquier tipo MIME especial para Chora."
+
+msgid ""
+"This is the main Chora configuration file. It contains paths and options for "
+"all Chora scripts."
+msgstr ""
+"Este es el archivo principal de configuración de Chora. Contiene rutas a "
+"archivos y opciones para los scripts de Chora."
+
+msgid "Tracking Branch"
+msgstr "Rama de Seguimiento"
+
+msgid "Type:"
+msgstr "Tipo:"
+
+msgid "Unified"
+msgstr "Unificado"
+
+msgid "Unselect"
+msgstr "Quitar selección"
+
+msgid "Use Text Field"
+msgstr "Usar Campos de Texto"
+
+msgid "View Branch"
+msgstr "Ver Rama"
+
+msgid "View revisions on:"
+msgstr "Ver revisiones en:"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "and:"
+msgstr "y:"
+
+#, c-format
+msgid "by %s"
+msgstr "por %s"
+
+msgid "changed lines"
+msgstr "líneas modificadas"
+
+msgid "day"
+msgstr "día"
+
+msgid "days"
+msgstr "días"
+
+msgid "for further information."
+msgstr "para mayor información."
+
+msgid "hour"
+msgstr "hora"
+
+msgid "hours"
+msgstr "horas"
+
+msgid "long"
+msgstr "de largo"
+
+msgid "minute"
+msgstr "minuto"
+
+msgid "minutes"
+msgstr "minutos"
+
+msgid "month"
+msgstr "mes"
+
+msgid "months"
+msgstr "meses"
+
+#, c-format
+msgid "revision %s"
+msgstr "revisión %s"
+
+msgid "second"
+msgstr "segundo"
+
+msgid "seconds"
+msgstr "segundos"
+
+msgid "unified"
+msgstr "unificado"
+
+#, c-format
+msgid "version %s"
+msgstr "versión %s"
+
+msgid "very little time"
+msgstr "muy poco tiempo"
+
+msgid "week"
+msgstr "semana"
+
+msgid "weeks"
+msgstr "semanas"
+
+msgid "year"
+msgstr "año"
+
+msgid "years"
+msgstr "años"
