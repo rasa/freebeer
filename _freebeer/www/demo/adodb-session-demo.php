@@ -95,18 +95,20 @@ foreach ($dirs as $dir) {
 
 $dirs[] = ADODB_DIR;
 
+$adodb_session_php = 'adodb-session.php';
+
 foreach ($dirs as $dir) {
-	if (is_file($dir . '/adodb-session.php')) {
+	if (is_file($dir . '/' . $adodb_session_php)) {
 		@define('ADODB_SESSION_CODE_DIR', $dir);
 		break;
 	}
 }
 
 if (!defined('ADODB_SESSION_CODE_DIR')) {
-	trigger_error(sprintf('Cannot find file: \'%s\'', adodb-session.php), E_USER_ERROR);
+	trigger_error(sprintf('Cannot find file: \'%s\'', $adodb_session_php), E_USER_ERROR);
 }
 
-include_once ADODB_SESSION_CODE_DIR . '/adodb-session.php';
+include_once ADODB_SESSION_CODE_DIR . '/' . $adodb_session_php;
 
 $title = 'ADODB Sessions';
 
