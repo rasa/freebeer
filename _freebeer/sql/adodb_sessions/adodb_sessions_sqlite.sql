@@ -1,8 +1,11 @@
--- $CVSHeader: _freebeer/sql/adodb_sessions/adodb_sessions_sqlite.sql,v 1.2 2004/03/07 17:51:25 ross Exp $
+-- $CVSHeader: _freebeer/bin/add_headers.php,v 1.2 2004/03/07 17:51:14 ross Exp $
 
 -- Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
 -- Licensed under the BSD or LGPL License. See license.txt for details.
 
+DROP TABLE sessions;
+
+CREATE TABLE sessions (
 	sesskey		CHAR(32)	NOT NULL DEFAULT '',
 	expiry		INT(11)		NOT NULL DEFAULT 0,
 	expireref	VARCHAR(64)	DEFAULT '',

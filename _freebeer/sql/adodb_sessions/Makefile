@@ -1,4 +1,7 @@
-# $Id$
+# $CVSHeader: _freebeer/bin/add_headers.php,v 1.2 2004/03/07 17:51:14 ross Exp $
+
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
 
 # [SQL::Translator] Error: translate: Error with producer 'SQL::Translator::Producer::ClassDBI': 
 # Class::DBI isn't going to like that you don't have a primary key field for table galaxia_activities at
