@@ -1,0 +1,37 @@
+
+ver   date       comment
+-----------------------
+1.00  22Aug2000  release
+1.01  06Sep2000  change location.href=url to location.replace(url) to help avoid history
+1.02  12Sep2000  comment out unique string to reduce history clutter
+1.03  22Sep2000  add jsrsEvalEscape so quotes and newlines in parms won't choke
+1.04  23Jan2001  ie4.x bug fix, debug utility: 
+  hidden iframes must be inserted in space which has been visibly rendered on screen.  
+  - moved insertion point to top of body to reduce/eliminate likelihood of this being unrendered space.
+  - changed DIV to SPAN to avoid line break insertion into page flow
+  added jsrsDebugInfo()
+  - see comment for instruction on how to use it
+1.05  06Feb2001  escape jsrsError return value, use try/catch in dispatch
+1.06  13Feb2001  added no-nonsense copyright and license, starting to plan for NS6
+
+1.1   14Feb2001  Mozilla/NS6 compatibility
+  - the code expects NS4, IE4+, or Mozilla (incl NS6).
+  - it's up to you to tell the user if they don't have the right browser.
+1.11  15Feb2001  NS6 was not reloading on recall 
+  - set src to '' before reloading
+  - thanks to Murray Cash
+1.12  26Feb2001  escaped & with &amp; on return so special chars not munged
+  - thanks to Denis Bos
+1.13  14Mar2001  re-added unique string to defeat cache
+1.2   04Apr2001  Added Perl CGI from Stephen Carroll
+1.3   04May2001  Added PHP 4 (linux+win32) support from Sébastien CRAMATTE & Pierre CAILLEUX (france)
+1.31  15May2001  fixed jsrsContextID() - was incrementing pool size before object ready
+2.0  26Jul2001  Added POST capability and jsrsPOST flag (defaults to true, use POST for non-NS4)
+2.1  10Jun2002  Fixed POST for Mozilla 1.0
+2.11 18Jun2002  auto-set php incoming vars in jsrsServer.php.inc
+2.12 08Sep2002  fixed parameters not being set when register_globals is off
+2.13 19Feb2003  Added python files from Laurent VASSEUR
+2.2  10Aug2003  Added Opera 7 compatibility from Nick Burch
+2.3  22OCT2003  Added Konqueror/Safari compatibility from Nick Burch
+     01FEB2004  Fixed typo in server-side code for all languages. - thanks to Tim Erickson.
+     

@@ -1,0 +1,102 @@
+<html>
+<head>
+  <title>JSRS Javascript Remote Scripting</title>
+  <script language="javascript" src="jsrsClient.js"></script>
+  <script language="javascript">
+    function test(thing){
+      jsrsPOST = document.forms['frmPost']['chkPost'].checked;
+      // pass multiple parms as array
+      jsrsExecute("test_rs.asp", myCallback, "test" + thing, Array("Test","String"));
+    }
+    function envVar(){
+      jsrsPOST = document.forms['frmPost']['chkPost'].checked;
+      // pass single parm as string
+      jsrsExecute("test_rs.asp", myCallback, "envVar", "ALL_HTTP");
+    }
+    function testPerl(){
+      jsrsPOST = document.forms['frmPost']['chkPost'].checked;
+      // pass multiple parms as array
+      jsrsExecute("test_rs.pl", myCallback, "testPerl", Array("Test","String"));
+    }
+    function testPHP(){
+      jsrsPOST = document.forms['frmPost']['chkPost'].checked;
+      // pass multiple parms as array
+      jsrsExecute("test_rs.php", myCallback, "test", Array("Test","String"));
+    }
+    function myCallback( returnstring ){
+      alert(returnstring);
+    } 
+  </script>
+</head>
+<body onHelp="return jsrsDebugInfo();" bgcolor="ddddff">
+  <font face="arial">
+  <p>Javascript Remote Scripting Example</p>
+  <p><small>(in IE, you can press F1 to see jsrs debugging info)</small></p>
+  <p>
+  <form name="frmPost">
+    use POST: <input name="chkPost" type="checkbox">
+  </form>
+  <form onsubmit="test('JS');return false;">
+    <input type="submit" value="test JS">
+  </form>
+  <form onsubmit="test('VB');return false;">
+    <input type="submit" value="test VB">
+  </form>
+  <form onsubmit="test('PS');return false;">
+    <input type="submit" value="test PerlScript (ASP)">
+  </form>
+  <form onsubmit="testPerl();return false;">
+    <input type="submit" value="test Perl (CGI)">
+  </form>
+  <form onsubmit="testPHP();return false;">
+    <input type="submit" value="test PHP">
+  </form>
+  <form onsubmit="envVar();return false;">
+    <input type="submit" value="envVar">
+  </form>
+  </p>
+  <a href="test_rs.asp.htm">View</a> the source for test_rs.asp </a><br>
+  <a href="test_rs.pl.txt">View</a> the source for test_rs.pl </a><br>
+  <a href="test_rs.php.txt">View</a> the source for test_rs.php </a><br>
+  
+  <br>
+ 
+  <p><a href=jsrs20.zip>Download</a> the zipped files for JSRS 2.0</p>
+  <p>
+  Seems that Mozilla 0.91 works but 0.92 doesn't.  I've spent some time looking at it and it's either that
+  0.92 is broken or that they have decided that some things I'm doing don't fit with the DOM model and no 
+  longer support them.  I could figure out which, but it's obviously a moving target, so it would probably 
+  be wasted time.  HEY MOZILLA.ORG!! STABILIZE THIS FRICKIN THING AND THEN RELEASE IT ALREADY!!! (Like I could
+  do any better).
+  </p>
+  <p>
+  If the new POST stuff gives you trouble, <a href=jsrs131.zip>Download</a> the zipped files for JSRS 1.31
+  </p>
+  
+  <p>
+    It's nice to see there have been quite a few downloads.  
+    I'd be happy to hear about your experiences with JSRS, good and bad, 
+   and to hear how you are using it in real-world applications.  
+  </p>
+  <p> 
+   I'm particularly interested in hearing from folks who would 
+   like to provide other implementations of the server-side code 
+   - we already have support for ASP, Perl, PHP, JSP.
+  </p>
+  <p>
+    Just drop me an <a href="mailto:jsrs@megahuge.com">email</a> with any
+    comments.
+  </p>
+  
+  <p><b>You may also want to take a look at my <a href=select/select.asp>Select Box</a> demo.</b><p>
+  
+  <hr>
+  Immediate Code Execution Form:<br>
+  <form onsubmit="eval(this.txtcode.value); return false;">
+    <textarea name="txtcode" rows="5" cols="50">alert(jsrsContextPoolSize);</textarea>
+    <input type=submit value="evaluate code">  
+  </form>
+
+  </font>
+</body>
+</html>
