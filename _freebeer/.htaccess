@@ -7,5 +7,6 @@
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteRule ^(.*)$ www$1 [L,QSA]
+	RewriteCond   %{REQUEST_URI}  !^/www.*
+	RewriteRule ^(.*)$ www/$1 [L,QSA]
 </IfModule>
