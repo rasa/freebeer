@@ -1,11 +1,12 @@
 # $CVSHeader: _freebeer/www/.htaccess,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
 
+# \todo clean this mess up!
+# \todo test this to make sure it works
+
 <Files ~ "^\.cvs[ignore|wrappers]$">
 	Order deny,allow
 	Deny from all
 </Files>
-
-# \todo test this to make sure it works
 
 # disallow everything
 #<FilesMatch ".">
@@ -85,33 +86,3 @@ ErrorDocument 500 /error.php
 
 Options +MultiViews
 DirectoryIndex index index.php index.html
-
-# SCRIPT_URL=/u/rse/
-# SCRIPT_URI=http://en1.engelschall.com/u/rse/
-
-<IfModule mod_rewrite.c>
-	RewriteEngine on
-#	requires 1.3.28
-#	RewriteOptions MaxRedirects=10
-
-#	RewriteCond %{PATH_INFO}  !^$
-#	RewriteRule .* - [E=X_PATH_INFO:%{PATH_INFO}]
-
-#	RewriteCond %{REQUEST_URI}  !PATH_INFO
-#	RewriteCond %{PATH_INFO}  (.+)
-#	RewriteRule (.*) $1PATH_INFO=%1 [L,E=X_PATH_INFO:%{PATH_INFO}]
-
-#	RewriteCond %{QUERY_STRING}  !^$
-#	RewriteRule ^([^?]*) $1 [L,E=X_QUERY_STRING:%{QUERY_STRING}]
-
-#	RewriteCond %{PATH_INFO}  !^$
-
-#	RewriteRule ^(.*)%{ENV:PATH_INFO}$ $1 [E=QSA:%{QUERY_STRING}]
-
-#	RewriteRule .* - [E=PATH_INFO:0]
-#	RewriteRule .* - [L,E=X_PATH_INFO:%{ENV:PATH_INFO}]
-
-#	RewriteCond %{PATH_INFO}  !^$
-#	RewriteRule ^(.*)$ $1 [L]
-#	RewriteRule ^/(.*)$ /$1 [L,E=X_PATH_INFO:1]
-</IfModule>

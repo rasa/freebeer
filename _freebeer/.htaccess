@@ -1,12 +1,28 @@
-# Deny from all
+# $CVSHeader$
 
-# You should set Apache's DocumentRoot to be the /www directory.
+# For optimal performance, you should set Apache's DocumentRoot to be the www directory
+# in httpd.conf, or apache2.conf.  For example:
+#
+# <VirtualHost example.com>
+#   ServerName example.com
+#   DocumentRoot /home/mylogin/freebeer/www
+#   ServerAdmin webmaster@example.com
+# </VirtualHost>
 
-# If you are unable to do this, then this file will redirect all
-# requests to the /www directory.
+# If you are unable to do this, then assuming the rewrite is loaded,
+# the following rewrite rules will redirect all requests to the /www directory:
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteCond   %{REQUEST_URI}  !^/www.*
-	RewriteRule ^(.*)$ www/$1 [L,QSA]
+	RewriteCond %{REQUEST_URI} (.*)
+	RewriteRule !/www/ /www%1 [L] 
 </IfModule>
+
+# If mod_rewrite isn't available, then you will need to 
+# rename index.php.redirect to index.php.
+#
+# Note: using this last solution, all links in the website will need to be 
+# relative links. Absolute links will *not* work, using this solution.
+
+# Added so update_htaccess.php doesn't add it:
+# Deny from all

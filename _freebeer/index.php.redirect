@@ -1,0 +1,20 @@
+<?php
+
+// $CVSHeader$
+
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
+
+$doc_root = 'www/';
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <meta http-equiv="Refresh" content="0; url=<?php echo $doc_root ?>">
+  <title></title>
+ </head>
+<body>
+Please <a href="<?php echo $doc_root ?>">click here</a> to go to <a href="<?php echo $doc_root ?>"><?php echo $doc_root ?></a>.
+</body>
+</html>
