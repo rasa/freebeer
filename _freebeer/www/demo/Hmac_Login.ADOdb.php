@@ -25,7 +25,7 @@ echo html_header_demo($title,  null, array('../opt/pajhome.org.uk/md5.js', '../l
 $hmac_login = &new fbHMAC_Login_ADOdb();
 
 /// \todo add as fields on from with a connect button
-if (!$hmac_login->connect('localhost', 'root', '', 'hmac_login')) {
+if (!$hmac_login->connect('localhost', 'root', '', 'hmac_login', 'mysqlt')) {
 	echo $hmac_login->getLastError();
 	exit;
 }
