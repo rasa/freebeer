@@ -146,7 +146,7 @@ class DB_msql extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -168,7 +168,7 @@ class DB_msql extends DB_common
             $arr = @msql_fetch_row($result);
         }
         if (!$arr) {
-            if ($error = msql_error()) {
+            if ($error = @msql_error()) {
                 return $this->raiseError($error);
             } else {
                 return null;

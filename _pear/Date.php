@@ -14,7 +14,7 @@
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
 // | Authors: Baba Buehler <baba@babaz.com>                               |
-// |                                                                      |
+// |          Pierre-Alain Joye <pajoye@php.net>                          |
 // +----------------------------------------------------------------------+
 //
 // $Id$
@@ -42,6 +42,10 @@ define('DATE_FORMAT_ISO_BASIC', 2);
  * "YYYY-MM-SSTHH:MM:SS(Z|(+/-)HH:MM)?"
  */
 define('DATE_FORMAT_ISO_EXTENDED', 3);
+/**
+ * "YYYY-MM-SSTHH:MM:SS(.S*)?(Z|(+/-)HH:MM)?"
+ */
+define('DATE_FORMAT_ISO_EXTENDED_MICROTIME', 6);
 /**
  * "YYYYMMDDHHMMSS"
  */
@@ -96,6 +100,11 @@ class Date
      */
     var $second;
     /**
+     * the parts of a second
+     * @var float
+     */
+    var $partsecond;
+    /**
      * timezone for this date
      * @var object Date_TimeZone
      */
@@ -121,10 +130,7 @@ class Date
         $this->tz = Date_TimeZone::getDefault();
         if (is_null($date)) {
             $this->setDate(date("Y-m-d H:i:s"));
-        } elseif (is_object($date) && 
-            ((get_class($date) == 'date') ||
-            (is_subclass_of($date,'date')))
-        ) {
+        } elseif (is_a($date, 'Date')) {
             $this->copy($date);
         } else {
             $this->setDate($date);
@@ -147,7 +153,7 @@ class Date
     {
 
         if (
-            preg_match('/^(\d{4})-?(\d{2})-?(\d{2})([T\s]?(\d{2}):?(\d{2}):?(\d{2})(Z|[\+\-]\d{2}:?\d{2})?)?$/i', $date, $regs)
+            preg_match('/^(\d{4})-?(\d{2})-?(\d{2})([T\s]?(\d{2}):?(\d{2}):?(\d{2})(\.\d+)?(Z|[\+\-]\d{2}:?\d{2})?)?$/i', $date, $regs)
             && $format != DATE_FORMAT_UNIXTIME) {
             // DATE_FORMAT_ISO, ISO_BASIC, ISO_EXTENDED, and TIMESTAMP
             // These formats are extremely close to each other.  This regex
@@ -155,30 +161,32 @@ class Date
             // throw at it.  e.g. 2003-10-07 19:45:15 and 2003-10071945:15
             // are the same thing in the eyes of this regex, even though the
             // latter is not a valid ISO 8601 date.
-            $this->year   = $regs[1];
-            $this->month  = $regs[2];
-            $this->day    = $regs[3];
-            $this->hour   = isset($regs[5])?$regs[5]:0;
-            $this->minute = isset($regs[6])?$regs[6]:0;
-            $this->second = isset($regs[7])?$regs[7]:0;
+            $this->year       = $regs[1];
+            $this->month      = $regs[2];
+            $this->day        = $regs[3];
+            $this->hour       = isset($regs[5])?$regs[5]:0;
+            $this->minute     = isset($regs[6])?$regs[6]:0;
+            $this->second     = isset($regs[7])?$regs[7]:0;
+            $this->partsecond = isset($regs[8])?(float)$regs[8]:(float)0;
 
             // if an offset is defined, convert time to UTC
             // Date currently can't set a timezone only by offset,
             // so it has to store it as UTC
-            if (isset($regs[8])) {
-                $this->toUTCbyOffset($regs[8]);
+            if (isset($regs[9])) {
+                $this->toUTCbyOffset($regs[9]);
             }
         } elseif (is_numeric($date)) {
             // UNIXTIME
             $this->setDate(date("Y-m-d H:i:s", $date));
         } else {
             // unknown format
-            $this->year   = 0;
-            $this->month  = 1;
-            $this->day    = 1;
-            $this->hour   = 0;
-            $this->minute = 0;
-            $this->second = 0;
+            $this->year       = 0;
+            $this->month      = 1;
+            $this->day        = 1;
+            $this->hour       = 0;
+            $this->minute     = 0;
+            $this->second     = 0;
+            $this->partsecond = (float)0;
         }
     }
 
@@ -207,6 +215,13 @@ class Date
             break;
         case DATE_FORMAT_ISO_EXTENDED:
             $format = "%Y-%m-%dT%H:%M:%S";
+            if ($this->tz->getID() == 'UTC') {
+                $format .= "Z";
+            }
+            return $this->format($format);
+            break;
+        case DATE_FORMAT_ISO_EXTENDED_MICROTIME:
+            $format = "%Y-%m-%dT%H:%M:%s";
             if ($this->tz->getID() == 'UTC') {
                 $format .= "Z";
             }
@@ -269,6 +284,7 @@ class Date
      *  <code>%P  </code>  either 'AM' or 'PM' depending on the time <br>
      *  <code>%r  </code>  time in am/pm notation, same as "%I:%M:%S %p" <br>
      *  <code>%R  </code>  time in 24-hour notation, same as "%H:%M" <br>
+     *  <code>%s  </code>  seconds including the decimal representation smaller than one second <br>
      *  <code>%S  </code>  seconds as a decimal number (00 to 59) <br>
      *  <code>%t  </code>  tab character (\t) <br>
      *  <code>%T  </code>  current time, same as "%H:%M:%S" <br>
@@ -367,6 +383,9 @@ class Date
                 case "R":
                     $output .= sprintf("%02d:%02d", $this->hour, $this->minute);
                     break;
+                case "s":
+                    $output .= sprintf("%02f", (float)((float)$this->second + $this->partsecond));
+                    break;
                 case "S":
                     $output .= sprintf("%02d", $this->second);
                     break;
@@ -435,7 +454,7 @@ class Date
      */
     function setTZ($tz)
     {
-    	if(is_a($tz, 'date_timezone')) {
+    	if(is_a($tz, 'Date_Timezone')) {
         	$this->tz = $tz;
     	} else {
     		$this->setTZbyID($tz);
@@ -917,10 +936,10 @@ class Date
      * @param boolean $abbr abbrivate the name
      * @return string name of this day
      */
-    function getDayName($abbr = false)
+    function getDayName($abbr = false, $length = 3)
     {
         if ($abbr) {
-            return Date_Calc::getWeekdayAbbrname($this->day, $this->month, $this->year);
+            return Date_Calc::getWeekdayAbbrname($this->day, $this->month, $this->year, $length);
         } else {
             return Date_Calc::getWeekdayFullname($this->day, $this->month, $this->year);
         }
@@ -1053,7 +1072,7 @@ class Date
      */
     function getDay()
     {
-        return $this->day;
+        return (int)$this->day;
     }
 
     /**

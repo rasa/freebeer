@@ -20,54 +20,6 @@
 //
 // $Id$
 
-
-// SQLite function set:
-//   sqlite_open, sqlite_popen, sqlite_close, sqlite_query
-//   sqlite_libversion, sqlite_libencoding, sqlite_changes
-//   sqlite_num_rows, sqlite_num_fields, sqlite_field_name, sqlite_seek
-//   sqlite_escape_string, sqlite_busy_timeout, sqlite_last_error
-//   sqlite_error_string, sqlite_unbuffered_query, sqlite_create_aggregate
-//   sqlite_create_function, sqlite_last_insert_rowid, sqlite_fetch_array
-//
-// Formatting:
-//   # astyle --style=kr < sqlite.php > out.php
-//
-// Status:
-//   EXPERIMENTAL
-
-
-/*
- * Example:
- *
-<?php
-
-    require_once 'DB.php';
-
-    // Define a DSN
-    $dsn = 'sqlite://dummy:@localhost/' . getcwd() . '/test.db?mode=0644';
-
-    $db = DB::connect($dsn, false);
-
-    // Give a new table name
-    $table = 'tbl_' .  md5(uniqid(rand()));
-    $table = substr($table, 0, 10);
-
-    // Create a new table
-    $result = $db->query("CREATE TABLE $table (comment varchar(50),
-      datetime varchar(50));");
-    $result = $db->query("INSERT INTO $table VALUES ('Date and Time', '" .
-      date('Y-m-j H:i:s') . "');");
-
-    // Get results
-    printf("affectedRows:\t\t%s\n", $db->affectedRows());
-    $result = $db->query("SELECT FROM $table;");
-    $arr = $db->fetchRow($result);
-    print_r($arr);
-    $db->disconnect();
-?>
- *
- */
-
 require_once 'DB/common.php';
 
 /**
@@ -205,7 +157,7 @@ class DB_sqlite extends DB_common
      * Log out and disconnect from the database.
      *
      * @access public
-     * @return bool TRUE on success, FALSE if not connected.
+     * @return bool true on success, false if not connected.
      * @todo fix return values
      */
     function disconnect()
@@ -286,7 +238,7 @@ class DB_sqlite extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -300,12 +252,12 @@ class DB_sqlite extends DB_common
             }
         }
         if ($fetchmode & DB_FETCHMODE_ASSOC) {
-            $arr = sqlite_fetch_array($result, SQLITE_ASSOC);
+            $arr = @sqlite_fetch_array($result, SQLITE_ASSOC);
             if ($this->options['portability'] & DB_PORTABILITY_LOWERCASE && $arr) {
                 $arr = array_change_key_case($arr, CASE_LOWER);
             }
         } else {
-            $arr = sqlite_fetch_array($result, SQLITE_NUM);
+            $arr = @sqlite_fetch_array($result, SQLITE_NUM);
         }
         if (!$arr) {
             /* See: http://bugs.php.net/bug.php?id=22328 */
@@ -333,7 +285,7 @@ class DB_sqlite extends DB_common
      *
      * @param $result SQLite result identifier
      * @access public
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freeResult(&$result)
     {
@@ -389,7 +341,7 @@ class DB_sqlite extends DB_common
      */
     function affectedRows()
     {
-        return sqlite_changes($this->connection);
+        return @sqlite_changes($this->connection);
     }
 
     // }}}
@@ -516,10 +468,10 @@ class DB_sqlite extends DB_common
         do {
             $repeat = 0;
             $this->pushErrorHandling(PEAR_ERROR_RETURN);
-            $result = $this->query("INSERT INTO $seqname VALUES (NULL)");
+            $result = $this->query("INSERT INTO $seqname (id) VALUES (NULL)");
             $this->popErrorHandling();
-            if ($result == DB_OK) {
-                $id = sqlite_last_insert_rowid($this->connection);
+            if ($result === DB_OK) {
+                $id = @sqlite_last_insert_rowid($this->connection);
                 if ($id != 0) {
                     return $id;
                 }
@@ -551,7 +503,7 @@ class DB_sqlite extends DB_common
      */
     function getSpecialQuery($type, $args=array())
     {
-        if(!is_array($args))
+        if (!is_array($args))
             return $this->raiseError('no key specified', null, null, null,
                                      'Argument has to be an array.');
         switch (strtolower($type)) {
@@ -605,7 +557,7 @@ class DB_sqlite extends DB_common
 
                 // This is a dirty hack, since the above query will no get executed with a single
                 // query call; so here the query method will be called directly and return a select instead.
-                foreach($q as $query) {
+                foreach ($q as $query) {
                     $this->query($query);
                 }
                 return "SELECT * FROM {$args['table']};";
@@ -626,7 +578,7 @@ class DB_sqlite extends DB_common
      *
      * @param string $arg Array key for stats()
      * @return mixed array on an unspecified key, integer on a passed arg and
-     * FALSE at a stats error.
+     * false at a stats error.
      */
     function getDbFileStats($arg = '')
     {
@@ -635,7 +587,7 @@ class DB_sqlite extends DB_common
             return false;
         }
         if (is_array($stats)) {
-            if(is_numeric($arg)) {
+            if (is_numeric($arg)) {
                 if (((int)$arg <= 12) & ((int)$arg >= 0)) {
                     return false;
                 }
@@ -649,9 +601,32 @@ class DB_sqlite extends DB_common
     }
 
     // }}}
+    // {{{ escapeSimple()
+
+    /**
+     * Escape a string according to the current DBMS's standards
+     *
+     * In SQLite, this makes things safe for inserts/updates, but may
+     * cause problems when performing text comparisons against columns
+     * containing binary data. See the
+     * {@link http://php.net/sqlite_escape_string PHP manual} for more info.
+     *
+     * @param string $str  the string to be escaped
+     *
+     * @return string  the escaped string
+     *
+     * @since 1.6.1
+     * @see DB_common::escapeSimple()
+     * @internal
+     */
+    function escapeSimple($str) {
+        return @sqlite_escape_string($str);
+    }
+
+    // }}}
     // {{{ modifyLimitQuery()
 
-    function modifyLimitQuery($query, $from, $count)
+    function modifyLimitQuery($query, $from, $count, $params = array())
     {
         $query = $query . " LIMIT $count OFFSET $from";
         return $query;

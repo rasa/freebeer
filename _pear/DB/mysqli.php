@@ -13,17 +13,12 @@
 // | obtain it through the world-wide-web, please send a note to          |
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Author: Chaillan Nicolas <nicos@php.net>                             |
-// | Based on mysql.php by Stig Bakken <ssb@php.net>                      |
-// | Maintainer: Daniel Convissor <danielc@php.net>                       |
+// | Author: Daniel Convissor <danielc@php.net>                           |
 // +----------------------------------------------------------------------+
 //
 // $Id$
 
 
-// NOTE:  The tableInfo() method must be redone because the functions it
-// relies on no longer exist in the new extension.
-//
 // EXPERIMENTAL
 
 
@@ -40,7 +35,8 @@ require_once 'DB/common.php';
  * @package  DB
  * @version  $Id$
  * @category Database
- * @author   Chaillan Nicolas <nicos@php.net>
+ * @author   Daniel Convissor <danielc@php.net>
+ * @since    Class functional since Release 1.6.3
  */
 class DB_mysqli extends DB_common
 {
@@ -55,6 +51,61 @@ class DB_mysqli extends DB_common
     var $autocommit = true;
     var $fetchmode = DB_FETCHMODE_ORDERED; /* Default fetch mode */
     var $_db = false;
+
+    /**
+     * Array for converting MYSQLI_*_FLAG constants to text values
+     * @var    array
+     * @access public
+     * @since  Property available since Release 1.6.5
+     */
+    var $mysqli_flags = array(
+        MYSQLI_NOT_NULL_FLAG        => 'not_null',
+        MYSQLI_PRI_KEY_FLAG         => 'primary_key',
+        MYSQLI_UNIQUE_KEY_FLAG      => 'unique_key',
+        MYSQLI_MULTIPLE_KEY_FLAG    => 'multiple_key',
+        MYSQLI_BLOB_FLAG            => 'blob',
+        MYSQLI_UNSIGNED_FLAG        => 'unsigned',
+        MYSQLI_ZEROFILL_FLAG        => 'zerofill',
+        MYSQLI_AUTO_INCREMENT_FLAG  => 'auto_increment',
+        MYSQLI_TIMESTAMP_FLAG       => 'timestamp',
+        MYSQLI_SET_FLAG             => 'set',
+        // MYSQLI_NUM_FLAG             => 'numeric',  // unnecessary
+        // MYSQLI_PART_KEY_FLAG        => 'multiple_key',  // duplicatvie
+        MYSQLI_GROUP_FLAG           => 'group_by'
+    );
+
+    /**
+     * Array for converting MYSQLI_TYPE_* constants to text values
+     * @var    array
+     * @access public
+     * @since  Property available since Release 1.6.5
+     */
+    var $mysqli_types = array(
+        MYSQLI_TYPE_DECIMAL     => 'decimal',
+        MYSQLI_TYPE_TINY        => 'tinyint',
+        MYSQLI_TYPE_SHORT       => 'int',
+        MYSQLI_TYPE_LONG        => 'int',
+        MYSQLI_TYPE_FLOAT       => 'float',
+        MYSQLI_TYPE_DOUBLE      => 'double',
+        // MYSQLI_TYPE_NULL        => 'DEFAULT NULL',  // let flags handle it
+        MYSQLI_TYPE_TIMESTAMP   => 'timestamp',
+        MYSQLI_TYPE_LONGLONG    => 'bigint',
+        MYSQLI_TYPE_INT24       => 'mediumint',
+        MYSQLI_TYPE_DATE        => 'date',
+        MYSQLI_TYPE_TIME        => 'time',
+        MYSQLI_TYPE_DATETIME    => 'datetime',
+        MYSQLI_TYPE_YEAR        => 'year',
+        MYSQLI_TYPE_NEWDATE     => 'date',
+        MYSQLI_TYPE_ENUM        => 'enum',
+        MYSQLI_TYPE_SET         => 'set',
+        MYSQLI_TYPE_TINY_BLOB   => 'tinyblob',
+        MYSQLI_TYPE_MEDIUM_BLOB => 'mediumblob',
+        MYSQLI_TYPE_LONG_BLOB   => 'longblob',
+        MYSQLI_TYPE_BLOB        => 'blob',
+        MYSQLI_TYPE_VAR_STRING  => 'varchar',
+        MYSQLI_TYPE_STRING      => 'char',
+        MYSQLI_TYPE_GEOMETRY    => 'geometry',
+    );
 
     // }}}
     // {{{ constructor
@@ -83,6 +134,7 @@ class DB_mysqli extends DB_common
             1008 => DB_ERROR_CANNOT_DROP,
             1022 => DB_ERROR_ALREADY_EXISTS,
             1046 => DB_ERROR_NODBSELECTED,
+            1048 => DB_ERROR_CONSTRAINT,
             1050 => DB_ERROR_ALREADY_EXISTS,
             1051 => DB_ERROR_NOSUCHTABLE,
             1054 => DB_ERROR_NOSUCHFIELD,
@@ -91,8 +143,8 @@ class DB_mysqli extends DB_common
             1100 => DB_ERROR_NOT_LOCKED,
             1136 => DB_ERROR_VALUE_COUNT_ON_ROW,
             1146 => DB_ERROR_NOSUCHTABLE,
-            1048 => DB_ERROR_CONSTRAINT,
             1216 => DB_ERROR_CONSTRAINT,
+            1217 => DB_ERROR_CONSTRAINT,
         );
     }
 
@@ -115,36 +167,44 @@ class DB_mysqli extends DB_common
         }
 
         $this->dsn = $dsninfo;
-        if ($dsninfo['protocol'] && $dsninfo['protocol'] == 'unix') {
-            $dbhost = ':' . $dsninfo['socket'];
-        } else {
-            $dbhost = $dsninfo['hostspec'] ? $dsninfo['hostspec'] : 'localhost';
-            if ($dsninfo['port']) {
-                $dbhost .= ':' . $dsninfo['port'];
-            }
-        }
-
-        $ssl_mode = $this->getOption('ssl') === true ? 'CLIENT_SSL' : NULL;
-
+        $conn      = false;
         @ini_set('track_errors', true);
 
-        if ($dbhost && $dsninfo['username'] && $dsninfo['password']) {
-            // Need to verify if arguments are okay
-            $conn = @mysqli_connect($dbhost, $dsninfo['username'],
-                                    $dsninfo['password'], $ssl_mode);
-        } elseif ($dbhost && isset($dsninfo['username'])) {
-            $conn = @mysqli_connect($dbhost, $dsninfo['username'], NULL,
-                                    $ssl_mode);
-        } elseif ($dbhost) {
-            $conn = @mysqli_connect($dbhost, NULL, NULL, $ssl_mode);
+        if ($this->getOption('ssl') === true) {
+            $init = mysqli_init();
+            mysqli_ssl_set(
+                $init,
+                empty($dsninfo['key'])    ? null : $dsninfo['key'],
+                empty($dsninfo['cert'])   ? null : $dsninfo['cert'],
+                empty($dsninfo['ca'])     ? null : $dsninfo['ca'],
+                empty($dsninfo['capath']) ? null : $dsninfo['capath'],
+                empty($dsninfo['cipher']) ? null : $dsninfo['cipher']
+            );
+            if ($conn = @mysqli_real_connect($init,
+                                             $dsninfo['hostspec'],
+                                             $dsninfo['username'],
+                                             $dsninfo['password'],
+                                             $dsninfo['database'],
+                                             $dsninfo['port'],
+                                             $dsninfo['socket']))
+            {
+                $conn = $init;
+            }
         } else {
-            $conn = false;
+            $conn = @mysqli_connect(
+                $dsninfo['hostspec'],
+                $dsninfo['username'],
+                $dsninfo['password'],
+                $dsninfo['database'],
+                $dsninfo['port'],
+                $dsninfo['socket']
+            );
         }
 
         @ini_restore('track_errors');
 
         if (!$conn) {
-            if (($err = @mysqli_error()) != '') {
+            if (($err = @mysqli_connect_error()) != '') {
                 return $this->raiseError(DB_ERROR_CONNECT_FAILED, null, null,
                                          null, $err);
             } elseif (empty($php_errormsg)) {
@@ -156,27 +216,7 @@ class DB_mysqli extends DB_common
         }
 
         if ($dsninfo['database']) {
-            if (!@mysqli_select_db($dsninfo['database'], $conn)) {
-                switch(mysqli_errno($conn)) {
-                    case 1049:
-                        return $this->raiseError(DB_ERROR_NOSUCHDB, null, null,
-                                                 null, mysqli_error($conn));
-                    case 1044:
-                         return $this->raiseError(DB_ERROR_ACCESS_VIOLATION, null, null,
-                                                  null, mysqli_error($conn));
-                    default:
-                        return $this->raiseError(DB_ERROR, null, null,
-                                                 null, mysqli_error($conn));
-                }
-            }
-            // fix to allow calls to different databases in the same script
             $this->_db = $dsninfo['database'];
-        }
-
-        if ($this->options['portability'] & DB_PORTABILITY_ERRORS) {
-            $this->errorcode_map[1022] = DB_ERROR_CONSTRAINT;
-            $this->errorcode_map[1048] = DB_ERROR_CONSTRAINT_NOT_NULL;
-            $this->errorcode_map[1062] = DB_ERROR_CONSTRAINT;
         }
 
         $this->connection = $conn;
@@ -189,12 +229,12 @@ class DB_mysqli extends DB_common
     /**
      * Log out and disconnect from the database.
      *
-     * @return boolean TRUE on success, FALSE if not connected
+     * @return boolean true on success, false if not connected
      * @access public
      */
     function disconnect()
     {
-        $ret = mysqli_close($this->connection);
+        $ret = @mysqli_close($this->connection);
         $this->connection = null;
         return $ret;
     }
@@ -218,30 +258,33 @@ class DB_mysqli extends DB_common
         $this->last_query = $query;
         $query = $this->modifyQuery($query);
         if ($this->_db) {
-            if (!@mysqli_select_db($this->_db, $this->connection)) {
+            if (!@mysqli_select_db($this->connection, $this->_db)) {
                 return $this->mysqlRaiseError(DB_ERROR_NODBSELECTED);
             }
         }
         if (!$this->autocommit && $ismanip) {
             if ($this->transaction_opcount == 0) {
-                $result = @mysqli_query('SET AUTOCOMMIT=0', $this->connection);
-                $result = @mysqli_query('BEGIN', $this->connection);
+                $result = @mysqli_query($this->connection, 'SET AUTOCOMMIT=0');
+                $result = @mysqli_query($this->connection, 'BEGIN');
                 if (!$result) {
                     return $this->mysqlRaiseError();
                 }
             }
             $this->transaction_opcount++;
         }
-        $result = @mysqli_query($query, $this->connection);
+        $result = @mysqli_query($this->connection, $query);
         if (!$result) {
             return $this->mysqlRaiseError();
         }
-        if (is_resource($result)) {
+# this next block is still sketchy..
+        if (is_object($result)) {
             $numrows = $this->numrows($result);
             if (is_object($numrows)) {
                 return $numrows;
             }
-            $this->num_rows[(int)$result] = $numrows;
+# need to come up with different means for next line
+# since $result is object (int)$result won't fly...
+//            $this->num_rows[(int)$result] = $numrows;
             return $result;
         }
         return DB_OK;
@@ -279,7 +322,7 @@ class DB_mysqli extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -303,7 +346,7 @@ class DB_mysqli extends DB_common
         if (!$arr) {
             $errno = @mysqli_errno($this->connection);
             if (!$errno) {
-                return NULL;
+                return null;
             }
             return $this->mysqlRaiseError($errno);
         }
@@ -328,12 +371,14 @@ class DB_mysqli extends DB_common
      * Free the internal resources associated with $result.
      *
      * @param resource $result MySQL result identifier
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      * @access public
      */
     function freeResult($result)
     {
-        unset($this->num_rows[(int)$result]);
+# need to come up with different means for next line
+# since $result is object (int)$result won't fly...
+//        unset($this->num_rows[(int)$result]);
         return @mysqli_free_result($result);
     }
 
@@ -403,12 +448,12 @@ class DB_mysqli extends DB_common
     {
         if ($this->transaction_opcount > 0) {
             if ($this->_db) {
-                if (!@mysqli_select_db($this->_db, $this->connection)) {
+                if (!@mysqli_select_db($this->connection, $this->_db)) {
                     return $this->mysqlRaiseError(DB_ERROR_NODBSELECTED);
                 }
             }
-            $result = @mysqli_query('COMMIT', $this->connection);
-            $result = @mysqli_query('SET AUTOCOMMIT=1', $this->connection);
+            $result = @mysqli_query($this->connection, 'COMMIT');
+            $result = @mysqli_query($this->connection, 'SET AUTOCOMMIT=1');
             $this->transaction_opcount = 0;
             if (!$result) {
                 return $this->mysqlRaiseError();
@@ -427,12 +472,12 @@ class DB_mysqli extends DB_common
     {
         if ($this->transaction_opcount > 0) {
             if ($this->_db) {
-                if (!@mysqli_select_db($this->_db, $this->connection)) {
+                if (!@mysqli_select_db($this->connection, $this->_db)) {
                     return $this->mysqlRaiseError(DB_ERROR_NODBSELECTED);
                 }
             }
-            $result = @mysqli_query('ROLLBACK', $this->connection);
-            $result = @mysqli_query('SET AUTOCOMMIT=1', $this->connection);
+            $result = @mysqli_query($this->connection, 'ROLLBACK');
+            $result = @mysqli_query($this->connection, 'SET AUTOCOMMIT=1');
             $this->transaction_opcount = 0;
             if (!$result) {
                 return $this->mysqlRaiseError();
@@ -471,7 +516,7 @@ class DB_mysqli extends DB_common
      */
     function errorNative()
     {
-        return mysqli_errno($this->connection);
+        return @mysqli_errno($this->connection);
     }
 
     // }}}
@@ -499,7 +544,7 @@ class DB_mysqli extends DB_common
             $result = $this->query("UPDATE ${seqname} ".
                                    'SET id=LAST_INSERT_ID(id+1)');
             $this->popErrorHandling();
-            if ($result == DB_OK) {
+            if ($result === DB_OK) {
                 /** COMMON CASE **/
                 $id = @mysqli_insert_id($this->connection);
                 if ($id != 0) {
@@ -518,7 +563,7 @@ class DB_mysqli extends DB_common
                 }
 
                 // add the default value
-                $result = $this->query("REPLACE INTO ${seqname} VALUES (0)");
+                $result = $this->query("REPLACE INTO ${seqname} (id) VALUES (0)");
                 if (DB::isError($result)) {
                     return $this->raiseError($result);
                 }
@@ -583,7 +628,7 @@ class DB_mysqli extends DB_common
             return $res;
         }
         // insert yields value 1, nextId call will generate ID 2
-        return $this->query("INSERT INTO ${seqname} VALUES(0)");
+        return $this->query("INSERT INTO ${seqname} (id) VALUES (0)");
     }
 
     // }}}
@@ -689,7 +734,7 @@ class DB_mysqli extends DB_common
      * @internal
      */
     function escapeSimple($str) {
-        return mysqli_real_escape_string($str, $this->connection);
+        return @mysqli_real_escape_string($this->connection, $str);
     }
 
     // }}}
@@ -697,21 +742,13 @@ class DB_mysqli extends DB_common
 
     function modifyQuery($query)
     {
-        if ($this->options['portability'] & DB_PORTABILITY_DELETE_COUNT) {
-            // "DELETE FROM table" gives 0 affected rows in MySQL.
-            // This little hack lets you know how many rows were deleted.
-            if (preg_match('/^\s*DELETE\s+FROM\s+(\S+)\s*$/i', $query)) {
-                $query = preg_replace('/^\s*DELETE\s+FROM\s+(\S+)\s*$/',
-                                      'DELETE FROM \1 WHERE 1=1', $query);
-            }
-        }
         return $query;
     }
 
     // }}}
     // {{{ modifyLimitQuery()
 
-    function modifyLimitQuery($query, $from, $count)
+    function modifyLimitQuery($query, $from, $count, $params = array())
     {
         if (DB::isManip($query)) {
             return $query . " LIMIT $count";
@@ -736,6 +773,16 @@ class DB_mysqli extends DB_common
     function mysqlRaiseError($errno = null)
     {
         if ($errno === null) {
+            if ($this->options['portability'] & DB_PORTABILITY_ERRORS) {
+                $this->errorcode_map[1022] = DB_ERROR_CONSTRAINT;
+                $this->errorcode_map[1048] = DB_ERROR_CONSTRAINT_NOT_NULL;
+                $this->errorcode_map[1062] = DB_ERROR_CONSTRAINT;
+            } else {
+                // Doing this in case mode changes during runtime.
+                $this->errorcode_map[1022] = DB_ERROR_ALREADY_EXISTS;
+                $this->errorcode_map[1048] = DB_ERROR_CONSTRAINT;
+                $this->errorcode_map[1062] = DB_ERROR_ALREADY_EXISTS;
+            }
             $errno = $this->errorCode(mysqli_errno($this->connection));
         }
         return $this->raiseError($errno, null, null, null,
@@ -774,20 +821,20 @@ class DB_mysqli extends DB_common
              * Probably received a table name.
              * Create a result resource identifier.
              */
-            $id = @mysqli_list_fields($this->dsn['database'],
-                                     $result, $this->connection);
+            $id = @mysqli_query($this->connection,
+                                "SELECT * FROM $result LIMIT 0");
             $got_string = true;
         } else {
             /*
              * Probably received a result resource identifier.
              * Copy it.
-             * Depricated.  Here for compatibility only.
+             * Deprecated.  Here for compatibility only.
              */
             $id = $result;
             $got_string = false;
         }
 
-        if (!is_resource($id)) {
+        if (!is_a($id, 'mysqli_result')) {
             return $this->mysqlRaiseError(DB_ERROR_NEED_MORE_DATA);
         }
 
@@ -802,21 +849,47 @@ class DB_mysqli extends DB_common
         // made this IF due to performance (one if is faster than $count if's)
         if (!$mode) {
             for ($i=0; $i<$count; $i++) {
-                $res[$i]['table'] = $case_func(@mysqli_field_table($id, $i));
-                $res[$i]['name']  = $case_func(@mysqli_field_name($id, $i));
-                $res[$i]['type']  = @mysqli_field_type($id, $i);
-                $res[$i]['len']   = @mysqli_field_len($id, $i);
-                $res[$i]['flags'] = @mysqli_field_flags($id, $i);
+                $tmp = @mysqli_fetch_field($id);
+                $res[$i]['table'] = $case_func($tmp->table);
+                $res[$i]['name']  = $case_func($tmp->name);
+                $res[$i]['type']  = isset($this->mysqli_types[$tmp->type]) ?
+                                          $this->mysqli_types[$tmp->type] :
+                                          'unknown';
+                $res[$i]['len']   = $tmp->max_length;
+
+                $res[$i]['flags'] = '';
+                foreach ($this->mysqli_flags as $const => $means) {
+                    if ($tmp->flags & $const) {
+                        $res[$i]['flags'] .= $means . ' ';
+                    }
+                }
+                if ($tmp->def) {
+                    $res[$i]['flags'] .= 'default_' . rawurlencode($tmp->def);
+                }
+                $res[$i]['flags'] = trim($res[$i]['flags']);
             }
         } else { // full
             $res['num_fields']= $count;
 
             for ($i=0; $i<$count; $i++) {
-                $res[$i]['table'] = $case_func(@mysqli_field_table($id, $i));
-                $res[$i]['name']  = $case_func(@mysqli_field_name($id, $i));
-                $res[$i]['type']  = @mysqli_field_type($id, $i);
-                $res[$i]['len']   = @mysqli_field_len($id, $i);
-                $res[$i]['flags'] = @mysqli_field_flags($id, $i);
+                $tmp = @mysqli_fetch_field($id);
+                $res[$i]['table'] = $case_func($tmp->table);
+                $res[$i]['name']  = $case_func($tmp->name);
+                $res[$i]['type']  = isset($this->mysqli_types[$tmp->type]) ?
+                                          $this->mysqli_types[$tmp->type] :
+                                          'unknown';
+                $res[$i]['len']   = $tmp->max_length;
+
+                $res[$i]['flags'] = '';
+                foreach ($this->mysqli_flags as $const => $means) {
+                    if ($tmp->flags & $const) {
+                        $res[$i]['flags'] .= $means . ' ';
+                    }
+                }
+                if ($tmp->def) {
+                    $res[$i]['flags'] .= 'default_' . rawurlencode($tmp->def);
+                }
+                $res[$i]['flags'] = trim($res[$i]['flags']);
 
                 if ($mode & DB_TABLEINFO_ORDER) {
                     $res['order'][$res[$i]['name']] = $i;
@@ -852,7 +925,7 @@ class DB_mysqli extends DB_common
                 return DB_ERROR_NOT_CAPABLE;
             case 'users':
                 $sql = 'select distinct User from user';
-                if($this->dsn['database'] != 'mysql') {
+                if ($this->dsn['database'] != 'mysql') {
                     $dsn = $this->dsn;
                     $dsn['database'] = 'mysql';
                     if (DB::isError($db = DB::connect($dsn))) {
@@ -861,7 +934,7 @@ class DB_mysqli extends DB_common
                     $sql = $db->getCol($sql);
                     $db->disconnect();
                     // XXX Fixme the mysql driver should take care of this
-                    if (!@mysqli_select_db($this->dsn['database'], $this->connection)) {
+                    if (!@mysqli_select_db($this->connection, $this->dsn['database'])) {
                         return $this->mysqlRaiseError(DB_ERROR_NODBSELECTED);
                     }
                 }

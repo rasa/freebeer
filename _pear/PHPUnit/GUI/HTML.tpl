@@ -36,7 +36,7 @@
         </STYLE>
     </head>
     <body>
-        <form action="<?=$_SERVER['PHP_SELF'] ?>" method="post" name="optionsForm">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="optionsForm">
             <table align="center" class="outline" width="70%">
                 <tr>
                     <th colspan="10">
@@ -48,101 +48,101 @@
                         <input type="checkbox" onClick="unCheckAll()" name="allChecked">
                         (un)check all
                         &nbsp; &nbsp;
-                        show OK <input type="checkbox" name="showOK" <?=@$_REQUEST['showOK']?'checked':''?>>
+                        show OK <input type="checkbox" name="showOK" <?php echo @$_REQUEST['showOK']?'checked':''?>>
                         &nbsp; &nbsp;
                         <input type="submit" name="submitted" value="run tests">
                     </td>
                 </tr>
                 
-                <? foreach($suiteResults as $aResult): ?>
+                <?php foreach($suiteResults as $aResult): ?>
                     <tr>
                         <th colspan="10">
-                            <input type="checkbox" name="<?=$aResult['name'] ?>" <?=@$_REQUEST[$aResult['name']]?'checked':'' ?>>
-                            <?=$aResult['name'] ?>
+                            <input type="checkbox" name="<?php echo $aResult['name'] ?>" <?php echo @$_REQUEST[$aResult['name']]?'checked':'' ?>>
+                            <?php echo $aResult['name'] ?>
                             &nbsp;
-                            <? if (isset($aResult['addInfo'])): ?>
-                                <font class="info"><?=@$aResult['addInfo'] ?></font>
-                            <? endif ?>
+                            <?php if (isset($aResult['addInfo'])): ?>
+                                <font class="info"><?php echo @$aResult['addInfo'] ?></font>
+                            <?php endif ?>
                         </th>
                     </tr>
 
-                    <? if(@$aResult['percent']): ?>
+                    <?php if(@$aResult['percent']): ?>
                         <tr>
                             <td colspan="10" nowrap="nowrap">
                                 <table style="width:100%; padding:2px;" cellspacing="0" cellspan="0" cellpadding="0">
                                     <tr>
-                                        <td width="<?=$aResult['percent'] ?>%" class="success" align="center" style="padding:0;">
-                                            <?=$aResult['percent']?$aResult['percent'].'%':'' ?>
+                                        <td width="<?php echo $aResult['percent'] ?>%" class="success" align="center" style="padding:0;">
+                                            <?php echo $aResult['percent']?$aResult['percent'].'%':'' ?>
                                         </td>
-                                        <td width="<?=100-$aResult['percent'] ?>%" class="failure" align="center" style="padding:0;">
-                                            <?=(100-$aResult['percent'])?(100-$aResult['percent'].'%'):'' ?>
+                                        <td width="<?php echo 100-$aResult['percent'] ?>%" class="failure" align="center" style="padding:0;">
+                                            <?php echo (100-$aResult['percent'])?(100-$aResult['percent'].'%'):'' ?>
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
-                    <? endif ?>
+                    <?php endif ?>
 
-                    <? if(@$aResult['counts']): ?>
+                    <?php if(@$aResult['counts']): ?>
                         <tr>
                             <td colspan="10">
-                                <? foreach($aResult['counts'] as $aCount=>$value): ?>
-                                    <?=$aCount ?>s = <?=$value ?> &nbsp; &nbsp; &nbsp; &nbsp; 
-                                <? endforeach ?>
+                                <?php foreach($aResult['counts'] as $aCount=>$value): ?>
+                                    <?php echo $aCount ?>s = <?php echo $value ?> &nbsp; &nbsp; &nbsp; &nbsp; 
+                                <?php endforeach ?>
                             </td>
                         </tr>
-                    <? endif ?>
+                    <?php endif ?>
 
-                    <? if(isset($aResult['results']['failures']) && sizeof($aResult['results']['failures']))
+                    <?php if(isset($aResult['results']['failures']) && sizeof($aResult['results']['failures']))
                         foreach($aResult['results']['failures'] as $aFailure): ?>
                         <tr>
-                            <td class="failure"><?=$aFailure['testName'] ?></td>
+                            <td class="failure"><?php echo $aFailure['testName'] ?></td>
                             <td class="failure">
-                                <? if(isset($aFailure['message']) && $aFailure['message']): ?>
-                                    <?=$aFailure['message'] ?>
-                                <? else: ?>
+                                <?php if(isset($aFailure['message']) && $aFailure['message']): ?>
+                                    <?php echo $aFailure['message'] ?>
+                                <?php else: ?>
                                     <table class="outlineFailure">
                                         <tr>
                                             <td>expected</td>
-                                            <td><?=$aFailure['expected'] ?></td>
+                                            <td><?php echo $aFailure['expected'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>actual</td>
-                                            <td><?=$aFailure['actual'] ?></td>
+                                            <td><?php echo $aFailure['actual'] ?></td>
                                         </tr>
                                     </table>
-                                <? endif ?>
+                                <?php endif ?>
                             </td>
                         </tr>
-                    <? endforeach ?>
+                    <?php endforeach ?>
 
-                    <? if(isset($aResult['results']['errors']) && sizeof($aResult['results']['errors']))
+                    <?php if(isset($aResult['results']['errors']) && sizeof($aResult['results']['errors']))
                         foreach($aResult['results']['errors'] as $aError): ?>
                         <tr>
-                            <td class="failure"><?=$aError['testName'] ?></td>
+                            <td class="failure"><?php echo $aError['testName'] ?></td>
                             <td class="failure">
-                                <?=$aError['message'] ?>
+                                <?php echo $aError['message'] ?>
                             </td>
                         </tr>
-                    <? endforeach ?>
+                    <?php endforeach ?>
 
-                    <? if(isset($aResult['results']['passed']) && sizeof($aResult['results']['passed']))
+                    <?php if(isset($aResult['results']['passed']) && sizeof($aResult['results']['passed']))
                         foreach($aResult['results']['passed'] as $aPassed): ?>
                         <tr>
-                            <td class="success"><?=$aPassed['testName'] ?></td>
+                            <td class="success"><?php echo $aPassed['testName'] ?></td>
                             <td class="success"><b>OK</b></td>
                         </tr>
-                    <? endforeach ?>
+                    <?php endforeach ?>
 
-                <? endforeach ?>
+                <?php endforeach ?>
             </table>
         </form>
         
         <script>
             var allSuiteNames = new Array();
-            <? foreach($suiteResults as $aResult): ?>
-                allSuiteNames[allSuiteNames.length] = "<?=$aResult['name'] ?>";
-            <? endforeach ?>
+            <?php foreach($suiteResults as $aResult): ?>
+                allSuiteNames[allSuiteNames.length] = "<?php echo $aResult['name'] ?>";
+            <?php endforeach ?>
             function unCheckAll()
             {
                 _checked = document.optionsForm.allChecked.checked;

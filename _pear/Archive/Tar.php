@@ -5,10 +5,10 @@
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2003 The PHP Group                                |
 // +----------------------------------------------------------------------+
-// | This source file is subject to version 2.02 of the PHP license,      |
+// | This source file is subject to version 3.0 of the PHP license,       |
 // | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/2_02.txt.                                 |
+// | available through the world-wide-web at the following url:           |
+// | http://www.php.net/license/3_0.txt.                                  |
 // | If you did not receive a copy of the PHP license and are unable to   |
 // | obtain it through the world-wide-web, please send a note to          |
 // | license@php.net so we can mail you a copy immediately.               |
@@ -19,6 +19,9 @@
 // $Id$
 
 require_once 'PEAR.php';
+
+
+define ('ARCHIVE_TAR_ATT_SEPARATOR', 90001);
 
 /**
 * Creates a (compressed) Tar archive
@@ -43,6 +46,11 @@ class Archive_Tar extends PEAR
     * @var string Type of compression : 'none', 'gz' or 'bz2'
     */
     var $_compress_type='none';
+
+    /**
+    * @var string Explode separator
+    */
+    var $_separator=' ';
 
     /**
     * @var file descriptor
@@ -102,7 +110,7 @@ class Archive_Tar extends PEAR
                 }
             }
         } else {
-            if (($p_compress == true) || ($p_compress == 'gz')) {
+            if (($p_compress === true) || ($p_compress == 'gz')) {
                 $this->_compress = true;
                 $this->_compress_type = 'gz';
             } else if ($p_compress == 'bz2') {
@@ -258,7 +266,7 @@ class Archive_Tar extends PEAR
             if (is_array($p_filelist))
                 $v_list = $p_filelist;
             elseif (is_string($p_filelist))
-                $v_list = explode(" ", $p_filelist);
+                $v_list = explode($this->_separator, $p_filelist);
             else {
                 $this->_cleanFile();
                 $this->_error('Invalid file list');
@@ -326,7 +334,7 @@ class Archive_Tar extends PEAR
             if (is_array($p_filelist))
                 $v_list = $p_filelist;
             elseif (is_string($p_filelist))
-                $v_list = explode(" ", $p_filelist);
+                $v_list = explode($this->_separator, $p_filelist);
             else {
                 $this->_error('Invalid file list');
                 return false;
@@ -469,7 +477,7 @@ class Archive_Tar extends PEAR
         if (is_array($p_filelist))
             $v_list = $p_filelist;
         elseif (is_string($p_filelist))
-            $v_list = explode(" ", $p_filelist);
+            $v_list = explode($this->_separator, $p_filelist);
         else {
             $this->_error('Invalid string list');
             return false;
@@ -478,6 +486,59 @@ class Archive_Tar extends PEAR
         if ($v_result = $this->_openRead()) {
             $v_result = $this->_extractList($p_path, $v_list_detail, "partial", $v_list, $p_remove_path);
             $this->_close();
+        }
+
+        return $v_result;
+    }
+    // }}}
+
+    // {{{ setAttribute()
+    /**
+    * This method set specific attributes of the archive. It uses a variable
+    * list of parameters, in the format attribute code + attribute values :
+    * $arch->setAttribute(ARCHIVE_TAR_ATT_SEPARATOR, ',');
+    * @param mixed $argv            variable list of attributes and values
+    * @return                       true on success, false on error.
+    * @access public
+    */
+    function setAttribute()
+    {
+        $v_result = true;
+        
+        // ----- Get the number of variable list of arguments
+        if (($v_size = func_num_args()) == 0) {
+            return true;
+        }
+        
+        // ----- Get the arguments
+        $v_att_list = &func_get_args();
+
+        // ----- Read the attributes
+        $i=0;
+        while ($i<$v_size) {
+
+            // ----- Look for next option
+            switch ($v_att_list[$i]) {
+                // ----- Look for options that request a string value
+                case ARCHIVE_TAR_ATT_SEPARATOR :
+                    // ----- Check the number of parameters
+                    if (($i+1) >= $v_size) {
+                        $this->_error('Invalid number of parameters for attribute ARCHIVE_TAR_ATT_SEPARATOR');
+                        return false;
+                    }
+
+                    // ----- Get the value
+                    $this->_separator = $v_att_list[$i+1];
+                    $i++;
+                break;
+
+                default :
+                    $this->_error('Unknow attribute code '.$v_att_list[$i].'');
+                    return false;
+            }
+
+            // ----- Next attribute
+            $i++;
         }
 
         return $v_result;
@@ -594,7 +655,8 @@ class Archive_Tar extends PEAR
     // {{{ _close()
     function _close()
     {
-        if (isset($this->_file)) {
+        //if (isset($this->_file)) {
+        if (is_resource($this->_file)) {
             if ($this->_compress_type == 'gz')
                 @gzclose($this->_file);
             else if ($this->_compress_type == 'bz2')
@@ -641,7 +703,7 @@ class Archive_Tar extends PEAR
     // {{{ _writeBlock()
     function _writeBlock($p_binary_data, $p_len=null)
     {
-      if ($this->_file) {
+      if (is_resource($this->_file)) {
           if ($p_len === null) {
               if ($this->_compress_type == 'gz')
                   @gzputs($this->_file, $p_binary_data);
@@ -671,7 +733,7 @@ class Archive_Tar extends PEAR
     function _readBlock($p_len=null)
     {
       $v_block = null;
-      if ($this->_file) {
+      if (is_resource($this->_file)) {
           if ($p_len === null)
               $p_len = 512;
               
@@ -692,7 +754,7 @@ class Archive_Tar extends PEAR
     // {{{ _jumpBlock()
     function _jumpBlock($p_len=null)
     {
-      if ($this->_file) {
+      if (is_resource($this->_file)) {
           if ($p_len === null)
               $p_len = 1;
 
@@ -715,7 +777,7 @@ class Archive_Tar extends PEAR
     // {{{ _writeFooter()
     function _writeFooter()
     {
-      if ($this->_file) {
+      if (is_resource($this->_file)) {
           // ----- Write the last 0 filled block for end of archive
           $v_binary_data = pack("a512", '');
           $this->_writeBlock($v_binary_data);

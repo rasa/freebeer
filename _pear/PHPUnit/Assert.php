@@ -91,7 +91,7 @@ class PHPUnit_Assert {
               $actual
             );
 
-            if ($actual != $expected) {
+            if ($actual !== $expected) {
                 return $this->fail($message);
             }
         }

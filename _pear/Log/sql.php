@@ -63,6 +63,13 @@ class Log_sql extends Log {
      */
     var $_table = 'log_table';
 
+    /**
+     * String holding the name of the ID sequence.
+     * @var string
+     * @access private
+     */
+    var $_sequence = 'log_id';
+
 
     /**
      * Constructs a new sql logging object.
@@ -78,8 +85,13 @@ class Log_sql extends Log {
     {
         $this->_id = md5(microtime());
         $this->_table = $name;
-        $this->_ident = $ident;
         $this->_mask = Log::UPTO($level);
+        $this->setIdent($ident);
+
+        /* If a specific sequence name was provided, use it. */
+        if (!empty($conf['sequence'])) {
+            $this->_sequence = $conf['sequence'];
+        }
 
         /* If an existing database connection was provided, use it. */
         if (isset($conf['db'])) {
@@ -130,6 +142,21 @@ class Log_sql extends Log {
     }
 
     /**
+     * Sets this Log instance's identification string.  Note that this
+     * SQL-specific implementation will limit the length of the $ident string
+     * to sixteen (16) characters.
+     *
+     * @param string    $ident      The new identification string.
+     *
+     * @access  public
+     * @since   Log 1.8.5
+     */
+    function setIdent($ident)
+    {
+        $this->_ident = substr($ident, 0, 16);
+    }
+
+    /**
      * Inserts $message to the currently open database.  Calls open(),
      * if necessary.  Also passes the message along to any Log_observer
      * instances that are observing this Log.
@@ -163,7 +190,7 @@ class Log_sql extends Log {
         $message = $this->_extractMessage($message);
 
         /* Build the SQL query for this log entry insertion. */
-        $id = $this->_db->nextId('log_id');
+        $id = $this->_db->nextId($this->_sequence);
         $q = sprintf('insert into %s (id, logtime, ident, priority, message)' .
                      'values(%d, CURRENT_TIMESTAMP, %s, %d, %s)',
                      $this->_table, $id, $this->_db->quote($this->_ident),

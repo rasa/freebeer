@@ -49,6 +49,19 @@ class DB_oci8 extends DB_common
     var $autoCommit = 1;
     var $last_stmt = false;
 
+    /**
+     * stores the $data passed to execute() in the oci8 driver
+     *
+     * Gets reset to array() when simpleQuery() is run.
+     *
+     * Needed in case user wants to call numRows() after prepare/execute
+     * was used.
+     *
+     * @var array
+     * @access private
+     */
+    var $_data = array();
+
     // }}}
     // {{{ constructor
 
@@ -77,6 +90,7 @@ class DB_oci8 extends DB_common
             1722 => DB_ERROR_INVALID_NUMBER,
             2289 => DB_ERROR_NOSUCHTABLE,
             2291 => DB_ERROR_CONSTRAINT,
+            2292 => DB_ERROR_CONSTRAINT,
             2449 => DB_ERROR_CONSTRAINT,
         );
     }
@@ -128,7 +142,7 @@ class DB_oci8 extends DB_common
     /**
      * Log out and disconnect from the database.
      *
-     * @return bool TRUE on success, FALSE if not connected.
+     * @return bool true on success, false if not connected.
      */
     function disconnect()
     {
@@ -152,6 +166,7 @@ class DB_oci8 extends DB_common
      */
     function simpleQuery($query)
     {
+        $this->_data = array();
         $this->last_query = $query;
         $query = $this->modifyQuery($query);
         $result = @OCIParse($this->connection, $query);
@@ -204,7 +219,7 @@ class DB_oci8 extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -212,7 +227,7 @@ class DB_oci8 extends DB_common
      */
     function fetchInto($result, &$arr, $fetchmode, $rownum=null)
     {
-        if ($rownum !== NULL) {
+        if ($rownum !== null) {
             return $this->raiseError(DB_ERROR_NOT_CAPABLE);
         }
         if ($fetchmode & DB_FETCHMODE_ASSOC) {
@@ -226,7 +241,7 @@ class DB_oci8 extends DB_common
             $moredata = OCIFetchInto($result,$arr,OCI_RETURN_NULLS+OCI_RETURN_LOBS);
         }
         if (!$moredata) {
-            return NULL;
+            return null;
         }
         if ($this->options['portability'] & DB_PORTABILITY_RTRIM) {
             $this->_rtrimArrayValues($arr);
@@ -245,7 +260,7 @@ class DB_oci8 extends DB_common
      *
      * @param $result oci8 result identifier
      *
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freeResult($result)
     {
@@ -257,7 +272,7 @@ class DB_oci8 extends DB_common
      *
      * @param $stmt oci8 statement identifier
      *
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freePrepared($stmt)
     {
@@ -282,7 +297,14 @@ class DB_oci8 extends DB_common
             $countquery = 'SELECT COUNT(*) FROM ('.$this->last_query.')';
             $save_query = $this->last_query;
             $save_stmt = $this->last_stmt;
-            $count =& $this->query($countquery);
+
+            if (count($this->_data)) {
+                $smt = $this->prepare('SELECT COUNT(*) FROM ('.$this->last_query.')');
+                $count = $this->execute($smt, $this->_data);
+            } else {
+                $count =& $this->query($countquery);
+            }
+
             if (DB::isError($count) ||
                 DB::isError($row = $count->fetchRow(DB_FETCHMODE_ORDERED)))
             {
@@ -403,7 +425,7 @@ class DB_oci8 extends DB_common
         if (!$stmt = @OCIParse($this->connection, $newquery)) {
             return $this->oci8RaiseError();
         }
-        $this->prepare_types[$stmt] = $types;
+        $this->prepare_types[(int)$stmt] = $types;
         $this->manip_query[(int)$stmt] = DB::isManip($query);
         return $stmt;
     }
@@ -431,7 +453,9 @@ class DB_oci8 extends DB_common
             $data = array($data);
         }
 
-        $types =& $this->prepare_types[$stmt];
+        $this->_data = $data;
+
+        $types =& $this->prepare_types[(int)$stmt];
         if (count($types) != count($data)) {
             $tmp =& $this->raiseError(DB_ERROR_MISMATCH);
             return $tmp;
@@ -577,19 +601,28 @@ class DB_oci8 extends DB_common
      *
      * @author Tomas V.V.Cox <cox@idecnet.com>
      */
-    function modifyLimitQuery($query, $from, $count)
+    function modifyLimitQuery($query, $from, $count, $params = array())
     {
         // Let Oracle return the name of the columns instead of
         // coding a "home" SQL parser
-        $q_fields = "SELECT * FROM ($query) WHERE NULL = NULL";
-        if (!$result = @OCIParse($this->connection, $q_fields)) {
-            $this->last_query = $q_fields;
-            return $this->oci8RaiseError();
+
+        if (count($params)) {
+            $result = $this->prepare("SELECT * FROM ($query) "
+                                     . 'WHERE NULL = NULL');
+            $tmp =& $this->execute($result, $params);
+        } else {
+            $q_fields = "SELECT * FROM ($query) WHERE NULL = NULL";
+
+            if (!$result = @OCIParse($this->connection, $q_fields)) {
+                $this->last_query = $q_fields;
+                return $this->oci8RaiseError();
+            }
+            if (!@OCIExecute($result, OCI_DEFAULT)) {
+                $this->last_query = $q_fields;
+                return $this->oci8RaiseError($result);
+            }
         }
-        if (!@OCIExecute($result, OCI_DEFAULT)) {
-            $this->last_query = $q_fields;
-            return $this->oci8RaiseError($result);
-        }
+
         $ncols = OCINumCols($result);
         $cols  = array();
         for ( $i = 1; $i <= $ncols; $i++ ) {
@@ -597,7 +630,7 @@ class DB_oci8 extends DB_common
         }
         $fields = implode(', ', $cols);
         // XXX Test that (tip by John Lim)
-        //if(preg_match('/^\s*SELECT\s+/is', $query, $match)) {
+        //if (preg_match('/^\s*SELECT\s+/is', $query, $match)) {
         //    // Introduce the FIRST_ROWS Oracle query optimizer
         //    $query = substr($query, strlen($match[0]), strlen($query));
         //    $query = "SELECT /* +FIRST_ROWS */ " . $query;
@@ -804,7 +837,9 @@ class DB_oci8 extends DB_common
                 $i++;
             }
 
-            $res['num_fields'] = $i;
+            if ($mode) {
+                $res['num_fields'] = $i;
+            }
             @OCIFreeStatement($stmt);
 
         } else {
@@ -817,7 +852,7 @@ class DB_oci8 extends DB_common
             } else {
                 /*
                  * ELSE, probably received a result resource identifier.
-                 * Depricated.  Here for compatibility only.
+                 * Deprecated.  Here for compatibility only.
                  */
             }
 
@@ -839,7 +874,9 @@ class DB_oci8 extends DB_common
                     }
                 }
 
-                $res['num_fields'] = $count;
+                if ($mode) {
+                    $res['num_fields'] = $count;
+                }
 
             } else {
                 return $this->raiseError(DB_ERROR_NOT_CAPABLE);

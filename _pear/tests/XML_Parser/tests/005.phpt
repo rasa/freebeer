@@ -17,7 +17,7 @@ XML Parser: mixing character encodings
 // 6 US-ASCII   -> ISO-8859-1
 //
 
-require_once "XML/Parser.php";
+require_once "../Parser.php";
 
 class TestEncodings1 extends XML_Parser {
     var $output = '';

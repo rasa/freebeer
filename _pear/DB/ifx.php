@@ -129,7 +129,7 @@ class DB_ifx extends DB_common
     /**
      * Log out and disconnect from the database.
      *
-     * @return bool TRUE on success, FALSE if not connected.
+     * @return bool true on success, false if not connected.
      */
     function disconnect()
     {
@@ -175,7 +175,7 @@ class DB_ifx extends DB_common
         if (!$result) {
             return $this->ifxraiseError();
         }
-        $this->affected = ifx_affected_rows($result);
+        $this->affected = @ifx_affected_rows($result);
         // Determine which queries should return data, and which
         // should return an error code only.
         if (preg_match('/(SELECT)/i', $query)) {
@@ -185,7 +185,7 @@ class DB_ifx extends DB_common
         // may cause to stop it and commit the work?
 
         // Result has to be freed even with a insert or update
-        ifx_free_result($result);
+        @ifx_free_result($result);
 
         return DB_OK;
     }
@@ -241,7 +241,7 @@ class DB_ifx extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -320,7 +320,7 @@ class DB_ifx extends DB_common
      *
      * @param $result Informix result identifier
      *
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freeResult($result)
     {
@@ -436,7 +436,7 @@ class DB_ifx extends DB_common
      */
     function errorNative()
     {
-        return ifx_error() . ' ' . ifx_errormsg();
+        return @ifx_error() . ' ' . @ifx_errormsg();
     }
 
     // }}}

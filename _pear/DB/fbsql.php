@@ -150,11 +150,11 @@ class DB_fbsql extends DB_common
      *
      * @access public
      *
-     * @return bool TRUE on success, FALSE if not connected.
+     * @return bool true on success, false if not connected.
      */
     function disconnect()
     {
-        $ret = fbsql_close($this->connection);
+        $ret = @fbsql_close($this->connection);
         $this->connection = null;
         return $ret;
     }
@@ -191,7 +191,7 @@ class DB_fbsql extends DB_common
         if (is_object($numrows)) {
             return $numrows;
         }
-        $this->num_rows[$result] = $numrows;
+        $this->num_rows[(int)$result] = $numrows;
         return $result;
     }
 
@@ -227,7 +227,7 @@ class DB_fbsql extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -251,7 +251,7 @@ class DB_fbsql extends DB_common
         if (!$arr) {
             $errno = @fbsql_errno($this->connection);
             if (!$errno) {
-                return NULL;
+                return null;
             }
             return $this->fbsqlRaiseError($errno);
         }
@@ -274,7 +274,7 @@ class DB_fbsql extends DB_common
      *
      * @access public
      *
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freeResult($result)
     {
@@ -298,7 +298,7 @@ class DB_fbsql extends DB_common
 
     function commit()
     {
-        fbsql_commit();
+        @fbsql_commit();
     }
 
     // }}}
@@ -306,7 +306,7 @@ class DB_fbsql extends DB_common
 
     function rollback()
     {
-        fbsql_rollback();
+        @fbsql_rollback();
     }
 
     // }}}
@@ -385,7 +385,7 @@ class DB_fbsql extends DB_common
      */
     function errorNative()
     {
-        return fbsql_errno($this->connection);
+        return @fbsql_errno($this->connection);
     }
 
     // }}}
@@ -409,7 +409,7 @@ class DB_fbsql extends DB_common
         $seqname = $this->getSequenceName($seq_name);
         $repeat = 0;
         do {
-            $result = $this->query("INSERT INTO ${seqname} VALUES(NULL)");
+            $result = $this->query("INSERT INTO ${seqname} (id) VALUES (NULL)");
             if ($ondemand && DB::isError($result) &&
                 $result->getCode() == DB_ERROR_NOSUCHTABLE) {
                 $repeat = 1;
@@ -424,7 +424,7 @@ class DB_fbsql extends DB_common
         if (DB::isError($result)) {
             return $result;
         }
-        return fbsql_insert_id($this->connection);
+        return @fbsql_insert_id($this->connection);
     }
 
     /**
@@ -533,7 +533,7 @@ class DB_fbsql extends DB_common
             $errno = $this->errorCode(fbsql_errno($this->connection));
         }
         return $this->raiseError($errno, null, null, null,
-                        fbsql_error($this->connection));
+                        @fbsql_error($this->connection));
     }
 
     // }}}
@@ -571,7 +571,7 @@ class DB_fbsql extends DB_common
             /*
              * Probably received a result resource identifier.
              * Copy it.
-             * Depricated.  Here for compatibility only.
+             * Deprecated.  Here for compatibility only.
              */
             $id = $result;
             $got_string = false;

@@ -150,24 +150,35 @@ class PHPUnit_GUI_HTML
         $ret['testName'] = $test->getName();
 
         $exception = $failure->thrownException();
-        // if there are () around it then we seem to have a serialized data
-        if (preg_match('/expected\s.*\), actual.*/',$exception)) {
-// this might be unnecessary since it only works for arrays...        
+        // a serialized string starts with a 'character:decimal:{' 
+		// if so we try to unserialize it
+		// this piece of the regular expression is for detecting a serialized 
+		// type like 'a:3:' for an array with three element or an object i.e. 'O:12:"class":3'
+        $serialized = '(\w:\d+:(?:"[^"]+":\d+:)?\{.*\})';
+        // Spaces might make a diff, so we shall show them properly (since a
+        // user agent ignores them).
+        if (preg_match('/^(.*)expected ' . $serialized . ', actual ' .
+            $serialized . '$/sU', $exception, $matches)) {
             ob_start();
-            print_r(unserialize(preg_replace('/expected\s(.*), actual.*/','$1',$exception)));
-            $ret['expected'] = ob_get_contents();
-            ob_clean();
-            print_r(unserialize(preg_replace('/expected\s.*, actual (.*)/','$1',$exception)));
-            $ret['actual'] = ob_get_contents();
+            print_r(unserialize($matches[2]));
+            $ret['expected'] = htmlspecialchars($matches[1]) . "<pre>" .
+                htmlspecialchars(rtrim(ob_get_contents())) . "</pre>";
+            // Improved compatibility, ob_clean() would be PHP >= 4.2.0 only.
             ob_end_clean();
+            ob_start();
+            print_r(unserialize($matches[3]));
+            $ret['actual'] = htmlspecialchars($matches[1]) . "<pre>" .
+                htmlspecialchars(rtrim(ob_get_contents())) . "</pre>";
+            ob_end_clean();
+        } elseif (preg_match('/^(.*)expected (.*), actual (.*)$/sU', $exception,
+            $matches)) {
+            $ret['expected'] = nl2br(str_replace(" ", "&nbsp;",
+                htmlspecialchars($matches[1] . $matches[2])));
+            $ret['actual'] = nl2br(str_replace(" ", "&nbsp;",
+                htmlspecialchars($matches[1] . $matches[3])));
         } else {
-            // spaces might make a diff, so we shall show them properly (since a user agent ignores them)
-            if (preg_match('/expected\s.*, actual.*/',$exception)) {
-                $ret['expected'] = preg_replace('/expected\s(.*), actual.*/','$1',$exception);
-                $ret['actual'] = preg_replace('/expected\s.*, actual (.*)/','$1',$exception);
-            } else {
-                $ret['message'] = str_replace(' ','&nbsp;',$exception);
-            }
+            $ret['message'] = nl2br(str_replace(" ", "&nbsp;",
+                htmlspecialchars($exception)));
         }
         
         return $ret;

@@ -1,4 +1,16 @@
 <?PHP
+/**
+ * several examples for the methods of XML_Util
+ *
+ * $Id$
+ *
+ * @author      Stephan Schmidt
+ * @package     XML_Util
+ * @subpackage  examples
+ * @category    XML
+ */
+    error_reporting(E_ALL);
+
     require_once 'XML/Util.php';
 
     /**
@@ -61,6 +73,22 @@
     print "<pre>";
     print htmlentities(XML_Util::createTagFromArray($tag, XML_UTIL_REPLACE_ENTITIES, true));
     print "</pre>";
+    print "\n<br><br>\n";
+
+    /**
+    * create an attribute string without replacing the entities
+    */
+    $atts = array( 'series' => 'Starsky &amp; Hutch', 'channel' => 'ABC' );
+    print "creating a attribute string, entities in values already had been replaced:<br>";
+    print htmlentities(XML_Util::attributesToString($atts, true, false, false, false, XML_UTIL_ENTITIES_NONE));
+    print "\n<br><br>\n";
+
+    /**
+    * using the array-syntax for attributesToString()
+    */
+    $atts = array( 'series' => 'Starsky &amp; Hutch', 'channel' => 'ABC' );
+    print "using the array-syntax for attributesToString()<br>";
+    print htmlentities(XML_Util::attributesToString($atts, array('entities' => XML_UTIL_ENTITIES_NONE)));
     print "\n<br><br>\n";
 
 

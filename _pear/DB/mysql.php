@@ -84,6 +84,7 @@ class DB_mysql extends DB_common
             1008 => DB_ERROR_CANNOT_DROP,
             1022 => DB_ERROR_ALREADY_EXISTS,
             1046 => DB_ERROR_NODBSELECTED,
+            1048 => DB_ERROR_CONSTRAINT,
             1050 => DB_ERROR_ALREADY_EXISTS,
             1051 => DB_ERROR_NOSUCHTABLE,
             1054 => DB_ERROR_NOSUCHFIELD,
@@ -92,8 +93,8 @@ class DB_mysql extends DB_common
             1100 => DB_ERROR_NOT_LOCKED,
             1136 => DB_ERROR_VALUE_COUNT_ON_ROW,
             1146 => DB_ERROR_NOSUCHTABLE,
-            1048 => DB_ERROR_CONSTRAINT,
-            1216 => DB_ERROR_CONSTRAINT
+            1216 => DB_ERROR_CONSTRAINT,
+            1217 => DB_ERROR_CONSTRAINT,
         );
     }
 
@@ -153,23 +154,17 @@ class DB_mysql extends DB_common
                switch(mysql_errno($conn)) {
                         case 1049:
                             return $this->raiseError(DB_ERROR_NOSUCHDB, null, null,
-                                                     null, mysql_error($conn));
+                                                     null, @mysql_error($conn));
                         case 1044:
                              return $this->raiseError(DB_ERROR_ACCESS_VIOLATION, null, null,
-                                                      null, mysql_error($conn));
+                                                      null, @mysql_error($conn));
                         default:
                             return $this->raiseError(DB_ERROR, null, null,
-                                                     null, mysql_error($conn));
+                                                     null, @mysql_error($conn));
                     }
             }
             // fix to allow calls to different databases in the same script
             $this->_db = $dsninfo['database'];
-        }
-
-        if ($this->options['portability'] & DB_PORTABILITY_ERRORS) {
-            $this->errorcode_map[1022] = DB_ERROR_CONSTRAINT;
-            $this->errorcode_map[1048] = DB_ERROR_CONSTRAINT_NOT_NULL;
-            $this->errorcode_map[1062] = DB_ERROR_CONSTRAINT;
         }
 
         $this->connection = $conn;
@@ -184,11 +179,11 @@ class DB_mysql extends DB_common
      *
      * @access public
      *
-     * @return bool TRUE on success, FALSE if not connected.
+     * @return bool true on success, false if not connected.
      */
     function disconnect()
     {
-        $ret = mysql_close($this->connection);
+        $ret = @mysql_close($this->connection);
         $this->connection = null;
         return $ret;
     }
@@ -277,7 +272,7 @@ class DB_mysql extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -305,7 +300,7 @@ class DB_mysql extends DB_common
             /*
             $errno = @mysql_errno($this->connection);
             if (!$errno) {
-                return NULL;
+                return null;
             }
             return $this->mysqlRaiseError($errno);
             */
@@ -334,7 +329,7 @@ class DB_mysql extends DB_common
      *
      * @access public
      *
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freeResult($result)
     {
@@ -479,7 +474,7 @@ class DB_mysql extends DB_common
      */
     function errorNative()
     {
-        return mysql_errno($this->connection);
+        return @mysql_errno($this->connection);
     }
 
     // }}}
@@ -507,9 +502,9 @@ class DB_mysql extends DB_common
             $result = $this->query("UPDATE ${seqname} ".
                                    'SET id=LAST_INSERT_ID(id+1)');
             $this->popErrorHandling();
-            if ($result == DB_OK) {
+            if ($result === DB_OK) {
                 /** COMMON CASE **/
-                $id = mysql_insert_id($this->connection);
+                $id = @mysql_insert_id($this->connection);
                 if ($id != 0) {
                     return $id;
                 }
@@ -526,7 +521,7 @@ class DB_mysql extends DB_common
                 }
 
                 // add the default value
-                $result = $this->query("REPLACE INTO ${seqname} VALUES (0)");
+                $result = $this->query("REPLACE INTO ${seqname} (id) VALUES (0)");
                 if (DB::isError($result)) {
                     return $this->raiseError($result);
                 }
@@ -591,7 +586,7 @@ class DB_mysql extends DB_common
             return $res;
         }
         // insert yields value 1, nextId call will generate ID 2
-        $res = $this->query("INSERT INTO ${seqname} VALUES(0)");
+        $res = $this->query("INSERT INTO ${seqname} (id) VALUES (0)");
         if (DB::isError($res)) {
             return $res;
         }
@@ -713,10 +708,10 @@ class DB_mysql extends DB_common
      * @internal
      */
     function escapeSimple($str) {
-        if(function_exists('mysql_real_escape_string')) {
-            return mysql_real_escape_string($str, $this->connection);
+        if (function_exists('mysql_real_escape_string')) {
+            return @mysql_real_escape_string($str, $this->connection);
         } else {
-            return mysql_escape_string($str);
+            return @mysql_escape_string($str);
         }
     }
 
@@ -739,7 +734,7 @@ class DB_mysql extends DB_common
     // }}}
     // {{{ modifyLimitQuery()
 
-    function modifyLimitQuery($query, $from, $count)
+    function modifyLimitQuery($query, $from, $count, $params = array())
     {
         if (DB::isManip($query)) {
             return $query . " LIMIT $count";
@@ -764,6 +759,16 @@ class DB_mysql extends DB_common
     function mysqlRaiseError($errno = null)
     {
         if ($errno === null) {
+            if ($this->options['portability'] & DB_PORTABILITY_ERRORS) {
+                $this->errorcode_map[1022] = DB_ERROR_CONSTRAINT;
+                $this->errorcode_map[1048] = DB_ERROR_CONSTRAINT_NOT_NULL;
+                $this->errorcode_map[1062] = DB_ERROR_CONSTRAINT;
+            } else {
+                // Doing this in case mode changes during runtime.
+                $this->errorcode_map[1022] = DB_ERROR_ALREADY_EXISTS;
+                $this->errorcode_map[1048] = DB_ERROR_CONSTRAINT;
+                $this->errorcode_map[1062] = DB_ERROR_ALREADY_EXISTS;
+            }
             $errno = $this->errorCode(mysql_errno($this->connection));
         }
         return $this->raiseError($errno, null, null, null,
@@ -876,7 +881,7 @@ class DB_mysql extends DB_common
                 return DB_ERROR_NOT_CAPABLE;
             case 'users':
                 $sql = 'select distinct User from user';
-                if($this->dsn['database'] != 'mysql') {
+                if ($this->dsn['database'] != 'mysql') {
                     $dsn = $this->dsn;
                     $dsn['database'] = 'mysql';
                     if (DB::isError($db = DB::connect($dsn))) {

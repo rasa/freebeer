@@ -250,14 +250,14 @@ parameter.
 
         $r = new PEAR_Remote($this->config);
         $reg = new PEAR_Registry($this->config->get('php_dir'));
-        $available = $r->call('package.listAll', true);
+        $available = $r->call('package.listAll', true, false);
         if (PEAR::isError($available)) {
             return $this->raiseError($available);
         }
         $data = array(
             'caption' => 'Matched packages:',
             'border' => true,
-            'headline' => array('Package', 'Latest', 'Local'),
+            'headline' => array('Package', 'Stable/(Latest)', 'Local'),
             );
 
         foreach ($available as $name => $info) {
@@ -274,16 +274,23 @@ parameter.
             if (isset($params[$name]))
                 $desc .= "\n\n".$info['description'];
 
+            $unstable = '';
+            if ($info['unstable']) {
+                $unstable = '/(' . $info['unstable'] . $info['state'] . ')';
+            }
+            if (!isset($info['stable']) || !$info['stable']) {
+                $info['stable'] = 'none';
+            }
             $data['data'][$info['category']][] = array(
                 $name,
-                $info['stable'],
+                $info['stable'] . $unstable,
                 $installed['version'],
                 $desc,
                 );
         }
         if (!isset($data['data'])) {
             return $this->raiseError('no packages found');
-        };
+        }
         $this->ui->outputData($data, $command);
         return true;
     }

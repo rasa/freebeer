@@ -78,7 +78,7 @@ class DB_dbase extends DB_common
         }
         $this->dsn = $dsninfo;
         ob_start();
-        $conn  = dbase_open($dsninfo['database'], 0);
+        $conn  = @dbase_open($dsninfo['database'], 0);
         $error = ob_get_contents();
         ob_end_clean();
         if (!$conn) {
@@ -94,7 +94,7 @@ class DB_dbase extends DB_common
 
     function disconnect()
     {
-        $ret = dbase_close($this->connection);
+        $ret = @dbase_close($this->connection);
         $this->connection = null;
         return $ret;
     }
@@ -105,7 +105,7 @@ class DB_dbase extends DB_common
     function &query($query = null)
     {
         // emulate result resources
-        $this->res_row[$this->result] = 0;
+        $this->res_row[(int)$this->result] = 0;
         $tmp =& new DB_result($this, $this->result++);
         return $tmp;
     }
@@ -125,7 +125,7 @@ class DB_dbase extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -134,7 +134,7 @@ class DB_dbase extends DB_common
     function fetchInto($result, &$arr, $fetchmode, $rownum=null)
     {
         if ($rownum === null) {
-            $rownum = $this->res_row[$result]++;
+            $rownum = $this->res_row[(int)$result]++;
         }
         if ($fetchmode & DB_FETCHMODE_ASSOC) {
             $arr = @dbase_get_record_with_names($this->connection, $rownum);
@@ -161,7 +161,7 @@ class DB_dbase extends DB_common
 
     function numCols($foo)
     {
-        return dbase_numfields($this->connection);
+        return @dbase_numfields($this->connection);
     }
 
     // }}}
@@ -169,7 +169,7 @@ class DB_dbase extends DB_common
 
     function numRows($foo)
     {
-        return dbase_numrecords($this->connection);
+        return @dbase_numrecords($this->connection);
     }
 
     // }}}

@@ -363,6 +363,11 @@ class DB_common extends PEAR
     /**
      * Escape a string according to the current DBMS's standards
      *
+     * In SQLite, this makes things safe for inserts/updates, but may
+     * cause problems when performing text comparisons against columns
+     * containing binary data. See the
+     * {@link http://php.net/sqlite_escape_string PHP manual} for more info.
+     *
      * @param string $str  the string to be escaped
      *
      * @return string  the escaped string
@@ -426,7 +431,7 @@ class DB_common extends PEAR
      *
      * @param integer $dbcode the DB error code
      *
-     * @return string the corresponding error message, of FALSE
+     * @return string the corresponding error message, of false
      * if the error code was unknown
      *
      * @access public
@@ -513,22 +518,20 @@ class DB_common extends PEAR
      *                      If no class is specified by default a cast
      *                      to object from the assoc array row will be done.
      *                      There is also the posibility to use and extend the
-     *                      'DB_Row' class.
+     *                      'DB_row' class.
      *
      * @see DB_FETCHMODE_ORDERED
      * @see DB_FETCHMODE_ASSOC
      * @see DB_FETCHMODE_FLIPPED
      * @see DB_FETCHMODE_OBJECT
-     * @see DB_Row::DB_Row()
+     * @see DB_row::DB_row()
      * @access public
      */
-    function setFetchMode($fetchmode, $object_class = null)
+    function setFetchMode($fetchmode, $object_class = 'stdClass')
     {
         switch ($fetchmode) {
             case DB_FETCHMODE_OBJECT:
-                if ($object_class) {
-                    $this->fetchmode_object_class = $object_class;
-                }
+                $this->fetchmode_object_class = $object_class;
             case DB_FETCHMODE_ORDERED:
             case DB_FETCHMODE_ASSOC:
                 $this->fetchmode = $fetchmode;
@@ -978,6 +981,7 @@ class DB_common extends PEAR
      */
     function executeEmulateQuery($stmt, $data = array())
     {
+        $stmt = (int)$stmt;
         if (!is_array($data)) {
             $data = array($data);
         }
@@ -1054,6 +1058,7 @@ class DB_common extends PEAR
      */
     function freePrepared($stmt)
     {
+        $stmt = (int)$stmt;
         // Free the internal prepared vars
         if (isset($this->prepare_tokens[$stmt])) {
             unset($this->prepare_tokens[$stmt]);
@@ -1098,7 +1103,7 @@ class DB_common extends PEAR
      *
      * @access private
      */
-    function modifyLimitQuery($query, $from, $count)
+    function modifyLimitQuery($query, $from, $count, $params = array())
     {
         return $query;
     }
@@ -1157,7 +1162,11 @@ class DB_common extends PEAR
      * @param string  $query query
      * @param integer $from  the row to start to fetching
      * @param integer $count the numbers of rows to fetch
-     * @param array   $params required for a statement
+     * @param mixed   $params array, string or numeric data to be used in
+     *                       execution of the statement.  Quantity of items
+     *                       passed must match quantity of placeholders in
+     *                       query:  meaning 1 placeholder for non-array
+     *                       parameters or 1 placeholder per array element.
      *
      * @return mixed a DB_Result object, DB_OK or a DB_Error
      *
@@ -1165,7 +1174,7 @@ class DB_common extends PEAR
      */
     function &limitQuery($query, $from, $count, $params = array())
     {
-        $query = $this->modifyLimitQuery($query, $from, $count);
+        $query = $this->modifyLimitQuery($query, $from, $count, $params);
         if (DB::isError($query)){
             return $query;
         }
@@ -1335,10 +1344,18 @@ class DB_common extends PEAR
         }
 
         $fetchmode = is_int($col) ? DB_FETCHMODE_ORDERED : DB_FETCHMODE_ASSOC;
-        $ret = array();
 
-        while (is_array($row = $res->fetchRow($fetchmode))) {
-            $ret[] = $row[$col];
+        if (!is_array($row = $res->fetchRow($fetchmode))) {
+            $ret = array();
+        } else {
+            if (!array_key_exists($col, $row)) {
+                $ret =& $this->raiseError(DB_ERROR_NOSUCHFIELD);
+            } else {
+                $ret = array($row[$col]);
+                while (is_array($row = $res->fetchRow($fetchmode))) {
+                    $ret[] = $row[$col];
+                }
+            }
         }
 
         $res->free();
@@ -1425,6 +1442,7 @@ class DB_common extends PEAR
      *                        passed must match quantity of placeholders in
      *                        query:  meaning 1 placeholder for non-array
      *                        parameters or 1 placeholder per array element.
+     * @param int     $fetchmode  the fetch mode to use
      * @param boolean $group  if true, the values of the returned array
      *                        is wrapped in another array.  If the same
      *                        key value (in the first column) repeats
@@ -1578,7 +1596,7 @@ class DB_common extends PEAR
             $res =& $this->query($query);
         }
 
-        if (DB::isError($res) || $res == DB_OK) {
+        if (DB::isError($res) || $res === DB_OK) {
             return $res;
         }
 
@@ -1983,7 +2001,8 @@ class DB_common extends PEAR
      * @return void
      * @access private
      */
-    function _rtrimArrayValues(&$array) {
+    function _rtrimArrayValues(&$array)
+    {
         foreach ($array as $key => $value) {
             if (is_string($value)) {
                 $array[$key] = rtrim($value);
@@ -2001,7 +2020,8 @@ class DB_common extends PEAR
      * @return void
      * @access private
      */
-    function _convertNullArrayValuesToEmpty(&$array) {
+    function _convertNullArrayValuesToEmpty(&$array)
+    {
         foreach ($array as $key => $value) {
             if (is_null($value)) {
                 $array[$key] = '';

@@ -111,10 +111,10 @@ class DB_pgsql extends DB_common
         if ($dsninfo['password']) {
             $connstr .= ' password=\'' . addslashes($dsninfo['password']) . '\'';
         }
-        if (isset($dsninfo['options'])) {
+        if (!empty($dsninfo['options'])) {
             $connstr .= ' options=' . $dsninfo['options'];
         }
-        if (isset($dsninfo['tty'])) {
+        if (!empty($dsninfo['tty'])) {
             $connstr .= ' tty=' . $dsninfo['tty'];
         }
 
@@ -138,7 +138,7 @@ class DB_pgsql extends DB_common
     /**
      * Log out and disconnect from the database.
      *
-     * @return bool TRUE on success, FALSE if not connected.
+     * @return bool true on success, false if not connected.
      */
     function disconnect()
     {
@@ -274,7 +274,7 @@ class DB_pgsql extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -282,8 +282,9 @@ class DB_pgsql extends DB_common
      */
     function fetchInto($result, &$arr, $fetchmode, $rownum=null)
     {
-        $rownum = ($rownum !== null) ? $rownum : $this->row[$result];
-        if ($rownum >= $this->num_rows[$result]) {
+        $result_int = (int)$result;
+        $rownum = ($rownum !== null) ? $rownum : $this->row[$result_int];
+        if ($rownum >= $this->num_rows[$result_int]) {
             return null;
         }
         if ($fetchmode & DB_FETCHMODE_ASSOC) {
@@ -307,7 +308,7 @@ class DB_pgsql extends DB_common
         if ($this->options['portability'] & DB_PORTABILITY_NULL_TO_EMPTY) {
             $this->_convertNullArrayValuesToEmpty($arr);
         }
-        $this->row[$result] = ++$rownum;
+        $this->row[$result_int] = ++$rownum;
         return DB_OK;
     }
 
@@ -319,7 +320,7 @@ class DB_pgsql extends DB_common
      *
      * @param $result int PostgreSQL result identifier
      *
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freeResult($result)
     {
@@ -595,7 +596,7 @@ class DB_pgsql extends DB_common
     // }}}
     // {{{ modifyLimitQuery()
 
-    function modifyLimitQuery($query, $from, $count)
+    function modifyLimitQuery($query, $from, $count, $params = array())
     {
         $query = $query . " LIMIT $count OFFSET $from";
         return $query;
@@ -801,7 +802,7 @@ class DB_pgsql extends DB_common
                         FROM pg_class c, pg_user u
                         WHERE c.relowner = u.usesysid AND c.relkind = 'r'
                         AND not exists (select 1 from pg_views where viewname = c.relname)
-                        AND c.relname !~ '^pg_'
+                        AND c.relname !~ '^(pg_|sql_)'
                         UNION
                         SELECT c.relname as \"Name\"
                         FROM pg_class c

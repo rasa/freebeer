@@ -127,14 +127,6 @@ class DB_odbc extends DB_common
             case 'navision':
                 // the Navision driver doesn't support fetch row by number
                 $this->features['limit'] = false;
-                break;
-            case 'access':
-                if ($this->options['portability'] & DB_PORTABILITY_ERRORS) {
-                    $this->errorcode_map['07001'] = DB_ERROR_NOSUCHFIELD;
-                }
-                break;
-            default:
-                break;
         }
 
         /*
@@ -220,7 +212,7 @@ class DB_odbc extends DB_common
      */
     function nextResult($result)
     {
-        return odbc_next_result($result);
+        return @odbc_next_result($result);
     }
 
     // }}}
@@ -238,7 +230,7 @@ class DB_odbc extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -250,25 +242,25 @@ class DB_odbc extends DB_common
         if ($rownum !== null) {
             $rownum++; // ODBC first row is 1
             if (version_compare(phpversion(), '4.2.0', 'ge')) {
-                $cols = odbc_fetch_into($result, $arr, $rownum);
+                $cols = @odbc_fetch_into($result, $arr, $rownum);
             } else {
-                $cols = odbc_fetch_into($result, $rownum, $arr);
+                $cols = @odbc_fetch_into($result, $rownum, $arr);
             }
         } else {
-            $cols = odbc_fetch_into($result, $arr);
+            $cols = @odbc_fetch_into($result, $arr);
         }
 
         if (!$cols) {
             /* XXX FIXME: doesn't work with unixODBC and easysoft
                           (get corrupted $errno values)
-            if ($errno = odbc_error($this->connection)) {
+            if ($errno = @odbc_error($this->connection)) {
                 return $this->RaiseError($errno);
             }*/
             return null;
         }
         if ($fetchmode !== DB_FETCHMODE_ORDERED) {
             for ($i = 0; $i < count($arr); $i++) {
-                $colName = odbc_field_name($result, $i+1);
+                $colName = @odbc_field_name($result, $i+1);
                 $a[$colName] = $arr[$i];
             }
             if ($this->options['portability'] & DB_PORTABILITY_LOWERCASE) {
@@ -320,7 +312,7 @@ class DB_odbc extends DB_common
         if (empty($this->manip_result)) {  // In case of SELECT stms
             return 0;
         }
-        $nrows = odbc_num_rows($this->manip_result);
+        $nrows = @odbc_num_rows($this->manip_result);
         if ($nrows == -1) {
             return $this->odbcRaiseError();
         }
@@ -339,7 +331,7 @@ class DB_odbc extends DB_common
      */
     function numRows($result)
     {
-        $nrows = odbc_num_rows($result);
+        $nrows = @odbc_num_rows($result);
         if ($nrows == -1) {
             return $this->odbcRaiseError(DB_ERROR_UNSUPPORTED);
         }
@@ -405,9 +397,9 @@ class DB_odbc extends DB_common
     function errorNative()
     {
         if (!isset($this->connection) || !is_resource($this->connection)) {
-            return odbc_error() . ' ' . odbc_errormsg();
+            return @odbc_error() . ' ' . @odbc_errormsg();
         }
-        return odbc_error($this->connection) . ' ' . odbc_errormsg($this->connection);
+        return @odbc_error($this->connection) . ' ' . @odbc_errormsg($this->connection);
     }
 
     // }}}
@@ -556,6 +548,15 @@ class DB_odbc extends DB_common
     function odbcRaiseError($errno = null)
     {
         if ($errno === null) {
+            switch ($this->dbsyntax) {
+                case 'access':
+                    if ($this->options['portability'] & DB_PORTABILITY_ERRORS) {
+                        $this->errorcode_map['07001'] = DB_ERROR_NOSUCHFIELD;
+                    } else {
+                        // Doing this in case mode changes during runtime.
+                        $this->errorcode_map['07001'] = DB_ERROR_MISMATCH;
+                    }
+            }
             $errno = $this->errorCode(odbc_error($this->connection));
         }
         return $this->raiseError($errno, null, null, null,

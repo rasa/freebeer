@@ -1,5 +1,7 @@
 --TEST--
-Log: _extractMessage()
+Log: _extractMessage() [Zend Engine 1]
+--SKIPIF--
+<?php if (version_compare(zend_version(), "2.0.0", ">=")) die('skip'); ?>
 --FILE--
 <?php
 
@@ -23,10 +25,6 @@ $logger->log(new GetMessageObject());
 class ToStringObject { function toString() { return "toString"; } }
 $logger->log(new ToStringObject());
 
-/* Logging an object with a __toString() method using casting. */
-class CastableObject { function __toString() { return "__toString"; } }
-$logger->log(new CastableObject());
-
 /* Logging a PEAR_Error object. */
 require_once 'PEAR.php';
 $logger->log(new PEAR_Error('PEAR_Error object', 100));
@@ -36,13 +34,12 @@ $logger->log(array(1, 2, 'three' => 3));
 
 --EXPECT--
 ident [info] String
-ident [info] BareObject Object
+ident [info] bareobject Object
 (
 )
 
 ident [info] getMessage
 ident [info] toString
-ident [info] __toString
 ident [info] PEAR_Error object
 ident [info] Array
 (

@@ -4,10 +4,10 @@
 if test "x$PHP_PEAR_PHP_BIN" != "x"; then
   PHP="$PHP_PEAR_PHP_BIN"
 else
-  if test "/usr/bin/php" = '@'php_bin'@'; then
+  if test "C:\php\cli\php.exe" = '@'php_bin'@'; then
     PHP=php 
   else
-    PHP="/usr/bin/php"
+    PHP="C:\php\cli\php.exe"
   fi
 fi
 
@@ -16,12 +16,12 @@ if test "x$PHP_PEAR_INSTALL_DIR" != "x"; then
   INCDIR=$PHP_PEAR_INSTALL_DIR
   INCARG="-d include_path=$PHP_PEAR_INSTALL_DIR"
 else
-  if test "/home/ross/src/freebeer@sf.net/_freebeer/opt/pear" = '@'php_dir'@'; then
+  if test "S:\freebeer\bin\..\opt\pear" = '@'php_dir'@'; then
     INCDIR=`dirname $0`
     INCARG=""  
   else
-    INCDIR="/home/ross/src/freebeer@sf.net/_freebeer/opt/pear"
-    INCARG="-d include_path=/home/ross/src/freebeer@sf.net/_freebeer/opt/pear"
+    INCDIR="S:\freebeer\bin\..\opt\pear"
+    INCARG="-d include_path=S:\freebeer\bin\..\opt\pear"
   fi
 fi
 

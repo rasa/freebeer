@@ -43,6 +43,7 @@ DB_driver::tableInfo
  * @internal
  */
 
+error_reporting(E_ALL);
 chdir(dirname(__FILE__));
 require_once './skipif.inc';
 $tableInfo = $db->tableInfo('ajkdslfajoijkadie');
@@ -200,7 +201,7 @@ $quirks = array(
         ),
         4 => array(
             'type' => 'CHAR',
-            'len' => 4,
+            'len' => 2,
             'flags' => 'not_null default',
         ),
         5 => array(
@@ -243,7 +244,7 @@ $quirks = array(
         ),
         4 => array(
             'type' => 'SQLCHAR',
-            'len' => 4,
+            'len' => 2,
             'flags' => 'not_null',
         ),
         5 => array(
@@ -288,7 +289,7 @@ $quirks = array(
         ),
         4 => array(
             'type' => 'char',
-            'len' => 4,
+            'len' => 2,
             'flags' => 'not_null',
         ),
         5 => array(
@@ -331,7 +332,7 @@ $quirks = array(
         ),
         4 => array(
             'type' => 'string',
-            'len' => 4,
+            'len' => 2,
             'flags' => 'not_null',
         ),
         5 => array(
@@ -342,6 +343,49 @@ $quirks = array(
         9 => array(
             'type' => 'string',
             'len' => 20,
+            'flags' => '',
+        ),
+    ),
+
+    'mysqli' => array(
+        'clob' => 'TEXT',
+        'date' => 'DATE',
+        'finds_table' => true,
+        'commands' => array(
+        ),
+        0 => array(
+            'type' => 'int',
+            'len' => 0,
+            'flags' => 'not_null unique_key multiple_key group_by',
+        ),
+        1 => array(
+            'type' => 'int',
+            'len' => 0,
+            'flags' => 'not_null primary_key',
+        ),
+        2 => array(
+            'type' => 'blob',
+            'len' => 0,
+            'flags' => 'blob',
+        ),
+        3 => array(
+            'type' => 'date',
+            'len' => 0,
+            'flags' => 'not_null unique_key multiple_key',
+        ),
+        4 => array(
+            'type' => 'char',
+            'len' => 0,
+            'flags' => 'not_null',
+        ),
+        5 => array(
+            'type' => 'decimal',
+            'len' => 0,
+            'flags' => 'group_by',
+        ),
+        9 => array(
+            'type' => 'varchar',
+            'len' => 0,
             'flags' => '',
         ),
     ),
@@ -375,7 +419,7 @@ $quirks = array(
         ),
         4 => array(
             'type' => 'CHAR',
-            'len' => 4,
+            'len' => 2,
             'flags' => 'not_null',
         ),
         5 => array(
@@ -420,7 +464,7 @@ $quirks = array(
         4 => array(
             'type' => 'bpchar',
             'len' => -1,
-            'flags' => 'not_null default_df%20t',
+            'flags' => 'not_null default_%20e',
         ),
         5 => array(
             'type' => 'numeric',
@@ -463,7 +507,7 @@ $quirks = array(
         ),
         4 => array(
             'type' => 'string',
-            'len' => 4,
+            'len' => 2,
             'flags' => '',
         ),
         5 => array(
@@ -510,7 +554,7 @@ $dbh->query("
         fk INTEGER NOT NULL,
         c {$quirks[$dbh->phptype]['clob']} $null,
         d {$quirks[$dbh->phptype]['date']} NOT NULL,
-        e CHAR(4) DEFAULT 'df t' NOT NULL,
+        e CHAR(2) DEFAULT ' e' NOT NULL,
         f DECIMAL(2,1) $null,
         PRIMARY KEY (fk),
         UNIQUE (a, d)
@@ -521,18 +565,21 @@ $dbh->query("INSERT INTO phptest_fk VALUES (10, 1, 'One', '2001-02-16',  'c1', 1
 $dbh->query("INSERT INTO phptest_fk VALUES (20, 2, 'Two', '2001-02-15', 'c2', 2.2)");
 $dbh->query("INSERT INTO phptest_fk VALUES (30, 3, 'Three', '2001-02-14', 'c3', 3.3)");
 
-
-$resultobj =& $dbh->query('SELECT phptest_fk.a, phptest_fk.fk,
-        phptest_fk.c, phptest_fk.d, phptest_fk.e, phptest_fk.f,
-        phptest.a, phptest.b, phptest.c, phptest.d
-        FROM phptest_fk, phptest WHERE phptest.a = phptest_fk.fk');
-
+function &runQuery() {
+    global $dbh, $resultobj;
+    $resultobj =& $dbh->query('SELECT phptest_fk.a, phptest_fk.fk,
+            phptest_fk.c, phptest_fk.d, phptest_fk.e, phptest_fk.f,
+            phptest.a, phptest.b, phptest.c, phptest.d
+            FROM phptest_fk, phptest WHERE phptest.a = phptest_fk.fk');
+    return $resultobj;
+}
 
 
 print "\n==========================================\n";
 print "Passing result OBJECT to method in DB_<type>.\n";
 print "Output = default.\n";
 print "------------------------------------------\n";
+$resultobj =& runQuery();
 $array = $dbh->tableInfo($resultobj);
 
 print "\nfirst field:\n";
@@ -547,6 +594,7 @@ print "\n==========================================\n";
 print "Passing result ID to method in DB_<type>.\n";
 print "Output = DB_TABLEINFO_ORDER.\n";
 print "------------------------------------------\n";
+$resultobj =& runQuery();
 $array = $dbh->tableInfo($resultobj->result, DB_TABLEINFO_ORDER);
 
 print "\nfirst field:\n";
@@ -572,6 +620,7 @@ print "\n==========================================\n";
 print "Passing DB_TABLEINFO_ORDERTABLE to method in DB_result.\n";
 print "Output = DB_TABLEINFO_ORDERTABLE.\n";
 print "------------------------------------------\n";
+$resultobj =& runQuery();
 $array = $resultobj->tableInfo(DB_TABLEINFO_ORDERTABLE);
 // Free this to keep interbase happy.
 $resultobj->free();

@@ -1,22 +1,22 @@
 <?php
 //
-// +----------------------------------------------------------------------+
-// | PEAR, the PHP Extension and Application Repository                   |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2004 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 2.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available through the world-wide-web at the following url:           |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Sterling Hughes <sterling@php.net>                          |
-// |          Stig Bakken <ssb@php.net>                                   |
-// |          Tomas V.V.Cox <cox@idecnet.com>                             |
-// +----------------------------------------------------------------------+
+// +--------------------------------------------------------------------+
+// | PEAR, the PHP Extension and Application Repository                 |
+// +--------------------------------------------------------------------+
+// | Copyright (c) 1997-2004 The PHP Group                              |
+// +--------------------------------------------------------------------+
+// | This source file is subject to version 2.0 of the PHP license,     |
+// | that is bundled with this package in the file LICENSE, and is      |
+// | available through the world-wide-web at the following url:         |
+// | http://www.php.net/license/3_0.txt.                                |
+// | If you did not receive a copy of the PHP license and are unable to |
+// | obtain it through the world-wide-web, please send a note to        |
+// | license@php.net so we can mail you a copy immediately.             |
+// +--------------------------------------------------------------------+
+// | Authors: Sterling Hughes <sterling@php.net>                        |
+// |          Stig Bakken <ssb@php.net>                                 |
+// |          Tomas V.V.Cox <cox@idecnet.com>                           |
+// +--------------------------------------------------------------------+
 //
 // $Id$
 //
@@ -26,6 +26,10 @@ define('PEAR_ERROR_PRINT',      2);
 define('PEAR_ERROR_TRIGGER',    4);
 define('PEAR_ERROR_DIE',        8);
 define('PEAR_ERROR_CALLBACK',  16);
+/**
+ * WARNING: obsolete
+ * @deprecated
+ */
 define('PEAR_ERROR_EXCEPTION', 32);
 define('PEAR_ZE2', (function_exists('version_compare') &&
                     version_compare(zend_version(), "2-dev", "ge")));
@@ -193,7 +197,7 @@ class PEAR
     /**
     * If you have a class that's mostly/entirely static, and you need static
     * properties, you can use this method to simulate them. Eg. in your method(s)
-    * do this: $myVar = &PEAR::getStaticProperty('myVar');
+    * do this: $myVar = &PEAR::getStaticProperty('myclass', 'myVar');
     * You MUST use a reference, or they will not persist!
     *
     * @access public
@@ -306,11 +310,11 @@ class PEAR
         }
 
         switch ($mode) {
+            case PEAR_ERROR_EXCEPTION:
             case PEAR_ERROR_RETURN:
             case PEAR_ERROR_PRINT:
             case PEAR_ERROR_TRIGGER:
             case PEAR_ERROR_DIE:
-            case PEAR_ERROR_EXCEPTION:
             case null:
                 $setmode = $mode;
                 $setoptions = $options;
@@ -549,7 +553,7 @@ class PEAR
                          $code = null,
                          $userinfo = null)
     {
-        if (isset($this) && is_subclass_of($this, 'PEAR_Error')) {
+        if (isset($this) && is_a($this, 'PEAR')) {
             return $this->raiseError($message, $code, null, null, $userinfo);
         } else {
             return PEAR::raiseError($message, $code, null, null, $userinfo);
@@ -774,8 +778,9 @@ class PEAR_Error
                 call_user_func($this->callback, $this);
             }
         }
-        if (PEAR_ZE2 && $this->mode & PEAR_ERROR_EXCEPTION) {
-            eval('throw $this;');
+        if ($this->mode & PEAR_ERROR_EXCEPTION) {
+            trigger_error("PEAR_ERROR_EXCEPTION is obsolete, use class PEAR_ErrorStack for exceptions", E_USER_WARNING);
+            eval('$e = new Exception($this->message, $this->code);$e->PEAR_Error = $this;throw($e);');
         }
     }
 

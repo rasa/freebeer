@@ -96,19 +96,17 @@ class DB_sybase extends DB_common
 
         $interface = $dsninfo['hostspec'] ? $dsninfo['hostspec'] : 'localhost';
         $connect_function = $persistent ? 'sybase_pconnect' : 'sybase_connect';
+        $dsninfo['password'] = !empty($dsninfo['password']) ? $dsninfo['password'] : false;
+        $dsninfo['charset'] = isset($dsninfo['charset']) ? $dsninfo['charset'] : false;
+        $dsninfo['appname'] = isset($dsninfo['appname']) ? $dsninfo['appname'] : false;
 
-        if ($interface && $dsninfo['username'] && $dsninfo['password']) {
+        if ($interface && $dsninfo['username']) {
             $conn = @$connect_function($interface, $dsninfo['username'],
-                                       $dsninfo['password']);
-        } elseif ($interface && $dsninfo['username']) {
-            /*
-             * Using false for pw as a workaround to avoid segfault.
-             * See PEAR bug 631
-             */
-            $conn = @$connect_function($interface, $dsninfo['username'],
-                                       false);
+                                       $dsninfo['password'],
+                                       $dsninfo['charset'],
+                                       $dsninfo['appname']);
         } else {
-            $conn = FALSE;
+            $conn = false;
         }
 
         if (!$conn) {
@@ -118,7 +116,7 @@ class DB_sybase extends DB_common
         if ($dsninfo['database']) {
             if (!@sybase_select_db($dsninfo['database'], $conn)) {
                 return $this->raiseError(DB_ERROR_NODBSELECTED, null,
-                                         null, null, sybase_get_last_message());
+                                         null, null, @sybase_get_last_message());
             }
             $this->_db = $dsninfo['database'];
         }
@@ -135,7 +133,7 @@ class DB_sybase extends DB_common
      *
      * @access public
      *
-     * @return bool TRUE on success, FALSE if not connected.
+     * @return bool true on success, false if not connected.
      */
     function disconnect()
     {
@@ -154,7 +152,7 @@ class DB_sybase extends DB_common
      */
     function errorNative()
     {
-        return sybase_get_last_message();
+        return @sybase_get_last_message();
     }
 
     // }}}
@@ -310,7 +308,7 @@ class DB_sybase extends DB_common
      * @param int      $fetchmode how the resulting array should be indexed
      * @param int      $rownum    the row number to fetch
      *
-     * @return mixed DB_OK on success, NULL when end of result set is
+     * @return mixed DB_OK on success, null when end of result set is
      *               reached or on failure
      *
      * @see DB_result::fetchInto()
@@ -344,7 +342,7 @@ class DB_sybase extends DB_common
         if (!$arr) {
             // reported not work as seems that sybase_get_last_message()
             // always return a message here
-            //if ($errmsg = sybase_get_last_message()) {
+            //if ($errmsg = @sybase_get_last_message()) {
             //    return $this->sybaseRaiseError($errmsg);
             //} else {
                 return null;
@@ -369,7 +367,7 @@ class DB_sybase extends DB_common
      *
      * @access public
      *
-     * @return bool TRUE on success, FALSE if $result is invalid
+     * @return bool true on success, false if $result is invalid
      */
     function freeResult($result)
     {
@@ -646,7 +644,7 @@ class DB_sybase extends DB_common
             /*
              * Probably received a result resource identifier.
              * Copy it.
-             * Depricated.  Here for compatibility only.
+             * Deprecated.  Here for compatibility only.
              */
             $id = $result;
             $got_string = false;

@@ -19,11 +19,6 @@
 //    $Id$
 
 /**
- * uses PEAR errors
- */
-    require_once 'PEAR.php';
-
-/**
  * error code for invalid chars in XML name
  */
 define("XML_UTIL_ERROR_INVALID_CHARS", 51);
@@ -39,6 +34,11 @@ define("XML_UTIL_ERROR_INVALID_START", 52);
 define("XML_UTIL_ERROR_NON_SCALAR_CONTENT", 60);
     
 /**
+ * error code for missing tag name
+ */
+define("XML_UTIL_ERROR_NO_TAG_NAME", 61);
+    
+/**
  * replace XML entities
  */
 define("XML_UTIL_REPLACE_ENTITIES", 1);
@@ -47,15 +47,37 @@ define("XML_UTIL_REPLACE_ENTITIES", 1);
  * embedd content in a CData Section
  */
 define("XML_UTIL_CDATA_SECTION", 2);
-    
+
+/**
+ * do not replace entitites
+ */
+define("XML_UTIL_ENTITIES_NONE", 0);
+
+/**
+ * replace all XML entitites
+ * This setting will replace <, >, ", ' and &
+ */
+define("XML_UTIL_ENTITIES_XML", 1);
+
+/**
+ * replace only required XML entitites
+ * This setting will replace <, " and &
+ */
+define("XML_UTIL_ENTITIES_XML_REQUIRED", 2);
+
+/**
+ * replace HTML entitites
+ * @link    http://www.php.net/htmlentities
+ */
+define("XML_UTIL_ENTITIES_HTML", 3);
+
 /**
  * utility class for working with XML documents
  *
  * @category XML
  * @package  XML_Util
- * @version  0.5.2
+ * @version  0.6.0
  * @author   Stephan Schmidt <schst@php.net>
- * @todo     method to get doctype declaration
  */
 class XML_Util {
 
@@ -68,14 +90,14 @@ class XML_Util {
     */
     function apiVersion()
     {
-        return "0.5.2";
+        return "0.6";
     }
 
    /**
     * replace XML entities
     *
-    * chars that have to be replaced are '&' and '<',
-    * furthermore '>', ''' and '"' have entities that can be used. 
+    * With the optional second parameter, you may select, which
+    * entities should be replaced.
     *
     * <code>
     * require_once 'XML/Util.php';
@@ -86,18 +108,32 @@ class XML_Util {
     *
     * @access   public
     * @static
-    * @param    string  $string string where XML special chars should be replaced
-    * @return   string  $string string with replaced chars
-    * @todo     optional parameter to supply additional entities
+    * @param    string  string where XML special chars should be replaced
+    * @param    integer setting for entities in attribute values (one of XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML)
+    * @return   string  string with replaced chars
     */
-    function replaceEntities($string)
+    function replaceEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML)
     {
-        return strtr($string,array(
-                                  '&'  => '&amp;',
-                                  '>'  => '&gt;',
-                                  '<'  => '&lt;',
-                                  '"'  => '&quot;',
-                                  '\'' => '&apos;' ));
+        switch ($replaceEntities) {
+            case XML_UTIL_ENTITIES_XML:
+                return strtr($string,array(
+                                          '&'  => '&amp;',
+                                          '>'  => '&gt;',
+                                          '<'  => '&lt;',
+                                          '"'  => '&quot;',
+                                          '\'' => '&apos;' ));
+                break;
+            case XML_UTIL_ENTITIES_XML_REQUIRED:
+                return strtr($string,array(
+                                          '&'  => '&amp;',
+                                          '<'  => '&lt;',
+                                          '"'  => '&quot;' ));
+                break;
+            case XML_UTIL_ENTITIES_HTML:
+                return htmlspecialchars($string);
+                break;
+        }
+        return $string;
     }
 
    /**
@@ -134,7 +170,6 @@ class XML_Util {
         
         return sprintf("<?xml%s?>", XML_Util::attributesToString($attributes, false));
     }
-
 
    /**
     * build a document type declaration
@@ -188,33 +223,63 @@ class XML_Util {
     *
     * @access   public
     * @static
-    * @param    array   $attributes  attribute array
-    * @param    boolean $sort        sort attribute list alphabetically
-    * @param    boolean $multiline   use linebreaks, if more than one attribute is given
-    * @param    string  $indent      string used for indentation of multiline attributes
-    * @param    string  $linebreak   string used for linebreaks of multiline attributes
-    * @return   string  $string      string representation of the attributes
+    * @param    array         $attributes        attribute array
+    * @param    boolean|array $sort              sort attribute list alphabetically, may also be an assoc array containing the keys 'sort', 'multiline', 'indent', 'linebreak' and 'entities'
+    * @param    boolean       $multiline         use linebreaks, if more than one attribute is given
+    * @param    string        $indent            string used for indentation of multiline attributes
+    * @param    string        $linebreak         string used for linebreaks of multiline attributes
+    * @param    integer       $entities          setting for entities in attribute values (one of XML_UTIL_ENTITIES_NONE, XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML)
+    * @return   string                           string representation of the attributes
     * @uses     XML_Util::replaceEntities() to replace XML entities in attribute values
+    * @todo     allow sort also to be an options array
     */
-    function attributesToString($attributes, $sort = true, $multiline = false, $indent = '    ', $linebreak = "\n")
+    function attributesToString($attributes, $sort = true, $multiline = false, $indent = '    ', $linebreak = "\n", $entities = XML_UTIL_ENTITIES_XML)
     {
-        $string = "";
+        /**
+         * second parameter may be an array
+         */
+        if (is_array($sort)) {
+            if (isset($sort['multiline'])) {
+                $multiline = $sort['multiline'];
+            }
+            if (isset($sort['indent'])) {
+                $indent = $sort['indent'];
+            }
+            if (isset($sort['linebreak'])) {
+                $multiline = $sort['linebreak'];
+            }
+            if (isset($sort['entities'])) {
+                $entities = $sort['entities'];
+            }
+            if (isset($sort['sort'])) {
+                $sort = $sort['sort'];
+            } else {
+                $sort = true;
+            }
+        }
+        $string = '';
         if (is_array($attributes) && !empty($attributes)) {
             if ($sort) {
                 ksort($attributes);
             }
             if( !$multiline || count($attributes) == 1) {
                 foreach ($attributes as $key => $value) {
-                    $string .= " ".$key.'="'.XML_Util::replaceEntities($value).'"';
+                    if ($entities != XML_UTIL_ENTITIES_NONE) {
+                        $value = XML_Util::replaceEntities($value, $entities);
+                    }
+                    $string .= ' '.$key.'="'.$value.'"';
                 }
             } else {
                 $first = true;
                 foreach ($attributes as $key => $value) {
+                    if ($entities != XML_UTIL_ENTITIES_NONE) {
+                        $value = XML_Util::replaceEntities($value, $entities);
+                    }
                     if ($first) {
-                        $string .= " ".$key.'="'.XML_Util::replaceEntities($value).'"';
+                        $string .= " ".$key.'="'.$value.'"';
                         $first = false;
                     } else {
-                        $string .= $linebreak.$indent.$key.'="'.XML_Util::replaceEntities($value).'"';
+                        $string .= $linebreak.$indent.$key.'="'.$value.'"';
                     }
                 }
             }
@@ -311,7 +376,11 @@ class XML_Util {
     function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES, $multiline = false, $indent = "_auto", $linebreak = "\n" )
     {
         if (isset($tag["content"]) && !is_scalar($tag["content"])) {
-            return PEAR::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
+            return XML_Util::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
+        }
+
+        if (!isset($tag['qname']) && !isset($tag['localPart'])) {
+            return XML_Util::raiseError( 'You must either supply a qualified name (qname) or local tag name (localPart).', XML_UTIL_ERROR_NO_TAG_NAME );
         }
 
         // if no attributes hav been set, use empty attributes
@@ -553,17 +622,33 @@ class XML_Util {
     function isValidName($string)
     {
         // check for invalid chars
-        if (!preg_match("/^[[:alnum:]_\-.]+$/", $string)) {
-            return PEAR::raiseError( "XML name may only contain alphanumeric chars, period, hyphen and underscore", XML_UTIL_ERROR_INVALID_CHARS );
+        if (!preg_match("/^[[:alnum:]_\-.]$/", $string{0})) {
+            return XML_Util::raiseError( "XML names may only start with letter or underscore", XML_UTIL_ERROR_INVALID_START );
         }
-
-        //  check for invalid starting character
-        if (!preg_match("/[[:alpha:]_]/", $string{0})) {
-            return PEAR::raiseError( "XML name may only start with letter or underscore", XML_UTIL_ERROR_INVALID_START );
-        }
-
+        
+        // check for invalid chars
+        if (!preg_match("/^([a-zA-Z_]([a-zA-Z0-9_\-\.]*)?:)?[a-zA-Z_]([a-zA-Z0-9_\-\.]+)?$/", $string)) {
+            return XML_Util::raiseError( "XML names may only contain alphanumeric chars, period, hyphen, colon and underscores", XML_UTIL_ERROR_INVALID_CHARS );
+         }
         // XML name is valid
         return true;
+    }
+
+   /**
+    * replacement for XML_Util::raiseError
+    *
+    * Avoids the necessity to always require
+    * PEAR.php
+    *
+    * @access   public
+    * @param    string      error message
+    * @param    integer     error code
+    * @return   object PEAR_Error
+    */
+    function raiseError($msg, $code)
+    {
+        require_once 'PEAR.php';
+        return PEAR::raiseError($msg, $code);
     }
 }
 ?>

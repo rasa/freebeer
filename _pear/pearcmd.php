@@ -24,18 +24,20 @@ ob_end_clean();
 /**
  * @nodep Gtk
  */
-if ('/home/ross/src/freebeer@sf.net/_freebeer/opt/pear' != '@'.'include_path'.'@') {
-    ini_set('include_path', '/home/ross/src/freebeer@sf.net/_freebeer/opt/pear');
+if ('S:\freebeer\bin\..\opt\pear' != '@'.'include_path'.'@') {
+    ini_set('include_path', 'S:\freebeer\bin\..\opt\pear');
 }
 ini_set('allow_url_fopen', true);
-set_time_limit(0);
+if (!ini_get('safe_mode')) {
+    set_time_limit(0);
+}
 ob_implicit_flush(true);
 ini_set('track_errors', true);
 ini_set('html_errors', false);
 ini_set('magic_quotes_runtime', false);
 set_error_handler('error_handler');
 
-$pear_package_version = "1.3";
+$pear_package_version = "1.3.1";
 
 require_once 'PEAR.php';
 require_once 'PEAR/Config.php';
