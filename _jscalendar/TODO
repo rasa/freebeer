@@ -1,0 +1,27 @@
+CALENDAR TODO LIST  -*- text -*-
+---------------------------------
+
+
+** For 0.9.6
+
+  1. Automatic positioning of the calendar if it's out-of-window
+  -- DONE
+
+  2. The NaN Bug (occurs when there's a space after the date and no time)
+  -- DONE
+
+  3. Configure years step (in year combo)
+  -- DONE
+
+  4. Configure calendar absolute position
+  -- DONE
+
+  5. Any weekday can be "the first day of week"
+  -- DONE
+
+  6. PHP wrapper
+  -- 80%
+
+** For 0.9.7
+
+  1. Fix bug with showOtherMonths and dateStatusFunc

@@ -1,0 +1,140 @@
+\textbf{property} & \textbf{type} & \textbf{description} & \textbf{default}
+\\\hline\hline
+\endhead
+\texttt{inputField}
+& string & The ID of your input field.
+& null
+\\\hline
+\texttt{displayArea}
+& string & This is the ID of a $<$span$>$, $<$div$>$, or any other element that you would like to use to display the current date. This is generally useful only if the input field is hidden, as an area to display the date.
+& null
+\\\hline
+\texttt{button}
+& string & The ID of the calendar ``trigger''. This is an element (ordinarily a button or an image) that will dispatch a certain event (usually ``click'') to the function that creates and displays the calendar.
+& null
+\\\hline
+\texttt{eventName}
+& string & The name of the event that will trigger the calendar. The name should be without the ``on'' prefix, such as ``click'' instead of ``onclick''. Virtually all users will want to let this have the default value (``click''). Anyway, it could be useful if, say, you want the calendar to appear when the input field is focused and have no trigger button (in this case use ``focus'' as the event name).
+& ``click''
+\\\hline
+\texttt{ifFormat}
+& string & The format string that will be used to enter the date in the input field. This format will be honored even if the input field is hidden.
+& ``\%Y/\%m/\%d''
+\\\hline
+\texttt{daFormat}
+& string & Format of the date displayed in the displayArea (if specified).
+& ``\%Y/\%m/\%d''
+\\\hline
+\texttt{singleClick}
+& boolean & Wether the calendar is in ``single-click mode'' or ``double-click mode''. If true (the default) the calendar will be created in single-click mode.
+& true
+\\\hline
+\texttt{disableFunc}
+& function & A function that receives a JS Date object.  It should return
+\texttt{true} if that date has to be disabled, \texttt{false} otherwise.
+{\color{red} DEPRECATED (see below).}
+& null
+\\\hline
+\texttt{dateStatusFunc}
+& function & A function that receives a JS Date object and returns a boolean
+or a string.  This function allows one to set a certain CSS class to some
+date, therefore making it look different.  If it returns \texttt{true} then
+the date will be disabled.  If it returns \texttt{false} nothing special
+happens with the given date.  If it returns a string then that will be taken
+as a CSS class and appended to the date element.  If this string is
+``disabled'' then the date is also disabled (therefore is like returning
+\texttt{true}).  For more information please also refer to section
+\ref{sec:Calendar.setDateStatusHandler}.
+& null
+\\\hline
+\texttt{firstDay}
+& integer & Specifies which day is to be displayed as the first day of
+week.  Possible values are 0 to 6; 0 means Sunday, 1 means Monday, ..., 6
+means Saturday.  The end user can easily change this too, by clicking on the
+day name in the calendar header.
+& 0
+\\\hline
+\texttt{weekNumbers}
+& boolean & If ``true'' then the calendar will display week numbers.
+& true
+\\\hline
+\texttt{align}
+& string & Alignment of the calendar, relative to the reference element. The
+reference element is dynamically chosen like this: if a displayArea is
+specified then it will be the reference element. Otherwise, the input field
+is the reference element.  For the meaning of the alignment characters
+please section \ref{sec:Calendar.showAtElement}.
+& ``Bl''
+\\\hline
+\texttt{range}
+& array & An array having exactly 2 elements, integers. (!) The first [0] element is the minimum year that is available, and the second [1] element is the maximum year that the calendar will allow.
+& [1900, 2999]
+\\\hline
+\texttt{flat}
+& string & If you want a flat calendar, pass the ID of the parent object in
+this property.  If not, pass \texttt{null} here (or nothing at all as
+\texttt{null} is the default value).
+& null
+\\\hline
+\texttt{flatCallback}
+& function & You should provide this function if the calendar is flat.  It
+will be called when the date in the calendar is changed with a reference to
+the calendar object.  See section \ref{sec:quick-start-flat} for an example
+of how to setup a flat calendar.
+& null
+\\\hline
+\texttt{onSelect}
+& function & If you provide a function handler here then you have to manage
+the ``click-on-date'' event by yourself.  Look in the calendar-setup.js and
+take as an example the onSelect handler that you can see there.
+& null
+\\\hline
+\texttt{onClose}
+& function & This handler will be called when the calendar needs to close.
+You don't need to provide one, but if you do it's your responsibility to
+hide/destroy the calendar.  You're on your own.  Check the calendar-setup.js
+file for an example.
+& null
+\\\hline
+\texttt{onUpdate}
+& function & If you supply a function handler here, it will be called right
+after the target field is updated with a new date.  You can use this to
+chain 2 calendars, for instance to setup a default date in the second just
+after a date was selected in the first.
+& null
+\\\hline
+\texttt{date}
+& date & This allows you to setup an initial date where the calendar will be
+positioned to.  If absent then the calendar will open to the today date.
+& null
+\\\hline
+\texttt{showsTime}
+& boolean & If this is set to \texttt{true} then the calendar will also
+allow time selection.
+& false
+\\\hline
+\texttt{timeFormat}
+& string & Set this to ``12'' or ``24'' to configure the way that the
+calendar will display time.
+& ``24''
+\\\hline
+\texttt{electric}
+& boolean & Set this to ``false'' if you want the calendar to update the
+field only when closed (by default it updates the field at each date change,
+even if the calendar is not closed) & true
+\\\hline
+\texttt{position}
+& array & Specifies the [x, y] position, relative to page's top-left corner,
+where the calendar will be displayed.  If not passed then the position will
+be computed based on the ``align'' parameter.  Defaults to ``null'' (not
+used). & null
+\\\hline
+\texttt{cache}
+& boolean & Set this to ``true'' if you want to cache the calendar object.
+This means that a single calendar object will be used for all fields that
+require a popup calendar & false
+\\\hline
+\texttt{showOthers}
+& boolean & If set to ``true'' then days belonging to months overlapping
+with the currently displayed month will also be displayed in the calendar
+(but in a ``faded-out'' color) & false

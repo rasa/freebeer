@@ -1,0 +1,12 @@
+% -*- tex -*-
+
+\usepackage{tex2page}
+
+\inputcss reference.css
+
+% don't use images for inline math
+\nohtmlmathintextimg
+
+\secnumdepth = 3
+\tocdepth = 3
+
