@@ -27,8 +27,10 @@
 # or
 #DEFAULT (echo ""; id; echo %{sVv}; date; cat) >> $CVSROOT/CVSROOT/commitlog
 
+# I'm commenting out for now, til I do more testing
 #ALL $CVSROOT/CVSROOT/enforce_permissions.sh
 
+# I'm commenting out for now, til I do more testing
 #ALL $CVSROOT/CVSROOT/enforce_directories.sh
 
 CVSROOT $CVSROOT/CVSROOT/syncmail -q -u %{sVv} freebeer-cvs@lists.sourceforge.net
