@@ -17,6 +17,8 @@ if (phpversion() <= '4.2.0') {
 	include_once FREEBEER_BASE . '/lib/Backport.php'; // array_change_key_case
 }
 
+require_once FREEBEER_BASE . '/lib/StrUtils.php';	// strtoupper
+
 /*!
 	\brief ISO 639 language code related functions
 	\class fbISO639
@@ -295,7 +297,13 @@ class fbISO639 {
 		}
 
 		/// \todo make multibyte saavy
-		$name = strtoupper($name);
+		$name = fbString::strtoupper($name);
+if (!isset($NAME_TO_ID_HASH_UC[$name])) {
+print "<pre>";
+echo "name=$name\n";
+echo "NAME_TO_ID_HASH_UC=";
+print_r($NAME_TO_ID_HASH_UC);
+}
 		return isset($NAME_TO_ID_HASH_UC[$name]) ? $NAME_TO_ID_HASH_UC[$name] : false;
 	}
 
@@ -308,7 +316,7 @@ class fbISO639 {
 	function getLanguageName($id) {
 		$ID_TO_NAME_HASH = &fbISO639::getIDToNameHash();
 		/// \todo make multibyte saavy
-		$id = strtoupper($id);
+		$id = fbString::strtoupper($id);
 		return isset($ID_TO_NAME_HASH[$id]) ? $ID_TO_NAME_HASH[$id] : false;
 	}
 
@@ -321,7 +329,7 @@ class fbISO639 {
 	function getLocalizedLanguageName($id) {
 		$ID_TO_LOCALIZED_NAME_HASH = &fbISO639::getIDToLocalizedNameHash();
 		/// \todo make multibyte saavy
-		$id = strtoupper($id);
+		$id = fbString::strtoupper($id);
 		return isset($ID_TO_LOCALIZED_NAME_HASH[$id]) ? $ID_TO_LOCALIZED_NAME_HASH[$id] : false;
 	}
 

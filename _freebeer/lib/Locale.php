@@ -21,6 +21,7 @@ require_once FREEBEER_BASE . '/lib/System.php';
 require_once FREEBEER_BASE . '/lib/Debug.php';
 require_once FREEBEER_BASE . '/lib/ISO639.php';
 require_once FREEBEER_BASE . '/lib/ISO3166.php';
+require_once FREEBEER_BASE . '/lib/StrUtils.php';
 
 if (preg_match('/^win/i', PHP_OS)) {
 	include_once FREEBEER_BASE . '/lib/ISO639/Alpha3.php';
@@ -205,6 +206,7 @@ fbDebug::leave($rv);
 			'1253'	=> 'ISO8859-1', /// \todo Determine correct charset for 1253
 			'1254'	=> 'ISO8859-9',
 			'1257'	=> 'ISO8859-13',
+			'1252'	=> 'ISO885915',	// I can't find this anywhere yet, but I think it's right
 		);
 
 		if (is_null($locale)) {
@@ -267,11 +269,11 @@ if ($lang == 'C') {
 				$language = $lang;
 			}
 
-			$iso_locale = strtolower($language_id);
+			$iso_locale = fbString::strtolower($language_id);
 
 			$country		= fbISO3166::getCountryName($coun);
 			if ($country) {
-				$country_id = strtoupper($coun);
+				$country_id = fbString::strtoupper($coun);
 			} else {
 				$country_id = fbISO3166::getCountryId($coun);
 				if ($coun && !$country_id) {
@@ -280,9 +282,10 @@ if ($lang == 'C') {
 				}
 			}
 
-			$iso_locale .= '_' . strtoupper($country_id);
+			$iso_locale .= '_' . fbString::strtoupper($country_id);
 
 			if ($charset) {
+				$charset = fbString::strtoupper($charset);
 				if (isset($_codepage_to_charset_map[$charset])) {
 					$codepage = $charset;
 					$charset = $_codepage_to_charset_map[$charset];
@@ -302,11 +305,11 @@ if ($lang == 'C') {
 
 		return array(
 			'locale'		=> $iso_locale,
-			'language_id'	=> strtoupper($language_id),
+			'language_id'	=> fbString::strtoupper($language_id),
 			'language'		=> $language,
-			'country_id'	=> strtoupper($country_id),
+			'country_id'	=> fbString::strtoupper($country_id),
 			'country'		=> $country,
-			'charset'		=> strtoupper($charset),
+			'charset'		=> fbString::strtoupper($charset),
 			'codepage'		=> $codepage,
 		);
 	}
@@ -567,7 +570,7 @@ fbDebug::enter();
 
 		$language = fbISO639::getLanguageName($language_id);
 
-		$iso_locale = strtolower($language_id);
+		$iso_locale = fbString::strtolower($language_id);
 
 		/// \todo Look up country_id using fbISO639_ISO3166_Map::getCountryID()?
 		/// \todo default to ISO8559-1 charset?
@@ -577,9 +580,9 @@ fbDebug::enter();
 			'locale'		=> $iso_locale,
 			'language_id'	=> $language_id,
 			'language'		=> $language,
-			'country_id'	=> '', // strtoupper($country_id),
+			'country_id'	=> '', // fbString::strtoupper($country_id),
 			'country'		=> '', // $country,
-			'charset'		=> '', // strtoupper($charset),
+			'charset'		=> '', // fbString::strtoupper($charset),
 			'codepage'		=> '', // $codepage,
 		);
 	}
@@ -879,8 +882,8 @@ fbDebug::enter();
 
 				$underscore = strpos($language, '_');
 				if ($underscore !== false) {
-					$language = strtolower(substr($language, 0, $underscore)) . '_' .
-						strtoupper(substr($language, $underscore + 1));
+					$language = fbString::strtolower(substr($language, 0, $underscore)) . '_' .
+						fbString::strtoupper(substr($language, $underscore + 1));
 				}
 
 				$locales[] = $language;
