@@ -110,7 +110,7 @@ $defaults['oci8']			= $defaults['oracle'];
 $defaults['oci805']			= $defaults['oracle'];
 $defaults['oci8po']			= $defaults['oracle'];
 
-$driver			= 'mysqlt';
+$driver			= 'mysql';
 
 extract($defaults[$driver]);
 

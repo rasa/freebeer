@@ -18,7 +18,7 @@ error_reporting(2047);
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') : 
 	dirname(dirname(__FILE__)));
 
-if (phpversion() <= '5.0.0b3') {
+if (phpversion() < '5.0.2') {
 	include_once FREEBEER_BASE . '/lib/Backport.php'; // E_STRICT, fprintf, STDERR
 }
 

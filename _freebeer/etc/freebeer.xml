@@ -11,11 +11,11 @@
   -->
 
   <adodb>
-    <driver>mysqlt</driver>
+    <driver>mysql</driver>
   </adodb>
 
   <adodb_session>
-	<driver>mysqlt</driver>
+	<driver>mysql</driver>
     <host>localhost</host>
     <user>root</user>
     <password></password>
@@ -32,6 +32,22 @@
 	<encryptionKey>Enter your own encryption key here</encryptionKey>
 -->
   </adodb_session>
+
+  <adodb_mysql>
+    <host>localhost</host>
+    <user>root</user>
+    <password></password>
+    <database>test</database>
+    <!-- persist>1</persist -->
+  </adodb_mysql>
+
+  <adodb_mysql_debug>
+    <host>localhost</host>
+    <user>root</user>
+    <password></password>
+    <database>test</database>
+    <!-- persist>1</persist -->
+  </adodb_mysql_debug>
   
   <adodb_mysqlt>
     <host>localhost</host>

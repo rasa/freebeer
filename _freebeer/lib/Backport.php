@@ -19,6 +19,14 @@ define('_fbBackport_loaded', 1);
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(__FILE__)));
 
+// CLI version doesn't define these
+defined('STDIN')	|| define('STDIN',  fopen('php://stdin', 'r'));
+defined('STDOUT')	|| define('STDOUT', fopen('php://stdout', 'w'));
+defined('STDERR')	|| define('STDERR', fopen('php://stderr', 'w'));
+register_shutdown_function(
+	create_function('' , 'fclose(STDIN); fclose(STDOUT); fclose(STDERR); return true;' )
+);
+
 // 5.0.0b3
 defined('E_STRICT') || define('E_STRICT', 2048);
 
@@ -540,13 +548,6 @@ if (!function_exists('sha1_file')) {
 		return $rv ? sha1($rv) : false;
 	}
 }
-
-defined('STDIN')	|| define('STDIN',  fopen('php://stdin', 'r'));
-defined('STDOUT')	|| define('STDOUT', fopen('php://stdout', 'w'));
-defined('STDERR')	|| define('STDERR', fopen('php://stderr', 'w'));
-register_shutdown_function(
-	create_function('' , 'fclose(STDIN); fclose(STDOUT); fclose(STDERR); return true;' )
-);
 
 // Generates a backtrace (PHP 4 >= 4.3.0)
 // array debug_backtrace ( void)

@@ -51,8 +51,9 @@ $defaults['oci805']			= $defaults['oracle'];
 $defaults['oci8po']			= $defaults['oracle'];
 
 $defaults['mysqlt_debug']	= $defaults['mysql'];
+$defaults['mysql_debug']	= $defaults['mysql'];
 
-$driver			= 'mysqlt';
+$driver			= 'mysql;
 
 extract($defaults[$driver]);
 

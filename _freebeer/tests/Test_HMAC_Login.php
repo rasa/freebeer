@@ -26,7 +26,7 @@ class _Test_HMAC_Login extends fbTestCase {
 		$this->user		= 'root';
 		$this->password	= '';
 		$this->database	= 'hmac_login';
-		$this->driver	= 'mysqlt';
+		$this->driver	= 'mysql';
 	}
 
 	function tearDown() {
