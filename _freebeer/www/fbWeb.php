@@ -14,12 +14,12 @@ class fbWeb {
 
 		if (is_null($doc_root)) {
 			if (isset($_SERVER['DOCUMENT_ROOT'])) {
-				$doc_root = $_SERVER['DOCUMENT_ROOT'];
+				$doc_root = realpath($_SERVER['DOCUMENT_ROOT']);
 			} else {
 				assert('$_SERVER["PATH_TRANSLATED"]');
 				assert('$_SERVER["SCRIPT_NAME"]');
-				$a 	= dirname($_SERVER['SCRIPT_NAME']);
-				$b	= dirname($_SERVER['PATH_TRANSLATED']);
+				$a 	= realpath(dirname($_SERVER['SCRIPT_NAME']));
+				$b	= realpath(dirname($_SERVER['PATH_TRANSLATED']));
 				if (substr($b, -strlen($a)) == $a) {
 					$doc_root = substr($b, 0, strlen($b) - strlen($a));
 				}
@@ -36,7 +36,7 @@ class fbWeb {
 		if (is_null($web_root)) {
 	//		assert('$_SERVER["SCRIPT_NAME"]');
 	//		$web_root = dirname($_SERVER['SCRIPT_NAME']);
-			$web_root = dirname(__FILE__);
+			$web_root = realpath(dirname(__FILE__));
 			$web_root = str_replace("\\", '/', $web_root);
 			if (strpos($web_root, fbWeb::getDocRoot()) === 0) {
 				$web_root = substr($web_root, strlen(fbWeb::getDocRoot()));
