@@ -33,6 +33,7 @@ freebeer		-o $CVSROOT/CVSROOT/checkout.sh \
 			_freebeer	\
 			&adodb		\
 			&jsunit		\
+			&pajhome	\
 			&pear		\
 			&smarty
 
