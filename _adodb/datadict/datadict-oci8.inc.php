@@ -1,7 +1,7 @@
 <?php
 
 /**
-  V4.10 12 Jan 2003  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
+  V4.20 22 Feb 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -40,7 +40,7 @@ class ADODB2_oci8 extends ADODB_DataDict {
 			return 'X2';
 			
 		case 'NCLOB':
-		case 'CLOB';
+		case 'CLOB':
 			return 'XL';
 		
 		case 'LONG RAW':
@@ -214,7 +214,7 @@ end;
 		$sql = array();
 		
 		if ( isset($idxoptions['REPLACE']) || isset($idxoptions['DROP']) ) {
-			$sql[] = sprintf ($this->dropIndex, $idxname);
+			$sql[] = sprintf ($this->dropIndex, $idxname, $tabname);
 			if ( isset($idxoptions['DROP']) )
 				return $sql;
 		}
