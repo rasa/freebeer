@@ -100,7 +100,7 @@ class fbTimer {
 		\return \c string
 	*/
 	function toString() {
-		return $this->sprintf('%d:%02d:%02d.%.7f', $this->elapsed());
+		return $this->sprintf('%d:%02d:%02.7f', $this->elapsed());
 	}
 
 	/*!
@@ -113,10 +113,8 @@ class fbTimer {
 		$hours		= intval($secs / 3600);
 		$remainder	= $secs - $hours * 3600;
 		$minutes	= intval($remainder / 60);
-		$remainder	= $remainder - $minutes * 60;
-		$seconds	= intval($remainder);
-		$remainder	-= $seconds;
-		return sprintf($format, $hours, $minutes, $seconds, $remainder);
+		$seconds	= $remainder - $minutes * 60;
+		return sprintf($format, $hours, $minutes, $seconds);
 	}
 
 	/*!
