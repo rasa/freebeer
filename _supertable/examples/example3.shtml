@@ -1,0 +1,495 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SuperTable Example #3</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+    TABLE#key TBODY { font-size: .8em; }
+    .control { background-color: #F9F9D2; color: #000000; }
+    .debug { background-color: #F9E6D2; color: #000000; }
+    .dom { background-color: #F9D2D2; color: #000000; }
+    .event { background-color: #F9D2F9; color: #000000; }
+    .object { background-color: #D2E6F9; color: #000000; }
+    .references { background-color: #D2F9E6; color: #000000; }
+    .other { background-color: #E6F9D2; color: #000000; }
+    .snippet {  }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+        //===========================================
+        // INSTANTIATE TABLE OBJECT
+        //===========================================
+        jsSnipTable = new Table( 'actionitems' );
+
+        // DEFINE COLUMNS OF TABLE ( COLUMN-INDEX, SORT-DATA-TYPE )
+        jsSnipTable.defineColumn( 0,'alpha' );
+        jsSnipTable.defineColumn( 1,'alpha' );
+        jsSnipTable.defineColumn( 2,'alpha' );
+
+
+        // DEFINE RULES FOR COLORING ROWS ( PATTERN, CSS-CLASS, ROW|CELL )
+        jsSnipTable.columns[0].style.defineRule( /control/i,'control','row' );
+        jsSnipTable.columns[0].style.defineRule( /debug/i,'debug','row' );
+        jsSnipTable.columns[0].style.defineRule( /dom/i,'dom','row' );
+        jsSnipTable.columns[0].style.defineRule( /event/i,'event','row' );
+        jsSnipTable.columns[0].style.defineRule( /object/i,'object','row' );
+        jsSnipTable.columns[0].style.defineRule( /references/i,'references','row' );
+        jsSnipTable.columns[0].style.defineRule( /.*/i,'other','row' );
+        //jsSnipTable.columns[0].style.defineRule( /^(&nbsp;|)/,'priority0','row' );
+
+
+        // DEFINE FILTER FOR COLUMNS ( FORM-NAME, FORM-INPUT-NAME )
+        jsSnipTable.columns[0].defineFilter( 'filter','category' );
+        jsSnipTable.columns[1].defineFilter( 'filter','description' );
+        jsSnipTable.columns[2].defineFilter( 'filter','snippet' );
+
+
+        // DEFINE NUMBER OF CHARACTERS TO BE USED WHEN SORTING COLUMNS CONTAINING STRINGS ('alpha').
+        //    A LOWER NUMBER WILL IMPROVE PERFORMANCE, BUT MAY REDUCE ACCURACY.
+        jsSnipTable.setAlphaSortLimit(7);
+
+
+        // SORT TABLE BY FIRST COLUMN
+        jsSnipTable.sortTable(0);
+    }
+</script>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onload="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="example1.shtml">Action Item List</a></li>
+                    <li><a href="example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="usage.shtml">Annotated Example</a></li>
+                    <li><a href="supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1><!-- InstanceBeginEditable name="PageHeading" -->SuperTable Example
+                #3<!-- InstanceEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- InstanceBeginEditable name="PageDescription" --> Javascript
+                    Code Snippets <!-- InstanceEndEditable --></li>
+        </ul>
+        <!-- InstanceBeginEditable name="Body" -->
+		<div style="float:right">
+        <table id="key" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <th class="table_heading" style="font-size:larger"><b>Color Key</b></th>
+                </tr>
+            <tbody>
+                <tr class="control">
+                    <td>Control</td>
+                </tr>
+                <tr class="dom">
+                    <td>DOM</td>
+                </tr>
+                <tr class="event">
+                    <td>Event</td>
+                </tr>
+                <tr class="object">
+                    <td>Object</td>
+                </tr>
+                <tr class="references">
+                    <td>References</td>
+                </tr>
+                <tr class="other">
+                    <td>Other</td>
+                </tr>
+            </tbody>
+        </table>
+		</div>
+        <div class="noprint">
+            <form name="filter" method="post" action="javascript:void(0)">
+                <table  id="filtertable" border="1" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td class="bold">Category contains...</td>
+                        <td class="bold">Description contains...</td>
+                        <td class="bold">Snippet contains...</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="left">
+                                <input name="category" type="text" size="20">
+                            </div>
+                        </td>
+                        <td>
+                            <input name="description" type="text" id="description" size="20">
+                        </td>
+                        <td>
+                            <input name="snippet" type="text" id="snippet" size="20">
+                        </td>
+                        <td>
+                            <input type="submit" name="filter" value="Filter Table" onClick="jsSnipTable.filterTable()">
+                        </td>
+                    </tr>
+                </table>
+                <span class="small">Filter supports Regular Expressions</span>
+            </form>
+        </div>
+        <table border="1" cellpadding="5" cellspacing="0" style="clear:both">
+            <caption>
+            <span class="smaller"> <a href="javascript:location.reload()" class="bold">[
+            Refresh Table ]</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:jsSnipTable.removeStyle()" class="bold">[
+            Remove Table Row Color (for printing) ]</a> </span>
+            </caption>
+            <thead>
+                <tr align="center">
+                    <th class="table_heading">Category</th>
+                    <th class="table_heading">
+                        Description
+                        <div style="width:10em; height:0px;">&nbsp;</div>
+                    </th>
+                    <th class="table_heading">Code Snippet</th>
+                </tr>
+            </thead>
+            <tbody id="actionitems">
+                <tr>
+                    <td>Debug</td>
+                    <td>Prevent error messages from being processed by browser</td>
+                    <td><samp>window.onError=null;</samp></td>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>Read value of form select object</td>
+                    <td><samp>var list = document.myForm.selectList;    //selectList
+                            is an Array<br>
+                        selectedValue = list.options[list.selectedIndex].value;</samp></td>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>Dynamically loading images on-the-fly (no precaching
+                        -- Slideshow)</td>
+                    <td> Use this technique when you have many large images that
+                        are referenced on the page but you don't want to precache
+                        them - Images will download on demand.<br>
+                        <b>IMPORTANT!!</b><br>
+                        The link which loads the image must be called without
+                        the onclick event handler!! If it is called using the
+                        onclick event handler, then the image will load but not
+                        render. Call the image directly from the href as shown
+                        below:
+                        <pre>
+    &lt;a href="javascript:slideShow(-1)">back&lt;/a>
+    &lt;a href="javascript:slideShow(1)">next&lt;/a>
+</pre>
+                        Here is the script for the slideshow:
+                        <pre>
+function slideShow(dir) {
+    if ( currentImg + dir > 0 && currentImg + 
+           dir < imgArrayLength ) 
+    {
+        document.images['slideImage'].src = 
+            eval( '"' + imgArray[ currentImg + dir ] + '"' );
+        currentImg += dir;
+    } else { alert("you are at beginning or end"); }
+}
+                    </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>Open new window (most commonly used parameters)</td>
+                    <td><samp>newWindow = window.open('popup.html', 'window-name',
+                            'status=yes, menubar=yes, resizable=yes, scrollbars=yes,
+                            width=700,
+                            height=700');</samp><br>
+                            // Note: there are a bunch of other options...</td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>Defining constants (opposite of variables -- Works only
+                        in Mozilla)</td>
+                    <td><samp>const PI = 3.14159;   //Constants can only be assigned ONCE</samp></td>
+                </tr>
+                <tr>
+                    <td>Regex</td>
+                    <td>Common form validation regex patterns</td>
+                    <td><pre>
+'name',  /\w+/,
+'email', /^\w+(.\w+)*@\w+(.\w+)*.(net|org|com)+$/,
+'phone', /^((\d-)?\d{3}-)?\d{3}-\d{4}$/,
+'zip',   /^\d{5}(-\d{4})?$/
+                    </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Debug</td>
+                    <td>Use confirm box to enable break in a loop<br>
+                        (useful when debugging -- allows you to break long loops
+                            at will)</td>
+                    <td><pre>
+while (1){
+    ( confirm(i) ) ? 1 : last ;
+}
+// Assumes that variable 'last' is NOT defined!
+</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Control</td>
+                    <td>Simple true-false switch statement</td>
+                    <td><samp>(myVal &lt; 0) ? myVal = -myVal : myVal = myVal;</samp></td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>Variable variable</td>
+                    <td><samp>x = &quot;var&quot; + &quot;A&quot;;<br>
+                        varA = 12;<br>
+                        alert( this[x] );    // displays 12</samp></td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>Variable function</td>
+                    <td><samp>x= &quot;my&quot;+ &quot;Funct&quot;;<br>
+                        myFunct = function(){return 99}<br>
+                        alert( this[x]() );    // displays 99</samp></td>
+                </tr>
+                <tr>
+                    <td>Control</td>
+                    <td>Compound &quot;for&quot; statement</td>
+                    <td><samp>for (i = 0; i &lt;= n &amp;&amp; (found = txt.findText(str))
+                        != false; i++)</samp></td>
+                </tr>
+                <tr>
+                    <td>Control</td>
+                    <td>Simple true-false switch statement</td>
+                    <td>                        <samp>(nCodeString &lt; 0) ?
+                    nCodeString = -nCodeString : nCodeString = nCodeString;</samp><br></td>
+                </tr>
+                <tr>
+                    <td>DOM</td>
+                    <td>Adding properties to DOM HTML objects (defineGetter &amp;
+                        defineSetter)</td>
+                    <td><samp>HTMLElement.prototype.__defineGetter__( 'foo',
+                            function(){return 'bar'} );<br>
+                    output = document.body.foo; //Output is 'bar'</samp></td>
+                </tr>
+                <tr>
+                    <td>DOM, Debug</td>
+                    <td>Manually iterating through the DOM &quot;body&quot; node</td>
+                    <td>
+                        <pre>for( i=0; i&lt;document.body.childNodes.length; i++ ){
+    ( confirm( document.body.childNodes.item(i).innerHTML ) ) ? 1 : last;
+}
+// Assumes that variable 'last' is NOT defined!
+                    </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DOM</td>
+                    <td>Appending new nodes</td>
+                    <td>                        <samp>oNew_cell=document.createElement(&quot;TD&quot;);<br>
+                        oNew_cell.innerHTML = sCell_text;<br>
+                    oNew_row.appendChild(oNew_cell);</samp></td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>Referencing functions and variables in a document</td>
+                    <td>                        Keyword &quot;this&quot; in &lt;head&gt; references the
+                        Window Object where all declared functions<br>
+                    and variables exist. Example:<br>                    <br>
+                    <samp>this.functionName();<br>
+                    this.variableName;</samp></td>
+                </tr>
+                <tr>
+                    <td>References, DOM</td>
+                    <td>Referencing the Window Object</td>
+                    <td><samp>document.defaultView // Reference to Window Object.<br>
+    document.defaultView.myVar // Reference to myVar in &lt;head&gt;</samp></td>
+                </tr>
+                <tr>
+                    <td>DOM</td>
+                    <td>DOM HTML Elements</td>
+                    <td>Referencing DOM HTML Elements<br>                        <br>
+                        <samp>Node -&gt; Element -&gt; HTMLElement -&gt; HTMLTableElement</samp><br>                        <br>
+                        Types of HTMLElement Objects ( DOM2 Standard )<br>
+                        <samp> * HTMLHtmlElement<br>
+* HTMLHeadElement<br>
+* HTMLLinkElement<br>
+* HTMLTitleElement<br>
+* HTMLMetaElement<br>
+* HTMLBodyElement<br>
+* HTMLFormElement<br>
+* HTMLTableElement<br>
+* HTMLInputElement<br>
+* HTMLParagraphElement</samp><br>
+* Many Many more.. See:<br>
+<a href="http://www.w3.org/TR/2001/WD-DOM-Level-2-HTML-20011025/ecma-script-binding.html">http://www.w3.org/TR/2001/WD-DOM-Level-2-HTML-20011025/ecma-script-binding.html</a><br></td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>Variable Naming Convention</td>
+                    <td><samp>sString_var<br>
+                            nNumeric_var<br>
+                            bBoolean_var<br>
+                            cLoopCounter_var<br>
+                            dDate_object<br>
+                            oObject<br>
+                            aArray<br>
+                            pParameter<br>
+                            eElement for(eProperty in oObject){}<br>
+                    CONSTANT_VAR<br>
+                    myFunction(pArgument)
+                    </samp> </td>
+                </tr>
+                <tr>
+                    <td>Event</td>
+                    <td>Detect &lt;enter&gt; key</td>
+                    <td>                        <pre>function detectEnter(evt) {
+    if( evt.keyCode == 13 &amp;&amp; evt.shiftKey ) {
+        alert('enter key pressed');
+    }
+}
+&lt;textarea ... onKeyDown=&amp;quot;detectEnter(event)&amp;quot;&gt;</pre></td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>Treating a literal as an object</td>
+                    <td>                        <samp>(123).toString(16);</samp><br>
+                        This treats
+                        the literal number 123 as a number object so that we
+                    can access it's method toString().<br>
+                    The example above converts the number 123 to it's hexadecimal
+                    value.</td>
+                </tr>
+                <tr>
+                    <td>Control</td>
+                    <td>Using setInterval in the &lt;body&gt; tag</td>
+                    <td>                        <samp>// This example shows how to
+                        pass a parameter to the setInterval function<br>
+&lt;
+                        body onload=&quot;window.setInterval('dynamic_yscroll(\'floater\')',
+                    1)&quot;&gt;</samp></td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>Global Object Variable: Passing by reference example</td>
+                    <td>                        <pre>box.stuffinside = 'stuff';
+
+
+function box(arg){
+    box.stuffinside += 'more';
+}    
+ 
+box2 = box;
+box2.stuffinside = 'new stuff';
+
+
+alert( box.stuffinside ); // Displays 'new stuff'
+                     </pre></td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>Forcing minimum table column width (without spacer image)</td>
+                    <td> <pre>&lt;th&gt;
+    Column title<br>    &lt;div style=&quot;width:10em; height:0px;&quot;&gt;&lt;/div&gt;
+&lt;/th&gt;</pre></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- InstanceEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- InstanceBeginEditable name="footer" --> <!-- InstanceEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+<!-- InstanceEnd --></html>

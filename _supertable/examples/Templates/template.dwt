@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>SuperTable</title>
+<!-- TemplateEndEditable -->
+<link rel="stylesheet" href="../css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="../css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="../css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="../css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="../supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- TemplateBeginEditable name="head" -->
+<style type="text/css">
+    .priority0 { background-color: #99cc99; color: #000000; }
+    .priority1 { background-color: #ffffff; color: #000000; }
+    .priority2 { background-color: #eeeeee; color: #000000; }
+    .priority3 { background-color: #dddddd; color: #000000; }
+    .priority4 { background-color: #cccccc; color: #000000; }
+    .priority5 { background-color: #bbbbbb; color: #000000; }
+    .completed { text-decoration: line-through; background-color: #ddddff; color: #999999; }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+        //===========================================
+        // INSTANTIATE TABLE OBJECT
+        //===========================================
+        aiTable = new Table( 'actionitems' );
+
+        // DEFINE COLUMNS OF TABLE ( COLUMN-INDEX, SORT-DATA-TYPE )
+        aiTable.defineColumn( 0,'numeric' );
+        aiTable.defineColumn( 1,'numeric' );
+        aiTable.defineColumn( 2,'alpha' );
+        aiTable.defineColumn( 3,'alpha' );
+        aiTable.defineColumn( 4,'alpha' );
+        aiTable.defineColumn( 5, null );
+
+
+        // DEFINE RULES FOR COLORING ROWS ( PATTERN, CSS-CLASS, ROW|CELL )
+        aiTable.columns[1].style.defineRule( /1/,'priority1','row' );
+        aiTable.columns[1].style.defineRule( /2/,'priority2','row' );
+        aiTable.columns[1].style.defineRule( /3/,'priority3','row' );
+        aiTable.columns[5].style.defineRule( /done/i,'completed','row' );
+        aiTable.columns[1].style.defineRule( /^(&nbsp;|)/,'priority0','row' );
+
+
+        // DEFINE FILTER FOR COLUMNS ( FORM-NAME, FORM-INPUT-NAME )
+        aiTable.columns[1].defineFilter( 'filter','priority' );
+        aiTable.columns[2].defineFilter( 'filter','category' );
+        aiTable.columns[3].defineFilter( 'filter','lead' );
+        aiTable.columns[4].defineFilter( 'filter','detail' );
+
+
+        // DEFINE LIMIT OF LONGEST STRING IN TABLE CELL... PREVENTS CELL STRETCHING
+        aiTable.columns[4].setHyphenLimit(60);
+
+
+        // DEFINE NUMBER OF CHARACTERS TO BE USED WHEN SORTING COLUMNS CONTAINING STRINGS ('alpha').
+        //    A LOWER NUMBER WILL IMPROVE PERFORMANCE, BUT MAY REDUCE ACCURACY.
+        aiTable.setAlphaSortLimit(7);
+
+
+        // USER CUSTOMIZED PROCESSING SECTION..
+        aiTable.cellRowProcessor = function( sCell_text,cRow,cCell )
+        {
+            // If first or second column..
+            if( cCell == 0 || cCell == 1 )
+            {
+                // If cell contents is a space, a &nbsp; or blank,
+                // then set to 9999
+                if( sCell_text.search(/^(\s|&nbsp;)/) != -1 || sCell_text == '' )
+                {
+                    sCell_text = '999'; // Be sure to set as string (not number)
+                    //oNew_row.setAttribute('class','red'); // Example for setting css
+                }
+            }
+            return sCell_text;
+        }
+        // SORT TABLE BY FIRST COLUMN
+        aiTable.sortTable(0);
+    }
+</script>
+<!-- TemplateEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onload="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="../index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="../index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="../example1.shtml">Action Item List</a></li>
+                    <li><a href="../example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="../example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="../sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="../usage.shtml">Annotated Example</a></li>
+                    <li><a href="../supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1><!-- TemplateBeginEditable name="PageHeading" -->Page Title <!-- TemplateEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- TemplateBeginEditable name="PageDescription" -->Page Description <!-- TemplateEndEditable --></li>
+        </ul>
+        <!-- TemplateBeginEditable name="Body" -->Content Goes Here<!-- TemplateEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- TemplateBeginEditable name="footer" --> <!-- TemplateEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+</html>

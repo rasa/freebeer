@@ -1,0 +1,5 @@
+2003-08-13
+  * First beta release 0.5. 
+  * Known bugs are listed in TODO.txt.
+  * Documentation is maintained in the HTML pages in the /examples 
+    directory

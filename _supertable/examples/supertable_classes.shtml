@@ -1,0 +1,511 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SuperTable Class Reference</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+    .heading { font-weight: bold; color: blue; font-size: 1.5em; }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+    }
+</script>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onLoad="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="example1.shtml">Action Item List</a></li>
+                    <li><a href="example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="usage.shtml">Annotated Example</a></li>
+                    <li><a href="supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+  <div id="content">
+        <h1><!-- InstanceBeginEditable name="PageHeading" -->SuperTable Class
+                Reference<!-- InstanceEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- InstanceBeginEditable name="PageDescription" -->Reference
+                    for SuperTable Class Properties and Methods<!-- InstanceEndEditable --></li>
+        </ul>
+      <!-- InstanceBeginEditable name="Body" -->
+      <pre>
+<span class="boldred">NOTE: The references below assume that you have 
+      some working knowledge of Javascript. </span>
+
+
+
+
+<a name="table"></a><span class="heading">SuperTable Class</span>
+
+DESCRIPTION:    This is the parent class that contains all methods
+                and properties for performing the sorting and
+                filtering functionality.
+
+WHEN TO USE:    This method must be run for each sort/filter table
+                on the web page.
+
+USAGE NOTES:
+
+<span class="blue"><var>variable-name</var> = new Table( '<var>tbody-id</var>' )</span>
+
+    WHERE:
+
+    <var>variable-</var>   You can use any variable name you wish (i.e. myTable,
+     <var>name</var>       aiTable, abc...). Keep in mind, if you set up
+                sorting/filtering for two or more tables on the
+                page, then you must create different variable names
+                for each table.
+
+    '<var>tbody-id</var>'  This is the id attribute of your table's &lt;tbody&gt; tag.
+                Example: &lt;tbody id="actionitems"&gt;
+
+                NOTE: The id 'actionitems' must be quoted:
+                DO THIS:    Table('actionitems')
+                NOT THIS:   Table(actionitems)
+
+
+<span class="heading">
+
+<a name="definecolumn"></a>defineColumn() Method</span>
+
+DESCRIPTION:    This method defines the columns of the table as
+                well as their properties and methods.
+
+WHEN TO USE:    Must be run for every column of the table regardless
+                of whether the column is being sorted or filtered.
+
+USAGE NOTES:
+
+<span class="blue"><var>variable-name</var>.defineColumn( <var>column-index</var>, '<var>sort-type</var>' )</span>
+
+    WHERE:
+
+    column-index    This is the position of the column.
+                    Column numbering starts with 0, such that the
+                    first column is 0, the second is 1, the third
+                    is 2...  This parameter need not be quoted.
+
+    'sort-type'     Refers to the type of content contained in the
+                    cells of that column.
+                    This information determines which sorting
+                    algorithm is applied to the column.
+
+                    Acceptable Values:
+
+                    'numeric'   Use if column is to be sorted
+                                numerically (i.e. 1,2,3,11,22,33).
+                                This option utilizes a stable
+                                mergeSort algorithm.
+
+                    'alpha'     Use if column is to be sorted
+                                by string value (i.e. 1,11,2,22,3,33)
+                                This option utilizes a stable
+                                mergeSort algorithm.
+
+                    null        Use the literal Javascript keyword 
+                                'null' (unquoted) if the column is not 
+                                to be sorted.
+
+                    <var>function</var>    You can also pass a function name or
+                                a function literal to be used as the 
+                                sorting function which is passed as 
+                                an argument to javascript's built-in 
+                                sort() method which is considered 
+                                "unstable" (i.e. does not yield the
+                                same order for 'equal' elements on
+                                subsequent sorts).
+                                This parameter need not be quoted,
+                                and does not require the function
+                                parenthesis ().
+                                Example of a function literal:
+                                  function(a,b){return a[<var>n</var>]-b[<var>n</var>]}
+
+
+
+<span class="heading">
+<a name="definerule"></a><a name="definerule"></a>defineRule() Method</span>
+
+DESCRIPTION:    This method tests the contents of each cell in the
+                column against a regular expression pattern. If the
+                contents of the cell match the pattern, then a CSS
+                class is applied to just the matching cell or the
+                entire row of the matching cell.
+
+WHEN TO USE:    This method must be run only for columns that
+                require row or cell formatting based on cell
+                contents within that column.
+
+USAGE NOTES:
+
+<span class="blue"><var>variable-name</var>.columns[x].defineRule(/<var>regex-pattern</var>/,'<var>css-classname</var>','row'|'cell')</span>
+
+    WHERE:
+
+    /<var>regex-pattern</var>/     This is a regular expression pattern to be
+                        tested against the column's cell data.
+
+    '<var>css-classname</var>'     This is the name of an existing css class
+                        defined within the &lt;style&gt; tag of the &lt;head&gt;
+                        section.  Example:
+                            &lt;style type="text/css"&gt;
+                                .priority1 {color:#ff0000}
+                            &lt;/style&gt;
+                        The CSS class defined above would be
+                        referenced as 'priority1' (without the
+                        leading dot).
+
+    'row'|'cell'        This last parameter can be one of two values:
+                        'row' or 'cell'.  The value determines if
+                        the CSS class is applied to the individual
+                        cell, or the entire row.
+
+
+
+
+<span class="heading"><a name="definefilter"></a>defineFilter() Method</span>
+
+DESCRIPTION:    This method associates a HTML form &lt;input&gt; element
+                with a column.  The contents of the form &lt;input&gt;
+                element are used as a regular-expression pattern
+                to be tested for a match against the cells of that
+                column.
+
+WHEN TO USE:    This method must be run only for columns that are
+                to be filtered.
+
+USAGE NOTES:
+
+<span class="blue"><var>variable-name</var>.columns[x].defineFilter( '<var>form-name</var>','<var>form-field-name</var>' )</span>
+
+    WHERE:
+
+    '<var>form-name</var>'         This is the 'name' attribute of the HTML
+                        form which is intended to filter the table
+                        columns:
+                            &lt;form name="form1" method="post"&gt;
+                        The name of the preceeding form is 'form1'.
+
+    '<var>form-field-name</var>'   This is the name of the text input box that
+                        the user enters the filter pattern for the
+                        column:
+                            &lt;input type="text" name="priority"&gt;
+                        The name of the preceeding form field is
+                        'priority'.
+
+
+
+
+<span class="heading"><a name="cellrowprocessor"></a>cellRowProcessor() Method</span>
+
+DESCRIPTION:    This is an optional method that gives the user
+                access to the internal processing loop in the
+                Table.array2table() method.  This allows the user
+                to perform their own evaluation and manipulation
+                of cell contents and set HTML attributes for the
+                cell (TD) or row (TR).
+
+WHEN TO USE:    This method is optional.
+
+USAGE NOTES:
+
+<span class="blue"><var>variable-name</var>.cellRowProcessor = <var>function-name</var> (<var>cell-content</var>,<var> current-row</var>, <var>current-cell</var>)</span>
+
+    WHERE:
+
+
+    <var>function-name</var>   This can either be a function literal (anonymous 
+                    function) or the name of a function which contains
+                    the processing logic.
+                    When referencing the name of a function, you do
+                    not need to include the function parenthesis (), 
+                    however, make sure your function handles the 
+                    parameters <span class="blue">(<var>cell-content</var>,<var> current-row</var>,<var> current-cell</var>)</span>.
+
+    <var>cell-content</var>    This parameter is passed into your custom
+                    function. It is the string value of the currently
+                    processed cell's contents. You can name this 
+                    parameter anything you like.
+
+    <var>current-row</var>     This parameter is passed into your custom
+                    function by the array2table() method.
+                    It is the index of the current row being
+                    processed.  You can name this parameter anything
+                    you like.
+
+    <var>current-cell</var>    This parameter is passed into your custom
+                    function by the array2table() method.
+                    It is the index of the current cell being
+                    processed.  You can name this parameter anything
+                    you like.
+
+    oNew_row        This is the name of the global variable of method 
+                    array2table().  It is a reference to the current 
+                    table row (TR) DOM element. User can add/modify/
+                    delete attributes from this element.
+
+    oNew_cell       This is the name of the global variable of method 
+                    array2table().  This is a reference to the current 
+                    table cell (TR) DOM element. User can add/modify/
+                    delete attributes from this element.
+
+
+
+<span class="boldred">
+
+The remainder of this page is not yet complete and has not been
+checked for accuracy...</span>
+
+
+
+
+
+<span class="heading"><a name="sethyphenlimit"></a>setHyphenLimit() Method</span>
+ This method sets the limit on the length of the longest allowable
+ string in the table cell. This is intended to prevent table
+ stretching in situations where a URL is very long and forces the
+ column to be very wide.
+ An integer is passed as the single parameter which represents the
+ length at which a hyphen character (defined by columns[x].hyphenStr)
+ will be inserted into a long string thereby causing it to wrap
+ in the browser.
+
+
+
+
+<span class="heading"><a name="setalphasortlimit"></a>setAlphaSortLimit() Method</span>
+ An integer is passed as the single parameter which represents the
+ number of leading characters of the cell's content that will be used
+ in the sorting algorithm.
+ A lower number will improve performance, but may reduce accuracy.
+
+
+
+
+<span class="heading"><a name="sorttable"></a>sortTable() Method</span>
+
+DESCRIPTION:     This method sorts the entire table based on the 
+                 column specified by the <var>column-index</var> parameter which 
+                 represents the index of the sort column.
+
+WHEN TO USE:    This method can be run at any time after Table method 
+                table2array() has been run.
+
+USAGE NOTES:
+
+<span class="blue"><var>variable-name</var>.sortTable( <var>column-index</var>,['<var>sort-direction</var>'] )</span>
+
+    WHERE:
+
+    <var>column-index</var>        This is the position of the column.
+                        Column numbering starts with 0, such that the
+                        first column is 0, the second is 1, the third
+                        is 2...  This parameter need not be quoted.
+
+    '<var>sort-direction</var>'    <strong>This optional parameter can be set to either
+</strong>                        1 or 0 indicating ascending or descending
+                        sorting respectively.
+                        If this parameter is not supplied, then the
+                        default setting is 1 (ascending).
+
+
+
+
+<span class="heading"><a name="togglesort" id="togglesort"></a>toggleSort() Method</span>
+
+DESCRIPTION:     This method is intended to serve as a wrapper method 
+                 for sortTable(). It tracks the last sort direction for 
+                 a given column and alternately sorts that column 
+                 ascending or descending with each successive call.
+
+                 Sorting Rules:
+                   * Toggle the sorting direction on each successive 
+                     contiguous sort (e.g. sort column1, sort column1, 
+                     sort column1...)<br>                   * If the successive sort is not contiguous, then sort 
+                     using previous direction (e.g. sort column1, 
+                     sort column2, sort column1...)
+
+WHEN TO USE:    This method can be run at any time after Table method 
+                table2array() has been run.
+
+USAGE NOTES:
+
+<span class="blue"><var>variable-name</var>.toggleSort( <var>column-index</var> )</span>
+
+    WHERE:
+
+    <var>column-index</var>        This is the position of the column.
+                        Column numbering starts with 0, such that the
+                        first column is 0, the second is 1, the third
+                        is 2...  This parameter need not be quoted.
+
+
+
+
+SET THE SORT FUNCTION  
+( This value was initially set using method defineColumn() )
+    <span class="blue"><var>variable-name</var>.columns[x].setSortFunction( function(a,b){ return a[x]-b[x] } );</span>
+
+
+SET THE HYPHEN STRING  
+( This value was initially set in the Column class from method defineColumn() )
+    <span class="blue"><var>variable-name</var>.columns[x].setHyphenStr( '-' );
+</span>
+
+REMOVE STYLE FROM EACH CELL AND ROW
+    <span class="blue"><var>variable-name</var>.removeStyle()
+</span>
+
+<a name="filtertable"></a>FILTER TABLE BASED ON COLUMN X
+    <span class="blue"><var>variable-name</var>.columns[x].filterTable(x)</span>
+
+
+INSERT SEQUENCE NUMBER IN COLUMN X
+    <span class="blue"><var>variable-name</var>.autoNumberSeq(x)</span>
+
+
+HIDE COLUMN X FROM DISPLAYING AFTER SORTING/FILTERING
+    <span class="blue"><var>variable-name</var>.columns[x].hideColumn()
+</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+      <!-- InstanceEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- InstanceBeginEditable name="footer" --> <!-- InstanceEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SuperTable Example #2</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+    .priority0 { background-color: #ffffff; color: #000000; }
+	.priority1 { background-color: #ffff88; color: #000000; }
+    .priority2 { background-color: #eeee88; color: #000000; }
+    .priority3 { background-color: #dddd88; color: #000000; }
+    .priority4 { background-color: #eeeeee; color: #000000; }
+    .priority5 { background-color: #dddddd; color: #000000; }
+    .priority6 { background-color: #cccccc; color: #000000; }
+    .completed { text-decoration: line-through; background-color: #ddddff; color: #999999; }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+    }
+</script>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onload="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="example1.shtml">Action Item List</a></li>
+                    <li><a href="example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="usage.shtml">Annotated Example</a></li>
+                    <li><a href="supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1><!-- InstanceBeginEditable name="PageHeading" -->SuperTable Example
+                #1<!-- InstanceEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- InstanceBeginEditable name="PageDescription" -->Action Items
+                    List<!-- InstanceEndEditable --></li>
+        </ul>
+        <!-- InstanceBeginEditable name="Body" -->
+        <table border="1" cellpadding="5" cellspacing="0">
+            <caption>
+            Detail Notes for IT Team Action Items <span style="font-size:smaller;">&nbsp;&nbsp;&nbsp;&nbsp;[
+            <a href="example1.shtml#actionItemsTable">Back to Action Items Page</a> ]</span>
+            </caption>
+            <thead>
+                <tr align="center">
+                    <th class="table_heading"><a href="javascript:void(0)" onClick="aiTable.sortTable(0)">ID</a></th>
+                    <th class="table_heading">Status Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a name="id75"></a>75</td>
+                    <td>Magnus es, domine, et laudabilis valde: magna virtus
+                        tua, et sapientiae tuae non est numerus. et laudare te
+                        vult homo, aliqua portio creaturae tuae, et homo circumferens
+                        mortalitem suam, circumferens testimonium peccati sui
+                        et testimonium, quia superbis resistis: et tamen laudare
+                        te vult homo, aliqua portio creaturae tuae.tu excitas,
+                        ut laudare te delectet, quia fecisti nos ad te et inquietum
+                        est cor nostrum, donec requiescat in te. da mihi, domine,
+                        scire et intellegere, utrum sit prius invocare te an
+                        laudare te, et scire te prius sit an invocare te. sed
+                        quis te invocat nesciens te? aliud enim pro alio potest
+                        invocare nesciens. an potius invocaris, ut sciaris? quomodo
+                        autem invocabunt, in quem non crediderunt? aut quomodo
+                    credent sine praedicante?</td>
+                </tr>
+                <tr>
+                    <td><a name="id67"></a>67</td>
+                    <td>Et quomodo invocabo deum meum, deum et dominum meum,
+                        quoniam utique inme ipsum eum invocabo, cum invocabo
+                        eum? et quis locus est in me, quoveniat in me deus meus?
+                        quo deus veniat in me, deus, qui fecit caelum et terram?
+                        itane, domine deus meus, est quiquam in me, quod capiat
+                        te?an vero caelum et terra, quae fecisti et in quibus
+                        me fecisti, capiuntte? an quia sine te non esset quidquid
+                        est, fit, ut quidquid est capiat te? quoniam itaque et
+                        ego sum, quid peto, ut venias in me, quinon essem, nisi
+                        esses in me? non enim ego iam in inferis, et tamen etiam
+                        ibi es. nam etsi descendero in infernum, ades. non ergo
+                        essem, deus meus, non omnino essem, nisi esses in me.
+                        an potius non essem, nisi essem in te, ex quo omnia,
+                        per quem omnia, in quo omnia? etiam sic, domine, etiam
+                        sic. quo te invoco, cum in te sim? aut unde venias in
+                        me? quo enim recedam extra caelum et terram, ut inde
+                        in me veniat deus meus, qui dixit: caelum et terram ego
+                    impleo?</td>
+                </tr>
+                <tr>
+                    <td><a name="id29"></a>29</td>
+                    <td>Quid est ergo deus meus? quid, rogo, nisi dominus deus?
+                        quis enim dominus praeter dominum? aut quis deus praeter
+                        deum nostrum? summe, optime, potentissime, omnipotentissime,
+                        misericordissime et iustissime, secretissime et praesentissime,
+                        pulcherrime et fortissime,stabilis et inconprehensibilis,
+                        inmutabilis, mutans omnia, numquam novus, numquam vetus,
+                        innovans omnia; in vetustatem perducens superboset nesciunt;
+                        semper agens, semper quietus, colligens et non egens,
+                        portans et implens et protegens, creans et nutriens,
+                        perficiens, quaerens, cum nihil desit tibi. amas nec
+                        aestuas, zelas et securus es; paenitet te et non doles,
+                        irasceris et tranquillus es, opera mutasnec mutas consilium;
+                        recipis quod invenis et numquam amisisti;<br>
+                        DONE</td>
+                </tr>
+                <tr>
+                    <td><a name="id30"></a>30</td>
+                    <td>Capiunt ergone te caelum et terra, quoniam tu imples
+                        ea? an imples et restat, quoniam non te capiunt? et quo
+                        refundis quidquid impleto caeloet terra restat ex te?
+                        an non opus habes, ut quoquam continearis, qui contines
+                        omnia, quoniam quae imples continendo imples? non enim
+                        vasa, quae te plena sunt, stabilem te faciunt, quia etsi
+                        frangantur non effunderis. et cum effunderis super nos,
+                        non tu iaces, sed erigis nos,nec tu dissiparis, sed colligis
+                        nos. sed quae imples omnia, te toto imples omnia. an
+                        quia non possunt te totum capere omnia, partem tui capiunt
+                        et eandem partem simul omnia capiunt? an singulas singula
+                        et maiores maiora, minores minora capiunt? ergo est aliqua
+                        pars tua maior, aliqua minor? an ubique totus es et res
+                    nulla te totum capit?</td>
+                </tr>
+                <tr>
+                    <td><a name="id3"></a>3</td>
+                    <td> Quid est ergo deus meus? quid, rogo, nisi dominus deus?
+                        quis enim dominus praeter dominum? aut quis deus praeter
+                        deum nostrum? summe, optime, potentissime, omnipotentissime,
+                        misericordissime et iustissime, secretissime et praesentissime,
+                        pulcherrime et fortissime,stabilis et inconprehensibilis,
+                        inmutabilis, mutans omnia, numquam novus, numquam vetus,
+                        innovans omnia; in vetustatem perducens superboset nesciunt;
+                        semper agens, semper quietus, colligens et non egens,
+                        portans et implens et protegens, creans et nutriens,
+                        perficiens, quaerens, cum nihil desit tibi. amas nec
+                        aestuas, zelas et securus es; paenitet te et non doles,
+                        irasceris et tranquillus es, opera mutasnec mutas consilium;
+                        recipis quod invenis et numquam amisisti; numquaminops
+                        et gaudes lucris, numquam avarus et usuras exigis. supererogaturtibi,
+                        ut debeas, et quis habet quicquam non tuum? reddens debita
+                        nullidebens, donans debita nihil perdens. et quid diximus,
+                        deus meus, vita mea, dulcedo mea sancta, aut quid dicit
+                        aliquis, cum de te dicit? et vae tacentibus de te, quoniam
+                    loquaces muti sunt.</td>
+                </tr>
+                <tr>
+                    <td><a name="id10"></a>10</td>
+                    <td>Quis mihi dabit adquiescere in te? quis dabit mihi, ut
+                        venias in cor meum et inebries illud, ut obliviscar mala
+                        mea et unum bonum meum amplectar, te? quid mihi es? miserere,
+                        ut loquar. quid tibi sum ipse, ut amari te iubeas a me
+                        et, nisi faciam, irascaris mihi et mineris ingentes miserias?
+                        parvane ipsa est, si non amem te? ei mihi! dic mihi per
+                        miserationes tuas, domine deus meus, quid sis mihi. dic
+                        animae meae: salus tua ego sum. sic dic, ut audiam. ecce
+                        aures cordis mei ante te, domine; aperi eas et dic animae
+                        meae: salus tua ego sum. curram post vocem hanc et adprehendam
+                        te. noli abscondere a me faciem tuam: moriar, ne moriar,
+                        ut eam videam. Angusta est domus animae meae, quo venias
+                        ad eam: dilatetur abs te. ruinosa est: refice eam. habet
+                        quae offendant oculos tuos: fateor et scio. sed quis
+                        mundabit eam? aut cui alteri praeter te clamabo: ab occultis
+                        meis munda me, domine, et ab alienis parce servo tuo?
+                        credo, propter quod et loquor. domine, tu scis. nonne
+                        tibi prolocutus sum adversum me delicta mea, deus meus,
+                        et tu dimisisti inpietatem cordis mei? non iudicio contendotecum,
+                        qui veritas es; et ego nolo fallere me ipsum, ne mentiatur
+                        iniquitas mea sibi. non ergo iudicio contendo tecum,
+                        quia, si iniquitates observaveris, domine, domine, quis
+                    sustinebit?</td>
+                </tr>
+                <tr>
+                    <td><a name="id71"></a>71</td>
+                    <td>Nonne ab infantia huc pergens veni in pueritiam? vel
+                        potius ipsa in me venit et successit infantiae? nec discessit
+                        illa: quo enim abiit? et tamen iam non erat. non enim
+                        eram infans, qui non farer, sed iam puer loquens eram.
+                        et memini hoc, et unde loqui didiceram, post adverti.
+                        non enim docebant me maiores homines, praebentes mihi
+                        verba certo aliquo ordine doctrinae sicut paulo post
+                        litteras, sed ego ipse mente, quam dedisti mihi, deus
+                        meus, cum gemitibus et vocibus variis et variis membrorum
+                        motibus edere vellem sensa cordis mei, ut voluntati pareretur,
+                        nec valerem quae volebam omnia nec quibus volebam omnibus.
+                        pensebam memoria: cum ipsi appellabant rem aliquam et
+                        cum secundum eam vocem corpus ad aliquid movebant, videbam
+                        et tenebam hoc ab eis vocari rem illam, quod sonabant,
+                        cum eam vellent ostendere. hoc autem eos velle, ex motu
+                        corporis aperiebatur, tamquam verbis naturalibus omnium
+                        gentium, quae fiunt vultu et nutu oculorum certerorumque
+                        membrorum actu et sonitu vocis indicante affectionem
+                        anim in petendis, habendis, reiciendis fugiendisve rebus.
+                        ita verba in variis sententiis locis suis posita et crebro
+                        audita quarum rerum signa essent paulatim colligebam
+                        measque iam voluntates, edomito in eis signis ore, per
+                        haec enuntiabam. sic cum his, inter quos eram, voluntatum
+                        enuntiandarum signa conmunicavi; et vitae humanae procellosam
+                        societatem altius ingressus sum, pendens ex parentum
+                    auctoritate nutuque maiorum hominum.</td>
+                </tr>
+                <tr>
+                    <td><a name="id72"></a>72</td>
+                    <td>In ipsa tamen pueritia, de qua mihi minus quam de adulescentia
+                        metuebatur, non amabam litteras et me in eas urgeri oderam;
+                        et urgebar tamen, et bene mihi fiebat nec faciebam ego
+                        bene: non enim discerem, nisi cogerer. nemo enim invitus
+                        bene facit, etiamsi bonum est quod facit. nec qui me
+                        urgebant, bene faciebant, sed bene mihi fiebat abs te,
+                        deus meus. illi enim non intuebantur, quo referrem quod
+                        me discere cogebant, praeterquam ad satiandas insatiabiles
+                        cupiditates copiosae inopiae et ignominiosae gloriae.
+                        tu vero, cui numerati sunt capilli nostri, errore omnium,
+                        qui mihi instabant ut discerem, utebaris ad utilitatem
+                        meam, meo autem, qui discere nolebam, utebaris ad poenam
+                        meam, qua plecti non eram indignus tantillus puer et
+                        tantus peccator. ita non de bene facientibus tu bene
+                        faciebas mihi, et de peccante me ipso iuste retribuebas
+                        mihi. iussisti enim et sic est, ut poena sua sibi sit
+                    omnis inordinatus animus.</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- InstanceEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- InstanceBeginEditable name="footer" --> <!-- InstanceEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+<!-- InstanceEnd --></html>

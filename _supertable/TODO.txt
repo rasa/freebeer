@@ -1,0 +1,49 @@
+KNOWN BUGS
+----------
+
+*  Sorting bug in example2.shtml ("command" column).
+
+*  Internet Explorer Filter Form Loses Focus After Submit.
+
+*  Gracefully handle non-numeric when numeric sorting.               
+   Sorting seems to stop when a column is configured for
+   numeric sort, but sort function encounters a non-number...
+
+*  Does not work in Opera 6.02. Has not been tested in later 
+   Opera versions.
+
+*  Blank regex causes error.
+   If columns[].style.defineRule() regex is blank, then error:
+   "Missing ) after argument list".
+   Detect when regex is blank and set regex to /^$/.
+
+*  Sorting logic does not capture user-intercepted mods.
+
+*  Hyphenation only works on first long string(?)
+
+
+
+
+TO-DO LIST
+----------
+
+*  Prefilter SuperTable on page load based on parameters passed in URL.
+
+*  Implement hideColumns method.
+
+*  Implement load SuperTable from XML method.
+
+*  Add tbody font-size increase/decrease method.
+
+*  Add Help Instructions for Filter.
+
+*  Improve Hyphenation Logic.
+
+*  Move setAlphaSortLimit() to Column.
+
+*  Test user passed parameters (ASSERT) and return helpful error
+   messages to assist user in debugging.
+
+*  Implement user-defined method post-sort/filter.
+
+

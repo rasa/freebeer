@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SuperTable Annotated Example</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+    .heading { font-weight: bold; color: red; }
+    .blue { color: blue; }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+    }
+</script>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onLoad="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="example1.shtml">Action Item List</a></li>
+                    <li><a href="example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="usage.shtml">Annotated Example</a></li>
+                    <li><a href="supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1><!-- InstanceBeginEditable name="PageHeading" -->SuperTable Annotated 
+        Example<!-- InstanceEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- InstanceBeginEditable name="PageDescription" -->Step-by-step
+            implementation of SuperTable in your Web page<!-- InstanceEndEditable --></li>
+        </ul>
+        <!-- InstanceBeginEditable name="Body" -->
+<p>This page walks through a sample HTML page line-by-line explaining how to
+     set up a SuperTable in your Web page.<br>
+</p>
+<pre>
+
+<span class="heading">=============================
+=====   STEP ONE   ==========
+=============================</span>
+Setup &lt;style&gt; section within the &lt;head&gt; section:
+
+1) The first set of styles are optional (i.e. body,tr,table,caption...)
+   You can define any styles you like. The design and layout of the table
+   are up to you. You just need to make sure that you follow the guidelines
+   below.
+
+2) The second set of styles (i.e. priority0,priority1,priority2...) are
+   REQUIRED for the script to be able to color the rows.
+   In step 3 below, you will be referencing these style class names.
+
+
+
+<span class="blue">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Action Items Page&lt;/title&gt;
+&lt;style type="text/css"&gt;
+    &lt;!--
+    body { font-family: Arial, Helvetica, sans-serif; }
+    tr { vertical-align:top; }
+    table { font-family: Arial, Helvetica, sans-serif; font-size: .9em; }
+    caption { text-align:left; font-size:1.5em; font-weight:bold; }
+    a:active { color:#eeee00; }
+    a:hover { background-color:#888888; color:#eeee00; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+
+
+    .priority0 { background-color: #99cc99; color: #000000; }
+    .priority1 { background-color: #ffffff; color: #000000; }
+    .priority2 { background-color: #dddddd; color: #000000; }
+    .priority3 { background-color: #999999; color: #000000; }
+
+    --&gt;
+&lt;/style&gt;</span>
+
+
+
+
+<span class="heading">=============================
+=====   STEP TWO   ==========
+=============================</span>
+Still inside the &lt;head&gt; section...
+
+Include the "supertable.js" javascript file using:
+
+
+
+<span class="blue">&lt;script type="text/javaScript" src="supertable.js"&gt;&lt;/script&gt;</span>
+
+
+
+
+<span class="heading">=============================
+=====   STEP THREE   ========
+=============================</span>
+Still inside the &lt;head&gt; section...
+
+Create initialization function init() to instantiate the table object,
+define the table columns, define style rules, and define filters.
+See notes embedded in the code below...
+
+
+
+<span class="blue">&lt;script type="text/javaScript"&gt;
+
+    function init()
+    {</span>
+        //  NOTICE:  FUNCTION PARAMETERS BELOW MUST BE QUOTED UNLESS OTHERWISE
+        //           INDICATED.
+        //
+        //
+        //  <span class="heading">INSTANTIATE TABLE OBJECT</span> (<a href="supertable_classes.shtml#table">documentation</a>)
+        //
+        <span class="blue">myTable = new Table( 'actionitems' );</span>
+
+
+
+        //  <span class="heading">DEFINE COLUMNS OF TABLE</span> (<a href="supertable_classes.shtml#definecolumn">documentation</a>)
+        //
+        <span class="blue">myTable.defineColumn( 0,'numeric' );
+        myTable.defineColumn( 1,'numeric' );
+        myTable.defineColumn( 2,'alpha' );
+        myTable.defineColumn( 3,'alpha' );
+        myTable.defineColumn( 4,'alpha' );
+        myTable.defineColumn( 5, null );</span>
+
+
+        //  <span class="heading">DEFINE RULES FOR COLORING ROWS OR CELLS</span> (<a href="supertable_classes.shtml#definerule">documentation</a>)
+        //
+        <span class="blue">myTable.columns[1].style.defineRule( /1/,'priority1','row' );
+        myTable.columns[1].style.defineRule( /2/,'priority2','row' );
+        myTable.columns[1].style.defineRule( /3/,'priority3','row' );
+        myTable.columns[1].style.defineRule( /^(&nbsp;|)/,'priority0','row' );</span>
+
+
+
+        //  <span class="heading">DEFINE FILTER FOR COLUMNS</span> (<a href="supertable_classes.shtml#definefilter">documentation</a>)
+        //
+        <span class="blue">myTable.columns[1].defineFilter( 'form1','priority' );
+        myTable.columns[2].defineFilter( 'form1','category' );
+        myTable.columns[3].defineFilter( 'form1','lead' );
+        myTable.columns[4].defineFilter( 'form1','detail' );</span>
+
+
+
+        //  <span class="heading">USER CUSTOMIZABLE CELL/ROW PROCESSING</span> (<a href="supertable_classes.shtml#cellrowprocessor">documentation</a>)
+        //
+        <span class="blue">myTable.cellRowProcessor = function( sCell_text,cRow,cCell )
+        {
+            // If first or second column..
+            if( cCell == 0 || cCell == 1 )
+            {
+                // If cell contents is a space, a &nbsp; or blank,
+                // then set to 9999
+                if( sCell_text.search(/^(\s|&nbsp;)/) != -1 || sCell_text == '' )
+                {
+                    sCell_text = '99'; // Be sure to set as string (not number)
+                    //oNew_row.setAttribute('class','red'); // Example for setting css
+                }
+            }
+            return sCell_text;
+        }</span>
+
+
+
+        // <span class="heading">DEFINE LIMIT (IN CHARACTERS) OF LONGEST STRING IN TABLE CELL...</span> (<a href="supertable_classes.shtml#sethyphenlimit">documentation</a>)
+        //
+        <span class="blue">myTable.columns[4].setHyphenLimit(75);</span>
+
+
+        // <span class="heading">DEFINE NUMBER OF CHARACTERS TO BE USED WHEN SORTING COLUMNS</span> (<a href="supertable_classes.shtml#setalphasortlimit">documentation</a>)
+        //  <span class="heading">CONTAINING STRINGS ('alpha').</span>
+        //
+        <span class="blue">myTable.setAlphaSortLimit(10);</span>
+
+
+        // <span class="heading">SORT THE TABLE BY COLUMN</span> (<a href="supertable_classes.shtml#sorttable">documentation</a>)
+        //
+        <span class="blue">myTable.sortTable(0,1);</span>
+
+    <span class="blue">}
+
+
+&lt;/script&gt;</span>
+
+
+
+
+<span class="heading">=============================
+=====   STEP FOUR   =========
+=============================</span>
+Configure the body tag to start launch init() after the page loads.
+
+
+
+
+<span class="blue">&lt;body onLoad="init()"&gt;</span>
+
+
+
+
+
+<span class="heading">=============================
+=====   STEP FIVE   =========
+=============================</span>
+CREATE FORM SECTION FOR FILTERING THE TABLE
+
+IMPORTANT SETTINGS:
+
+    1)  The &lt;div class="noprint"&gt; tag is optional.  This prevents the filter
+        table from printing.
+
+    2)  &lt;form&gt; tag must include attribute: action="javascript:void(0)".
+        This enables activation of the script using the &lt;enter&gt; key.
+
+    2)  &lt;form&gt; tag must include the 'name' attribute.
+
+    3)  &lt;input type="text"&gt; tags must include the 'name' attribute.
+        You should have an &lt;input&gt; tag for each column that is to be filtered.
+
+    4)  Submit button must be in the form of &lt;input type="submit"&gt; and must
+        include event-handler: onClick="aiTable.filterTable()" (substitute
+        'myTable' for the variable name of your table)
+
+    5)  For more information on the filterTable() method, see <a href="supertable_classes.shtml#filtertable">documentation</a>.
+
+
+
+
+
+<span class="blue">&lt;div class="noprint"&gt;
+    &lt;form name="<strong>form1</strong>" method="<strong>post</strong>" action="<strong>javascript:void(0)</strong>"&gt;
+        &lt;table  border="1" cellpadding="5" cellspacing="0" bgcolor="#dddddd"&gt;
+            &lt;tr&gt;
+                &lt;td nowrap class="bold"&gt;Priority equals...&lt;/td&gt;
+                &lt;td class="bold"&gt;Category contains...&lt;/td&gt;
+                &lt;td class="bold"&gt;Lead contains...&lt;/td&gt;
+                &lt;td class="bold"&gt;Detail contains...&lt;/td&gt;
+                &lt;td&gt;&nbsp;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;div align="center"&gt;
+                        &lt;input name="<strong>priority</strong>" type="text" size="5"&gt;
+                    &lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;div align="left"&gt;
+                        &lt;input name="<strong>category</strong>" type="text" size="20"&gt;
+                    &lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input name="<strong>lead</strong>" type="text" size="20"&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input name="<strong>detail</strong>" type="text" size="20"&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="<strong>submit</strong>" value="Filter Table" 
+                        onClick="<strong>myTable.filterTable()</strong>"&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;span class="small"&gt;Filter supports Regular Expressions&lt;/span&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</span>
+
+
+
+
+
+<span class="heading">=============================
+=====   STEP SIX   ==========
+=============================</span>
+BEGIN MAIN TABLE...
+START WITH CAPTION AND THEAD SECTIONS
+(Note: Both caption and thead are optional)
+
+IMPORTANT SETTINGS:
+
+    1)  Set up the column-sort links as shown below...
+            * Set attribute:  href="javascript:void(0)"
+            * Set event-handler:  onClick="myTable.toggleSort(x)" (<a href="supertable_classes.shtml#togglesort">documentation</a>)
+              (Substitute 'myTable' for the variable name of your table)
+              (Substitute 'x' for the column number intended to be sorted)
+              <strong>NOTE:</strong> If you prefer to explicitly sort ascending or descending, then
+                    you can call the sortTable() method (<a href="supertable_classes.shtml#sorttable">documentation</a>).
+
+
+
+
+<span class="blue">&lt;table border="1" cellpadding="5" cellspacing="0"&gt;
+    &lt;caption&gt; Operationally Important Activities&lt;br&gt;
+        &lt;span class="smaller"&gt;
+            &lt;b&gt;Columns are sortable&lt;/b&gt;.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;a href="javascript:<strong>location.reload()</strong>" class="bold"&gt;[ Refresh Table ]&lt;/a&gt;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;a href="javascript:<strong>aiTable.removeStyle()</strong>" class="bold"&gt;
+                [ Remove Table Row Color (for printing) ]&lt;/a&gt;
+        &lt;/span&gt;
+    &lt;/caption&gt;
+    &lt;thead&gt;
+    &lt;tr align="center"&gt;
+        &lt;th class="table_heading"&gt;&lt;a href="javascript:void(0)" 
+            onClick="<strong>myTable.toggleSort(0)</strong>"&gt;ID&lt;/a&gt;&lt;/th&gt;
+        &lt;th class="table_heading"&gt;&lt;a href="javascript:void(0)" 
+            onClick="<strong>myTable.toggleSort(1)</strong>"&gt;Pri&lt;/a&gt;&lt;/th&gt;
+        &lt;th class="table_heading"&gt;&lt;a href="javascript:void(0)" 
+            onClick="<strong>myTable.toggleSort(2)</strong>"&gt;Category&lt;/a&gt;&lt;/th&gt;
+        &lt;th class="table_heading"&gt;&lt;a href="javascript:void(0)" 
+            onClick="<strong>myTable.toggleSort(3)</strong>"&gt;Lead&lt;/a&gt;&lt;/th&gt;
+        &lt;th class="table_heading"&gt;Action Item Detail&lt;/th&gt;
+        &lt;th class="table_heading"&gt;&lt;a href="actionnotes.html"&gt;Status Notes&lt;/a&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;</span>
+
+
+
+
+
+
+<span class="heading">=============================
+=====   STEP SEVEN   ========
+=============================</span>
+CREATE MAIN TBODY SECTION OF TABLE...
+
+IMPORTANT SETTINGS:
+
+    1)  &lt;tbody&gt; tag must have 'id' attribute!
+
+    2)  Numeric rows should not contain spaces or the &amp;nbsp; entity.
+ 
+    3)  <span class="red">IMPORTANT:</span> Sorting can appear to be inaccurate if HTML markup appears within a
+                   &lt;td&gt; tag.  Example: <span class="blue">&lt;td&gt;&lt;p&gt;3&lt;/p&gt;&lt;/td&gt;</span> will sort before <span class="blue">&lt;td&gt;2&lt;/td&gt;</span> because
+                   of the <span class="blue">&lt;p&gt;</span> tag preceding the '3'.
+
+
+
+
+    <span class="blue">&lt;<strong>tbody</strong> id="<strong>actionitems</strong>"&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;SysAdm&lt;/td&gt;
+            &lt;td&gt;John&lt;/td&gt;
+            &lt;td&gt;Research IDS vendors&lt;/td&gt;
+            &lt;td&gt;&lt;a href="actionnotes.html#id1"&gt;&lt;b&gt;Updated 11/21/02, 
+                4/29/03&lt;/b&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+</span>        ...
+        [rows truncated for example]
+        ...<span class="blue">
+    &lt;/tbody&gt;
+&lt;/table&gt;</span>
+
+<span class="blue">&lt;/body&gt;</span>
+<span class="blue">&lt;/html&gt;</span>
+
+
+
+__END__</pre>
+    <!-- InstanceEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- InstanceBeginEditable name="footer" --> <!-- InstanceEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,114 @@
+/*
+use xb settings to make ul/li appear the 
+same in mozilla, ie and opera
+*/
+
+ul.nde-menu-system *
+{
+  font-size: 1em;
+}
+
+ul.nde-menu-system, ul.nde-menu-system ul
+{
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: silver;
+}
+
+/* 
+top level items in ul are inline to display horizontally 
+across page
+*/
+
+ul.nde-menu-system li
+{
+  margin: 0;
+  padding: 0.25em 0 0 0;
+  font-size: 0.9166em;
+  display: inline;
+  position: relative;
+}
+
+/* 
+nested lists inside of the top level items are initially 
+not displayed
+*/
+ul.nde-menu-system li ul
+{
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 1.8em !important;
+  z-index: 1000;
+  visibility: hidden;
+  width: 9em;
+  border-top: 1px solid white;
+  background: silver;
+}
+
+/*
+fix up the submenu items
+voice-family lines screen correct CSS values from browsers that
+improperly lay out block-level boxes and have broken CSS parsers
+(IE5.5/Win)
+*/
+ul.nde-menu-system li ul li
+{
+  margin: 0 0 0 -1.5em;
+  padding: 0;
+  display: block;
+  width: 100%;
+  border: 1px solid rgb(66%,66%,66%);
+  border-width: 0 1px 1px;
+  list-style: none;
+  background-color: rgb(97%,97%,97%);
+  voice-family: "\"}\""; voice-family: inherit;
+  margin-left: 0;
+}
+
+ul.nde-menu-system li a
+{
+  display: inline;
+  text-decoration: none;
+  margin: 0;
+  border-right: 1px solid;
+  padding: 0.4em 0.6em 0.4em 0.6em;
+}
+
+/* override excessive padding which is included
+   to deal with IE/Win problems with a selector it
+   doesn't understand to hide the declaration */
+html>body ul.nde-menu-system li a
+{
+  padding: 0.4em 0.5em 0.3em 0.33em;
+}
+
+ul.nde-menu-system li a:hover
+{
+  color: #FAA;
+}
+
+ul.nde-menu-system li ul li a
+{
+  display: block;
+  margin: 0;
+  padding: 3px 2.5%;
+  border-width: 0;
+  width: 100%;
+  voice-family: "\"}\""; voice-family: inherit;
+  width: 95%;
+}
+
+/* needed to keep IE from bubbling events
+from items that are not contained but only
+covered. */
+ul.nde-menu-system
+{
+  background-color: rgb(75%,75%,75%);
+}
+
+ul.nde-menu-system li.submenu ul a
+{
+  color: black !important;
+}

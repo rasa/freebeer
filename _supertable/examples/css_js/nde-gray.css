@@ -1,0 +1,59 @@
+body {background: white; color: black;}
+
+#masthead {background: rgb(75%,75%,75%) 66% 50% no-repeat;
+  border-color: rgb(22%,22%,22%);}
+#masthead h1 a {color: rgb(33%,33%,33%);}
+#masthead h1 span {color: rgb(54%,54%,54%);}
+
+#srch {background: rgb(64%,64%,64%);
+  color: gray;
+  border-color: rgb(22%,22%,22%);}
+#srch h4 {background: rgb(33%,33%,33%);
+  color: #FFF;
+  border-color: rgb(22%,22%,22%);}
+
+#main {border-color: rgb(37%,23%,8%);}
+
+#content {border-color: rgb(66%,66%,66%);}
+#content a:hover {color: #A0280A;}
+
+.sidebar h4 {color: rgb(37%,37%,37%);
+  background: rgb(86%,86%,86%);
+  border-color: rgb(66%,66%,66%);}
+
+.sidebar a:link {color: #3C3CCD;}
+.sidebar a:hover {color: #A0280A;}
+
+#textbar h4 {color: rgb(33%,33%,33%);}
+#textbar * {color: #444;}
+
+#linkbar {background: rgb(97%,97%,97%);
+  border-color: rgb(22%,22%,22%);}
+
+#navbar {background: rgb(33%,33%,33%);
+  border-color: rgb(22%,22%,22%);}
+ul.nde-menu-system li a {color: rgb(85%,85%,85%) !important;
+  border-color: rgb(22%,22%,22%);}
+ul.nde-menu-system li ul {border-color: rgb(66%,66%,66%);}
+#navbar ul.nde-menu-system li ul {border-top-color: rgb(33%,33%,33%);}
+
+#nde-config {background: rgb(33%,33%,33%);
+  color: rgb(66%,66%,66%);
+  border-color: rgb(22%,22%,22%);}
+#nde-config .ui {background-color: rgb(67%,67%,67%);
+  border-color: rgb(84%,84%,84%) rgb(33%,33%,33%) rgb(33%,33%,33%) rgb(84%,84%,84%);}
+#nde-config #nde-themelink {background-color: rgb(67%,67%,67%);
+  color: black !important;}
+
+#nde-config #nde-gray {font-weight: bold;}
+
+#nde-footer {border-color: rgb(66%,66%,66%);}
+
+#content h3 {border-color: rgb(50%,50%,50%);}
+#content .nde-blurb .nde-metadata {background: rgb(97%,97%,97%);
+  color: rgb(37%,37%,37%);
+  border-color: rgb(50%,50%,50%);}
+#left li {color: #555;}
+
+ul.nde-menu-system {background-color: rgb(33%,33%,33%);}
+ul.nde-menu-system li ul li a:hover {background-color: rgb(75%,75%,75%);}

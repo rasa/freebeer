@@ -1,0 +1,191 @@
+<html lang="en">
+<head>
+<title>SuperTable Sample Template</title>
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+    .priority0 { background-color: #99cc99; color: #000000; }
+    .priority1 { background-color: #ffffff; color: #000000; }
+    .priority2 { background-color: #eeeeee; color: #000000; }
+    .priority3 { background-color: #dddddd; color: #000000; }
+    .priority4 { background-color: #cccccc; color: #000000; }
+    .priority5 { background-color: #bbbbbb; color: #000000; }
+    .completed { text-decoration: line-through; background-color: #ddddff; color: #999999; }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+        //===========================================
+        // INSTANTIATE TABLE OBJECT
+        //===========================================
+        sampleTable = new Table( 'actionitems' );
+
+        // DEFINE COLUMNS OF TABLE ( COLUMN-INDEX, SORT-DATA-TYPE )
+        sampleTable.defineColumn( 0,'numeric' );
+        sampleTable.defineColumn( 1,'numeric' );
+        sampleTable.defineColumn( 2,'alpha' );
+        sampleTable.defineColumn( 3,'alpha' );
+        sampleTable.defineColumn( 4, null );
+
+
+        // DEFINE RULES FOR COLORING ROWS ( PATTERN, CSS-CLASS, ROW|CELL )
+        sampleTable.columns[1].style.defineRule( /1/,'priority1','row' );
+        sampleTable.columns[1].style.defineRule( /2/,'priority2','row' );
+        sampleTable.columns[1].style.defineRule( /3/,'priority3','row' );
+        sampleTable.columns[1].style.defineRule( /^(&nbsp;|)/,'priority0','row' );
+
+
+        // DEFINE FILTER FOR COLUMNS ( FORM-NAME, FORM-INPUT-NAME )
+        sampleTable.columns[1].defineFilter( 'filter','priority' );
+        sampleTable.columns[2].defineFilter( 'filter','category' );
+        sampleTable.columns[3].defineFilter( 'filter','lead' );
+        sampleTable.columns[4].defineFilter( 'filter','detail' );
+
+
+        // DEFINE LIMIT OF LONGEST STRING IN TABLE CELL... PREVENTS CELL STRETCHING
+        sampleTable.columns[4].setHyphenLimit(60);
+
+
+        // DEFINE NUMBER OF CHARACTERS TO BE USED WHEN SORTING COLUMNS CONTAINING STRINGS ('alpha').
+        //    A LOWER NUMBER WILL IMPROVE PERFORMANCE, BUT MAY REDUCE ACCURACY.
+        sampleTable.setAlphaSortLimit(7);
+
+        // SORT TABLE BY FIRST COLUMN
+        sampleTable.sortTable(0);
+    }
+</script>
+</head>
+<body onLoad="init()">
+<h1>SuperTable Sample Template</h1>
+<p>This sample template contains the minimal HTML components to make a SuperTable
+    work.</p>
+<form name="filter" method="post" action="javascript:void(0)">
+    <table  border="1" cellpadding="5" cellspacing="0" bgcolor="#dddddd">
+        <tr>
+            <td class="bold">Priority equals...</td>
+            <td class="bold">Category contains...</td>
+            <td class="bold">Lead contains...</td>
+            <td class="bold">Detail contains...</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <div align="center">
+                    <input name="priority" type="text" size="5">
+                </div>
+            </td>
+            <td>
+                <div align="left">
+                    <input name="category" type="text" size="20">
+                </div>
+            </td>
+            <td>
+                <input name="lead" type="text" size="20">
+            </td>
+            <td>
+                <input name="detail" type="text" size="20">
+            </td>
+            <td>
+                <input type="submit" name="filter" value="Filter Table" onClick="sampleTable.filterTable()">
+            </td>
+        </tr>
+    </table>
+</form>
+<a href="javascript:location.reload()" class="bold">[ Refresh Table ]</a> <br>
+<a href="javascript:sampleTable.removeStyle()" class="bold">[ Remove Table Row
+Color (for printing) ]</a>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr align="center">
+        <th class="table_heading"><a href="javascript:void(0)" onClick="sampleTable.sortTable(0)">ID</a></th>
+        <th class="table_heading"><a href="javascript:void(0)" onClick="sampleTable.sortTable(1)">Pri</a></th>
+        <th class="table_heading"><a href="javascript:void(0)" onClick="sampleTable.sortTable(2)">Category</a></th>
+        <th class="table_heading"><a href="javascript:void(0)" onClick="sampleTable.sortTable(3)">Lead</a></th>
+        <th class="table_heading">Action Item Detail</th>
+    </tr>
+    <tbody id="actionitems">
+        <tr>
+            <td>1</td>
+            <td>3</td>
+            <td>SysAdm</td>
+            <td>John</td>
+            <td>Hire  consultant for Cisco configuration evaluation.</td>
+        </tr>
+        <tr>
+            <td>75</td>
+            <td>1</td>
+            <td>Security</td>
+            <td>Paul</td>
+            <td>
+                <p>Discuss NIST security document templates.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>67</td>
+            <td>2</td>
+            <td>SysAdm</td>
+            <td>Ren</td>
+            <td>Implement MySQL service on production4 server</td>
+        </tr>
+        <tr>
+            <td>68</td>
+            <td>1</td>
+            <td>Security</td>
+            <td>All</td>
+            <td>Provide emergency contact info to Paul</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>2</td>
+            <td>Sysadm</td>
+            <td>Paul</td>
+            <td>Research open-source Web server admin applications</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>1</td>
+            <td>Documentation</td>
+            <td>John, Eric </td>
+            <td>Write Standard Operating Procedure for version controlling /etc
+                using CVS</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>1</td>
+            <td>Security</td>
+            <td>Eric, Ren, John</td>
+            <td>Implement password cracker.</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>1</td>
+            <td>Security</td>
+            <td>John</td>
+            <td>Deploy Virus scanner on production4</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>3</td>
+            <td>Security</td>
+            <td>John</td>
+            <td>Research IDS implementation for production4</td>
+        </tr>
+        <tr>
+            <td>35</td>
+            <td>1</td>
+            <td>SysAdm</td>
+            <td>Ren</td>
+            <td>Upgrade production3 to Apache2</td>
+        </tr>
+        <tr>
+            <td>70</td>
+            <td>3</td>
+            <td>Monitoring</td>
+            <td>Eric</td>
+            <td>Deploy  monitoring system on production4</td>
+        </tr>
+    </tbody>
+</table>
+<A href="http://sourceforge.net"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+	style="margin-top:3em;" width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SuperTable Home Page</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+</style>
+<script type="text/javascript">
+    function init()
+    {
+    }
+</script>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onload="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="example1.shtml">Action Item List</a></li>
+                    <li><a href="example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="usage.shtml">Annotated Example</a></li>
+                    <li><a href="supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1><!-- InstanceBeginEditable name="PageHeading" -->SuperTable Javascript
+                API for HTML Tables<!-- InstanceEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- InstanceBeginEditable name="PageDescription" -->by John
+                    Aguinaldo<!-- InstanceEndEditable --></li>
+        </ul>
+        <!-- InstanceBeginEditable name="Body" -->
+        <h2>What is SuperTable?</h2>
+        <p> SuperTable is an Object-Oriented Javascript API for dynamically manipulating
+            HTML tables. Features include column sorting, row filtering, pattern-based
+            cell/row styling, auto-numbering sequence column, auto-hyphenation,
+            and more. So far, SuperTable has only been tested with IE5+,NS6+,
+            and Mozilla1+. </p>
+        <p>I found SuperTable to be useful in so many ways that I decided to
+            release it on Sourceforge for others to use.</p>
+        <h2>License Information</h2>
+        <p>I chose to license SuperTable under the Lessor GNU Public License
+            because I want developers to be able to use it in commercial projects
+            (not just open source) while preventing others from directly profiting
+            from it by reselling it (at least I hope this is what the LGPL license
+            does for me).</p>
+        <p><a href="LICENSE.txt"><strong>Full license text</strong></a></p>
+        <h2>CSS2 Used Here</h2>
+        <p>Due to a lack of time to create a custom design for the SuperTable
+        home page, I decided to borrow code from the Devedge.Netscape site.</p>
+        <p>The Devedge.Netscape site features an great implementation of
+            the CSS2 standards which you can read about in &quot;<a href="http://devedge.netscape.com/viewsource/2003/devedge-redesign/">Netscape
+            DevEdge Redesigns As Standards Showcase</a>&quot;.</p>
+        <p>For details on Devedge.Netscape's <strong>CSS strategy</strong>, check
+            out &quot;<a href="http://devedge.netscape.com/viewsource/2003/devedge-redesign-css/">Netscape
+            DevEdge Redesign: CSS</a>&quot;.<br>
+            For details on Devedge.Netscape's <strong>Javascript code</strong>,
+            check out &quot;<a href="http://devedge.netscape.com/viewsource/2003/devedge-redesign-js/">Netscape
+            DevEdge Redesign: JavaScript</a>&quot;.</p>
+        <!-- InstanceEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- InstanceBeginEditable name="footer" --> <!-- InstanceEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+<!-- InstanceEnd --></html>

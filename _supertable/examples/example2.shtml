@@ -1,0 +1,2091 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SuperTable Example #2</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+    .backupStyle { background-color: #E3CBFC; color: #000000; }
+    .bosStyle { background-color: #FFC7FF; color: #000000; }
+    .fsStyle { background-color: #FFC7C7; color: #000000; }
+    .fstraceStyle { background-color: #FFE3C7; color: #000000; }
+    .kasStyle { background-color: #FFFFC7; color: #000000; }
+    .ptsStyle { background-color: #E3FFC7; color: #000000; }
+    .ussStyle { background-color: #C7FFFF; color: #000000; }
+    .vosStyle { background-color: #C7E3FF; color: #000000; }
+    .notype { background-color: #eeeeee; color: #000000; }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+        //===========================================
+        // INSTANTIATE TABLE OBJECT
+        //===========================================
+        afsTable = new SuperTable( 'cheatsheet','afsTable' );
+
+        // DEFINE COLUMNS OF TABLE ( COLUMN-INDEX, SORT-DATA-TYPE )
+        afsTable.defineColumn( 0,'alpha' );
+        afsTable.defineColumn( 1,'alpha' );
+        afsTable.defineColumn( 2, null );
+
+        //afsTable.columns[1].setDisplay(0);
+
+        // DEFINE RULES FOR COLORING ROWS ( PATTERN, CSS-CLASS, ROW|CELL )
+        afsTable.columns[1].style.defineRule( /backup/i,'backupStyle','row' );
+        afsTable.columns[1].style.defineRule( /bos/i,'bosStyle','row' );
+        afsTable.columns[1].style.defineRule( /^fs$/i,'fsStyle','row' );
+        afsTable.columns[1].style.defineRule( /fstrace/i,'fstraceStyle','row' );
+        afsTable.columns[1].style.defineRule( /kas/i,'kasStyle','row' );
+        afsTable.columns[1].style.defineRule( /pts/i,'ptsStyle','row' );
+        afsTable.columns[1].style.defineRule( /uss/i,'ussStyle','row' );
+        afsTable.columns[1].style.defineRule( /vos/i,'vosStyle','row' );
+        afsTable.columns[1].style.defineRule( /^(&nbsp;|)/i,'notype','row' );
+
+
+        // DEFINE FILTER FOR COLUMNS ( FORM-NAME, FORM-INPUT-NAME )
+        afsTable.columns[0].defineFilter( 'filter','description' );
+        afsTable.columns[1].defineFilter( 'filter','type' );
+        afsTable.columns[2].defineFilter( 'filter','command' );
+
+
+        // DEFINE NUMBER OF CHARACTERS TO BE USED WHEN SORTING COLUMNS CONTAINING STRINGS ('alpha').
+        //    A LOWER NUMBER WILL IMPROVE PERFORMANCE, BUT MAY REDUCE ACCURACY.
+        afsTable.setAlphaSortLimit(3);
+
+        afsTable.createDialogBox();
+        //afsTable.dialogBox.setActive(0);
+        //afsTable.dialogBox.setMessgHTML('<h1 style="color:red">Table<br>Loading</h1>');
+
+        // SORT TABLE BY FIRST COLUMN
+        afsTable.sortTable(1);
+
+        //alert( document.getElementById('cheatsheet').parentNode.childNodes[5].nodeValue );
+    }
+  </script>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onload="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="example1.shtml">Action Item List</a></li>
+                    <li><a href="example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="usage.shtml">Annotated Example</a></li>
+                    <li><a href="supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1><!-- InstanceBeginEditable name="PageHeading" -->SuperTable Example
+                #2<!-- InstanceEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- InstanceBeginEditable name="PageDescription" --> Andrew
+                    File System (AFS) Command Reference<!-- InstanceEndEditable --></li>
+        </ul>
+        <!-- InstanceBeginEditable name="Body" -->
+        <p>The information on this page has been copied from the AFS 
+        &quot;<a href="http://www.openafs.org/pages/doc/AdminReference/auarf002.htm">Administration Reference</a>&quot; on the OpenAFS.org Web site.</p>
+        <table id="commands" border="1" cellspacing="0" cellpadding="5">
+            <col align="center" valign="top" style="font-weight: bold;">
+            <col align="left">
+            <tbody>
+                <tr>
+                    <th class="table_heading">Command</th>
+                    <th class="table_heading">Description</th>
+                </tr>
+                <tr class="backupStyle">
+                    <td><strong>backup</strong><br>
+                    </td>
+                    <td>The commands in the <b>backup</b> command
+                        suite are the administrative interface to the AFS Backup
+                        System.</td>
+                </tr>
+                <tr class="bosStyle">
+                    <td><strong>bos</strong></td>
+                    <td>The commands in the <b>bos</b> command suite are the
+                        administrative interface to the Basic OverSeer (BOS)
+                        Server, which runs on every file server machine to monitor
+                        the other server processes on it. If a process fails,
+                        the BOS Server can restart it automatically, taking into account interdependencies between it and other processes.
+                        The BOS Server frees system administrators from constantly
+                        monitoring the status of server machines and processes.</td>
+                </tr>
+                <tr class="fsStyle">
+                    <td><strong>fs</strong></td>
+                    <td>The commands in the <b>fs</b> command suite constitute
+                        the main administrative interface to the Cache Manager
+                        on an AFS client machine, which is responsible for fetching
+                        AFS data from file server machines on behalf of applications
+                        running on the client machine.</td>
+                </tr>
+                <tr class="fstraceStyle">
+                    <td><strong>fstrace</strong></td>
+                    <td>The commands in the <b>fstrace</b> command
+                        suite are the interface that system administrators employ
+                        to trace Cache Manager operations for debugging purposes.
+                        Examples of Cache Manager operations are fetching file
+                        data or the status information used to produce output
+                        for the UNIX <b>ls</b> command.</td>
+                </tr>
+                <tr class="kasStyle">
+                    <td><strong>kas</strong></td>
+                    <td>The commands in the <b>kas</b> command suite are the
+                        administrative interface to the Authentication Server,
+                        which runs on each database server machine in a cell,
+                        maintains the Authentication Database, and provides the
+                        authentication tickets that client applications must
+                        present to AFS servers in order to obtain access to AFS
+                        data and other services.</td>
+                </tr>
+                <tr class="ptsStyle">
+                    <td><strong>pts</strong></td>
+                    <td>The commands in the <b>pts</b> command suite are the
+                        administrative interface to the Protection Server, which
+                        runs on each database server machine in a cell and maintains
+                        the Protection Database. The database stores the information
+                        that AFS uses to augment and refine the standard UNIX
+                        scheme for controlling access to files and directories.</td>
+                </tr>
+                <tr class="ussStyle">
+                    <td><strong>uss</strong><br>
+                    </td>
+                    <td>The commands in the <b>uss</b> command
+                        suite help administrators to create AFS user accounts
+                        more easily and efficiently. If <b>uss</b> commands are
+                        not used, creating an account requires issuing at least
+                        six separate commands to five different AFS servers.</td>
+                </tr>
+                <tr class="vosStyle">
+                    <td><strong>vos</strong></td>
+                    <td>The commands in the <b>vos</b> command suite are the
+                        administrative interface to the Volume Server and Volume
+                        Location (VL) Server. System administrators use <b>vos</b> commands
+                        to create, move, delete, replicate, back up and examine
+                        volumes, among other operations. The VL Server automatically
+                        records in the Volume Location Database (VLDB) changes
+                        in volume status and location that result from <b>vos</b> commands.</td>
+                </tr>
+                <tr class="notype">
+                    <td>&nbsp;</td>
+                    <td><strong>Uncategorized</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <div class="noprint">
+            <form name="filter" method="post" action="javascript:void(0)">
+                <table id="filtertable" border="1" cellpadding="5" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td nowrap="nowrap" class="bold">Description contains...</td>
+                            <td class="bold">Type contains...</td>
+                            <td class="bold">Command contains...</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div align="center">
+                                    <input name="description" type="text" 
+                                        id="description" size="20">
+                                </div>
+                            </td>
+                            <td>
+                                <div align="left">
+                                    <input name="type" type="text" id="type" 
+                                        size="20">
+                                </div>
+                            </td>
+                            <td>
+                                <input name="command" type="text" id="command" 
+                                    size="20">
+                            </td>
+                            <td>
+                                <input type="submit" name="filter" 
+                                    value="Filter Table" onClick="afsTable.filterTable()">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span class="small">Filter supports Regular Expressions</span>
+            </form>
+        </div>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <caption>
+            <span class="smaller"><b>Columns are sortable</b>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+ href="javascript:location.reload()" class="bold">[ Refresh Table ]</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+ href="javascript:afsTable.removeStyle()" class="bold">[ Remove Table Row Color
+            (for printing) ]</a> </span>
+            </caption>
+            <thead>
+                <tr
+ align="center">
+                    <th class="table_heading"><a href="javascript:void(0)"
+ onClick="afsTable.toggleSort(0);//window.setTimeout('afsTable.sortTable(0)',10);">Description</a></th>
+                    <th class="table_heading"><a href="javascript:void(0)"
+ onClick="afsTable.toggleSort(1)">Type</a></th>
+                    <th class="table_heading">Command</th>
+                </tr>
+            </thead>
+            <tbody id="cheatsheet">
+                <tr>
+                    <td>Initializes the Cache Manager and starts related daemons.</td>
+                    <td>&nbsp;afsd</td>
+                    <td>
+                        <pre><b>afsd</b> [-<b>blocks</b> &lt;<var>1024&nbsp;byte&nbsp;blocks&nbsp;in&nbsp;cache</var>&gt;]  <br>     [<b>-files</b> &lt;<var>files&nbsp;in&nbsp;cache</var>&gt;]<br>     [<b>-rootvol</b> &lt;<var>name&nbsp;of&nbsp;AFS&nbsp;root&nbsp;volume</var>&gt;]<br>     [<b>-stat</b> &lt;<var>number&nbsp;of&nbsp;stat&nbsp;entries</var>&gt;]<br>     [<b>-memcache</b>]  [<b>-cachedir</b> &lt;<var>cache&nbsp;directory</var>&gt;]  <br>     [<b>-mountdir</b> &lt;<var>mount&nbsp;location</var>&gt;]<br>     [<b>-daemons</b> &lt;<var>number&nbsp;of&nbsp;daemons&nbsp;to&nbsp;use</var>&gt;]  <br>     [<b>-nosettime</b>]  [<b>-verbose</b>]  [<b>-rmtsys</b>]  [<b>-debug</b>]  <br>     [<b>-chunksize</b> &lt;<var>log(2)&nbsp;of&nbsp;chunk&nbsp;size</var>&gt;]<br>     [<b>-dcache</b> &lt;<var>number&nbsp;of&nbsp;dcache&nbsp;entries</var>&gt;]<br>     [<b>-volumes</b> &lt;<var>number&nbsp;of&nbsp;volume&nbsp;entries</var>&gt;]  <br>     [<b>-biods</b> &lt;<var>number&nbsp;of&nbsp;bkg&nbsp;I/O&nbsp;daemons&nbsp;(aix vm)</var>&gt;]<br>     [<b>-prealloc</b> &lt;<var>number&nbsp;of&nbsp;'small'&nbsp;preallocated&nbsp;blocks</var>&gt;]<br>     [<b>-confdir</b> &lt;<var>configuration&nbsp;directory</var>&gt;]<br>     [<b>-logfile</b> &lt;<var>Place&nbsp;to&nbsp;keep&nbsp;the&nbsp;CM&nbsp;log</var>&gt;]  <br>     [<b>-waitclose</b>]  [<b>-shutdown</b>]  [<b>-enable_peer_stats</b>]  <br>     [<b>-enable_process_stats</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Monitors File Servers and Cache Managers</td>
+                    <td>afsmonitor</td>
+                    <td>
+                        <pre><b>afsmonitor</b> [<b>initcmd</b>]  [<b>-config</b> &lt;<var>configuration&nbsp;file</var>&gt;]<br>           [<b>-frequency</b> &lt;<var>poll&nbsp;frequency,&nbsp;in&nbsp;seconds</var>&gt;]<br>           [<b>-output</b> &lt;<var>storage&nbsp;file&nbsp;name</var>&gt;]  [<b>-detailed</b>] <br>           [<b>-debug</b> &lt;<var>turn&nbsp;debugging&nbsp;output&nbsp;on&nbsp;to&nbsp;the&nbsp;named&nbsp;file</var>&gt;]<br>           [<b>-fshosts</b> &lt;<var>list&nbsp;of&nbsp;file&nbsp;servers&nbsp;to&nbsp;monitor</var>&gt;<sup>+</sup>]<br>           [<b>-cmhosts</b> &lt;<var>list&nbsp;of&nbsp;cache&nbsp;managers&nbsp;to&nbsp;monitor</var>&gt;<sup>+</sup>]<br>           [<b>-buffers</b> &lt;<var>number&nbsp;of&nbsp;buffer&nbsp;slots</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Defines a dump level in the dump hierarchy</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup adddump -dump</b> &lt;<var>dump&nbsp;level&nbsp;name</var>&gt;<sup>+</sup> [<b>-expires</b> &lt;<var>expiration&nbsp;date</var>&gt;<sup>+</sup>]<br>               [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adds a Tape Coordinator entry to the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup addhost -tapehost</b> &lt;<var>tape&nbsp;machine&nbsp;name</var>&gt; [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]<br>               [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Defines a volume entry in a volume set</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup addvolentry -name</b> &lt;<var>volume set name</var>&gt;  <b>-server</b> &lt;<var>machine&nbsp;name</var>&gt;<br>                   <b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt; <br>                   <b>-volumes</b> &lt;<var>volume&nbsp;name&nbsp;(regular&nbsp;expression)</var>&gt;   <br>                   [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a new (empty) volume set</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup addvolset -name</b> &lt;<var>volume&nbsp;set&nbsp;name</var>&gt; [<b>-temporary</b>] <br>                 [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry containing a keyword string</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup apropos -topic</b> &lt;<var>help&nbsp;string</var>&gt;  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Checks the integrity of the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup dbverify</b> [<b>-detail</b>]  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes a dump level from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup deldump -dump</b> &lt;<var>dump&nbsp;level&nbsp;name</var>&gt;  [<b>-localauth</b>]  <br>               [<b>-cell</b> &lt;<var>cell name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes one or more dump records from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup deletedump</b> [<b>-dumpid</b> &lt;<var>dump&nbsp;id</var>&gt;<sup>+</sup>]  [<b>-from</b> &lt;<var>date&nbsp;time</var>&gt;<sup>+</sup>]  [<b>-to</b> &lt;<var>date&nbsp;time</var>&gt;<sup>+</sup>]<br>                  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes a Tape Coordinator entry from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup delhost -tapehost</b> &lt;<var>tape&nbsp;machine&nbsp;name</var>&gt; [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]<br>               [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes a volume entry from a volume set</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup delvolentry -name</b> &lt;<var>volume&nbsp;set&nbsp;name</var>&gt;  <b>-entry</b> &lt;<var>volume&nbsp;set&nbsp;index</var>&gt; <br>                   [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes one or more volume sets from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup delvolset -name</b> &lt;<var>volume&nbsp;set&nbsp;name</var>&gt;<sup>+</sup><br>                 [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Restores the entire contents of a partition</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup diskrestore -server</b> &lt;<var>machine&nbsp;to&nbsp;restore</var>&gt; <br>                   <b>-partition</b> &lt;<var>partition&nbsp;to&nbsp;restore</var>&gt;<br>                   [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;<sup>+</sup>]  <br>                   [-<b>newserver</b> &lt;<var>destination&nbsp;machine</var>&gt;]<br>                   [<b>-newpartition</b> &lt;<var>destination&nbsp;partition</var>&gt;]<br>                   [<b>-extension</b> &lt;<var>new&nbsp;volume&nbsp;name&nbsp;extension</var>&gt;]<br>                   [<b>-n</b>]  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a dump (dumps a volume set at a particular dump
+                        level)</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup dump</b> [<b>-volumeset</b> &lt;<var>volume&nbsp;set&nbsp;name</var>&gt;]  [<b>-dump</b> &lt;<var>dump&nbsp;level&nbsp;name</var>&gt;]<br>            [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]  [<b>-at</b> &lt;<var>Date/time&nbsp;to&nbsp;start&nbsp;dump</var>&gt;<sup>+</sup>]<br>            [<b>-append</b>]  [<b>-n</b>]  [<b>-file</b> &lt;<var>load file</var>&gt;]<br>            [<b>-localauth</b>]  [-<b>cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays a dump record from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup dumpinfo</b> [<b>-ndumps</b> &lt;<var>no.&nbsp;of&nbsp;dumps</var>&gt;]  [<b>-id</b> &lt;<var>dump&nbsp;id</var>&gt;]<br>                [<b>-verbose</b>]  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b> ]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>backup</b> commands
+                        or lists functional descriptions of all <b>backup</b> commands</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup help</b>  [<b>-topic</b> &lt;<var>help&nbsp;string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enters interactive mode</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup</b> [<b>interactive</b>]  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lists pending and running operations in interactive mode</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>jobs</b>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Terminates a pending or running operation</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>kill -id</b> &lt;<var>job&nbsp;ID&nbsp;or&nbsp;dump&nbsp;set&nbsp;name</var>&gt; [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates the magnetic label on a tape</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup labeltape</b> [<b>-name</b> &lt;<var>AFS&nbsp;tape&nbsp;name,&nbsp;defaults&nbsp;to&nbsp;NULL</var>&gt;]<br>                 [<b>-size</b> &lt;<var>tape&nbsp;size&nbsp;in&nbsp;Kbytes,&nbsp;defaults&nbsp;to&nbsp;size&nbsp;in&nbsp;tapeconfig</var>&gt;]<br>                 [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;] <br>                 [<b>-pname</b> &lt;<var>permanent&nbsp;tape&nbsp;name</var>&gt;] <br>                 [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the dump hierarchy from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup listdumps</b>  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lists Tape Coordinator machines registered in the Backup
+                        Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup listhosts</b> [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lists volume set entries from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup listvolsets</b> [<b>-name</b> &lt;<var>volume&nbsp;set&nbsp;name</var>&gt;]<br>                   [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Leaves interactive mode</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>quit</b>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reads and displays a tape's label</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup readlabel</b> [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]<br>                 [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Restores a saved copy of the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup restoredb</b> [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]<br>                 [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a saved copy of the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup savedb</b> [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]  [<b>-archive</b> &lt;<var>date&nbsp;time</var>&gt;<sup>+</sup>]<br>              [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Extracts dump information from a tape</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup scantape</b> [<b>-dbadd</b>]  [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]<br>                [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the expiration date for existing dump levels.</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup setexp -dump</b> &lt;<var>dump&nbsp;level&nbsp;name</var>&gt;<sup>+</sup>  [<b>-expires</b> &lt;<var>expiration&nbsp;date</var>&gt;<sup>+</sup>]<br>              [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports a Tape Coordinator's status</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup status</b> [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;]<br>              [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays a volume's dump history from the Backup Database</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup volinfo -volume</b> &lt;<var>volume&nbsp;name</var>&gt;<br>               [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Restores one or more volume</td>
+                    <td>backup<br>
+                    </td>
+                    <td>
+                        <pre><b>backup volrestore -server</b> &lt;<var>destination&nbsp;machine</var>&gt;<br>                  <b>-partition</b> &lt;<var>destination&nbsp;partition</var>&gt;<br>                  <b>-volume</b> &lt;<var>volume(s)&nbsp;to&nbsp;restore</var>&gt;<sup>+</sup>  <br>                  [<b>-extension</b> &lt;<var>new&nbsp;volume&nbsp;name&nbsp;extension</var>&gt;]<br>                  [<b>-date</b> &lt;<var>date&nbsp;from&nbsp;which&nbsp;to&nbsp;restore</var>&gt;<sup>+</sup>]<br>                  [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offsets</var>&gt;<sup>+</sup>]  [<b>-n</b>]<br>                  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Restores all volumes in a volume set</td>
+                    <td>backup</td>
+                    <td>
+                        <pre><b>backup volsetrestore</b> [<b>-name</b> &lt;<var>volume&nbsp;set&nbsp;name</var>&gt;]  [<b>-file</b> &lt;<var>file&nbsp;name</var>&gt;]<br>                     [<b>-portoffset</b> &lt;<var>TC&nbsp;port&nbsp;offset</var>&gt;<sup>+</sup>]  <br>                     [<b>-extension</b> &lt;<var>new&nbsp;volume&nbsp;name&nbsp;extension</var>&gt;]<br>                     [<b>-n</b>]  [<b>-localauth</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adds a database server machine to the <b>/usr/afs/etc/CellServDB</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos addhost -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-host</b> &lt;<var>host&nbsp;name</var>&gt;<sup>+</sup><br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adds a new server encryption key to the <b>/usr/afs/etc/KeyFile</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos addkey -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-key</b> &lt;<var>key</var>&gt;]<br>    <b>-kvno</b> &lt;<var>key&nbsp;version&nbsp;number</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adds a privileged user to the <b>/usr/afs/etc/UserList</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos adduser -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-user</b> &lt;<var>user&nbsp;names</var>&gt;<sup>+</sup><br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry containing a keyword string</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos apropos -topic</b> &lt;<var>help string</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Defines a new process in the <b>/usr/afs/local/BosConfig</b> file
+                        and starts it running</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos create -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-instance</b> &lt;<var>server process name</var>&gt;<br>    <b>-type</b> &lt;<var>server type</var>&gt;  <b>-cmd</b> &lt;<var>command lines</var>&gt;<sup>+</sup><br>    [<b>-notifier</b> &lt;<var>Notifier program</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes a server process from the <b>/usr/afs/local/BosConfig</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos delete -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-instance</b> &lt;<var>server process name</var>&gt;<sup>+</sup><br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Executes a command on a remote server machine</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos exec -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-cmd</b> &lt;<var>command to execute</var>&gt;<br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the time stamps on an AFS binary file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos getdate -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-file</b> &lt;<var>files to check</var>&gt;<sup>+</sup><br>    [<b>-dir</b> &lt;<var>destination dir</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prints a server process's log file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos getlog -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-file</b> &lt;<var>log file to examine</var>&gt;<br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the automatic restart times for server processes</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos getrestart -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>bos</b> commands
+                        or lists functional descriptions of all <b>bos</b> commands</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos help</b> [<b>-topic</b> &lt;<var>help string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Installs a new version of a binary file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos install -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-file</b> &lt;<var>files to install</var>&gt;<sup>+</sup><br>    [<b>-dir</b> &lt;<var>destination dir</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the contents of the <b>/usr/afs/etc/CellServDB</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos listhosts -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the server encryption keys from the <b>/usr/afs/etc/KeyFile</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos listkeys -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-showkey</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lists the privileged users from the <b>/usr/afs/etc/UserList</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos listusers -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>    [<b>-noauth</b>]   [<b>-localauth</b>]   [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes obsolete versions of files from the <b>/usr/afs/bin</b> and <b>/usr/afs/logs</b> directories</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos prune -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-bak</b>]  [<b>-old</b>]  [<b>-core</b>]  [<b>-all</b>]<br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a database server machine from the <b>/usr/afs/etc/CellServDB</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos removehost -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-host</b> &lt;<var>host&nbsp;name</var>&gt;<sup>+</sup> <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a server encryption key from the <b>/usr/afs/etc/KeyFile</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos removekey -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-kvno</b> &lt;<var>key&nbsp;version&nbsp;number</var>&gt;<sup>+</sup> <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a privileged user from the <b>/usr/afs/etc/UserList</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos removeuser -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-user</b> &lt;<var>user&nbsp;names</var>&gt;<sup>+</sup> <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Restarts a server process</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos restart -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-instance</b> &lt;<var>instances</var>&gt;<sup>+</sup>]  [<b>-bosserver</b>]  <br>    [<b>-all</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Restores internal consistency to a file system or volume</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos salvage -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-partition</b> &lt;<var>salvage&nbsp;partition</var>&gt;]<br>    [<b>-volume</b> &lt;<var>salvage&nbsp;volume&nbsp;number&nbsp;or&nbsp;volume&nbsp;name</var>&gt;]<br>    [<b>-file</b> &lt;<var>salvage&nbsp;log&nbsp;output&nbsp;file</var>&gt;]  [<b>-all</b>]  [<b>-showlog</b>] <br>    [<b>-parallel</b> &lt;<var>#&nbsp;of&nbsp;max&nbsp;parallel&nbsp;partition&nbsp;salvaging</var>&gt;]  <br>    [<b>-tmpdir</b> &lt;<var>directory&nbsp;to&nbsp;place&nbsp;tmp&nbsp;files</var>&gt;] <br>    [<b>-orphans</b> &lt;<b>ignore</b> | <b>remove</b> | <b>attach</b>&gt;] <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets authorization checking requirements for all server
+                        processes</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos setauth -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <br>    <b>-authrequired</b> &lt;<var>on&nbsp;or&nbsp;off:&nbsp;authentication&nbsp;required&nbsp;for&nbsp;admin&nbsp;requests</var>&gt;<br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the cell's name in the <b>/usr/afs/etc/ThisCell</b> and <b>/usr/afs/etc/CellServDB</b> files</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos setcellname -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-name</b> &lt;<var>cell&nbsp;name</var>&gt; <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the date and time at
+                        which the BOS Server restarts processes</td>
+                    <td>bos<br>
+                    </td>
+                    <td>
+                        <pre><b>bos setrestart -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-time</b> &lt;<var>time&nbsp;to&nbsp;restart&nbsp;server</var>&gt;  <br>    [<b>-general</b>]   [<b>-newbinary</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]  </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Stops a process without
+                        changing its status flag in the <b>/usr/afs/local/BosConfig</b> file</td>
+                    <td>bos</td>
+                    <td>
+                        <pre><b>bos shutdown -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-instance</b> &lt;<var>instances</var>&gt;<sup>+</sup>]  [<b>-wait</b>]  <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Starts a process after setting
+                        its status flag in the <b>/usr/afs/local/BosConfig</b> file</td>
+                    <td>bos<br>
+                    </td>
+                    <td>
+                        <pre><b>bos start -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-instance</b> &lt;<var>server&nbsp;process&nbsp;name</var>&gt;<sup>+</sup> <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Starts a process without
+                        changing its status flag in the <b>/usr/afs/local/BosConfig</b> file</td>
+                    <td>bos<br>
+                    </td>
+                    <td>
+                        <pre><b>bos startup -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-instance</b> &lt;<var>instances</var>&gt;<sup>+</sup>] <br>    [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the status of server
+                        processes</td>
+                    <td>bos<br>
+                    </td>
+                    <td>
+                        <pre><b>bos status -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-instance</b> &lt;<var>server&nbsp;process&nbsp;name</var>&gt;<sup>+</sup>]  <br>    [<b>-long</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Stops a process after changing
+                        its status flag in the <b>/usr/afs/local/BosConfig</b> file</td>
+                    <td>bos<br>
+                    </td>
+                    <td>
+                        <pre><b>bos stop -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-instance</b> &lt;<var>server&nbsp;process&nbsp;name</var>&gt;<sup>+</sup> <br>    [<b>-wait</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reverts to the former version
+                        of a process's binary file</td>
+                    <td>bos<br>
+                    </td>
+                    <td>
+                        <pre><b>bos uninstall -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-file</b> &lt;<var>files&nbsp;to&nbsp;uninstall</var>&gt;<sup>+</sup> <br>    [<b>-dir</b> &lt;<var>destination&nbsp;dir</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>    [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the BOS Server</td>
+                    <td>bos<br>
+                    </td>
+                    <td>
+                        <pre><b>bosserver</b> [<b>-noauth</b>]  [<b>-log</b>]  [<b>-enable_peer_stats</b>]  [<b>-enable_process_stats</b>]  <br>    [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Backup Server</td>
+                    <td>buserver<br>
+                    </td>
+                    <td>
+                        <pre><b>buserver</b> [<b>-database</b> &lt;<var>database&nbsp;directory</var>&gt;] <br>         [<b>-cellservdb</b> &lt;<var>cell&nbsp;configuration&nbsp;directory</var>&gt;]<br>         [<b>-resetdb</b>]  [<b>-noauth</b>]  [<b>-smallht</b>] <br>         [<b>-servers</b> &lt;<var>list&nbsp;of&nbsp;ubik&nbsp;database&nbsp;servers</var>&gt;<sup>+</sup>]  <br>         [<b>-enable_peer_stats</b>]  [<b>-enable_process_stats</b>] <br>         [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Tape Coordinator
+                        process</td>
+                    <td>&nbsp;butc</td>
+                    <td>
+                        <pre><b>butc</b> [<b>-port</b> &lt;<var>port&nbsp;offset</var>&gt;]  [<b>-debuglevel</b> &lt; <b>0</b> | <b>1</b> | <b>2</b> &gt;]  <br>     [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noautoquery</b>]  <br>     [<b>-localauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Authenticates to the DCE
+                        Security Service</td>
+                    <td>dlog<br>
+                    </td>
+                    <td>
+                        <pre><b>dlog</b> [<b>-principal</b> &lt;<var>user&nbsp;name</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>     [<b>-password</b> &lt;<var>user's&nbsp;password</var>&gt;]  [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;servers</var>&gt;<sup>+</sup>]  <br>     [<b>-lifetime</b> &lt;<var>ticket&nbsp;lifetime&nbsp;in&nbsp;hh[:mm[:ss]]</var>&gt;]  <br>     [<b>-setpag</b>]  [<b>-pipe</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Returns the DCE password
+                        for a new DCE account</td>
+                    <td>dpass<br>
+                    </td>
+                    <td>
+                        <pre><b>dpass</b> [<b>-cell</b> &lt;<var>original&nbsp;AFS&nbsp;cell&nbsp;name</var>&gt;]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the File Server
+                        component of the <b>fs</b> process</td>
+                    <td>fileserver<br>
+                    </td>
+                    <td>
+                        <pre><b>fileserver</b> [<b>-d</b> &lt;<var>debug&nbsp;level</var>&gt;]  [<b>-p</b> &lt;<var>number&nbsp;of&nbsp;processes</var>&gt;]<br>           [<b>-spare</b> &lt;<var>number&nbsp;of&nbsp;spare&nbsp;blocks</var>&gt;]  <br>           [<b>-pctspare</b> &lt;<var>percentage&nbsp;spare</var>&gt;]  [<b>-b</b> &lt;<var>buffers</var>&gt;]<br>           [<b>-l</b> &lt;<var>large&nbsp;vnodes</var>&gt;]  [<b>-s</b> &lt;<var>small &nbsp;nodes</var>&gt;]<br>           [<b>-vc</b> &lt;<var>volume&nbsp;cachesize</var>&gt;]  [<b>-w</b> &lt;<var>call&nbsp;back&nbsp;wait&nbsp;interval</var>&gt;]<br>           [<b>-cb</b> &lt;<var>number&nbsp;of&nbsp;call&nbsp;backs</var>&gt;]<br>           [<b>-banner</b> (print banner every 10 minutes)]<br>           [<b>-novbc</b> (whole volume cbs disabled)]<br>           [<b>-implicit</b> &lt;<var>admin&nbsp;mode&nbsp;bits:&nbsp;rlidwka</var>&gt;]<br>           [<b>-hr</b> &lt;<var>number&nbsp;of&nbsp;hours&nbsp;between&nbsp;refreshing&nbsp;the&nbsp;host&nbsp;cps</var>&gt;]<br>           [<b>-busyat</b> &lt;<var>redirect&nbsp;clients&nbsp;when&nbsp;queue&nbsp;&gt;&nbsp;n</var>&gt;]<br>           [<b>-rxpck</b> &lt;<var>number&nbsp;of&nbsp;rx&nbsp;extra&nbsp;packets</var>&gt;]<br>           [<b>-rxdbg</b> (enable rx debugging)]<br>           [<b>-rxdbge</b> (enable rxevent debugging)]<br>           [<b>-m</b> &lt;<var>min&nbsp;percentage&nbsp;spare&nbsp;in&nbsp;partition</var>&gt;]<br>           [<b>-lock</b> (keep fileserver from swapping)]<br>           [<b>-L</b> (large server conf)]  [<b>-S</b> (small server conf)]<br>           [<b>-k</b> &lt;<var>stack&nbsp;size</var>&gt;]  [<b>-realm</b> &lt;<var>Kerberos&nbsp;realm&nbsp;name</var>&gt;]<br>           [<b>-udpsize</b> &lt;<var>size&nbsp;of&nbsp;socket&nbsp;buffer&nbsp;in&nbsp;bytes</var>&gt;]  <br>           [<b>-enable_peer_stats</b>]  [<b>-enable_process_stats</b>]  <br>           [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Determine a tape's capacity
+                        and a tape device's filemark size</td>
+                    <td>fms<br>
+                    </td>
+                    <td>
+                        <pre><b>fms -tape</b> &lt;<var>tape&nbsp;special&nbsp;file</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry containing a keyword string</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs apropos -topic</b> &lt;<var>help&nbsp;string</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the status of server machines</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs checkservers</b> [<b>-cell</b> &lt;<var>cell&nbsp;to&nbsp;check</var>&gt;]  [<b>-all</b>]  [<b>-fast</b>]  <br>                [<b>-interval</b> &lt;<var>seconds&nbsp;between&nbsp;probes</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Forces the Cache Manager to update volume-related information</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs checkvolumes</b> [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Remove obsolete entries from an ACL</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs cleanacl </b>[<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Copies an ACL from one directory to one or more other
+                        directories</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs copyacl -fromdir</b> &lt;<var>source&nbsp;directory&nbsp;(or&nbsp;DFS&nbsp;file)</var>&gt;  <br>           <b>-todir</b> &lt;<var>destination&nbsp;directory&nbsp;(or&nbsp;DFS&nbsp;file)</var>&gt;<sup>+</sup>  <br>           [<b>-clear</b>]  [<b>-id</b>]  [<b>-if</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays information about the partition housing a directory
+                        or file</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs diskfree</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays information about the volume containing a directory
+                        or file</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs examine</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports or sets whether the machine can export AFS to
+                        clients of other file systems</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs exportafs -type</b> &lt;<var>exporter&nbsp;name</var>&gt;  <br>        [<b>-start</b> &lt;<var>start/stop&nbsp;translator&nbsp;(on&nbsp;|&nbsp;off)</var>&gt;] <br>        [<b>-convert</b> &lt;<var>convert&nbsp;from&nbsp;afs&nbsp;to&nbsp;unix&nbsp;mode&nbsp;(on&nbsp;|&nbsp;off)</var>&gt;] <br>        [<b>-uidcheck</b> &lt;<var>run&nbsp;on&nbsp;strict&nbsp;'uid&nbsp;check'&nbsp;mode&nbsp;(on&nbsp;|&nbsp;off)</var>&gt;] <br>        [<b>-submounts</b> &lt;<var>allow&nbsp;nfs&nbsp;mounts&nbsp;to&nbsp;subdirs&nbsp;of&nbsp;/afs/..&nbsp;(on&nbsp;|&nbsp;off)</var>&gt;]<br>        [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Forces the Cache Manager to discard a cached file or
+                        directory</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs flush</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Forces the Cache Manager to discard a mount point</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs flushmount</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Forces the Cache Manager to discard all cached data from
+                        the volume containing a file or directory</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs flushvolume</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the current size of the cache and the amount
+                        being used</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs getcacheparms</b> [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports whether the machine can run setuid programs from
+                        a specified cell</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs getcellstatus -cell</b> &lt;<var>cell&nbsp;name</var>&gt;<sup>+</sup>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the client interfaces to register with the File
+                        Server</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs getclientaddrs</b> [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the Cache Manager's preference ranks for file
+                        server or VL Server machines</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs getserverprefs</b> [<b>-file</b> &lt;<var>output&nbsp;to&nbsp;named&nbsp;file</var>&gt;]  <br>                  [<b>-numeric</b>]  [<b>-vlservers</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>fs</b> commands or
+                        lists functional descriptions of all <b>fs</b> commands</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs help</b> [<b>-topic</b> &lt;<var>help&nbsp;string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays ACLs</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs listacl</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-id</b>]  [<b>-if</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the database server machines in each cell known
+                        to the Cache Manager</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs listcells</b> [<b>-numeric</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays quota information for the volume containing
+                        a file or directory.</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs listquota</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]  </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports the volume for which a directory is the mount
+                        point.</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs lsmount -dir</b> &lt;<var>directory</var>&gt;<sup>+</sup>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets whether the Cache Manager writes log messages</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs messages</b> [<b>-show</b> &lt;[<b>user</b>|<b>console</b>|<b>all</b>|<b>none</b>]&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a mount point for a volume</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs mkmount -dir</b> &lt;<var>directory</var>&gt;  <b>-vol</b> &lt;<var>volume&nbsp;name</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>           [<b>-rw</b>]  [<b>-fast</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Changes the kernel-resident list of a cell's database
+                        server machines</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs newcell -name</b> &lt;<var>cell&nbsp;name</var>&gt; <b>-servers</b> &lt;<var>primary&nbsp;servers</var>&gt;<sup>+</sup><br>           [<b>-linkedcell</b> &lt;<var>linked&nbsp;cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the percentage of quota used in the volume containing
+                        a directory or file</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs quota</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a mount point</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs rmmount -dir</b> &lt;<var>directory</var>&gt;<sup>+</sup>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the ACL for a directory</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs setacl -dir</b> &lt;<var>directory</var>&gt;<sup>+</sup>  <b>-acl</b> &lt;<var>access&nbsp;list&nbsp;entries</var>&gt;<sup>+</sup>  <br>          [<b>-clear</b>]  [<b>-negative</b>]  [<b>-id</b>]  [<b>-if</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the size of the disk cache</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs setcachesize</b> [<b>-blocks</b> &lt;<var>size&nbsp;in&nbsp;1K&nbsp;byte&nbsp;blocks&nbsp;(0&nbsp;=&gt;&nbsp;reset)</var>&gt;]  <br>                [<b>-reset</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Allows or disallows running of setuid programs from specified
+                        cells</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs setcell -cell</b> &lt;<var>cell&nbsp;name</var>&gt;<sup>+</sup>  [<b>-suid</b>]  [<b>-nosuid</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the client interfaces to register with the File
+                        Server</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs setclientaddrs</b> [<b>-address</b> &lt;<var>client&nbsp;network&nbsp;interfaces</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the maximum quota for the volume containing a file
+                        or directory</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs setquota</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;]  <b>-max</b> &lt;<var>max&nbsp;quota&nbsp;in&nbsp;kbytes</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the Cache Manager's
+                        preference ranks for file server or VL Server machines</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs setserverprefs</b> [<b>-servers</b> &lt;<var>fileserver&nbsp;names&nbsp;and&nbsp;ranks</var>&gt;<sup>+</sup>]<br>                  [<b>-vlservers</b> &lt;<var>VL&nbsp;server&nbsp;names&nbsp;and&nbsp;ranks</var>&gt;<sup>+</sup>]<br>                  [<b>-file</b> &lt;<var>input&nbsp;from&nbsp;named&nbsp;file</var>&gt;]  [<b>-stdin</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Set maximum quota and messages
+                        for the volume containing a file or directory</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs setvol</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-max</b> &lt;<var>disk&nbsp;space&nbsp;quota&nbsp;in&nbsp;1K&nbsp;units</var>&gt;]<br>          [<b>-offlinemsg</b> &lt;<var>offline&nbsp;message</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enables asynchronous writes
+                        to the file server</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs storebehind</b> [<b>-kbytes</b> &lt;<var>asynchrony&nbsp;for&nbsp;specified&nbsp;names</var>&gt;]  <br>               [<b>-files</b> &lt;<var>specific&nbsp;pathnames</var>&gt;<sup>+</sup>]  <br>               [<b>-allfiles</b> &lt;<var>new&nbsp;default&nbsp;(KB)</var>&gt;]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports or sets the CPU/operating
+                        system type</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs sysname</b> [<b>-newsys</b> &lt;<var>new&nbsp;sysname</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports the name of each
+                        file server machine housing a file or directory</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs whereis</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Returns the name of the
+                        cell to which a file or directory belongs</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs whichcell</b> [<b>-path</b> &lt;<var>dir/file&nbsp;path</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Returns the name of the
+                        cell to which a machine belongs</td>
+                    <td>fs</td>
+                    <td>
+                        <pre><b>fs wscell</b> [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry
+                        containing a keyword string</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace apropos -topic</b> &lt;<var>help string</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Clears the trace log</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace clear</b> [<b>-set</b> &lt;<var>set_name</var>&gt;<sup>+</sup>]  [<b>-log</b> &lt;<var>log_name</var>&gt;<sup>+</sup>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dumps a trace log</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace dump</b> [<b>-set</b> &lt;<var>set_name</var>&gt;<sup>+</sup>]  [<b>-follow</b> &lt;<var>log_name</var>&gt;]  <br>             [<b>-file</b> &lt;<var>output_filename</var>&gt;]  <br>             [<b>-sleep</b> &lt;<var>seconds_between_reads</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>fstrace</b> commands
+                        or lists functional descriptions of all <b>fstrace</b> commands</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace help</b> [<b>-topic</b> &lt;<var>help string</var>&gt;<sup>+</sup>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays information about
+                        a log</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace lslog</b> [<b>-set</b> &lt;<var>set_name</var>&gt;<sup>+</sup>]  [<b>-log</b> &lt;<var>log_name</var>&gt;]  [<b>-long</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports the status of an
+                        event set</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace lsset</b> [<b>-set</b> &lt;<var>set_name</var>&gt;<sup>+</sup>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the size of a trace
+                        log</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace setlog</b> [<b>-log</b> &lt;<var>log_name</var>&gt;<sup>+</sup>]  <b>-buffersize</b> &lt;<var>1-kilobyte_units</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the status of an event
+                        set</td>
+                    <td>fstrace</td>
+                    <td>
+                        <pre><b>fstrace setset</b> [<b>-set</b> &lt;<var>set_name</var>&gt;<sup>+</sup>]  [<b>-active</b>]  [<b>-inactive</b>]  [<b>-dormant</b>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Checks the integrity of
+                        the Authentication Database</td>
+                    <td>kadb<br>
+                    </td>
+                    <td>
+                        <pre><b>kadb_check -database</b> &lt;<var>kadb_file</var>&gt;  [<b>-uheader</b>]  [<b>-kheader</b>]  [<b>-entries</b>]  <br>           [<b>-verbose</b>]  [<b>-rebuild</b> &lt;<var>out_file</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry
+                        containing a keyword string</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas apropos -topic</b> &lt;<var>help&nbsp;string</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates an entry in the
+                        Authentication Database</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas create -name</b> &lt;<var>name&nbsp;of&nbsp;user</var>&gt;  [<b>-initial_password</b> &lt;<var>initial&nbsp;password</var>&gt;] <br>           [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;] <br>           [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>           [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]  <br>           [<b>-noauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes an entry from the
+                        Authentication Database</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas delete -name</b> &lt;<var>name&nbsp;of&nbsp;user</var>&gt;  <br>           [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;]  <br>           [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>           [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]  <br>           [<b>-noauth</b>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays information from
+                        an Authentication Database entry</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas examine -name</b> &lt;<var>name&nbsp;of&nbsp;user</var>&gt; [<b>-showkey</b>] <br>            [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;]  <br>            [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>            [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]  <br>            [<b>-noauth</b>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Discards all tickets for
+                        the issuer</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas forgetticket</b> [<b>-all</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of each
+                        specified <b>kas</b> command or lists functional descriptions
+                        of all <b>kas</b> commands</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas help </b>[<b>-topic</b> &lt;<var>help&nbsp;string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enters interactive mode</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas interactive</b> [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;] <br>                [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>                [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]  <br>                [<b>-noauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays all entries in
+                        the Authentication Database</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas list</b> [<b>-long</b>]  [<b>-showadmin</b>]  [<b>-showkey</b>]<br>         [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;] <br>         [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>         [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]<br>         [<b>-noauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays all of the issuer's
+                        tickets (tokens)</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas listtickets</b> [<b>-name</b> &lt;<var>name&nbsp;of&nbsp;server</var>&gt;]  [<b>-long</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Discards an authenticated
+                        identity in interactive mode</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas noauthentication</b>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Leaves interactive mode</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas quit</b>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets optional characteristics
+                        in an Authentication Database entry</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas setfields -name</b> &lt;<var>name&nbsp;of&nbsp;user</var>&gt;<br>              [<b>-flags</b> &lt;<var>hex&nbsp;flag&nbsp;value&nbsp;or&nbsp;flag&nbsp;name&nbsp;expression</var>&gt;] <br>              [<b>-expiration</b> &lt;<var>date&nbsp;of&nbsp;account&nbsp;expiration</var>&gt;] <br>              [<b>-lifetime</b> &lt;<var>maximum&nbsp;ticket&nbsp;lifetime</var>&gt;] <br>              [<b>-pwexpires</b> &lt;<var>number&nbsp;days&nbsp;password&nbsp;is&nbsp;valid&nbsp;([0..254])</var>&gt;]<br>              [<b>-reuse</b> &lt;<var>permit&nbsp;password&nbsp;reuse&nbsp;(yes/no)</var>&gt;]<br>              [<b>-attempts</b> &lt;<var>maximum&nbsp;successive&nbsp;failed&nbsp;login&nbsp;tries&nbsp;([0..254])</var>&gt;]<br>              [<b>-locktime</b> &lt;<var>failure&nbsp;penalty&nbsp;[hh:mm&nbsp;or&nbsp;minutes]</var>&gt;]<br>              [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;] <br>              [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>              [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]<br>              [<b>-noauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Changes the key field in
+                        an Authentication Database entry</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas setpassword -name</b> &lt;<var>name&nbsp;of&nbsp;user</var>&gt;  [<b>-new_password</b> &lt;<var>new&nbsp;password</var>&gt;] <br>                [<b>-kvno</b> &lt;<var>key&nbsp;version&nbsp;number</var>&gt;] <br>                [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;] <br>                [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>                [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]<br>                [<b>-noauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays statistics from
+                        an Authentication Server process</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas statistics</b> [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;]<br>               [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>               [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]<br>               [<b>-noauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Converts a character string
+                        into an octal key</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas stringtokey -string</b> &lt;<var>password&nbsp;string</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unlocks a locked user account</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kas unlock -name</b> &lt;<var>authentication&nbsp;ID</var>&gt;  <br>           [<b>-admin_username</b> &lt;<var>admin&nbsp;principal&nbsp;to&nbsp;use&nbsp;for&nbsp;authentication</var>&gt;] <br>           [<b>-password_for_admin</b> &lt;<var>admin&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>           [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;authentication&nbsp;servers</var>&gt;<sup>+</sup>]<br>           [<b>-noauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Authentication
+                        Server</td>
+                    <td>kas<br>
+                    </td>
+                    <td>
+                        <pre><b>kaserver</b> [<b>-noAuth</b>]  [<b>-fastKeys</b>]  [<b>-database</b> &lt;<var>dbpath</var>&gt;] <br>         [<b>-localfiles</b> &lt;<var>lclpath</var>&gt;]  [<b>-minhours</b> &lt;<var>n</var>&gt;] <br>         [<b>-servers</b> &lt;<var>serverlist</var>&gt;]  [<b>-enable_peer_stats</b>]  <br>         [<b>-enable_process_stats</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays log or privileged
+                        actions performed by the Authentication Server</td>
+                    <td>kdb<br>
+                    </td>
+                    <td>
+                        <pre><b>kdb</b> [<b>-dbmfile</b> &lt;<var>dbmfile&nbsp;to&nbsp;use&nbsp;(default&nbsp;/usr/afs/logs/AuthLog)</var>&gt;]  <br>    [<b>-key</b> &lt;<var>extract&nbsp;entries&nbsp;that&nbsp;match&nbsp;specified&nbsp;key</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Authenticates with the Authentication
+                        Server</td>
+                    <td>klog<br>
+                    </td>
+                    <td>
+                        <pre><b>klog</b>  [<b>-x</b>]  [<b>-principal</b> &lt;<var>user&nbsp;name</var>&gt;]  [<b>-password</b> &lt;<var>user's&nbsp;password</var>&gt;]  <br>      [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;servers</var>&gt;<sup>+</sup>]  <br>      [<b>-pipe</b>]  [<b>-silent</b>]  [<b>-lifetime</b> &lt;<var>ticket&nbsp;lifetime&nbsp;in&nbsp;hh[:mm[:ss]]</var>&gt;]  <br>      [<b>-setpag</b>]  [<b>-tmp</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Establishes basis for authenticated
+                        access to AFS from a non-supported NFS client using the
+                        NFS/AFS Translator</td>
+                    <td>knfs<br>
+                    </td>
+                    <td>
+                        <pre><b>knfs -host</b> &lt;<var>host&nbsp;name</var>&gt;  [<b>-id</b> &lt;<var>user&nbsp;ID&nbsp;(decimal)</var>&gt;]<br>     [<b>-sysname</b> &lt;<var>host's&nbsp;'@sys'&nbsp;value</var>&gt;]  [<b>-unlog</b>]  [<b>-tokens</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Changes the issuer's password
+                        in the Authentication Database</td>
+                    <td>kpasswd<br>
+                    </td>
+                    <td>
+                        <pre><b>kpasswd</b> [<b>-x</b>]  [<b>-principal</b> &lt;<var>user&nbsp;name</var>&gt;]  [<b>-password</b> &lt;<var>user's&nbsp;password</var>&gt;]<br>        [<b>-newpassword</b> &lt;<var>user's&nbsp;new&nbsp;password</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>        [<b>-servers</b> &lt;<var>explicit&nbsp;list&nbsp;of&nbsp;servers</var>&gt;<sup>+</sup>]  [<b>-pipe</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Checks quality of new password
+                        passed to it from the <b>kpasswd</b> or <b>kas setpassword</b> command.
+                        It is optional. </td>
+                    <td>kpwvalid<br>
+                    </td>
+                    <td>
+                        <pre><b>kpwvalid</b></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Configures files and directories
+                        on the local disk</td>
+                    <td>package<br>
+                    </td>
+                    <td>
+                        <pre><b>package</b> [<b>initcmd</b>]  [<b>-config</b> &lt;<var>base&nbsp;name&nbsp;of&nbsp;configuration file</var>&gt;]<br>   [<b>-fullconfig</b> &lt;<var>full&nbsp;name&nbsp;of&nbsp;configuration&nbsp;file,&nbsp;or&nbsp;stdin&nbsp;for&nbsp;standard&nbsp;input</var>&gt;]<br>   [<b>-overwrite</b>]  [<b>-noaction</b>]  [<b>-verbose</b>]  [<b>-silent</b>]  [<b>-rebootfiles</b>]  <br>   [<b>-debug</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry
+                        containing a keyword string</td>
+                    <td>package<br>
+                    </td>
+                    <td>
+                        <pre><b>package apropos</b> [<b>-topic</b> &lt;<var>help&nbsp;string</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>package</b> commands
+                        or lists functional descriptions of all <b>package</b> commands</td>
+                    <td>package<br>
+                    </td>
+                    <td>
+                        <pre><b>package help</b> [<b>-topic</b> &lt;<var>help&nbsp;string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tests the validity of a
+                        package configuration file</td>
+                    <td>package<br>
+                    </td>
+                    <td>
+                        <pre><b>package_test</b> &lt;<var>config&nbsp;file</var>&gt;</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>The <b>pagsh</b> command
+                        creates a new command shell (owned by the issuer of the
+                        command) and associates a new <i>process authentication
+                        group</i> (PAG) with the shell and the user.</td>
+                    <td>pagsh<br>
+                    </td>
+                    <td>
+                        <pre><b>pagsh</b></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Checks the integrity of
+                        the Protection Database</td>
+                    <td>prdb_check<br>
+                    </td>
+                    <td>
+                        <pre><b>prdb_check -database</b> &lt;<var>ptdb_file</var>&gt;  [<b>-uheader</b>]  [<b>-pheader</b>]  [<b>-entries</b>]  <br>           [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adds a user or machine to
+                        a Protection Database group</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts adduser -user</b> &lt;<var>user&nbsp;name</var>&gt;<sup>+</sup>  <b>-group</b> &lt;<var>group&nbsp;name</var>&gt;<sup>+</sup> <br>            [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry
+                        containing a keyword string</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts apropos -topic</b> &lt;<var>help&nbsp;string</var>&gt;  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Changes the owner of a Protection
+                        Database entry</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts chown -name</b> &lt;<var>group&nbsp;name</var>&gt;  <b>-owner</b> &lt;<var>new&nbsp;owner</var>&gt; <br>          [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates an (empty) Protection
+                        Database group entry</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts creategroup -name</b> &lt;<var>group&nbsp;name</var>&gt;<sup>+</sup>  [<b>-owner</b> &lt;<var>owner&nbsp;of&nbsp;the&nbsp;group</var>&gt;] <br>                [<b>-id</b> &lt;<var>id&nbsp;(negated)&nbsp;for&nbsp;the&nbsp;group</var>&gt;<sup>+</sup>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>                [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a user or machine
+                        entry in the Protection Database</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts createuser -name</b> &lt;<var>user&nbsp;name</var>&gt;<sup>+</sup>  [<b>-id</b> &lt;<var>user&nbsp;id</var>&gt;<sup>+</sup>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>               [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes a Protection Database
+                        entry</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts delete -nameorid</b> &lt;<var>user&nbsp;or&nbsp;group&nbsp;name&nbsp;or&nbsp;id</var>&gt;<sup>+</sup>  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>           [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays a Protection Database
+                        entry</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts examine -nameorid</b> &lt;<var>user&nbsp;or&nbsp;group&nbsp;name&nbsp;or&nbsp;id</var>&gt;<sup>+</sup>  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]   <br>            [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>pts</b> commands
+                        or lists functional descriptions for all <b>pts</b> commands</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts help</b> [<b>-topic</b> &lt;<var>help&nbsp;string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays all user or group
+                        entries in the Protection Database</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts listentries</b> [<b>-users</b>]  [<b>-groups</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>                [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the <tt>max user
+                            id</tt> and <tt>max group id</tt> counters</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts listmax</b> [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the Protection
+                        Database groups owned by a user or group</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts listowned -nameorid</b> &lt;<var>user&nbsp;or&nbsp;group&nbsp;name&nbsp;or&nbsp;id</var>&gt;<sup>+</sup>  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>              [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the membership
+                        list for a user or group</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts membership -nameorid</b> &lt;<var>user&nbsp;or&nbsp;group&nbsp;name&nbsp;or&nbsp;id</var>&gt;<sup>+</sup>  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>               [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a user from a Protection
+                        Database group</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts removeuser -user</b> &lt;<var>user&nbsp;name</var>&gt;<sup>+</sup>  <b>-group</b> &lt;<var>group&nbsp;name</var>&gt;<sup>+</sup><br>               [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Changes the name of a Protection
+                        Database entry</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts rename -oldname</b> &lt;<var>old&nbsp;name</var>&gt;  <b>-newname</b> &lt;<var>new&nbsp;name</var>&gt;<br>           [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets privacy flags or the
+                        group-creation quota for a Protection Database entry.</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts setfields -nameorid</b> &lt;<var>user&nbsp;or&nbsp;group&nbsp;name&nbsp;or&nbsp;id</var>&gt;<sup>+</sup><br>              [<b>-access</b> &lt;<var>set&nbsp;privacy&nbsp;flags</var>&gt;]<br>              [<b>-groupquota</b> &lt;<var>set&nbsp;limit&nbsp;on&nbsp;group&nbsp;creation</var>&gt;]<br>              [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sets the value of the <tt>max
+                            group id</tt> or <tt>max user id</tt> counter</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>pts setmax</b> [<b>-group</b> &lt;<var>group&nbsp;max</var>&gt;]  [<b>-user</b> &lt;<var>user&nbsp;max</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]   <br>           [<b>-noauth</b>]  [<b>-force</b>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Protection
+                        Server</td>
+                    <td>pts<br>
+                    </td>
+                    <td>
+                        <pre><b>ptserver</b> [<b>-database</b> &lt;<var>db&nbsp;path</var>&gt;]  [<b>-p</b> &lt;<var>number&nbsp;of&nbsp;processes</var>&gt;] [<b>-rebuildDB</b>] <br>         [<b>-enable_peer_stats</b>]  [<b>-enable_process_stats</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Network
+                        Time Protocol Daemon</td>
+                    <td>runntp<br>
+                    </td>
+                    <td>
+                        <pre><b>runntp</b> [<b>-localclock</b>] [<b>-precision</b> &lt;<var>small&nbsp;negative&nbsp;integer</var>&gt;]  <br>       [<b>-logfile</b> &lt;<var>filename&nbsp;for&nbsp;ntpd's&nbsp;stdout/stderr</var>&gt;]  <br>       [<b>-ntpdpath</b> &lt;<var>pathname&nbsp;of&nbsp;ntpd&nbsp;executable&nbsp;(/usr/afs/bin/ntpd)</var>&gt;]  <br>       [&lt;<var>host</var>&gt;<sup>+</sup>] [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Provides debugging trace
+                        of Rx activity</td>
+                    <td>rxdebug<br>
+                    </td>
+                    <td>
+                        <pre><b>rxdebug -servers</b> &lt;<var>server&nbsp;machine</var>&gt;  [<b>-port</b> &lt;<var>IP&nbsp;port</var>&gt;]  [<b>-nodally</b>]  <br>        [<b>-allconnections</b>]  [<b>-rxstats</b>] [<b>-onlyserver</b>]  [<b>-onlyclient</b>]  <br>        [<b>-onlyport</b> &lt;<var>show&nbsp;only&nbsp;&lt;port&gt;</var>&gt;]  [<b>-onlyhost</b> &lt;<var>show&nbsp;only&nbsp;&lt;host&gt;</var>&gt;]  <br>        [<b>-onlyauth</b> &lt;<var>show&nbsp;only&nbsp;&lt;auth&nbsp;level&gt;</var>&gt;]  [<b>-version</b>]  [<b>-noconns</b>]  <br>        [<b>-peers</b>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Salvager
+                        component of the <b>fs</b> process</td>
+                    <td>salvager<br>
+                    </td>
+                    <td>
+                        <pre><b>salvager</b> [<b>initcmd</b>]  [<b>-partition</b> &lt;<var>Name&nbsp;of&nbsp;partition&nbsp;to&nbsp;salvage</var>&gt;] <br>         [<b>-volumeid</b> &lt;<var>Volume&nbsp;Id&nbsp;to&nbsp;salvage</var>&gt;]  [<b>-debug</b>]  <br>         [<b>-nowrite</b>]  [<b>-inodes</b>]  [<b>-force</b>]  [<b>-oktozap</b>]  <br>         [<b>-rootinodes</b>]  [<b>-salvagedirs</b>]  [<b>-blockreads</b>]  <br>         [<b>-parallel</b> &lt;<var>#&nbsp;of&nbsp;max&nbsp;parallel&nbsp;partition&nbsp;salvaging</var>&gt;]<br>         [<b>-tmpdir</b> &lt;<var>Name&nbsp;of&nbsp;dir&nbsp;to&nbsp;place&nbsp;tmp&nbsp;files</var>&gt;]  <br>         [<b>-showlog</b>]  [<b>-showsuid</b>]  [<b>-showmounts</b>] <br>         [<b>-orphans</b> &lt;<b>ignore</b> | <b>remove</b> | <b>attach</b>&gt;] [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Monitors the File Server
+                        process</td>
+                    <td>scout<br>
+                    </td>
+                    <td>
+                        <pre><b>scout</b> [<b>initcmd</b>]  <b>-server</b> &lt;<var>FileServer&nbsp;name(s)&nbsp;to&nbsp;monitor</var>&gt;<sup>+</sup><br>      [<b>-basename</b> &lt;<var>base&nbsp;server&nbsp;name</var>&gt;]  <br>      [<b>-frequency</b> &lt;<var>poll&nbsp;frequency,&nbsp;in&nbsp;seconds</var>&gt;]  [<b>-host</b>]  <br>      [<b>-attention</b> &lt;<var>specify&nbsp;attention&nbsp;(highlighting)&nbsp;level</var>&gt;<sup>+</sup>]    <br>      [<b>-debug</b> &lt;<var>turn&nbsp;debugging&nbsp;output&nbsp;on&nbsp;to&nbsp;the&nbsp;named&nbsp;file</var>&gt;]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the issuer's tokens</td>
+                    <td>tokens<br>
+                    </td>
+                    <td>
+                        <pre><b>tokens</b> [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports status of Ubik process
+                        associated with a database server process</td>
+                    <td>udebug<br>
+                    </td>
+                    <td>
+                        <pre><b>udebug -servers</b>  &lt;<var>server&nbsp;machine</var>&gt;  [<b>-port</b> &lt;<var>IP&nbsp;port</var>&gt;]  [<b>-long</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Discards all of the issuer's
+                        tokens</td>
+                    <td>unlog<br>
+                    </td>
+                    <td>
+                        <pre><b>unlog</b> [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Recursively copies the contents
+                        of a source directory to a destination directory. It
+                        copies the source directory's access control list (ACL)
+                        to the destination directory and its subdirectories,
+                        overwriting any existing ACLs.</td>
+                    <td>up<br>
+                    </td>
+                    <td>
+                        <pre><b>up</b> [<b>-v</b>]  [<b>-1</b>]  [<b>-f</b>]  [<b>-r</b>]  [<b>-x</b>]  &lt;<var>source&nbsp;directory</var>&gt;  &lt;<var>destination&nbsp;directory</var>&gt;</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the client portion
+                        of the Update Server</td>
+                    <td>upclient<br>
+                    </td>
+                    <td>
+                        <pre><b>upclient</b> &lt;<var>hostname</var>&gt;  [<b>-crypt</b>]  [<b>-clear</b>]  [<b>-t </b>&lt;<var>retry&nbsp;time</var>&gt;]<br>         [<b>-verbose</b>]<sup>*</sup>  &lt;<var>dir</var>&gt;<sup>+</sup>  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the server portion
+                        of the Update Server</td>
+                    <td>upserver<br>
+                    </td>
+                    <td>
+                        <pre><b>upserver</b> [&lt;<var>directory</var>&gt;<sup>+</sup>]  [<b>-crypt</b> &lt;<var>directory</var>&gt;<sup>+</sup>]  [<b>-clear</b> &lt;<var>directory</var>&gt;<sup>+</sup>]<br>         [<b>-auth</b> &lt;<var>directory</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a user account</td>
+                    <td>uss<br>
+                    </td>
+                    <td>
+                        <pre><b>uss add -user</b> &lt;<var>login&nbsp;name</var>&gt;  [<b>-realname</b> &lt;<var>full&nbsp;name&nbsp;in&nbsp;quotes</var>&gt;]<br>        [<b>-pass</b> &lt;<var>initial&nbsp;password</var>&gt;]  <br>        [<b>-pwexpires</b> &lt;<var>password&nbsp;expires&nbsp;in&nbsp;[0..254]&nbsp;days&nbsp;(0&nbsp;=&gt;&nbsp;never)</var>&gt;]<br>        [<b>-server</b> &lt;<var>FileServer&nbsp;for&nbsp;home&nbsp;volume</var>&gt;] <br>        [<b>-partition</b> &lt;<var>FileServer's&nbsp;disk&nbsp;partition&nbsp;for&nbsp;home&nbsp;volume</var>&gt;] <br>        [<b>-mount</b> &lt;<var>home&nbsp;directory&nbsp;mount&nbsp;point</var>&gt;]  <br>        [<b>-uid</b> &lt;<var>uid&nbsp;to&nbsp;assign&nbsp;the&nbsp;user</var>&gt;]<br>        [<b>-template</b> &lt;<var>pathname&nbsp;of&nbsp;template&nbsp;file</var>&gt;] <br>        [<b>-verbose</b>]  [<b>-var</b> &lt;<var>auxiliary&nbsp;argument&nbsp;pairs&nbsp;(Num&nbsp;val)</var>&gt;<sup>+</sup>] <br>        [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-admin</b> &lt;<var>administrator&nbsp;to&nbsp;authenticate</var>&gt;]<br>        [<b>-dryrun</b>]  [<b>-skipauth</b>]  [<b>-overwrite</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry
+                        containing a keyword string.</td>
+                    <td>uss<br>
+                    </td>
+                    <td>
+                        <pre><b>uss apropos -topic</b> &lt;<var>help&nbsp;string</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Executes multiple <b>uss</b> commands
+                        listed in a file</td>
+                    <td>uss<br>
+                    </td>
+                    <td>
+                        <pre><b>uss bulk -file</b> &lt;<var>bulk&nbsp;input&nbsp;file</var>&gt;  [<b>-template</b> &lt;<var>pathname&nbsp;of&nbsp;template&nbsp;file</var>&gt;]<br>         [<b>-verbose</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>         [<b>-admin</b> &lt;<var>administrator&nbsp;to&nbsp;authenticate</var>&gt;] [<b>-dryrun</b>]  <br>         [<b>-skipauth</b>]  [<b>-overwrite</b>]<br>         [<b>-pwexpires</b> &lt;<var>password&nbsp;expires&nbsp;in&nbsp;[0..254]&nbsp;days&nbsp;(0&nbsp;=&gt;&nbsp;never)</var>&gt;]  <br>         [<b>-pipe</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deletes a user account</td>
+                    <td>uss<br>
+                    </td>
+                    <td>
+                        <pre><b>uss delete -user</b> &lt;<var>login name</var>&gt;  [<b>-mountpoint</b> &lt;<var>mountpoint for user's volume</var>&gt;] <br>           [<b>-savevolume</b>]  [<b>-verbose</b>]  [<b>-cell</b> &lt;<var>cell name</var>&gt;]  <br>           [<b>-admin</b> &lt;<var>administrator to authenticate</var>&gt;]  [<b>-dryrun</b>]  <br>           [<b>-skipauth</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>uss</b> commands
+                        or lists functional descriptions of all <b>uss</b> commands</td>
+                    <td>uss<br>
+                    </td>
+                    <td>
+                        <pre><b>uss help</b> [<b>-topic</b> &lt;<var>help string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Checks the integrity of
+                        the VLDB</td>
+                    <td>vldb_check<br>
+                    </td>
+                    <td>
+                        <pre><b>vldb_check -database</b> &lt;<var>vldb_file</var>&gt;  [<b>-uheader</b>]  [<b>-vheader</b>]  [<b>-servers</b>]  <br>           [<b>-entries</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Volume Location
+                        Server</td>
+                    <td>vlserver<br>
+                    </td>
+                    <td>
+                        <pre><b>vlserver</b> [<b>-p</b> &lt;<var>lwp&nbsp;processes</var>&gt;]  [<b>-nojumbo</b>]  <br>         [<b>-enable_peer_stats</b>]  [<b>-enable_process_stats</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Produces detailed statistics
+                        about one or more volume headers and the partition that
+                        houses them</td>
+                    <td>volinfo<br>
+                    </td>
+                    <td>
+                        <pre><b>volinfo</b> [<b>-online</b>]  [<b>-vnode</b>]  [<b>-date</b>]  [<b>-inode</b>] [<b>-itime</b>]  <br>        [<b>-part</b>  &lt;<var>AFS&nbsp;partition name&nbsp;(default&nbsp;current&nbsp;partition)</var>&gt;<sup>+</sup>]   <br>        [<b>-volumeid</b> &lt;<var>Volume&nbsp;id</var>&gt;<sup>+</sup>]  [<b>-header</b>]  [<b>-sizeOnly</b>]  [<b>-fixheader</b>]  <br>        [<b>-saveinodes</b>]  [<b>-orphaned</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Initializes the Volume Server
+                        component of the <b>fs</b> process</td>
+                    <td>volserver<br>
+                    </td>
+                    <td>
+                        <pre><b>volserver</b> [<b>-log</b>]  [<b>-p</b> &lt;<var>number&nbsp;of&nbsp;processes</var>&gt;]  <br>          [<b>-udpsize</b> &lt;<var>size&nbsp;of&nbsp;socket&nbsp;buffer&nbsp;in&nbsp;bytes</var>&gt;]  <br>          [<b>-enable_peer_stats</b>]  [<b>-enable_process_stats</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adds a read-only site definition
+                        to a volume's VLDB entry</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos addsite -server</b> &lt;<var>machine&nbsp;name&nbsp;for&nbsp;new&nbsp;site</var>&gt;<br>            <b>-partition</b> &lt;<var>partition&nbsp;name&nbsp;for&nbsp;new&nbsp;site</var>&gt;<br>            <b>-id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>            [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays each help entry
+                        containing a keyword string</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos apropos -topic</b> &lt;<var>help&nbsp;string</var>&gt;  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a backup volume
+                        for a single read/write volume</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos backup -id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  <br>           [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a backup volume
+                        for several read/write volumes</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos backupsys</b> [<b>-prefix</b> &lt;<var>common&nbsp;prefix&nbsp;on&nbsp;volume(s)</var>&gt;<sup>+</sup>]  <br>              [<b>-server</b> &lt;<var>machine&nbsp;name</var>&gt;]  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;]  <br>              [<b>-exclude</b>]  [<b>-xprefix</b> &lt;<var>negative&nbsp;prefix&nbsp;on&nbsp;volume(s)</var>&gt;<sup>+</sup>] <br>              [<b>-dryrun</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]<br>              [<b>-verbose</b>]  [<b>-help</b>] </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Changes or removes a file
+                        server machine's entry in the VLDB</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos changeaddr -oldaddr</b> &lt;<var>original&nbsp;IP&nbsp;address</var>&gt;  [<b>-newaddr</b> &lt;<var>new&nbsp;IP&nbsp;address</var>&gt;] <br>               [<b>-remove</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  <br>               [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creates a read/write volume
+                        and associated VLDB entry</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos create -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;<br>           <b>-name</b> &lt;<var>volume&nbsp;name</var>&gt;  [<b>-maxquota</b> &lt;<var>initial&nbsp;quota&nbsp;(KB)</var>&gt;]  <br>           [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a volume entry from
+                        the VLDB.</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos delentry</b> [<b>-id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;<sup>+</sup>]<br>             [<b>-prefix</b> &lt;<var>prefix&nbsp;of&nbsp;volume&nbsp;whose&nbsp;VLDB&nbsp;entry&nbsp;is&nbsp;to&nbsp;be&nbsp;deleted</var>&gt;] <br>             [<b>-server</b> &lt;<var>machine&nbsp;name</var>&gt;]  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;]  <br>             [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Converts a volume into ASCII
+                        format and writes it to a file</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos dump -id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-time</b> &lt;<var>dump&nbsp;from&nbsp;time</var>&gt;]  [<b>-file</b> &lt;<var>dump&nbsp;file</var>&gt;]  <br>         [<b>-server</b> &lt;<var>server</var>&gt;]  [<b>-partition</b> &lt;<var>partition</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>         [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays information from
+                        the volume header and VLDB entry for a volume.</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos examine -id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-extended</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>            [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays the syntax of specified <b>vos</b> commands
+                        or functional descriptions for all <b>vos</b> commands</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos help</b> [<b>-topic</b> &lt;<var>help&nbsp;string</var>&gt;<sup>+</sup>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays all VLDB server
+                        entries</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos listaddrs</b> [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]<br>              [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays all AFS partitions
+                        on a file server machine</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos listpart -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]<br>             [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays a volume's VLDB
+                        entry</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos listvldb</b> [<b>-name</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;]  [<b>-server</b> &lt;<var>machine&nbsp;name</var>&gt;]  <br>             [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;]  [<b>-locked</b>]  [<b>-quiet</b>]  [<b>-nosort</b>]  <br>             [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays information from
+                        a volume header</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos listvol -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;]<br>            [<b>-fast</b>]  [<b>-long</b>]  [<b>-quiet</b>]  [<b>-extended</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  <br>            [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Locks a VLDB volume entry</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos lock -id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>] <br>         [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Moves a read/write volume
+                        to another site</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos move -id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  <b>-fromserver</b> &lt;<var>machine&nbsp;name&nbsp;on&nbsp;source</var>&gt; <br>         <b>-frompartition</b> &lt;<var>partition&nbsp;name&nbsp;on&nbsp;source</var>&gt; <br>         <b>-toserver</b> &lt;<var>machine&nbsp;name&nbsp;on&nbsp;destination</var>&gt;  <br>         <b>-topartition</b> &lt;<var>partition&nbsp;name&nbsp;on&nbsp;destination</var>&gt; <br>         [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports the available and
+                        total space on a partition</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos partinfo -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;] <br>             [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Updates the contents of
+                        read-only volumes to match their read/write source volume</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos release -id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-f</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;] <br>            [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a volume from a
+                        site</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos remove</b> [<b>-server</b> &lt;<var>machine&nbsp;name</var>&gt;]  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;]<br>           <b>-id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>           [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a read-only site
+                        definition from a VLDB entry</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos remsite -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt; <br>            <b>-id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>] <br>            [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Renames a volume</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos rename -oldname</b> &lt;<var>old&nbsp;volume&nbsp;name</var>&gt;  <b>-newname</b> &lt;<var>new&nbsp;volume&nbsp;name</var>&gt; <br>           [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Converts an ASCII file into
+                        proper volume format and writes it to the file system</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos restore -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;  <br>            <b>-name</b> &lt;<var>name&nbsp;of&nbsp;volume&nbsp;to&nbsp;be&nbsp;restored</var>&gt;  [<b>-file</b> &lt;<var>dump&nbsp;file</var>&gt;]  <br>            [<b>-id</b> &lt;<var>volume&nbsp;ID</var>&gt;]  [<b>-overwrite</b> &lt;<b>abort</b> | <b>full</b> | <b>incremental</b>&gt;]  <br>            [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  <br>            [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reports a Volume Server's
+                        status</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos status -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]<br>           [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Verifies VLDB entries that
+                        mention a specified site</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos syncserv -server</b> &lt;<var>machine&nbsp;name</var>&gt;  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;] <br>             [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]  <br>             [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Verifies VLDB entries for
+                        volumes residing at specified site</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos syncvldb</b> [<b>-server</b> &lt;<var>machine&nbsp;name</var>&gt;]  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;] <br>             [<b>-volume</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  <br>             [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unlocks a single VLDB entry</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos unlock -id</b> &lt;<var>volume&nbsp;name&nbsp;or&nbsp;ID</var>&gt;  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>] <br>           [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unlocks several locked VLDB
+                        entries</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos unlockvldb</b> [<b>-server</b> &lt;<var>machine&nbsp;name</var>&gt;]  [<b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt;] <br>               [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]  [<b>-noauth</b>]  [<b>-localauth</b>]<br>               [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Removes a volume from its
+                        site without writing to the VLDB</td>
+                    <td>vos<br>
+                    </td>
+                    <td>
+                        <pre><b>vos zap -server</b> &lt;<var>machine&nbsp;name</var>&gt;  <b>-partition</b> &lt;<var>partition&nbsp;name</var>&gt; <br>        <b>-id</b> &lt;<var>volume ID</var>&gt;  [<b>-force</b>]  [<b>-backup</b>]  [<b>-cell</b> &lt;<var>cell&nbsp;name</var>&gt;]<br>        [<b>-noauth</b>]  [<b>-localauth</b>]  [<b>-verbose</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays data collections
+                        from the Cache Manager</td>
+                    <td>xstat<br>
+                    </td>
+                    <td>
+                        <pre><b>xstat_cm_test</b> [<b>initcmd</b>] <b>-cmname</b> &lt;<var>Cache&nbsp;Manager&nbsp;name(s)&nbsp;to&nbsp;monitor</var>&gt;<sup>+</sup><br>              <b>-collID</b> &lt;<var>Collection(s)&nbsp;to&nbsp;fetch</var>&gt;<sup>+</sup>  [<b>-onceonly</b>]  <br>              [<b>-frequency</b> &lt;<var>poll&nbsp;frequency,&nbsp;in&nbsp;seconds</var>&gt;]  <br>              [<b>-period</b> &lt;<var>data&nbsp;collection&nbsp;time,&nbsp;in&nbsp;minutes</var>&gt;]  [<b>-debug</b>]  [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displays data collections
+                        from the File Server process</td>
+                    <td>xstat<br>
+                    </td>
+                    <td>
+                        <pre><b>xstat_fs_test</b> [<b>initcmd</b>] <b>-fsname</b> &lt;<var>File&nbsp;Server&nbsp;name(s)&nbsp;to&nbsp;monitor</var>&gt;<sup>+</sup><br>              <b>-collID</b> &lt;<var>Collection(s)&nbsp;to&nbsp;fetch</var>&gt;<sup>+</sup>  [<b>-onceonly</b>]<br>              [<b>-frequency</b> &lt;<var>poll&nbsp;frequency,&nbsp;in&nbsp;seconds</var>&gt;]<br>              [<b>-period</b> &lt;<var>data&nbsp;collection&nbsp;time,&nbsp;in&nbsp;minutes</var>&gt;]  [<b>-debug</b>] [<b>-help</b>]</pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- InstanceEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- InstanceBeginEditable name="footer" --><!-- InstanceEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+<!-- InstanceEnd --></html>

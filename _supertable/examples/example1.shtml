@@ -1,0 +1,456 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SuperTable Example #2</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css_js/nde-basic.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenu.css" media="all">
+<link rel="stylesheet" type="text/css" href="css_js/cssjsmenuhover.css" media="all" id="hoverJS">
+<script type="text/javascript" language="javascript" src="css_js/theme-menu-2.js"></script>
+
+<style type="text/css">
+    /* Required to prevent style from rendering in Dreamweaver */
+    /* #navbar { width:auto; } */
+</style>
+<script type="text/javascript">
+    // Required to prevent style from rendering in Dreamweaver 
+    if(1)
+    {
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-tan.css" type="text/css" title="Tan" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-gray.css" type="text/css" title="Gray" media="screen">');
+        document.writeln('<link rel="alternate stylesheet" href="css_js/nde-classic.css" type="text/css" title="Classic" media="screen">');
+        document.write('<link rel="stylesheet" href="css_js/nde-blue.css" type="text/css" title="Blue" media="screen">');
+    }
+    if (document.all)
+    {
+        document.writeln('<style type="text/css">');
+        document.writeln('    #masthead h1{ letter-spacing: 1.2em; }');
+        //FIXES BUG IN IE WHERE COLOR DOES NOT FILL FLUSH TO RIGHT OF SUBMENU BOX
+        document.writeln('    ul.nde-menu-system li ul li a { width: 100%; }');
+        document.writeln('</style>');
+    }
+</script>
+
+<script type="text/javascript" src="supertable.js"></script>
+<style type="text/css">
+/*    TH A:hover { color:#ffff88 } */
+    TH A:link { color:#ffffff }
+    TH A:visited { color:#ffffff }
+    BODY { font-family: Arial, Helvetica, sans-serif; }
+    TH { color: #FFFFFF; }
+    TH A { color: #FFFFFF; }
+    TR { vertical-align:top; }
+    TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; }
+    TBODY { font-size: 1em; }
+    CAPTION { text-align:left; font-size:1.5em; font-weight:bold; }
+    TABLE#filtertable { background: #dddddd; color: #000000; }
+    .bordertopnone{ border-top: none; }
+    .borderbotnone{ border-bottom: none; }
+    .table_heading { color: #ffffff; background-color: #888888; }
+    .container_table { background-color: #000000; }
+    .pagebreak { page-break-before:always; }
+    .white { color:#ffffff; }
+    .small { font-size:.8em; }
+    .smaller { font-size:.6em; font-weight:normal; }
+	.larger { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+	.blue { color: blue; }
+	.red { color: red; }
+	.boldred { font-weight: bold; color: red; }
+	.boldblue { font-weight: bold; color: blue; }
+    .normal { font-weight: normal; }
+    SAMP { color:#790029; }
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+    .priority0 { background-color: #ffffff; color: #000000; }
+    .priority1 { background-color: #ffff88; color: #000000; }
+    .priority2 { background-color: #eeee88; color: #000000; }
+    .priority3 { background-color: #dddd88; color: #000000; }
+    .priority4 { background-color: #eeeeee; color: #000000; }
+    .priority5 { background-color: #dddddd; color: #000000; }
+    .priority6 { background-color: #cccccc; color: #000000; }
+    .completed { text-decoration: line-through; background-color: #ddddff; color: #999999; }
+</style>
+<script type="text/javascript">
+    function init()
+    {
+        //===========================================
+        // INSTANTIATE TABLE OBJECT
+        //===========================================
+        aiTable = new Table( 'actionitems' );
+
+        // DEFINE COLUMNS OF TABLE ( COLUMN-INDEX, SORT-DATA-TYPE )
+        aiTable.defineColumn( 0,'numeric' );
+        aiTable.defineColumn( 1,'numeric' );
+        aiTable.defineColumn( 2,'alpha' );
+        aiTable.defineColumn( 3,'alpha' );
+        aiTable.defineColumn( 4,'alpha' );
+        aiTable.defineColumn( 5, null );
+
+
+        // DEFINE RULES FOR COLORING ROWS ( PATTERN, CSS-CLASS, ROW|CELL )
+        aiTable.columns[1].style.defineRule( /1/,'priority1','row' );
+        aiTable.columns[1].style.defineRule( /2/,'priority2','row' );
+        aiTable.columns[1].style.defineRule( /3/,'priority3','row' );
+        aiTable.columns[1].style.defineRule( /4/,'priority4','row' );
+        aiTable.columns[1].style.defineRule( /5/,'priority5','row' );
+        aiTable.columns[5].style.defineRule( /DONE/,'completed','row' );
+        aiTable.columns[1].style.defineRule( /^(&nbsp;|)/,'priority0','row' );
+
+
+        // DEFINE FILTER FOR COLUMNS ( FORM-NAME, FORM-INPUT-NAME )
+        aiTable.columns[1].defineFilter( 'filter','priority' );
+        aiTable.columns[2].defineFilter( 'filter','category' );
+        aiTable.columns[3].defineFilter( 'filter','lead' );
+        aiTable.columns[4].defineFilter( 'filter','detail' );
+        aiTable.columns[5].defineFilter( 'filter','status' );
+
+
+        // DEFINE LIMIT OF LONGEST STRING IN TABLE CELL... PREVENTS CELL STRETCHING
+        aiTable.columns[4].setHyphenLimit(60);
+        aiTable.columns[5].setHyphenLimit(60);
+
+        // DEFINE NUMBER OF CHARACTERS TO BE USED WHEN SORTING COLUMNS CONTAINING STRINGS ('alpha').
+        //    A LOWER NUMBER WILL IMPROVE PERFORMANCE, BUT MAY REDUCE ACCURACY.
+        aiTable.setAlphaSortLimit(7);
+
+
+        // SORT TABLE BY FIRST COLUMN
+        aiTable.sortTable(1);
+    }
+</script>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    function init2()
+    {
+        cssjsmenu('navbar');
+        if (document.getElementById)
+        {
+          var kill = document.getElementById('hoverJS'); 
+          kill.disabled = true;
+        }
+    }
+</script>
+</head>
+<body onload="init();init2()">
+<script type="text/javascript"><!--
+        ndeSetTheme();
+       //--></script>
+<div id="masthead">
+    <h1><a href="index.shtml"><span>Sourceforge</span> SuperTable</a></h1>
+</div>
+<div id="main">
+    <div id="navbar">
+        <ul class="nde-menu-system">
+            <li><a href="index.shtml">Home</a></li>
+            <li class="submenu"><a href="javascript:void(0)">Examples</a>
+                <ul>
+                    <li><a href="example1.shtml">Action Item List</a></li>
+                    <li><a href="example2.shtml">AFS Command Reference</a></li>
+                    <li><a href="example3.shtml">Javascript Code Snippets</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="javascript:void(0)">Using SuperTable</a>
+                <ul>
+					<li><a href="sample_template.shtml" target="_blank">Sample Template</a></li>
+                    <li><a href="usage.shtml">Annotated Example</a></li>
+                    <li><a href="supertable_classes.shtml">Class Reference</a></li>
+                </ul>
+            </li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=86183">Download the Code</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578697">Report a Bug</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578698">Request Support</a></li>
+			<li><a href="http://sourceforge.net/tracker/?group_id=86183&atid=578700">Request a Feature</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1><!-- InstanceBeginEditable name="PageHeading" -->SuperTable Example
+                #1<!-- InstanceEndEditable --></h1>
+        <ul class="nde-metadata" id="nde-author">
+            <li><!-- InstanceBeginEditable name="PageDescription" -->Action Items
+                    List<!-- InstanceEndEditable --></li>
+        </ul>
+        <!-- InstanceBeginEditable name="Body" -->
+        <table border="1" cellspacing="0" cellpadding="5">
+            <caption>
+            Key to Priority Codes
+            </caption>
+            <thead>
+            <tr>
+                <th class="table_heading">Priority</th>
+                <th class="table_heading">Description</th>
+            </tr>
+            </thead>
+            <tr class="priority1">
+                <td align="center">1</td>
+                <td>Must be started immediately and performed before lower priorities</td>
+            </tr>
+            <tr class="priority2">
+                <td align="center">2</td>
+                <td>Should be started within 1-2 weeks.</td>
+            </tr>
+            <tr class="priority3">
+                <td align="center">3</td>
+                <td>To be started within 2-4 weeks.</td>
+            </tr>
+            <tr class="priority4">
+                <td align="center">4</td>
+                <td>Low priority does not have to be started until after 3-4
+                    weeks.</td>
+            </tr>
+            <tr class="priority5">
+                <td align="center">5</td>
+                <td>Lowest priority does not have to be started until after 3-6
+                    months.</td>
+            </tr>
+            <tr class="priority0">
+                <td align="center">0</td>
+                <td>Priority not yet assigned</td>
+            </tr>
+            <tr class="completed">
+                <td align="center">&nbsp;</td>
+                <td>Completed items are flagged with keyword <strong>DONE</strong> in the &quot;Status
+                    Notes&quot; column.</td>
+            </tr>
+        </table>
+        <h2><a name="actionItemsTable"></a>IT Team Action Items<br>
+            <span style="font-size:.75em;color:#ff0000;">Next Meeting: Wednesday,
+            June 19, 200X; 10:30 am - 12:00 noon Eastern Time</span></h2>
+        <div class="noprint">
+            <form name="filter" method="post" action="javascript:void(0)">
+                <table id="filtertable" border="1" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td nowrap class="bold">Priority equals...</td>
+                        <td class="bold">Category contains...</td>
+                        <td class="bold">Lead contains...</td>
+                        <td class="bold">Detail contains...</td>
+                        <td class="bold">Status contains..</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">
+                                <input name="priority" type="text" size="3">
+                            </div>
+                        </td>
+                        <td>
+                            <div align="left">
+                                <input name="category" type="text" size="10">
+                            </div>
+                        </td>
+                        <td>
+                            <input name="lead" type="text" size="10">
+                        </td>
+                        <td>
+                            <input name="detail" type="text" size="20">
+                        </td>
+                        <td><input name="status" type="text" id="status" size="20"></td>
+                        <td>
+                            <input type="submit" name="filter" value="Filter Table" onClick="aiTable.filterTable()">
+                        </td>
+                    </tr>
+                </table>
+                <span class="small">Filter supports Regular Expressions</span>
+            </form>
+        </div>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <caption>
+            <span class="smaller"><b>Columns are sortable</b>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:location.reload()" class="bold">[
+            Refresh Table ]</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:aiTable.removeStyle()" class="bold">[
+            Remove Table Row Color (for printing) ]</a> </span>
+            </caption>
+            <thead>
+                <tr align="center">
+                    <th class="table_heading"><a href="javascript:void(0)" onClick="aiTable.sortTable(0)">ID</a></th>
+                    <th class="table_heading"><a href="javascript:void(0)" onClick="aiTable.sortTable(1)">Pri</a></th>
+                    <th class="table_heading"><a href="javascript:void(0)" onClick="aiTable.sortTable(2)">Category</a></th>
+                    <th class="table_heading"><a href="javascript:void(0)" onClick="aiTable.sortTable(3)">Lead</a></th>
+                    <th class="table_heading">Action Item Detail</th>
+                    <th class="table_heading">Status Notes&nbsp;&nbsp; <span class="normal">[ <a href="example1a.shtml">link to Notes Detail Page</a> ]</span></th>
+                </tr>
+            </thead>
+            <tbody id="actionitems">
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td><strong>NOTE</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><strong>Completed Action Items can be moved to a separate page
+                        that is structured similar to this page...</strong></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>SysAdm</td>
+                    <td>John</td>
+                    <td>Locate consultant for Cisco configuration evaluation.</td>
+                    <td>Magnus es, domine, et laudabilis valde: magna virtus
+                        tua, et sapientiae tuae non est numerus. et laudare te
+                        vult homo, aliqua portio creaturae tuae, et homo circumferens
+                        mortalitem suam, </td>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td>1</td>
+                    <td>Security</td>
+                    <td>Paul</td>
+                    <td>
+                        <p>Discuss NIST security document templates.</p>
+                    </td>
+                    <td>circumferens testimonium peccati <br>
+[ <a href="example1a.shtml#id75">link to more details</a> ]</td>
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td>4</td>
+                    <td>SysAdm</td>
+                    <td>Ren</td>
+                    <td>Implement MySQL service on prod4 server</td>
+                    <td>quaerentes enim inveniunt eum et invenientes laudabunt                        <br>
+[ <a href="example1a.shtml#id67">link to more details</a> ]</td>
+                </tr>
+                <tr>
+                    <td>68</td>
+                    <td>1</td>
+                    <td>Security</td>
+                    <td>All</td>
+                    <td>Provide emergency contact info to Paul</td>
+                    <td>Et quomodo invocabo deum meum, deum et dominum meum,
+                        quoniam utique inme ipsum eum invocabo, cum invocabo
+                        eum? et quis locus est in me, quoveniat in me deus meus?<br>
+                    DONE</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>0</td>
+                    <td>Sysadm</td>
+                    <td>Paul</td>
+                    <td>Research open-source Web server admin applications</td>
+                    <td>aut unde venias in me? quo enim recedam extra caelum
+                        et terram, ut inde in me veniat deus meus, qui dixit:
+                    caelum et terram ego impleo?</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>1</td>
+                    <td>Documentation</td>
+                    <td>John, Eric </td>
+                    <td>Write Standard Operating Procedure for version controlling
+                        /etc using CVS on prod4</td>
+                    <td>Capiunt ergone te caelum et terra, quoniam tu imples
+                        ea? an imples et restat, quoniam non te capiunt? et quo
+                    refundis quidquid impleto caeloet terra restat ex te? </td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>1</td>
+                    <td>Security</td>
+                    <td>Eric, Ren, John</td>
+                    <td>Implement Password cracker on prod4</td>
+                    <td>an singulas singula et maiores maiora, minores minora
+                        capiunt? ergo est aliqua pars tua maior, aliqua minor?
+                    an ubique totus es et res nulla te totum capit?</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>1</td>
+                    <td>Security</td>
+                    <td>John</td>
+                    <td>Deploy Virus scanner on prod4</td>
+                    <td>Quid est ergo deus meus? <br>
+[ <a href="example1a.shtml#id29">link to more details</a> ]                        <br>
+                        DONE</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>3</td>
+                    <td>Security</td>
+                    <td>John</td>
+                    <td>Research IDS implementation for prod4</td>
+                    <td>Quid est ergo deus meus? quid, rogo, nisi dominus deus?                        <br>
+[ <a href="example1a.shtml#id30">link to more details</a> ]</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td>1</td>
+                    <td>SysAdm</td>
+                    <td>Ren</td>
+                    <td>Deploy Apache2</td>
+                    <td>an singulas singula et maiores maiora, minores minora
+                        capiunt? ergo est aliqua pars tua maior, aliqua minor?
+                        an ubique totus es et res nulla te totum capit?</td>
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td>3</td>
+                    <td>Monitoring</td>
+                    <td>Eric</td>
+                    <td>Deploy BigBrother monitoring on prod4</td>
+                    <td>Quis mihi dabit adquiescere in te? quis dabit mihi, ut
+                        venias in cor meum et inebries illud, ut obliviscar mala
+                        mea et unum bonum meum amplectar, te? quid mihi es? </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>Admin</td>
+                    <td>Joanna</td>
+                    <td>Upgrade software licenses from individual to group</td>
+                    <td> delicta mea, deus meus, et tu dimisisti inpietatem cordis
+                        mei? <br>
+[ <a href="example1a.shtml#id3">link to more details</a> ]</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>SysAdm</td>
+                    <td>Paul</td>
+                    <td>Install/configure CVS on prod1 &amp; prod2 servers</td>
+                    <td>Exaudi, deus. vae peccatis hominum! et homo dicit haec,
+                        et misereris eius,<br>
+[ <a href="example1a.shtml#id10">link to more details</a> ]</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>1</td>
+                    <td>SysAdm</td>
+                    <td>Paul</td>
+                    <td>Troubleshoot Samba connections</td>
+                    <td>gaudeat et ipse dicens: quid est hoc? gaudeat etiam sic,
+                        et amet non inveniendo invenire, potius quam inveniendo
+                        non invenire te.</td>
+                </tr>
+                <tr>
+                    <td>71</td>
+                    <td>5</td>
+                    <td>Admin</td>
+                    <td>Joanna</td>
+                    <td>Research IT outsourcing companies in Poland</td>
+                    <td>Deus, deus meus, quas ibi miserias expertus sum et ludificationes,                        <br>
+[ <a href="example1a.shtml#id71">link to more details</a> ]</td>
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td>4</td>
+                    <td>Admin</td>
+                    <td>Joanna</td>
+                    <td>Precalculate Federal Income tax liability for FY200x</td>
+                    <td>quominus celeriter discerem litteras, quibus maior deformius
+                        luderem. <br>
+[ <a href="example1a.shtml#id72">link to more details</a> ]</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- InstanceEndEditable --> </div>
+</div>
+<div id="nde-footer"> 
+<!-- InstanceBeginEditable name="footer" --> <!-- InstanceEndEditable --> </div>
+<A href="http://sourceforge.net" style="float:right;margin-bottom:3em;"><IMG src="http://sourceforge.net/sflogo.php?group_id=86183&amp;type=2" 
+    width="125" height="37" border="0" alt="SourceForge.net Logo" /></A>
+<!--#exec cmd="/home/groups/s/su/supertable/cgi-bin/log.pl" -->
+</body>
+<!-- InstanceEnd --></html>
