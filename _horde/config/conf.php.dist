@@ -1,0 +1,590 @@
+<?php
+/**
+ * Horde Configuration File
+ *
+ * This file contains global configuration settings for Horde. Values
+ * may be safely edited by hand. Use conf.php.dist as a reference.
+ *
+ * Default user preferences are defined in 'prefs.php'.
+ *
+ * Strings should be enclosed in 'quotes'.
+ * Integers should be given literally (without quotes).
+ * Boolean values may be true or false (never quotes).
+ *
+ * $Horde: horde/config/conf.php.dist,v 1.86 2004/02/28 20:47:30 ericr Exp $
+ */
+
+/**
+ ** General Horde Settings
+ **/
+
+// The value to set error_reporting() to. Valid values are: E_ERROR,
+// E_WARNING, E_PARSE, E_NOTICE, E_CORE_ERROR, E_CORE_WARNING,
+// E_ALL. See http://www.php.net/manual/function.error-reporting.php
+// for more information.
+$conf['debug_level'] = E_ALL;
+
+// If we need to perform a long operation, what should we set
+// max_execution_time to (in seconds)? 0 means no limit; however, a
+// value of 0 will cause a warning if you are running in safe
+// mode. See http://www.php.net/manual/function.set-time-limit.php for
+// more information.
+$conf['max_exec_time'] = 0;
+
+// Determines how we generate full URLs (for location headers and
+// such). Possible values are:
+//   0 - Assume that we are not using SSL and never generate https URLS.
+//   1 - Assume that we are using SSL and always generate https URLS.
+//       NOTE: If you do this, you MUST hardcode the correct HTTPS port
+//       number in $conf['server']['port'] below. Otherwise Horde will
+//       be unable to generate correct HTTPS URLs when a user tries to
+//       access Horde via a non-HTTPS port.
+//   2 - Attempt to auto-detect, and generate URLs appropriately.
+$conf['use_ssl'] = 2;
+
+// What server name should we use? You'll probably know if you need to
+// change this default; only in situations where you need to override
+// what Apache thinks the server name is.
+$conf['server']['name'] = $_SERVER['SERVER_NAME'];
+
+// What port number is the webserver running on? Again, you shouldn't
+// need to change the default, and you probably know it if you do. The
+// exception is if you have $conf['use_ssl'] set to 1, as described
+// above.
+$conf['server']['port'] = $_SERVER['SERVER_PORT'];
+
+// If this option is set to true, and you have the php zlib extension,
+// pages over a certain size will be compressed and sent to the
+// browser as gzip-encoded data in order to save bandwidth. There is a
+// CPU-usage penalty to pay for this, but the decrease in page size
+// can be dramatic (70k to under 10k for a full mailbox page), and is
+// more than worth it over anything but an extremely fast link.
+$conf['compress_pages'] = true;
+
+// What umask should we run with? This will affect the permissions on
+// any temporary files that are created. This value is an integer
+// (specify it WITHOUT quotes).
+$conf['umask'] = 077;
+
+// If you want to use a temporary directory other than the system
+// default or the one specified in php's upload_tmp_dir value, enter
+// it here.
+$conf['tmpdir'] = null;
+
+// What name should we use for the session that Horde apps share? If
+// you want to share sessions with other applications on your
+// webserver, you will need to make sure that they are using the same
+// session name.  Note: Session names must consist of only alphanumeric
+// characters.
+$conf['session']['name'] = 'Horde';
+
+// What caching level should we use for the session? DO NOT CHANGE
+// THIS UNLESS YOU _REALLY_ KNOW WHAT YOU ARE DOING. Setting this to
+// anything other than 'nocache' will almost certainly result in
+// severely broken script behavior.
+$conf['session']['cache_limiter'] = 'nocache';
+
+// How long should sessions last? 0 means that the session ends when
+// the user closes their browser. Set other values with care - see
+// http://www.php.net/manual/en/function.session-set-cookie-params.php.
+$conf['session']['timeout'] = 0;
+
+// What domain should we set cookies from? If you have a cluster that
+// needs to share cookies, this might be '.example.com' - the leading
+// '.' is important. Most likely, though, you won't have to change the
+// default.
+$conf['cookie']['domain'] = $_SERVER['SERVER_NAME'];
+
+// What path should we set cookies to? This should match where Horde
+// is on your webserver - if it is at /horde, then this should be
+// '/horde'. If Horde is installed as the document root, then this
+// needs to be '/' - NOT ''.
+// ** BUT, if IE will be used to access Horde modules, you should read
+//    this first (discussing issues with IE's Content Advisor):
+//    http://lists.horde.org/archives/imp/Week-of-Mon-20030113/029149.html
+$conf['cookie']['path'] = '/horde';
+
+
+/**
+ ** Horde Database Settings
+ **/
+
+// If Horde uses a database, which database backend are we using? If
+// you are not using a database for anything, you can ignore this
+// entire section.
+// Backends:
+//   'mssql'  --  Microsoft SQL Server
+//   'mysql'  --  MySQL
+//   'oci8'   --  Oracle 8
+//   'odbc'   --  ODBC
+//   'pgsql'  --  PostgreSQL
+$conf['sql']['phptype'] = 'mysql';
+
+// Request persistent connections?
+$conf['sql']['persistent'] = false;
+
+// What protocol will we use to connect to the database.  The default
+// is tcp, but if you wish to use UNIX sockets, change it to 'unix'.
+$conf['sql']['protocol'] = 'tcp';
+
+// If you are using UNIX sockets, you may need to specify the socket's
+// location.
+// $conf['sql']['socket'] = '/var/lib/mysql/mysql.sock';
+
+// What port is the database server running on? Not required for all
+// databases.
+// $conf['sql']['port'] = 5432;
+
+// What hostname is the database server running on, or what is the
+// name of the system DSN to use?
+$conf['sql']['hostspec'] = 'localhost';
+
+// What username do we authenticate to the database server as?
+$conf['sql']['username'] = 'horde';
+
+// What password do we authenticate to the database server with?
+$conf['sql']['password'] = '';
+
+// What database name/tablespace are we using?
+$conf['sql']['database'] = 'horde';
+
+// What charset does the database use internally?
+$conf['sql']['charset'] = 'iso-8859-1';
+
+
+/**
+ ** Horde Authentication
+ **/
+
+// Which users should be treated as administrators (root, super-user)
+// by Horde? Example: $conf['auth']['admins'] = array('admin', 'john');
+$conf['auth']['admins'] = array();
+
+// What backend should we use for authenticating users to Horde?
+// For more information on each driver see:
+//   framework/Auth/[drivername].php.
+// Backends:
+//   'application'  --  Let a Horde application handle authentication
+//   'auto'         --  Automatic authentication as a certain user
+//   'customsql'    --  SQL authentication w/custom-made queries
+//   'cyrsql'       --  SQL implementation for the Cyrus IMAP server
+//   'ftp'          --  FTP authentication
+//   'http'         --  HTTP (Basic Authentication/.htpasswd) authentication
+//   'imap'         --  IMAP authentication
+//   'ipbasic'      --  Simple IP based authentication
+//   'ipmap'        --  IP based authentication
+//   'krb5'         --  Kerberos authentication
+//   'ldap'         --  LDAP authentication
+//   'login'        --  Login (su) authentication
+//   'mcal'         --  MCAL authentication
+//   'pam'          --  PAM (Pluggable Authentication Modules) authentication
+//   'passwd'       --  passwd file authentication
+//   'radius'       --  Radius authentication
+//   'sasl'         --  SASL authentication
+//   'smb'          --  SMB authentication
+//   'sql'          --  SQL authentication
+//   'yahoo'        --  Yahoo! authentication
+$conf['auth']['driver'] = '';
+
+// Should we use always store and validate the IP address of the client (as
+// seen by the web server) in the session? Doing so will help increase
+// security by ensuring that an attacker from another host can not try to
+// hijack the session. Either true or false.
+$conf['auth']['checkip'] = true;
+
+// An array holding any parameters that the Auth object will need to
+// function correctly. For the list of required parameters needed for each
+// driver, see framework/Auth/[drivername].php.
+$conf['auth']['params'] = array();
+
+// EXAMPLE: If you want to use IMP with Horde and don't want to let the
+// users login twice (once for Horde and once for IMP) you can setup Horde
+// to let IMP do the authentication stuff. Set the auth driver to
+// 'application', and add IMP as the driver's parameters:
+// $conf['auth']['driver'] = 'application';
+// $conf['auth']['params']['app'] = 'imp';
+
+
+/**
+ ** Horde Sign Up
+ **/
+
+// If this is set to true then non-registered users will have the option
+// to register, with a link being provided on the login screen.
+$conf['signup']['allow'] = false;
+
+// Set this to false if you do not want each user who submits a registration
+// request to be approved by admins. (WARNING: Setting to false would mean
+// that every user who signs up would have automatic access to your horde
+// system.)
+$conf['signup']['approve'] = true;
+
+// Setting this to true causes the signup system to pass the user-provided
+// information through the _horde_hook_signup_preprocess function
+// in hooks.php before processing the request, allowing for validation and
+// modification of data passed in by the user.
+$conf['signup']['preprocess'] = true;
+
+
+/**
+ ** Horde Logging
+ **/
+
+// Should Horde log errors and other useful information?
+$conf['log']['enabled'] = true;
+
+// What log driver should we use? Valid values are 'file', 'mcal',
+// 'sql', and 'syslog'.
+$conf['log']['type'] = 'file';
+
+// What is the name of the log? For the 'file' driver, this is the
+// path to a text file; for mcal, it would be the name of a calendar,
+// and for sql it would be the table name to use. For the 'syslog'
+// driver it is the facility as a _constant_ (with no quotes), e.g.:
+// ... = LOG_LOCAL0;
+$conf['log']['name'] = '/tmp/horde.log';
+
+// What level of messages should we log? The values are
+// PEAR_LOG_EMERG, PEAR_LOG_ALERT, PEAR_LOG_CRIT, PEAR_LOG_ERR,
+// PEAR_LOG_WARNING, PEAR_LOG_NOTICE, PEAR_LOG_INFO, and
+// PEAR_LOG_DEBUG. Each level logs itself and all those that come
+// before it: PEAR_LOG_ALERT would only log alerts and emergencies,
+// but PEAR_LOG_DEBUG would log everything.
+$conf['log']['priority'] = PEAR_LOG_NOTICE;
+
+// What identifier should we use in the logs?
+$conf['log']['ident'] = 'HORDE';
+
+// Any additional configuration information.  For SQL logging, enter a
+// full database DSN.  For MCAL, provide a username and password.
+// $conf['log']['params']['dsn'] = 'mysql://user:password@host/dbname';
+$conf['log']['params'] = array();
+
+
+/**
+ ** Preference System Settings
+ **/
+
+// What preferences driver should we use?
+// Drivers:
+//   'none'     --  None. (Use system defaults and don't save any user
+//                  preferences)
+//   'ldap'     --  LDAP
+//   'session'  --  PHP Sessions. (Preferences only persist during the login)
+//   'sql'      --  SQL Database
+$conf['prefs']['driver'] = 'none';
+
+// The size of the preferences field in your backend in bytes. Horde will
+// reject any write to the preferences backend if its length exceeds this
+// value. Leave null to skip this checking.
+// e.g. MySQL stores the preference data in a LONGTEXT field. This field
+// can hold 4294967295 bytes so most likely checking is not needed. However
+// other DB installations may only have a storage size of 64 KB (65535
+// bytes). These installations would want to turn checking on.
+$conf['prefs']['maxsize'] = null;
+
+// Any parameters that the preferences driver needs. For the list of
+// required parameters needed for each driver, see
+// framework/Prefs/[drivername].php.
+$conf['prefs']['params'] = array();
+
+
+/**
+ ** DataTree System Settings
+ **/
+
+// What backend should we use for Horde DataTree storage?
+// Backends:
+//   'none'  --  No backend. The data will only live for the duration
+//               of a single request - it is NOT stored in the user's
+//               session.
+//   'sql'   --  SQL Database
+$conf['datatree']['driver'] = 'none';
+
+// An array holding any parameters that the DataTree object will need
+// to function correctly. If you are using a database and have
+// configured a Horde database in $conf['sql'], you don't need to
+// enter anything here.
+$conf['datatree']['params'] = array();
+
+
+/**
+ ** Groups Settings
+ **/
+
+// What backend should we use for Horde Groups?
+// Backends:
+//   'datatree' -- Use Horde's DataTree API to store information about the
+//                 groups.
+//   'hooks'    -- This extends the DataTree backend to allow hooks
+//                 to extend a group to dynamically include members
+//                 into a group.  See hooks.php.dist for an example.
+$conf['group']['driver'] = 'datatree';
+
+
+/**
+ ** Cache System Settings
+ **/
+
+// If you want to enable the Horde Cache, select a driver here.
+// This is used to speed up portions of Horde by storing
+// commonly processed objects to disk.
+// Drivers:
+//   'none'  --  Don't cache any objects - NOT RECOMMENDED
+//   'file'  --  Store objects in filesystem
+//   'zps'   --  Use the Zend Performance Suite output cache
+$conf['cache']['driver'] = 'file';
+
+// How long should objects be cached by default?
+$conf['cache']['default_lifetime'] = 1800;
+
+// Any parameters that the caching driver needs.
+$conf['cache']['params'] = array();
+
+// For the 'file' driver, the location to store the cached files
+// $conf['cache']['params']['dir'] = Horde::getTempDir();
+// $conf['cache']['params']['dir'] = '/var/cache/horde';
+
+
+/**
+ ** Token System Settings
+ **/
+
+// If you want to enable Form Tokens, select a driver here. This is
+// used by the Horde::Form:: API and some other parts of Horde to
+// ensure that a form can only be submitted once.
+// Drivers:
+//   'none'  --  Disable Form Tokens
+//   'file'  --  Local filesystem token storage
+//   'sql'   --  SQL-based token storage
+$conf['token']['driver'] = 'file';
+
+// Any parameters that the token driver needs. If you are using a
+// database and have configured a Horde database in $conf['sql'], you
+// don't need to enter anything here.
+$conf['token']['params'] = array();
+
+
+/**
+ ** Mailer
+ **/
+
+// What method should we use for sending mail?
+// Valid options:
+//   'sendmail'  --  Use the local sendmail binary
+//   'smtp'      --  Use a SMTP server
+$conf['mailer']['type'] = 'sendmail';
+
+// An array holding any parameters that the Mail object will need to
+// function correctly.
+$conf['mailer']['params'] = array();
+
+// The 'sendmail' driver usually needs the path to the sendmail binary.
+// Additionally, we want to use the '-oi' argument so that sendmail does not
+// interpret a single '.' in the body of a message as the end of input.
+// $conf['mailer']['params'] = array(
+//     'sendmail_path' => '/usr/lib/sendmail',
+//     'sendmail_args' => '-oi'
+// );
+
+// The 'smtp' driver normally will require a server name. Additional
+// parameters can also be defined - see below for more details.
+// $conf['mailer']['params'] = array(
+//     /* The server to connect to. */
+//     'host' => 'smtp.example.com',
+//     /* The port to connect to. DEFAULT: 25 */
+//     'port' => 25,
+//     /* The local hostname/domain. DEFAULT: localhost */
+//     'localhost' => 'localhost',
+//     /* Use SMTP authentication?  DEFAULT: No (false) */
+//     'auth' => false,
+//     /* The username to use for SMTP authentication. */
+//     'username' => null,
+//     /* The password to use for SMTP authentication. */
+//     'password' => null,
+// );
+
+
+/**
+ ** Virtual File Storage
+ **/
+
+// If a VFS (virtual filesystem) backend is required, which one should
+// we use?
+// Options:
+//   'file'  --  Use files on the local system
+//   'sql'   --  Use a SQL database
+$conf['vfs']['type'] = 'file';
+
+// An array holding any parameters that the VFS object will need to
+// function correctly.
+$conf['vfs']['params'] = array();
+
+// For the 'file' driver, the only parameter is 'vfsroot' - where on the
+// real filesystem should Horde use as root of the virtual filesystem.
+$conf['vfs']['params']['vfsroot'] = '/tmp';
+
+// For the 'sql' driver, configure $conf['sql'] in the Horde Database
+// section above.
+
+
+/**
+ ** Custom Session Handler
+ **/
+
+// If we are defining a custom session handler, what sessionhandler
+// driver should we use?
+// For more information on each driver see:
+//   framework/SessionHandler/[drivername].php.
+// Options:
+//   'none'      --  Use the default PHP (file-based) session handler.
+//   'external'  --  Allow Horde to gracefully handle a session handler
+//                   that you've already defined elsewhere. See below
+//                   ($conf['sessionhandler']['params']) for what needs
+//                   to be configured.
+//   'dbm'       --  DBM based sessions.
+//   'mysql'     --  MySQL based sessions.
+//   'oci8'      --  Oracle based sessions.
+//   'pgsql'     --  PostgreSQL based sessions.
+//   'sapdb'     --  Use PEAR's DB abstraction layer w/ODBC.
+//   'sql'       --  Use PEAR's DB abstraction layer.
+$conf['sessionhandler']['type'] = 'none';
+
+// Any parameters that the session handler driver needs.
+// $conf['sessionhandler']['params'] = array();
+
+// The 'external' driver expects this to be a hash, with 6 entries:
+// $conf['sessionhandler']['params']['open']    = 'your open() function';
+// $conf['sessionhandler']['params']['close']   = 'your close() function';
+// $conf['sessionhandler']['params']['read']    = 'your read() function';
+// $conf['sessionhandler']['params']['write']   = 'your write() function';
+// $conf['sessionhandler']['params']['destroy'] = 'your destroy() function';
+// $conf['sessionhandler']['params']['gc']      = 'your gc() function';
+
+// Database or other drivers might require configuration parameters
+// here. For instance, if you are using the SQL driver, and your
+// database settings are different from what you have in $conf['sql'],
+// you will have to define the differing settings here. Required/optional
+// parameters can be found at the top of the individual driver files located
+// in framework/SessionHandler/.
+
+
+/**
+ ** Image Manipulation
+ **/
+
+// Horde requires either GD support built-in to PHP (--with-gd) or the
+// ImageMagick software package (http://www.imagemagick.org/) to perform
+// image manipulation.
+// If using ImageMagick, specify the full path name to the 'convert' program.
+// If using GD, or using neither, leave this field blank.
+$conf['image']['convert'] = '';
+
+
+/**
+ ** Hostname->Country Lookup
+ **/
+
+// Horde, by default, can do Hostname -> Country lookup using the top level
+// domain (e.g. 'uk', 'de') of the hostname.  However, many popular top level
+// domains (e.g. 'com', 'net') span more than one country.  In these
+// instances, Horde can use the MaxMind GeoIP Hostname to Country lookup
+// to try to determine the correct country.  To activate this functionality,
+// the GeoIP.dat country database must be present on your local system.  This
+// file can be downloaded free of charge from
+// http://www.maxmind.com/download/geoip/database/.  If this database
+// is present, specify the full path name to the database below.  If empty,
+// the GeoIP lookup will not be performed.
+$conf['geoip']['datafile'] = '';
+
+
+/**
+ ** Problem Reporting
+ **/
+
+// If problem reporting is enabled in an application's menu, where
+// should problem report emails be sent?
+$conf['problems']['email'] = 'webmaster@example.com';
+
+
+/**
+ ** User Capabilities and Constraints
+ **/
+
+// Should we display help links to the user?
+$conf['user']['online_help'] = true;
+
+
+/**
+ ** Stylesheets
+ **/
+
+// If this is true, then we will allow the browser to cache generated
+// stylesheets, saving us from generating the stylesheet on every page
+// request, but meaning that users will need to do a manual refresh to
+// see any stylesheet changes.
+$conf['css']['cached'] = true;
+
+
+/**
+ ** Menu settings
+ **/
+
+// Should we redirect to the Horde frameset after login?
+$conf['menu']['display'] = true;
+
+// Should we *always* display the Horde frameset?  If 'true', this
+// value overrides $conf['menu']['display']
+$conf['menu']['always'] = false;
+
+// The URL of an image for the top of the Horde menu. The image should
+// be no larger than 140 pixels wide by 40 pixels high to prevent the
+// frame from scrolling.
+$conf['logo']['image'] = '';
+
+// If a logo is displayed in the Horde menu, what URL (if any) should it
+// link to?
+$conf['logo']['link'] = '';
+
+
+/**
+ ** Custom Function Hooks
+ **/
+
+// If this is set to a true, the function _username_hook_frombackend()
+// will be used to set the user name at login time. The counterpart
+// function _username_hook_tobackend() will be used to convert user
+// names back, for example when showing name lists to the user.  There
+// are examples for such functions in horde/config/hooks.php.dist.
+$conf['hooks']['username'] = false;
+
+// If this is set to true and the function _horde_hook_preauthenticate() return
+// false, authentication will fail.
+// There are examples for such functions in horde/config/hooks.php.dist.
+$conf['hooks']['preauthenticate'] = false;
+
+// If this is set to true and the function _horde_hook_postauthenticate() return
+// false, authentication will fail.
+// There are examples for such functions in horde/config/hooks.php.dist.
+$conf['hooks']['postauthenticate'] = false;
+
+// If this is set to true, the function _horde_hook_authldap() will be used
+// to create and set the attributes needed to add/edit/delete users by the
+// LDAP Auth driver
+$conf['hooks']['authldap'] = false;
+
+
+/**
+ ** Portal Block Configuration
+ **/
+
+// Use of the weather.com block requires free registration for the XML
+// feed at http://www.weather.com/services/xmloap.html. After registration,
+// an email will be returned with the Partner ID and license key.
+// NOTE: weather.com guidelines require registration and use of the returned
+// values, but the application appears to function with any string values.
+// Value of the partner ID
+//$conf['weatherdotcom']['partner_id'] = '';
+
+// Value of the license key
+//$conf['weatherdotcom']['license_key'] = '';

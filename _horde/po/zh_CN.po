@@ -1,0 +1,586 @@
+# Horde Simplified Chinese Translation
+# Copyright (C) 2001 WangHengWen.
+# WangHengWen <whw@my169.com>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Horde 2.0\n"
+"POT-Creation-Date: 2001-12-29 10:00+0800\n"
+"PO-Revision-Date: 2001-06-18 22:05+0800\n"
+"Last-Translator: WangHengWen <whw@my169.com>\n"
+"Language-Team: Chinese <whw@my169.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=GB2312\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#, c-format
+msgid "%s Maintenance Operations - Confirmation"
+msgstr "%s 维护操作-用户确认"
+
+#, c-format
+msgid "%s is ready to perform the maintenance operations checked below."
+msgstr "%s 准备执行如下己选中的维护操作."
+
+msgid "24 hours"
+msgstr "24 小时制"
+
+msgid "AM/PM"
+msgstr ""
+
+msgid "Add a new user:"
+msgstr "增加新用户:"
+
+msgid "Add pair"
+msgstr ""
+
+msgid "Add user"
+msgstr "增加用户"
+
+msgid "Adding users is disabled."
+msgstr "增加用户被禁止."
+
+msgid "Address"
+msgstr "地址"
+
+msgid "Addressbook"
+msgstr "地址本"
+
+msgid "Administration"
+msgstr "管理"
+
+msgid "Alias"
+msgstr "别名"
+
+#, c-format
+msgid "Attempt to bind failed: no entry found for %s."
+msgstr "尝试绑定失败:没用找到条目(%s)."
+
+msgid "Attempt to bind without a valid connection."
+msgstr "尝试绑定时没有合法的连接"
+
+msgid "Available fields:"
+msgstr "可用字段:"
+
+#, c-format
+msgid "Bind to server %s, dn %s as %s failed: [%d] %s"
+msgstr "绑定到服务器%s,dn %s as %s 失败.[%d] %s"
+
+msgid "Birthday"
+msgstr "生日"
+
+msgid "Bugs"
+msgstr "臭虫"
+
+msgid "CVS"
+msgstr ""
+
+msgid "Calendar"
+msgstr "日历"
+
+msgid "Cancel Problem Report"
+msgstr "中止问题报告"
+
+msgid "Cell Phone"
+msgstr "单位电话"
+
+msgid "Check the box for any operation(s) you want to perform at this time."
+msgstr ""
+
+msgid "Close Help Window"
+msgstr "关闭帮助窗口"
+
+msgid "Close Help"
+msgstr "关闭帮助"
+
+#, fuzzy
+msgid "Close Window"
+msgstr "关闭帮助窗口"
+
+msgid "Company"
+msgstr "公司"
+
+#, fuzzy
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#, c-format
+msgid "Contents of '%s'"
+msgstr "'%s'的内容"
+
+msgid "Contents of the RAR archive"
+msgstr "RAR 压缩档的内容"
+
+#, c-format
+msgid "Could not open Maintenance_Task module %s"
+msgstr "不能打开维护模块 %s"
+
+msgid "DD"
+msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Database query failed."
+msgstr "数据库查询失败"
+
+msgid "Default Identity"
+msgstr "默认身份"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Describe the Problem"
+msgstr "描述该问题"
+
+msgid "Discussions"
+msgstr "讨论"
+
+msgid "Do not directly access maintenance.php"
+msgstr "不要直接访问maintenance.php"
+
+msgid "Email"
+msgstr ""
+
+msgid "Empty result."
+msgstr "空的结果"
+
+msgid "Error"
+msgstr "错误"
+
+#, fuzzy
+msgid "Every Login"
+msgstr "每次登录"
+
+msgid "Example values:"
+msgstr "数据例子:"
+
+#, c-format
+msgid "Expected \"BEGIN\" in the line %d."
+msgstr "期待\"BEGIN\"在第%d行."
+
+#, c-format
+msgid "Expected \"END:%s\" in line %d."
+msgstr "期待\"END:%s\"在第%d行."
+
+msgid "Failed to connect to LDAP preferences server."
+msgstr "连接到LDAP配置服务器失败."
+
+msgid "Failed to connect to LDAP server."
+msgstr "连接到LDAP服务器失败."
+
+#, c-format
+msgid "Failed to open an LDAP connection to %s."
+msgstr "打开到LDAP服务器(%s)的连接失败."
+
+msgid "Fax"
+msgstr "传真"
+
+msgid "File Manager"
+msgstr "文件管理"
+
+msgid "Full Description:"
+msgstr "完整描述"
+
+msgid "Headlines"
+msgstr "标题"
+
+msgid "Help"
+msgstr "帮助"
+
+#, fuzzy
+msgid "Home Address"
+msgstr "家庭地址"
+
+msgid "Home Phone"
+msgstr "家庭电话"
+
+msgid "Horde Login"
+msgstr "Horde 登录"
+
+msgid "Horde System"
+msgstr "Horde 系统"
+
+msgid "Horde User Administration"
+msgstr "Horde 用户管理"
+
+msgid "Horde Wireless"
+msgstr "Horde 无线"
+
+#, fuzzy
+msgid "Horde is not properly configured"
+msgstr "Horde 没有完全配置"
+
+msgid "Horde"
+msgstr ""
+
+msgid "Import Error: "
+msgstr "导入错误:"
+
+msgid "Import"
+msgstr "导入"
+
+#, c-format
+msgid "Imported field: %s"
+msgstr "导入的字段:%s"
+
+msgid "Imported fields:"
+msgstr "导入的字段:"
+
+msgid "List Help Topics"
+msgstr "列出帮助主题"
+
+msgid "Listing users is disabled."
+msgstr "列出用望功能已经被禁用."
+
+msgid "Log in"
+msgstr "登录"
+
+msgid "Log out"
+msgstr "注销"
+
+msgid "MM"
+msgstr ""
+
+msgid "Mail"
+msgstr "邮件"
+
+msgid "Map Date and Time Fields"
+msgstr ""
+
+msgid "Map Import Fields"
+msgstr ""
+
+msgid "Matching fields"
+msgstr "匹配字段"
+
+msgid "Message"
+msgstr "消息"
+
+msgid "Monthly"
+msgstr "每月"
+
+msgid "Name"
+msgstr "名字"
+
+msgid "Network"
+msgstr "网络"
+
+msgid "No configuration information specified for LDAP Preferences."
+msgstr "没有用LDAP配置服务器指定详细接信息."
+
+msgid "No configuration information specified for SQL Categories."
+msgstr ""
+
+msgid "No configuration information specified for SQL Preferences."
+msgstr ""
+
+msgid "No configuration information specified for SQL authentication."
+msgstr ""
+
+#, c-format
+msgid "No entry found for %s."
+msgstr ""
+
+msgid "No preferences are available."
+msgstr ""
+
+msgid "No preferences were retrieved."
+msgstr ""
+
+msgid "Notes"
+msgstr "备注"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Passwords cannot be blank."
+msgstr "密码不能数空."
+
+msgid "Passwords must match."
+msgstr "两次输入的密码必须相符."
+
+msgid "Perform Maintenance Operations"
+msgstr "执待维护操作"
+
+msgid "Phone"
+msgstr "电话"
+
+msgid "Please log in"
+msgstr "请登录"
+
+msgid "Please provide a summary of the problem."
+msgstr ""
+
+msgid "Please provide your username and password"
+msgstr "请提供你的用户名与密码"
+
+msgid "Presentations"
+msgstr ""
+
+msgid "Problem Description"
+msgstr "问题描述"
+
+msgid "Remove pair"
+msgstr ""
+
+msgid "Required 'basedn' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'basedn' not specified in preferences configuration."
+msgstr ""
+
+msgid "Required 'database' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'database' not specified in categories configuration."
+msgstr ""
+
+msgid "Required 'database' not specified in preferences configuration."
+msgstr ""
+
+msgid "Required 'hostspec' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'hostspec' not specified in categories configuration."
+msgstr ""
+
+msgid "Required 'hostspec' not specified in preferences configuration."
+msgstr ""
+
+msgid "Required 'password' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'password' not specified in categories configuration."
+msgstr ""
+
+msgid "Required 'password' not specified in preferences configuration."
+msgstr ""
+
+msgid "Required 'phptype' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'phptype' not specified in categories configuration."
+msgstr ""
+
+msgid "Required 'phptype' not specified in preferences configuration."
+msgstr ""
+
+msgid "Required 'table' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'table' not specified in categories configuration."
+msgstr ""
+
+msgid "Required 'table' not specified in preferences configuration."
+msgstr ""
+
+msgid "Required 'tableRelations' not specified in categories configuration."
+msgstr ""
+
+msgid "Required 'uid' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'uid' not specified in preferences configuration."
+msgstr ""
+
+msgid "Required 'username' not specified in authentication configuration."
+msgstr ""
+
+msgid "Required 'username' not specified in categories configuration."
+msgstr ""
+
+msgid "Required 'username' not specified in preferences configuration."
+msgstr ""
+
+msgid "Reset"
+msgstr "复原"
+
+msgid "Return to Options"
+msgstr "返回到选项"
+
+msgid "Role"
+msgstr "角色"
+
+msgid "Save Options"
+msgstr "保存配置"
+
+msgid ""
+"Select the characters you need from the boxes below. You can then copy and "
+"paste them from the textarea."
+msgstr ""
+
+msgid "Select the date delimiter:"
+msgstr ""
+
+msgid "Select the date format:"
+msgstr "选择数据格式:"
+
+msgid "Select the time format:"
+msgstr "选择时间格式:"
+
+msgid "Select two matching fields."
+msgstr ""
+
+msgid "Send Problem Report"
+msgstr "发送问题报告"
+
+msgid "Short Summary:"
+msgstr "简短摘要:"
+
+msgid "Skip Maintenance"
+msgstr "跳过维护操作"
+
+msgid "Some of Horde's configuration files are missing:"
+msgstr "部分Horde配置文件丢失"
+
+msgid "Special Character Input"
+msgstr "特殊字符输入"
+
+msgid "Success"
+msgstr "成功"
+
+#, c-format
+msgid "Successfully added '%s' to the system."
+msgstr "已经成功添加'%s'到系统."
+
+#, c-format
+msgid "Successfully removed '%s' from the system."
+msgstr "已经成功将'%s'从系统中清除."
+
+msgid "Tasks"
+msgstr "任务"
+
+msgid ""
+"The registry is how Horde applications find out how to talk to each other. "
+"You should list any installed Horde applications that you have here."
+msgstr ""
+
+#, c-format
+msgid "There was a problem adding '%s' to the system."
+msgstr "添加'%s'到系统时存在问题."
+
+#, c-format
+msgid "There was a problem removing '%s' from the system."
+msgstr "从系统中删除'%s'时存在问题."
+
+msgid ""
+"This file controls the global set of MIME drivers for the Horde framework, "
+"allowing applications to make use of programs such as enscript or mswordview "
+"to render content into HTML for viewing in a browser."
+msgstr ""
+
+msgid ""
+"This file controls the stylesheet that is used to set colors and fonts for "
+"the Horde framework and all applications that do not provide their own "
+"settings.."
+msgstr ""
+
+msgid ""
+"This file maps file extensions to logical MIME types, enabling Horde "
+"applications to figure out how to handle some content such as email "
+"attachments or CVS checkouts."
+msgstr ""
+
+msgid ""
+"This is the main Horde configuration file. It contains paths and basic items "
+"that apply to the core framework and all Horde applications."
+msgstr ""
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Type mismatch."
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Unable to connect to SQL server."
+msgstr "不能连接到SQL服务器."
+
+msgid "Unable to modified preferences."
+msgstr "不能修改配置信息."
+
+msgid "Unable to register preferences in session."
+msgstr ""
+
+msgid "Unable to translate this Word document"
+msgstr ""
+
+msgid "Undo Changes"
+msgstr "撤消更改"
+
+msgid "Unexpected end of file."
+msgstr ""
+
+msgid "Use Default Value"
+msgstr "使用默认值"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Users in the system:"
+msgstr "在系统中的用户:"
+
+msgid "Warning!"
+msgstr "警告!"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Weekly"
+msgstr "每周"
+
+#, c-format
+msgid "Welcome, %s"
+msgstr "欢迎 %s"
+
+#, fuzzy
+msgid "Work Address"
+msgstr "工作地址"
+
+msgid "Work Phone"
+msgstr "工作电话"
+
+msgid "YY"
+msgstr ""
+
+msgid "Yearly"
+msgstr "每年"
+
+msgid "You must describe the problem before you can send the problem report."
+msgstr "在发送问题报告之前你必需详细描述该问题"
+
+msgid "You must specify a username to remove."
+msgstr "你必须指定一个要删除的用户."
+
+msgid "You must specify the username to add."
+msgstr "你必须指定一个要增加的用户名."
+
+msgid "Your Email Address:"
+msgstr "你的EMail地址:"
+
+msgid "Your Name:"
+msgstr "你的名字:"
+
+msgid ""
+"Your authentication backend does not support adding users, or the feature "
+"has been disabled for some other reason."
+msgstr "你的验证后台不支持增加用户,或者该功能已经被禁用."
+
+msgid ""
+"Your authentication backend does not support listing users, or the feature "
+"has been disabled for some other reason."
+msgstr "你的验证后台不支持列出用户,或者该功能已经被禁用."
+
+msgid "[Problem Report]"
+msgstr "[问题报告]"
+
+#~ msgid "Help Topics"
+#~ msgstr "帮助主题"
+
+#~ msgid "Select your preferred language:"
+#~ msgstr "选择你的语言"
+
+#~ msgid "Subject"
+#~ msgstr "主题"

@@ -1,0 +1,4199 @@
+# Horde Slovak translation.
+# Copyright (C) 2002 Leo Mrafko <leo@oel.sk> (original translator)
+# (C) 2002, 2003 Ivan Noris <vix@vazka.sk>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Horde 3.0-cvs\n"
+"POT-Creation-Date: 2003-09-16 13:23+0200\n"
+"PO-Revision-Date: 2003-09-22 13:28+0200\n"
+"Last-Translator: Ivan Noris <vix@vazka.sk>\n"
+"Language-Team: Slovak <vix@vazka.sk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: po/translation.php:53
+msgid ""
+"  -M, --message=MESSAGE  Use this commit message instead of the default ones."
+msgstr ""
+
+#: po/translation.php:57
+msgid ""
+"  -a, --add=FILE        Add this PO file to the compendium. Useful to\n"
+"                        include a compendium from a different branch to\n"
+"                        the generated compendium."
+msgstr ""
+
+#: po/translation.php:116
+msgid ""
+"  -b, --base=/PATH  Full path to the (Horde) base directory that should be\n"
+"                    used."
+msgstr ""
+"  -b, --base=/PATH  Kompletná cesta k základnému adresáru (Horde), ktorá\n"
+"                    sa má pou¾i»."
+
+#: po/translation.php:73
+msgid ""
+"  -c, --compendium=FILE  Merge new translations to this compendium file\n"
+"                         instead of the default one (compendium.po in the\n"
+"                         horde/po directory."
+msgstr ""
+"  -c, --compendium=FILE  Pripoji» nové preklady do tohto súboru compendium\n"
+"                         namiesto prednastaveného (compendium.po v\n"
+"                         adresári horde/po)."
+
+#: po/translation.php:67 po/translation.php:84 po/translation.php:90
+msgid ""
+"  -c, --compendium=FILE  Use this compendium file instead of the default\n"
+"                         one (compendium.po in the horde/po directory)."
+msgstr ""
+"  -c, --compendium=FILE  Pou¾i» tento súbor compendium namiesto "
+"prednastaveného\n"
+"                         (compendium.po v adresári horde/po)."
+
+#: po/translation.php:117
+msgid "  -d, --debug       Show error messages from the executed binaries."
+msgstr "  -d, --debug       Zobrazi» chybové hlásenia spú¹»aných programov."
+
+#: po/translation.php:58
+msgid "  -d, --directory=DIR   Create compendium in this directory."
+msgstr "  -d, --directory=DIR   Vytvori» compendium v tomto adresári."
+
+#: po/translation.php:118
+msgid "  -h, --help        Show this help message."
+msgstr "  -h, --help        Zobrazi» tieto pomocné informácie."
+
+#: po/translation.php:46 po/translation.php:71 po/translation.php:78
+msgid "  -l, --locale=ll_CC     Use only this locale."
+msgstr "  -l, --locale=ll_CC     Pou¾i» iba túto lokalizáciu (locale)."
+
+#: po/translation.php:51 po/translation.php:65 po/translation.php:82
+#: po/translation.php:88
+msgid "  -l, --locale=ll_CC     Use this locale."
+msgstr "  -l, --locale=ll_CC     Pou¾i» túto lokalizáciu (locale)."
+
+#: po/translation.php:59
+msgid "  -l, --locale=ll_CC    Use this locale."
+msgstr "  -l, --locale=ll_CC    Pou¾i» túto lokalizáciu (locale)."
+
+#: po/translation.php:72
+msgid "  -m, --module=MODULE    Build MO files only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Vytvori» MO súbory iba pre tento (Horde) modul."
+
+#: po/translation.php:47
+msgid "  -m, --module=MODULE    Cleanup PO files only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Vyèisti» PO súbory iba pre tento (Horde) modul."
+
+#: po/translation.php:52
+msgid ""
+"  -m, --module=MODULE    Commit translations only for this (Horde) module."
+msgstr ""
+
+#: po/translation.php:66
+msgid "  -m, --module=MODULE    Create a PO file only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Vytvori» PO súbor iba pre tento (Horde) modul."
+
+#: po/translation.php:83
+msgid "  -m, --module=MODULE    Merge PO files only for this (Horde) module."
+msgstr "  -m, --module=MODULE    Zlúèi» PO súbory iba pre tento (Horde) modul."
+
+#: po/translation.php:79
+msgid ""
+"  -m, --module=MODULE    Update help files only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Aktualizova» súbory pomocníka iba pre tento (Horde) "
+"modul."
+
+#: po/translation.php:89
+msgid "  -m, --module=MODULE    Update only this (Horde) module."
+msgstr ""
+
+#: po/translation.php:62
+msgid "  -m, --module=MODULE  Generate POT file only for this (Horde) module."
+msgstr ""
+
+#: po/translation.php:74
+msgid ""
+"  -n, --no-compendium    Don't merge new translations to the compendium."
+msgstr ""
+
+#: po/translation.php:68 po/translation.php:85 po/translation.php:91
+msgid "  -n, --no-compendium    Don't use a compendium."
+msgstr "  -n, --no-compendium    Nepou¾íva» compendium."
+
+#: po/translation.php:119
+msgid "  -t, --test        Show the executed commands but don't run anything."
+msgstr "  -t, --test        Zobrazi» spú¹»ané príkazy bez ich spustenia."
+
+#: po/translation.php:108
+msgid ""
+"  cleanup     Cleans the PO files up from untranslated and obsolete entries."
+msgstr "  cleanup     Vyèisti» PO súbory od neprelo¾ených a starých polo¾iek."
+
+#: po/translation.php:111
+msgid "  commit      Commit translations to the CVS server."
+msgstr ""
+
+#: po/translation.php:112
+msgid "  commit-help Commit help files to the CVS server."
+msgstr ""
+
+#: po/translation.php:102
+msgid ""
+"  compendium  Rebuild the compendium file. Warning: This overwrites the\n"
+"              current compendium."
+msgstr ""
+
+#: po/translation.php:103
+msgid "  extract     Generate PO template (.pot) files."
+msgstr ""
+
+#: po/translation.php:101
+msgid "  help        Show this help message."
+msgstr "  help        Zobrazi» túto pomocnú informáciu."
+
+#: po/translation.php:104
+msgid ""
+"  init        Create one or more PO files for a new locale. Warning: This\n"
+"              overwrites the existing PO files of this locale."
+msgstr ""
+
+#: po/translation.php:109
+msgid "  make        Build binary MO files from the specified PO files."
+msgstr ""
+
+#: po/translation.php:110
+msgid ""
+"  make-help   Mark all entries in the XML help file being up-to-date and\n"
+"              prepare the file for the next execution of update-help. You\n"
+"              should only run make-help AFTER update-help and revising the\n"
+"              help file."
+msgstr ""
+
+#: po/translation.php:105
+msgid ""
+"  merge       Merge the current PO file with the current PO template file."
+msgstr ""
+
+#: po/translation.php:106
+msgid "  update      Run extract and merge sequent."
+msgstr ""
+
+#: po/translation.php:107
+msgid ""
+"  update-help Extract all new and changed entries from the English XML help\n"
+"              file and merge them with the existing ones."
+msgstr ""
+
+#: templates/maintenance/confirm_top.inc:11
+msgid ""
+" &#151; %s is ready to perform the maintenance operations checked below."
+msgstr ""
+" &#151; Aplikácia %s je pripravená na vykonanie nasledujúcich operácií "
+"údr¾by."
+
+#: lib/Form.php:1820
+msgid " (%s days ago)"
+msgstr " (pred %s dòami)"
+
+#: templates/links/links.inc:1
+msgid " (Read only)"
+msgstr " (Iba na èítanie)"
+
+#: lib/Form.php:1816
+msgid " (today)"
+msgstr " (dnes)"
+
+#: lib/Form.php:1818
+msgid " (yesterday)"
+msgstr " (vèera)"
+
+#: po/translation.php:1029
+msgid "%d bytes written."
+msgstr ""
+
+#: po/translation.php:1125
+msgid "%d of %d entries marked as up-to-date"
+msgstr ""
+
+#: templates/maintenance/notice_top.inc:4
+msgid "%s - Notice"
+msgstr "%s - Poznámka"
+
+#: admin/setup.php:31 admin/setup.php:63
+msgid "%s Configuration"
+msgstr "Konfigurácia %s"
+
+#: lib/Crypt/smime.php:652
+msgid "%s Fingerprint"
+msgstr "Odtlaèok %s"
+
+#: lib/MIME/Contents.php:736
+msgid "%s KB"
+msgstr "%s KB"
+
+#: templates/maintenance/confirm_top.inc:4
+msgid "%s Maintenance Operations - Confirmation"
+msgstr "Operácie údr¾by pre aplikáciu %s - Potvrdenie"
+
+#: lib/Signup.php:257
+msgid "%s Sign Up"
+msgstr "Prihlási» %s"
+
+#: prefs.php:98
+msgid "%s Standard"
+msgstr "©tandardná schéma %s"
+
+#: templates/maintenance/agreement_top.inc:4
+msgid "%s Terms of Agreement"
+msgstr "Podmienky pou¾itia %s"
+
+#: lib/VFS/ftp.php:556 lib/VFS/ftp.php:621
+msgid "%s already exists."
+msgstr "%s u¾ existuje."
+
+#: lib/MIME/Viewer/icalendar.php:533
+msgid "%s has cancelled %s."
+msgstr "%s zru¹il %s."
+
+#: lib/MIME/Viewer/icalendar.php:429
+msgid "%s has replied to a free/busy request."
+msgstr "%s odpovedal na po¾iadavku zistenia zaneprázdnenosti."
+
+#: lib/MIME/Viewer/icalendar.php:527
+msgid "%s has replied to the invitation to %s."
+msgstr "%s odpovedal na pozvánku na %s."
+
+#: lib/MIME/Viewer/icalendar.php:419
+msgid "%s has sent you free/busy information."
+msgstr "%s Vám poslal informáciu o svojej zaneprázdnenosti."
+
+#: lib/Form.php:1799
+msgid "%s is required"
+msgstr "je po¾adované %s"
+
+#: po/translation.php:1191
+msgid "%s not found."
+msgstr "%s nebol nájdený."
+
+#: po/translation.php:471
+msgid "%s not found. Run 'translation extract' first."
+msgstr ""
+
+#: lib/MIME/Viewer/icalendar.php:424
+msgid "%s requests your free/busy information."
+msgstr "%s po¾aduje informáciu o Va¹ej zaneprázdnenosti."
+
+#: lib/MIME/Viewer/icalendar.php:511
+msgid "%s requests your presence at %s."
+msgstr "%s vy¾aduje Va¹u prítomnos» v/na %s."
+
+#: lib/MIME/Viewer/icalendar.php:516
+msgid "%s wishes to add to %s."
+msgstr "%s by rád pridal do %s."
+
+#: lib/MIME/Viewer/icalendar.php:505
+msgid "%s wishes to make you aware of %s."
+msgstr "%s by Vás rád upozornil na %s."
+
+#: lib/MIME/Viewer/icalendar.php:521
+msgid "%s wishes to receive the latest information about %s."
+msgstr "%s by rád dostal najnov¹ie informácie o %s."
+
+#: templates/login/login.inc:75
+msgid "%s%s Guest Services</a>"
+msgstr "%s%s Slu¾by pre anonymných pou¾ívateµov</a>"
+
+#: lib/Notification/Listener/mobile.php:97
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: lib/CLI.php:259
+msgid "'%s' is not a valid choice."
+msgstr "'%s' nie je platná voµba."
+
+#: lib/Registry.php:574 lib/Registry.php:849
+msgid "'%s' is not configured in the Horde Registry."
+msgstr "V Registroch Horde chýba konfigurácia '%s'"
+
+#: lib/Tree.php:67
+msgid "'%s' tree renderer not found."
+msgstr "'%s' zobrazovaè stromu nebol nájdený."
+
+#: admin/groups.php:58
+msgid "'%s' was added to the groups system."
+msgstr "Skupina '%s' bol pridaná do systému."
+
+#: admin/perms.php:60
+msgid "'%s' was added to the permissions system."
+msgstr "Právo '%s' bolo pridané do systému."
+
+#: admin/groups.php:56 admin/perms.php:58
+msgid "'%s' was not created: %s."
+msgstr "'%s' nebolo mo¾né vytvori»: %s."
+
+#: po/translation.php:161
+msgid ", trying C++ instead"
+msgstr ""
+
+#: lib/Form.php:1619
+msgid "-- select --"
+msgstr "-- vyberte --"
+
+#: po/translation.php:1169 po/translation.php:1171
+msgid "---------------------------"
+msgstr ""
+
+#: templates/data/time.inc:28
+msgid "24 hours"
+msgstr "24 hodín"
+
+#: lib/MIME/Viewer/icalendar.php:48
+msgid "<b>The calendar data is invalid</b>"
+msgstr "<b>Údaje kalendára sú neplatné</b>"
+
+#: lib/Horde.php:152
+msgid "<h1>A fatal error has occurred</h1>"
+msgstr "<h1>Vyskytla sa záva¾ná chyba</h1>"
+
+#: lib/MIME/Contents.php:730
+msgid "<i>View as %s</i>"
+msgstr "<i>Zobrazi» ako %s</i>"
+
+#: lib/Crypt/pgp.php:922
+msgid "A public PGP key is required to encrypt a message."
+msgstr "Na za¹ifrovanie správy je potrebný verejný PGP kµúè."
+
+#: lib/Crypt/pgp.php:1148
+msgid "A public PGP key is required to verify a signed message."
+msgstr "Na overenie podpísanej správy je potrebný verejný PGP kµúè."
+
+#: lib/Crypt/pgp.php:1079
+msgid ""
+"A public PGP key, private PGP key, and passphrase are required to decrypt a "
+"message."
+msgstr ""
+"Na de¹ifrovanie správy sú potrebné: verejný PGP kµúè, privátny PGP kµúè a "
+"heslo."
+
+#: lib/Crypt/pgp.php:998
+msgid ""
+"A public PGP key, private PGP key, and passphrase are required to sign a "
+"message."
+msgstr ""
+"Na podpísanie správy sú potrebné: verejný PGP kµúè, privátny PGP kµúè a "
+"heslo."
+
+#: lib/Crypt/smime.php:483
+msgid ""
+"A public S/MIME key, private S/MIME key, and passphrase are required to "
+"decrypt a message."
+msgstr ""
+"Na de¹ifrovanie správy sú potrebné: verejný S/MIME kµúè, privátny S/MIME "
+"kµúè a heslo."
+
+#: lib/Crypt/smime.php:413
+msgid ""
+"A public S/MIME key, private S/MIME key, and passphrase are required to sign "
+"a message."
+msgstr ""
+"Na podpísanie správy sú potrebné: verejný S/MIME kµúè, privátny S/MIME kµúè "
+"a heslo."
+
+#: lib/Crypt/smime.php:336
+msgid "A public SMIME key is required to encrypt a message."
+msgstr "Na za¹ifrovanie správy je potrebný verejný SMIME kµúè."
+
+#: templates/data/time.inc:29
+msgid "AM/PM"
+msgstr "12 hodín"
+
+#: lib/MIME/Viewer/icalendar.php:643
+msgid "Accept request"
+msgstr "Akceptova» po¾iadavku"
+
+#: lib/MIME/Viewer/icalendar.php:684
+msgid "Accepted"
+msgstr "Prijatá"
+
+#: lib/VFS/musql.php:127
+msgid "Access denied creating VFS file."
+msgstr "Nedostatoèné prístupové práva na vytvorenie VFS súboru."
+
+#: lib/VFS/musql.php:268
+msgid "Access denied creating VFS folder."
+msgstr "Nedostatoèné prístupové práva na vytvorenie VFS prieèinka."
+
+#: config/registry.php.dist:379
+msgid "Accounting"
+msgstr "Úètovanie"
+
+#: lib/MIME/Viewer/icalendar.php:454 lib/MIME/Viewer/icalendar.php:628
+msgid "Actions"
+msgstr "Akcie"
+
+#: templates/portal/portal_edit.inc:43 templates/portal/portal_edit.inc:67
+#: templates/admin/groups/addchild.inc:16
+#: templates/admin/perms/addchild.inc:16
+msgid "Add"
+msgstr "Prida»"
+
+#: templates/links/footer.inc:8
+msgid "Add %s"
+msgstr "Prida» %s"
+
+#: admin/groups.php:183 admin/groups.php:184
+msgid "Add Child Group"
+msgstr "Prida» podriadenú skupinu"
+
+#: admin/perms.php:290 admin/perms.php:291
+msgid "Add Child Permission"
+msgstr "Prida» podriadené právo"
+
+#: templates/portal/portal_edit.inc:32 templates/portal/portal_edit.inc:57
+msgid "Add Here:"
+msgstr "Prida»:"
+
+#: admin/groups.php:177 admin/groups.php:178
+msgid "Add New Group"
+msgstr "Prida» skupinu"
+
+#: admin/perms.php:284 admin/perms.php:285
+msgid "Add New Permission"
+msgstr "Prida» právo"
+
+#: templates/admin/groups/addchild.inc:9
+msgid "Add a child group to '%s'"
+msgstr "Prida» dcérsku skupinu do '%s'"
+
+#: templates/admin/perms/addchild.inc:9
+msgid "Add a child permission to '%s'"
+msgstr "Prida» dcérske právo do '%s'"
+
+#: admin/user.php:31
+msgid "Add a new user:"
+msgstr "Prida» pou¾ívateµa:"
+
+#: templates/admin/groups/edit.inc:39
+msgid "Add new members"
+msgstr "Prida» èlenov"
+
+#: templates/data/csvmap.inc:93
+msgid "Add pair"
+msgstr "Prida» pár"
+
+#: config/prefs.php.dist:86
+msgid "Add the %s Menu as a Mozilla Sidebar"
+msgstr "Prida» menu %s ako Mozilla Sidebar"
+
+#: lib/MIME/Viewer/icalendar.php:634 lib/MIME/Viewer/icalendar.php:640
+msgid "Add this to my calendar"
+msgstr "Prida» do môjho kalendára"
+
+#: lib/MIME/Viewer/vcard.php:72
+msgid "Add to my address book:"
+msgstr "Prida» do mojej knihy adries:"
+
+#: admin/user.php:32
+msgid "Add user"
+msgstr "Prida» pou¾ívateµa"
+
+#: admin/user.php:79
+msgid ""
+"Added '%s' to the system, but could not add additional signup information: %"
+"s."
+msgstr ""
+"'%s' bol pridaný do systému, ale nemo¾no prida» ïal¹ie prihlasovacie "
+"informácie: %s."
+
+#: signup.php:37
+msgid "Added '%s' to the system. You can log in now."
+msgstr "'%s' bol pridaný do systému. Teraz sa mô¾ete prihlási»."
+
+#: po/translation.php:821
+msgid "Adding new files to repository:"
+msgstr ""
+
+#: templates/admin/user/noadd.inc:4
+msgid "Adding users is disabled."
+msgstr "Pridávanie pou¾ívateµov je zakázané."
+
+#: lib/Form.php:1193 lib/MIME/Viewer/vcard.php:144
+msgid "Address"
+msgstr "Adresa"
+
+#: config/registry.php.dist:145
+msgid "Address Book"
+msgstr "Kniha adries"
+
+#: menu.php:132 menu.php:133 menu.php:134 admin/index.php:21
+#: templates/portal/menu.inc:14 templates/navbar/menu.inc:13
+#: util/sidebar.php:133 util/sidebar.php:134 util/sidebar.php:135
+msgid "Administration"
+msgstr "Administrácia"
+
+#: config/registry.php.dist:474
+msgid "Ads"
+msgstr "Reklamy"
+
+#: lib/MIME/Viewer/vcard.php:122
+msgid "Alias"
+msgstr "Alias"
+
+#: templates/shares/edit.inc:60
+msgid "All Authenticated Users"
+msgstr "V¹etci autentifikovaní pou¾ívatelia"
+
+#: admin/groups.php:34 admin/groups.php:181
+msgid "All Groups"
+msgstr "V¹etky skupiny"
+
+#: admin/perms.php:36 admin/perms.php:288
+msgid "All Permissions"
+msgstr "V¹etky práva"
+
+#: lib/Form.php:1497
+msgid "Allow multiple addresses"
+msgstr ""
+
+#: lib/Category/sql.php:286
+msgid "Already exists"
+msgstr "U¾ existuje"
+
+#: admin/templates.php:144
+msgid "Alternate templates"
+msgstr "Alternatívne ¹ablóny"
+
+#: lib/Links.php:202
+msgid "An error occurred following this link: %s"
+msgstr "Pri sledovaní tejto linky nastala chyba: %s"
+
+#: lib/PrefsUI.php:103 lib/PrefsUI.php:121
+msgid "An illegal value was specified."
+msgstr "Zadali ste neplatnú hodnotu."
+
+#: admin/templates.php:75
+msgid "Application"
+msgstr "Aplikácia"
+
+#: lib/Form/Renderer.php:542 lib/Form/Renderer.php:572
+#: templates/javascript/open_calendar.js:89
+msgid "April"
+msgstr "Apríl"
+
+#: config/nls.php.dist:165
+msgid "Arabic (Windows-1256)"
+msgstr "Arabic (Windows-1256)"
+
+#: lib/MIME/Viewer/rar.php:63 lib/MIME/Viewer/zip.php:66
+#: lib/MIME/Viewer/tgz.php:66
+msgid "Archive File Size"
+msgstr "Veµkos» archívu"
+
+#: lib/MIME/Viewer/rar.php:62 lib/MIME/Viewer/zip.php:65
+#: lib/MIME/Viewer/tgz.php:65
+msgid "Archive Name"
+msgstr "Meno archívu"
+
+#: templates/admin/groups/delete.inc:9
+msgid "Are you sure you wish to delete '%s' and any sub-groups?"
+msgstr "Naozaj chcete vymaza» '%s' a v¹etky podskupiny?"
+
+#: templates/admin/perms/delete.inc:9
+msgid "Are you sure you wish to delete '%s' and any sub-permissions?"
+msgstr "Naozaj chcete vymaza» '%s' a v¹etky podpráva?"
+
+#: config/nls.php.dist:166
+msgid "Armenian (ARMSCII-8)"
+msgstr "Armenian (ARMSCII-8)"
+
+#: config/prefs.php.dist:116
+msgid "Ask for confirmation before doing maintenance operations?"
+msgstr "Vy¾adova» potvrdenie pred vykonaním operácií údr¾by?"
+
+#: lib/MIME/Viewer/icalendar.php:166 lib/MIME/Viewer/icalendar.php:250
+#: lib/MIME/Viewer/icalendar.php:320
+msgid "Attached is an iCalendar file reply to a request you sent"
+msgstr "V prílohe je súbor iCalendar s odpoveïou na Va¹u po¾iadavku"
+
+#: admin/groups.php:76
+msgid "Attempt to delete a non-existent group."
+msgstr "Pokus o vymazanie neexistujúcej skupiny."
+
+#: admin/perms.php:78
+msgid "Attempt to delete a non-existent permission."
+msgstr "Pokus o vymazanie neexistujúceho práva."
+
+#: admin/perms.php:113
+msgid "Attempt to edit a non-existent permission."
+msgstr "Pokus o úpravu neexistujúceho práva."
+
+#: lib/MIME/Viewer/icalendar.php:580
+msgid "Attendees"
+msgstr "Úèastníci"
+
+#: lib/iCalendar.php:106
+msgid "Attribute Not Found"
+msgstr "Atribút nebol nájdený"
+
+#: lib/MIME/Viewer/rar.php:68 lib/MIME/Viewer/zip.php:71
+#: lib/MIME/Viewer/tgz.php:71
+msgid "Attributes"
+msgstr "Atribúty"
+
+#: lib/Form/Renderer.php:546 lib/Form/Renderer.php:576
+#: templates/javascript/open_calendar.js:93
+msgid "August"
+msgstr "August"
+
+#: lib/Auth/cyrus.php:137
+msgid "Auth_cyrus: Backend does not have required capabilites."
+msgstr "Auth_cyrus: modul nemá po¾adované vlastnosti."
+
+#: lib/Auth/cyrus.php:124
+msgid "Auth_cyrus: Required imap extension not found."
+msgstr "Auth_cyrus: po¾adované roz¹írenie imap nebolo nájdené."
+
+#: lib/Auth/ftp.php:40
+msgid ""
+"Auth_ftp: Required FTP extension not found. Compile PHP with the --enable-"
+"ftp switch."
+msgstr ""
+"Auth_ftp: po¾adované roz¹írenie FTP nebolo nájdené. Skompilujte PHP s "
+"prepínaèom --enable-ftp."
+
+#: lib/Auth/imap.php:62
+msgid "Auth_imap: Required IMAP extension not found."
+msgstr "Auth_imap: po¾adované roz¹írenie IMAP nebolo nájdené."
+
+#: lib/Auth/krb5.php:52
+msgid "Auth_krb5: Required krb5 extension not found."
+msgstr "Auth_krb5: po¾adované roz¹írenie krb5 nebolo nájdené."
+
+#: lib/Auth/ldap.php:49
+msgid "Auth_ldap: Required LDAP extension not found."
+msgstr "Auth_ldap: po¾adované roz¹írenie LDAP nebolo nájdené."
+
+#: lib/Auth/mcal.php:49
+msgid "Auth_mcal: Required MCAL extension not found."
+msgstr "Auth_mcal: po¾adované roz¹írenie MCAL nebolo nájdené."
+
+#: lib/Auth/radius.php:93
+msgid "Auth_radius: Required sockets extension not found."
+msgstr "Auth_radius: po¾adované roz¹írenie sockets nebolo nájdené."
+
+#: lib/Auth/smb.php:64
+msgid "Auth_smbauth: Required smbauth extension not found."
+msgstr "Auth_smbauth: po¾adované roz¹írenie smbauth nebolo nájdené."
+
+#: lib/Auth.php:650
+msgid "Authentication failed"
+msgstr "Autentifikácia zlyhala"
+
+#: lib/Auth/radius.php:212
+msgid "Authentication rejected by RADIUS server."
+msgstr "Autentifikácia zamietnutá RADIUS serverom."
+
+#: lib/VFS/ftp.php:726
+msgid "Authentication to FTP server failed."
+msgstr "Autentifikácia pomocou FTP servera zlyhala."
+
+#: templates/data/csvmap.inc:83
+msgid "Available fields:"
+msgstr "Dostupné polo¾ky:"
+
+#: lib/MIME/Viewer/icalendar.php:617
+msgid "Awaiting Response"
+msgstr "Èaká sa na odpoveï"
+
+#: lib/Auth/krb5.php:82
+msgid "Bad kerberos password."
+msgstr "Nesprávne heslo pre kerberos."
+
+#: lib/Auth/krb5.php:84
+msgid "Bad kerberos username."
+msgstr "Nesprávne pou¾ívateµské meno pre kerberos."
+
+#: config/nls.php.dist:167
+msgid "Baltic (ISO-8859-13)"
+msgstr "Baltic (ISO-8859-13)"
+
+#: config/themes/html-barbie.php:9
+msgid "Barbie"
+msgstr "Barbie"
+
+#: lib/Form.php:2048
+msgid "Bare"
+msgstr ""
+
+#: lib/MIME/Viewer/vcard.php:129
+msgid "Birthday"
+msgstr "Narodeniny"
+
+#: lib/Block.php:285
+msgid "Block Parameters"
+msgstr "Parametre bloku"
+
+#: lib/Block.php:282
+msgid "Block Type"
+msgstr "Typ bloku"
+
+#: util/editor/designmode/editor.php:78
+msgid "Bold"
+msgstr "Tuèné"
+
+#: config/registry.php.dist:235
+msgid "Bookmarks"
+msgstr "Zálo¾ky"
+
+#: config/themes/html-brown.php:9
+msgid "Brown"
+msgstr "Brown"
+
+#: po/translation.php:540
+msgid "Building MO files for module %s..."
+msgstr ""
+
+#: po/translation.php:552
+msgid "Building locale %s... "
+msgstr ""
+
+#: config/themes/html-burntorange.php:12
+msgid "Burnt Orange"
+msgstr "Burnt Orange"
+
+#: config/registry.php.dist:463
+msgid "CMS"
+msgstr "CMS"
+
+#: lib/MIME/Viewer/zip.php:75
+msgid "CRC"
+msgstr "CRC"
+
+#: lib/Crypt/smime.php:546
+msgid "CRL Distribution Points"
+msgstr "Distribuèné body CRL"
+
+#: lib/Form/Renderer.php:605 config/registry.php.dist:167
+msgid "Calendar"
+msgstr "Kalendár"
+
+#: config/themes/html-camouflage.php:9
+msgid "Camouflage"
+msgstr "Camouflage"
+
+#: lib/Auth/cyrus.php:241 lib/Auth/cyrsql.php:229
+msgid "Can't connect to IMAP server: %s"
+msgstr "Nepodarilo sa pripoji» k IMAP serveru: %s"
+
+#: admin/user.php:101 templates/admin/groups/delete.inc:14
+#: templates/admin/perms/delete.inc:14 templates/admin/user/remove.inc:17
+msgid "Cancel"
+msgstr "Zru¹i»"
+
+#: templates/problem/problem.inc:35
+msgid "Cancel Problem Report"
+msgstr "Zru¹i» správu o probléme"
+
+#: lib/VFS/ftp.php:252
+msgid "Cannot delete file: "
+msgstr "Nemo¾no vymazaè súbor: "
+
+#: lib/VFS/ftp.php:248
+msgid "Cannot remove directory: "
+msgstr "Nemo¾no vymaza» adresár:"
+
+#: lib/Category/sql.php:426
+msgid "Cannot remove; children exist (%s)"
+msgstr "Nemo¾no vymaza»; existujú nasledovníci (%s)"
+
+#: lib/Category/sql.php:377
+msgid ""
+"Cannot reorder, number of entries supplied for reorder does not match number "
+"stored."
+msgstr ""
+"Nemo¾no preusporiada», poèet polo¾iek na preusporiadanie nesúhlasí s "
+"ulo¾eným poètom polo¾iek."
+
+#: lib/MIME/Viewer/vcard.php:161
+msgid "Cell Phone"
+msgstr "Mobilný telefón"
+
+#: config/nls.php.dist:168
+msgid "Celtic (ISO-8859-14)"
+msgstr "Celtic (ISO-8859-14)"
+
+#: config/nls.php.dist:169
+msgid "Central European (ISO-8859-2)"
+msgstr "Central European (ISO-8859-2)"
+
+#: lib/Crypt/smime.php:647
+msgid "Certificate Details"
+msgstr "Podrobnosti o certifikáte"
+
+#: lib/Crypt/smime.php:545
+msgid "Certificate Policies"
+msgstr "Politiky certifikátov"
+
+#: lib/MIME/Viewer/icalendar.php:599
+msgid "Chair Person"
+msgstr "Vedúci"
+
+#: templates/rpcsum/manage.inc:48 templates/rpcsum/javascript.inc:24
+msgid "Change"
+msgstr "Zmeni»"
+
+#: templates/maintenance/confirm_top.inc:13
+msgid "Check the box for any operation(s) you want to perform at this time."
+msgstr "Oznaète ¹tvorèek pri operáciách, ktoré chcete vykona» teraz."
+
+#: config/nls.php.dist:170
+msgid "Chinese Simplified (GB2312)"
+msgstr "Chinese Simplified (GB2312)"
+
+#: config/nls.php.dist:171
+msgid "Chinese Traditional (Big5)"
+msgstr "Chinese Traditional (Big5)"
+
+#: lib/Signup.php:264
+msgid "Choose a password"
+msgstr "Zadajte heslo"
+
+#: lib/Signup.php:263
+msgid "Choose a username"
+msgstr "Zadajte pou¾ívateµské meno"
+
+#: lib/MIME/Viewer/icalendar.php:455 lib/MIME/Viewer/icalendar.php:629
+msgid "Choose an action:"
+msgstr "Zadajte akciu:"
+
+#: lib/VFS.php:482
+msgid "Class definition of %s not found."
+msgstr "Definícia triedy %s nebola nájdená."
+
+#: po/translation.php:720
+msgid "Cleaning up PO files for module %s..."
+msgstr ""
+
+#: po/translation.php:732
+msgid "Cleaning up locale %s... "
+msgstr ""
+
+#: templates/maintenance/notice_bottom.inc:6
+msgid "Click to Continue"
+msgstr "Kliknite pre pokraèovanie"
+
+#: config/registry.php.dist:209 config/registry.php.dist:279
+msgid "Client"
+msgstr "Klient"
+
+#: config/registry.php.dist:282
+msgid "Client Ticket"
+msgstr "Client Ticket"
+
+#: templates/help/menu.inc:12
+msgid "Close Help"
+msgstr "Zatvori» Pomocníka"
+
+#: templates/help/menu.inc:12
+msgid "Close Help Window"
+msgstr "Zatvori» okno Pomocníka"
+
+#: util/special_characters.php:146
+msgid "Close Window"
+msgstr "Zatvori» okno"
+
+#: lib/Block/color.php:37
+msgid "Color"
+msgstr "Farba"
+
+#: lib/Block.php:349 lib/Block.php:350 lib/Form/Renderer.php:616
+#: util/colorpicker.php:14
+msgid "Color Picker"
+msgstr "Výber farby"
+
+#: lib/Form.php:2269
+msgid "Colour selection"
+msgstr "Výber farby"
+
+#: config/registry.php.dist:342
+msgid "Comics"
+msgstr "Komiks"
+
+#: admin/cmdshell.php:27
+msgid "Command"
+msgstr "Príkaz"
+
+#: admin/cmdshell.php:22 lib/api.php:91
+msgid "Command Shell"
+msgstr "Príkazový interpreter"
+
+#: po/translation.php:42
+msgid "Command options:"
+msgstr "Mo¾nosti príkazu:"
+
+#: po/translation.php:100
+msgid "Commands:"
+msgstr "Príkazy:"
+
+#: lib/Crypt/pgp.php:384
+msgid "Comment"
+msgstr "Komentár"
+
+#: po/translation.php:860
+msgid "Committing:"
+msgstr ""
+
+#: lib/Crypt/smime.php:519
+msgid "Common Name"
+msgstr "Be¾né meno (Common Name)"
+
+#: lib/MIME/Viewer/vcard.php:207
+msgid "Company"
+msgstr "Spoloènos»"
+
+#: lib/MIME/Viewer/icalendar.php:700
+msgid "Completed"
+msgstr "Ukonèená"
+
+#: menu.php:138 menu.php:139 menu.php:140 templates/portal/menu.inc:15
+#: templates/navbar/menu.inc:14 templates/admin/common-header.inc:9
+#: util/sidebar.php:139 util/sidebar.php:140 util/sidebar.php:141
+msgid "Configuration"
+msgstr "Konfigurácia"
+
+#: admin/setup.php:85
+msgid "Configure"
+msgstr "Konfigurova»"
+
+#: templates/admin/user/update.inc:36
+msgid "Confirm Password"
+msgstr "Potvrïte heslo"
+
+#: lib/Crypt/pgp.php:777
+msgid "Connection refused to the public keyserver. Reason: %s (%s)"
+msgstr "Spojenie k verejnému kµúèovému serveru bolo zamietnuté. Dôvod: %s (%s)"
+
+#: lib/VFS/ftp.php:721
+msgid "Connection to FTP server failed."
+msgstr "Nepodarilo sa nadviaza» spojenie s ftp serverom."
+
+#: lib/Block.php:452
+msgid "Content Goes Here!"
+msgstr "Sem patrí obsah!"
+
+#: lib/MIME/Viewer/rar.php:60 lib/MIME/Viewer/zip.php:63
+#: lib/MIME/Viewer/tgz.php:63
+msgid "Contents of '%s'"
+msgstr "Obsah '%s'"
+
+#: util/editor/designmode/editor.php:72
+msgid "Copy"
+msgstr "Kopírova»"
+
+#: lib/VFS/ftp.php:593
+msgid "Copy failed: %s"
+msgstr "Kopírovanie zlyhalo: %s"
+
+#: po/translation.php:937
+msgid "Copying %s to %s"
+msgstr "Kopíruje sa %s do %s"
+
+#: config/themes/html-cornflower.php:9
+msgid "Cornflower"
+msgstr "Cornflower"
+
+#: lib/Crypt/pgp.php:958
+msgid "Could not PGP encrypt message."
+msgstr "Nemo¾no za¹ifrova» správu pomocou PGP."
+
+#: lib/Crypt/pgp.php:1036
+msgid "Could not PGP sign message."
+msgstr "Nemo¾no podpísa» správu pomocou PGP."
+
+#: lib/Crypt/smime.php:372
+msgid "Could not S/MIME encrypt message."
+msgstr "Nemo¾no za¹ifrova» správu pomocou S/MIME."
+
+#: lib/Crypt/smime.php:445
+msgid "Could not S/MIME sign message."
+msgstr "Nemo¾no podpísa» správu pomocou S/MIME."
+
+#: lib/Horde.php:1634
+msgid "Could not call function %s in application %s."
+msgstr "Nemo¾no zavola» funkciu %s v aplikácii %s."
+
+#: lib/SessionHandler/oci8.php:252 lib/SessionHandler/mysql.php:251
+msgid "Could not connect to database for SQL SessionHandler."
+msgstr "Nepodarilo sa nadviaza» spojenie s databázou pre SQL SessionHandler."
+
+#: lib/SessionHandler/mysql.php:255
+msgid "Could not connect to table '%s' for SQL SessionHandler."
+msgstr ""
+"Nepodarilo sa nadviaza» spojenie s tabuµkou '%s' pre SQL SessionHandler."
+
+#: po/translation.php:940
+msgid "Could not copy %s to %s"
+msgstr "Nemo¾no skopírova» %s do %s"
+
+#: po/translation.php:560 po/translation.php:930
+msgid "Could not create locale directory for locale %s:"
+msgstr ""
+
+#: lib/Crypt/pgp.php:1107
+msgid "Could not decrypt PGP data."
+msgstr "Nemo¾no de¹ifrova» PGP údaje."
+
+#: lib/Crypt/smime.php:500
+msgid "Could not decrypt S/MIME data."
+msgstr "Nemo¾no de¹ifrova» S/MIME údaje."
+
+#: lib/Crypt/smime.php:363 lib/Crypt/pgp.php:940
+msgid "Could not determine the recipient's e-mail address."
+msgstr "Nemo¾no urèi» e-mailovú adresu príjemcu."
+
+#: lib/Crypt/pgp.php:705
+msgid "Could not obtain public key from the keyserver."
+msgstr "Nemo¾no získa» verejný kµúè z kµúèového servera."
+
+#: lib/Maintenance.php:399
+msgid "Could not open Maintenance_Task module %s"
+msgstr "Nemo¾no otvori» modul Operácií pre údr¾bu : %s"
+
+#: config/prefs.php.dist:85
+msgid "Couldn't find the Mozilla Sidebar. Make sure the sidebar is open."
+msgstr "Nemo¾no nájs» Mozilla Sidebar. Skontrolujte, ¾e je sidebar otvorený."
+
+#: lib/VFS/Object.php:247
+msgid "Couldn't read %s."
+msgstr "Nemo¾no èíta» %s."
+
+#: lib/Form.php:1171
+msgid "Counted text"
+msgstr ""
+
+#: lib/Crypt/smime.php:522
+msgid "Country"
+msgstr "Krajina"
+
+#: templates/rpcsum/manage.inc:48 templates/rpcsum/manage.inc:52
+#: templates/rpcsum/javascript.inc:21
+msgid "Create"
+msgstr "Vytvori»"
+
+#: lib/Form.php:2440
+msgid "Credit card number"
+msgstr "Èíslo kreditnej karty"
+
+#: config/registry.php.dist:305
+msgid "Cross Reference"
+msgstr "Krí¾ový odkaz"
+
+#: lib/Block/time.php:37 config/registry.php.dist:555
+msgid "Current Time"
+msgstr "Aktuálny èas"
+
+#: util/editor/designmode/editor.php:69
+msgid "Cut"
+msgstr "Vystrihnú»"
+
+#: config/nls.php.dist:172
+msgid "Cyrillic (KOI8-R)"
+msgstr "Cyrillic (KOI8-R)"
+
+#: config/nls.php.dist:173
+msgid "Cyrillic (Windows-1251)"
+msgstr "Cyrillic (Windows-1251)"
+
+#: config/nls.php.dist:174
+msgid "Cyrillic/Ukrainian (KOI8-U)"
+msgstr "Cyrillic/Ukrainian (KOI8-U)"
+
+#: lib/Form/Renderer.php:581 templates/data/date.inc:30
+#: templates/data/date.inc:31 templates/data/date.inc:32
+#: templates/data/date.inc:33
+msgid "DD"
+msgstr "DD"
+
+#: util/editor/designmode/editor.php:14
+msgid "DHTML Rich Text Editor"
+msgstr "DHTML Textový Editor"
+
+#: lib/Maintenance.php:41
+msgid "Daily"
+msgstr "Denne"
+
+#: config/registry.php.dist:484
+msgid "Data"
+msgstr "Údaje"
+
+#: lib/Form.php:1848
+msgid "Date"
+msgstr "Dátum"
+
+#: lib/Form.php:2229
+msgid "Date selection"
+msgstr "Výber dátumu"
+
+#: lib/Form/Renderer.php:550 lib/Form/Renderer.php:580
+#: templates/javascript/open_calendar.js:97
+msgid "December"
+msgstr "December"
+
+#: lib/MIME/Viewer/icalendar.php:688
+msgid "Declined"
+msgstr "Zamietnutá"
+
+#: lib/Identity.php:82
+msgid "Default Identity"
+msgstr "Prednastavená identita"
+
+#: templates/admin/perms/edit.inc:16
+msgid "Default Permissions"
+msgstr "©tandardné práva"
+
+#: lib/MIME/Viewer/icalendar.php:646
+msgid "Delegate position"
+msgstr "Prideli» pozíciu"
+
+#: lib/MIME/Viewer/icalendar.php:696
+msgid "Delegated"
+msgstr "Pridelený"
+
+#: admin/groups.php:73 admin/perms.php:75 lib/Links.php:222
+#: templates/shares/edit.inc:31 templates/shares/edit.inc:65
+#: templates/shares/edit.inc:88 templates/shares/edit.inc:111
+#: templates/shares/edit.inc:134 templates/shares/edit.inc:177
+#: templates/rpcsum/manage.inc:24 templates/rpcsum/manage.inc:50
+#: templates/admin/groups/delete.inc:13 templates/admin/perms/edit.inc:21
+#: templates/admin/perms/edit.inc:44 templates/admin/perms/edit.inc:67
+#: templates/admin/perms/edit.inc:90 templates/admin/perms/edit.inc:133
+#: templates/admin/perms/delete.inc:13 templates/admin/user/list.inc:11
+msgid "Delete"
+msgstr "Vymaza»"
+
+#: admin/groups.php:168 admin/groups.php:186
+msgid "Delete Group"
+msgstr "Vymaza» skupinu"
+
+#: admin/perms.php:275 admin/perms.php:293
+msgid "Delete Permission"
+msgstr "Vymaza» právo"
+
+#: admin/templates.php:150
+msgid "Delete existing alternate template"
+msgstr "Vymaza» existujúcu alternatívnu ¹ablónu"
+
+#: lib/Links.php:222
+msgid "Delete this link"
+msgstr "Vymaza» túto linku"
+
+#: lib/MIME/Viewer/icalendar.php:645
+msgid "Deny request"
+msgstr "Zamietnu» po¾iadavku"
+
+#: lib/MIME/Viewer/icalendar.php:474
+msgid "Deny request for free/busy information"
+msgstr "Zamietnu» po¾iadavku pre zis»ovanie zaneprázdnenosti"
+
+#: problem.php:95 problem.php:99 problem.php:110
+msgid "Describe the Problem"
+msgstr "Opí¹te problém"
+
+#: lib/Form.php:862 lib/MIME/Viewer/icalendar.php:568
+msgid "Description"
+msgstr "Popis:"
+
+#: lib/Horde.php:162
+msgid "Details (also in Horde's logfile):"
+msgstr "Podrobnosti (aj v logovacom súbore Horde):"
+
+#: lib/Horde.php:166
+msgid "Details have been logged for the administrator."
+msgstr "Detaily boli zaznamenané pre administrátora."
+
+#: config/registry.php.dist:244
+msgid "Development"
+msgstr "Vývoj"
+
+#: lib/Block/google.php:55
+msgid "Directory"
+msgstr "Adresár"
+
+#: config/registry.php.dist:110
+msgid "Discussions"
+msgstr "Diskusie"
+
+#: config/prefs.php.dist:18
+msgid "Display Options"
+msgstr "Nastavenie zobrazenia"
+
+#: lib/Form.php:2239
+msgid "Display format"
+msgstr "Formát zobrazenia"
+
+#: maintenance.php:26
+msgid "Do not directly access maintenance.php"
+msgstr "Nepristupujte priamo k súboru maintenance.php!"
+
+#: templates/data/tsvinfo.inc:19 templates/data/csvinfo.inc:19
+msgid "Does the first row contain the field names? If yes, check this box:"
+msgstr "Obsahuje prvý riadok názvy polí? Ak áno, za¹krtnite políèko: "
+
+#: lib/MIME/Contents.php:745
+msgid "Download"
+msgstr "Stiahnu»"
+
+#: lib/MIME/Contents.php:745
+msgid "Download %s"
+msgstr "Stiahnu» %s"
+
+#: lib/Form.php:1657
+msgid "Drop down list"
+msgstr "Zoznam mo¾ností"
+
+#: lib/Crypt/pgp.php:384
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: lib/Notification/Listener/mobile.php:37
+msgid "ERR"
+msgstr "CHYBA"
+
+#: lib/Block.php:144 templates/shares/edit.inc:30 templates/shares/edit.inc:64
+#: templates/shares/edit.inc:87 templates/shares/edit.inc:110
+#: templates/shares/edit.inc:133 templates/shares/edit.inc:176
+#: templates/rpcsum/manage.inc:23 templates/admin/perms/edit.inc:20
+#: templates/admin/perms/edit.inc:43 templates/admin/perms/edit.inc:66
+#: templates/admin/perms/edit.inc:89 templates/admin/perms/edit.inc:132
+msgid "Edit"
+msgstr "Upravi»"
+
+#: lib/Block.php:143
+msgid "Edit Block"
+msgstr "Upravi» blok"
+
+#: admin/groups.php:167 admin/groups.php:185
+msgid "Edit Group"
+msgstr "Upravi» skupinu"
+
+#: admin/perms.php:274 admin/perms.php:292
+msgid "Edit Permission"
+msgstr "Upravi» právo"
+
+#: templates/shares/edit.inc:9 templates/admin/perms/edit.inc:8
+msgid "Edit permissions for '%s'"
+msgstr "Upravi» práva pre '%s'"
+
+#: lib/Form.php:1495 lib/MIME/Viewer/vcard.php:192
+msgid "Email"
+msgstr "Email"
+
+#: lib/Crypt/smime.php:518 templates/admin/groups/edit.inc:12
+#: templates/admin/user/update.inc:39
+msgid "Email Address"
+msgstr "Emailová adresa:"
+
+#: lib/Form.php:1514
+msgid "Email addresses must match."
+msgstr "Emailová adresa musí súhlasi»."
+
+#: lib/Form.php:1539
+msgid "Email with confirmation"
+msgstr "E-mail s potvrdením"
+
+#: lib/Form/Renderer.php:484
+msgid "Emoticons"
+msgstr "Emotikony"
+
+#: lib/Auth/ldap.php:102
+msgid "Empty result."
+msgstr "Prázdny výsledok"
+
+#: lib/MIME/Viewer/icalendar.php:451 lib/MIME/Viewer/icalendar.php:556
+msgid "End"
+msgstr "Koniec"
+
+#: lib/Form.php:2046 lib/Form.php:2233
+msgid "End year"
+msgstr ""
+
+#: po/translation.php:1016
+msgid "Entries: %d total, %d up-to-date, %d new, %d changed, %d unknown"
+msgstr ""
+
+#: lib/Notification/Listener/status.php:30
+msgid "Error"
+msgstr "Chyba"
+
+#: lib/MIME/Viewer/icalendar.php:195 lib/MIME/Viewer/icalendar.php:279
+#: lib/MIME/Viewer/icalendar.php:349
+msgid "Error sending reply: %s."
+msgstr "Chyba pri posielaní odpovede: %s."
+
+#: po/translation.php:361 po/translation.php:408 po/translation.php:1218
+#: po/translation.php:1278 po/translation.php:1337
+msgid "Error: "
+msgstr "Chyba: "
+
+#: templates/admin/perms/edit.inc:62
+msgid "Event Creator"
+msgstr "Autor udalosti"
+
+#: config/prefs.php.dist:65
+msgid "Every 15 minutes"
+msgstr "Ka¾dých 15 minút"
+
+#: config/prefs.php.dist:62
+msgid "Every 30 seconds"
+msgstr "Ka¾dých 30 sekúnd"
+
+#: config/prefs.php.dist:64
+msgid "Every 5 minutes"
+msgstr "Ka¾dých 5 minút"
+
+#: lib/Maintenance.php:42
+msgid "Every Login"
+msgstr "Pri ka¾dom prihlásení"
+
+#: config/prefs.php.dist:66
+msgid "Every half hour"
+msgstr "Ka¾dú polhodinu"
+
+#: config/prefs.php.dist:63
+msgid "Every minute"
+msgstr "Ka¾dú minútu"
+
+#: templates/data/datemap.inc:28
+msgid "Example values:"
+msgstr "Napríklad:"
+
+#: admin/phpshell.php:78 admin/cmdshell.php:52 admin/sqlshell.php:106
+msgid "Execute"
+msgstr "Spusti»"
+
+#: po/translation.php:292 po/translation.php:309 po/translation.php:374
+#: po/translation.php:427 po/translation.php:487 po/translation.php:581
+#: po/translation.php:613 po/translation.php:670 po/translation.php:740
+#: po/translation.php:854 po/translation.php:876
+msgid "Executing:"
+msgstr "Spú¹»a sa:"
+
+#: lib/Block.php:156 lib/Block.php:157 lib/Block.php:174 lib/Block.php:175
+#: lib/Block.php:202 lib/Block.php:203 lib/Block.php:242 lib/Block.php:243
+msgid "Expand"
+msgstr "Zväè¹i»"
+
+#: lib/Form/Renderer.php:85
+msgid "Expand/collapse section"
+msgstr "Rozbali»/zbali» sekciu"
+
+#: lib/Crypt/pgp.php:383
+msgid "Expiration Date"
+msgstr "Dátum expirácie"
+
+#: lib/Crypt/smime.php:624
+msgid "Exponent"
+msgstr "Exponent"
+
+#: po/translation.php:270
+msgid "Extracting from %s... "
+msgstr ""
+
+#: lib/Prefs/sql.php:345
+msgid "Failed retrieving preferences."
+msgstr "Nepodarilo sa naèíta» nastavenia."
+
+#: lib/Auth/ldap.php:91
+msgid "Failed to connect to LDAP server."
+msgstr "Nepodarilo sa pripoji» k LDAP serveru."
+
+#: lib/Auth/smb.php:102
+msgid "Failed to connect to SMB server."
+msgstr "Nepodarilo sa pripoji» k SMB serveru."
+
+#: lib/VFS/ftp.php:588
+msgid "Failed to retrieve: %s"
+msgstr "Nepodarilo sa naèíta»: %s"
+
+#: lib/CLI.php:221
+msgid "Fatal Error!"
+msgstr "Kritická chyba!"
+
+#: lib/MIME/Viewer/vcard.php:166
+msgid "Fax"
+msgstr "Fax"
+
+#: lib/Form/Renderer.php:540 lib/Form/Renderer.php:570
+#: templates/javascript/open_calendar.js:87
+msgid "February"
+msgstr "Február"
+
+#: lib/MIME/Viewer/rar.php:64 lib/MIME/Viewer/zip.php:67
+#: lib/MIME/Viewer/tgz.php:67
+msgid "File Count: %s file"
+msgstr "Poèet súborov: %s súbor"
+
+#: lib/MIME/Viewer/rar.php:64 lib/MIME/Viewer/zip.php:67
+#: lib/MIME/Viewer/tgz.php:67
+msgid "File Count: %s files"
+msgstr "Poèet súborov: %s súborov"
+
+#: config/registry.php.dist:405
+msgid "File Manager"
+msgstr "Správca súborov"
+
+#: lib/MIME/Viewer/rar.php:67 lib/MIME/Viewer/zip.php:70
+#: lib/MIME/Viewer/tgz.php:70
+msgid "File Name"
+msgstr "Meno súboru"
+
+#: lib/Form.php:1240
+msgid "File upload"
+msgstr "Nahra» súbor"
+
+#: lib/Server.php:124
+msgid "File uploads not supported."
+msgstr "Nahrávanie súborov nie je podporované."
+
+#: config/registry.php.dist:86
+msgid "Filters"
+msgstr "Filtre"
+
+#: lib/Form/Renderer.php:462
+msgid "Fix ratio"
+msgstr "Pevný pomer"
+
+#: lib/Form/Renderer.php:437
+msgid "Flip"
+msgstr "Prehodi»"
+
+#: lib/VFS/sql.php:146 lib/VFS/musql.php:97
+msgid "Folder %s does not exist"
+msgstr "Prieèinok %s neexistuje"
+
+#: config/registry.php.dist:196
+msgid "Follow up task"
+msgstr ""
+
+#: config/registry.php.dist:494
+msgid "Forms"
+msgstr "Formuláre"
+
+#: lib/Block/fortune.php:37
+msgid "Fortune"
+msgstr "Fortuna"
+
+#: config/registry.php.dist:571
+msgid "Fortunes"
+msgstr "Fortuny"
+
+#: config/registry.php.dist:120
+msgid "Forums"
+msgstr "Fóra"
+
+#: config/registry.php.dist:415
+msgid "Forwards"
+msgstr "Presmerovania"
+
+#: po/translation.php:1299
+msgid "Found applications: %s"
+msgstr "Nájdené aplikácie: %s"
+
+#: po/translation.php:1293
+msgid "Found directories:"
+msgstr "Nájdené adresáre:"
+
+#: templates/javascript/open_calendar.js:81
+msgid "Fr"
+msgstr "Pi"
+
+#: lib/MIME/Viewer/icalendar.php:420
+msgid "Free/Busy Information"
+msgstr "Informácie o zaneprázdnenosti"
+
+#: lib/MIME/Viewer/icalendar.php:430
+msgid "Free/Busy Reply"
+msgstr "Odpoveï na ¾iados» o zistenie zaneprázdnenosti"
+
+#: lib/MIME/Viewer/icalendar.php:425
+msgid "Free/Busy Request"
+msgstr "®iados» o zistenie zaneprázdnenosti"
+
+#: lib/MIME/Viewer/icalendar.php:273 lib/MIME/Viewer/icalendar.php:343
+msgid "Free/Busy Request Response"
+msgstr "Odpoveï na ¾iados» o zistenie zaneprázdnenosti"
+
+#: templates/problem/problem.inc:26
+msgid "Full Description:"
+msgstr "Úplný popis:"
+
+#: templates/admin/user/update.inc:38
+msgid "Full Name"
+msgstr "Celé meno:"
+
+#: config/registry.php.dist:205
+msgid "Funny note"
+msgstr "Zábavná poznámka"
+
+#: po/translation.php:536
+msgid "Fuzzy"
+msgstr ""
+
+#: admin/setup.php:65
+msgid "Generate %s Configuration"
+msgstr "Generova» konfiguráciu pre aplikáciu %s"
+
+#: po/translation.php:1212
+msgid "Getopt Error: "
+msgstr "Chyba getopt: "
+
+#: lib/Crypt/smime.php:528
+msgid "Given Name"
+msgstr "Krstné meno"
+
+#: lib/Block/google.php:37 lib/Block/google.php:57
+msgid "Google Search"
+msgstr "Hµada» na Google"
+
+#: lib/Form/Renderer.php:443
+msgid "Grayscale"
+msgstr "Odtiene ¹edej"
+
+#: config/nls.php.dist:175
+msgid "Greek (ISO-8859-7)"
+msgstr "Greek (ISO-8859-7)"
+
+#: config/themes/html-green.php:9
+msgid "Green"
+msgstr "Green"
+
+#: config/themes/html-grey.php:9
+msgid "Grey"
+msgstr "Grey"
+
+#: admin/groups.php:149
+msgid "Group Administration"
+msgstr "Administrácia skupín"
+
+#: lib/Group.php:56
+msgid "Group names must be non-empty"
+msgstr "Mená skupín nesmú by» prázdne"
+
+#: lib/api.php:75 lib/Block/google.php:54 templates/shares/edit.inc:172
+#: templates/admin/perms/edit.inc:128
+msgid "Groups"
+msgstr "Skupiny"
+
+#: guest.php:31
+msgid "Guest Access"
+msgstr "Anonymný prístup"
+
+#: templates/shares/edit.inc:83 templates/admin/perms/edit.inc:39
+msgid "Guest Permissions"
+msgstr "Práva anonymných pou¾ívateµov"
+
+#: templates/login/login.inc:75 templates/guest/guest.inc:4
+msgid "Guest Services"
+msgstr "Slu¾by pre anonymných pou¾ívateµov"
+
+#: lib/Form/Renderer.php:516
+msgid "HH"
+msgstr "HH"
+
+#: lib/Form.php:881
+msgid "HTML"
+msgstr "HTML"
+
+#: lib/Form.php:1123
+msgid "HTML Helper"
+msgstr "HTML pomocník"
+
+#: lib/Auth/http.php:62
+msgid "HTTP Authentication not found."
+msgstr "HTTP autentifikácia nebola nájdená."
+
+#: lib/RPC.php:237
+msgid "HTTPS is currently not supported."
+msgstr "HTTPS nie je momentálne podporované."
+
+#: lib/Crypt/pgp.php:384
+msgid "Hash-Algorithm"
+msgstr "Hashovací algoritmus"
+
+#: lib/Form.php:843 lib/Form.php:2350
+msgid "Header"
+msgstr "Hlavièka"
+
+#: config/registry.php.dist:332
+msgid "Headlines"
+msgstr "Hlavné správy"
+
+#: config/nls.php.dist:176
+msgid "Hebrew (ISO-8859-8-I)"
+msgstr "Hebrew (ISO-8859-8-I)"
+
+#: help.php:15 lib/Help.php:483 lib/Help.php:490 lib/Menu.php:302
+#: templates/portal/menu.inc:23 templates/navbar/menu.inc:26
+#: templates/help/index.inc:13
+msgid "Help"
+msgstr "Pomocník"
+
+#: po/translation.php:98
+msgid ""
+"Helper application to create and maintain translations for the Horde\n"
+"framework and its applications.\n"
+"For an introduction read the file README in this directory."
+msgstr ""
+
+#: templates/data/tsvinfo.inc:17 templates/data/csvinfo.inc:17
+msgid "Here is the beginning of the file:"
+msgstr "Tu je zaèiatok súboru:"
+
+#: lib/History.php:189
+msgid "History entry names must be non-empty"
+msgstr "Mená polo¾iek histórie nesmú by» prázdne"
+
+#: templates/portal/menu.inc:10 templates/navbar/menu.inc:9
+msgid "Home"
+msgstr "Domov"
+
+#: lib/MIME/Viewer/vcard.php:140
+msgid "Home Address"
+msgstr "Domáca adresa"
+
+#: lib/MIME/Viewer/vcard.php:157
+msgid "Home Phone"
+msgstr "Telefón domov"
+
+#: config/registry.php.dist:38
+msgid "Horde"
+msgstr "Horde"
+
+#: templates/admin/common-header.inc:6
+msgid "Horde Administration"
+msgstr "Administrácia Horde"
+
+#: admin/setup.php:29
+msgid "Horde Configuration"
+msgstr "Konfigurácia Horde"
+
+#: po/translation.php:1170
+msgid "Horde translation generator"
+msgstr ""
+
+#: templates/data/csvinfo.inc:28
+msgid "How many fields (columns) are there?"
+msgstr "Zadajte poèet polí (ståpcov)?"
+
+#: lib/Auth/cyrus.php:176 lib/Auth/cyrsql.php:146
+msgid "IMAP mailbox creation failed: %s"
+msgstr "Vytvorenie IMAP schránky zlyhalo: %s"
+
+#: lib/Auth/cyrus.php:220 lib/Auth/cyrsql.php:205
+msgid "IMAP mailbox deletion failed: %s"
+msgstr "Vymazanie IMAP schránky zlyhalo: %s"
+
+#: lib/Auth/cyrus.php:183 lib/Auth/cyrsql.php:153
+msgid "IMAP mailbox quota creation failed: %s"
+msgstr "Vytvorenie kvóty pre IMAP schránku zlyhalo: %s"
+
+#: lib/Auth/ipbasic.php:81
+msgid "IP Address not available."
+msgstr "IP adresa je nedostupná"
+
+#: lib/Auth/ipbasic.php:93
+msgid "IP Address not within allowed CIDR block."
+msgstr "IP adresa nepatrí do povoleného CIDR bloku."
+
+#: config/prefs.php.dist:95
+msgid "Icons Only"
+msgstr "Iba ikony"
+
+#: config/prefs.php.dist:96
+msgid "Icons with text"
+msgstr "Ikony a text"
+
+#: config/registry.php.dist:504
+msgid "Image Galleries"
+msgstr "Obrázkové galérie"
+
+#: lib/Form.php:1409
+msgid "Image upload"
+msgstr "Nahra» obrázok"
+
+#: lib/Block/google.php:53
+msgid "Images"
+msgstr "Obrázky"
+
+#: lib/Data/vcard.php:45
+msgid "Import Error: Expected \"BEGIN\" on line %d."
+msgstr "Chyba pri importe: Oèakávaný \"BEGIN\" na riadku %d."
+
+#: lib/Data/icalendar.php:30
+msgid "Import Error: Expecting BEGIN on line %d."
+msgstr "Chyba pri importe: Oèakávaný \"BEGIN\" na riadku %d."
+
+#: lib/Data/imc.php:45
+msgid "Import Error: Malformed line."
+msgstr "Chyba pri importe: zlý riadok."
+
+#: lib/Data/icalendar.php:49
+msgid "Import Error: Mismatch; expecting END:%s on line %d"
+msgstr "Chyba pri importe: Oèakávaný END:%s na riadku %d"
+
+#: lib/Data/vcard.php:67
+msgid "Import Error: Type mismatch. Expected \"END:%s\" on line %d."
+msgstr "Chyba pri importe: Oèakávaný \"END:%s\" na riadku %d."
+
+#: lib/Data/vcard.php:64
+msgid "Import Error: Unexpected end of file."
+msgstr "Chyba pri importe: Neoèakávaný koniec súboru."
+
+#: templates/data/tsvinfo.inc:10 templates/data/datemap.inc:10
+#: templates/data/csvmap.inc:57 templates/data/csvinfo.inc:10
+msgid "Import, Step %d"
+msgstr "Import, krok %d"
+
+#: templates/data/datemap.inc:20
+msgid "Imported field: %s"
+msgstr "Importované pole: %s"
+
+#: templates/data/csvmap.inc:73
+msgid "Imported fields:"
+msgstr "Importované polia:"
+
+#: lib/MIME/Viewer/icalendar.php:704
+msgid "In Process"
+msgstr "Spracúva sa"
+
+#: lib/Compress/zip.php:135
+msgid "Incorrect action code given."
+msgstr "Zadaný nesprávny kód akcie."
+
+#: templates/shares/edit.inc:129
+msgid "Individual Users"
+msgstr "Jednotliví pou¾ívatelia"
+
+#: config/registry.php.dist:324
+msgid "Information"
+msgstr "Informácie"
+
+#: po/translation.php:468
+msgid "Initializing module %s... "
+msgstr ""
+
+#: admin/templates.php:152
+msgid "Insert alternate template"
+msgstr "Vlo¾i» alternatívnu ¹ablónu"
+
+#: lib/Form.php:939 lib/Form.php:2462
+msgid "Integer"
+msgstr "Celé èíslo"
+
+#: lib/Form.php:968
+msgid "Integer list"
+msgstr "Zoznam celých èísel"
+
+#: lib/MIME/Viewer/icalendar.php:284 lib/MIME/Viewer/icalendar.php:354
+msgid "Invalid Action selected for this component."
+msgstr "Pre tento komponent bola vybraná neplatná akcia."
+
+#: lib/Form.php:1637 lib/Form.php:1705 lib/Form.php:1765
+msgid "Invalid data submitted."
+msgstr "Boli odoslané neplatné údaje."
+
+#: lib/Compress/dbx.php:86 lib/Compress/dbx.php:105 lib/Compress/dbx.php:225
+msgid "Invalid file format"
+msgstr "Neplatný formát súboru"
+
+#: lib/Crypt/smime.php:574
+msgid "Issuer"
+msgstr "Vydal"
+
+#: util/editor/designmode/editor.php:81
+msgid "Italic"
+msgstr "Kurzíva"
+
+#: lib/Form/Renderer.php:539 lib/Form/Renderer.php:569
+#: templates/javascript/open_calendar.js:86
+msgid "January"
+msgstr "Január"
+
+#: config/nls.php.dist:177
+msgid "Japanese (ISO-2022-JP)"
+msgstr "Japanese (ISO-2022-JP)"
+
+#: lib/Form/Renderer.php:545 lib/Form/Renderer.php:575
+#: templates/javascript/open_calendar.js:92
+msgid "July"
+msgstr "Júl"
+
+#: lib/Form/Renderer.php:544 lib/Form/Renderer.php:574
+#: templates/javascript/open_calendar.js:91
+msgid "June"
+msgstr "Jún"
+
+#: lib/Form/Renderer.php:468
+msgid "Keep original?"
+msgstr "Ponecha» originál?"
+
+#: lib/Auth/krb5.php:86
+msgid "Kerberos server rejected authentication."
+msgstr "Kerberos server zamietol autentifikáciu."
+
+#: lib/Crypt/pgp.php:382
+msgid "Key Creation"
+msgstr "Vytvorenie kµúèa"
+
+#: lib/Crypt/pgp.php:385
+msgid "Key Fingerprint"
+msgstr "Odtlaèok kµúèa"
+
+#: lib/Crypt/pgp.php:383
+msgid "Key Length"
+msgstr "Då¾ka kµúèa"
+
+#: lib/Crypt/pgp.php:382
+msgid "Key Type"
+msgstr "Typ kµúèa"
+
+#: lib/Crypt/smime.php:547
+msgid "Key Usage"
+msgstr "Pou¾itie kµúèa"
+
+#: lib/Crypt/pgp.php:728
+msgid "Key already exists on the public keyserver."
+msgstr "Kµúè u¾ existuje na verejnom kµúèovom serveri."
+
+#: config/nls.php.dist:178
+msgid "Korean (EUC-KR)"
+msgstr "Korean (EUC-KR)"
+
+#: templates/login/login.inc:93 config/prefs.php.dist:6 po/translation.php:536
+msgid "Language"
+msgstr "Jazyk"
+
+#: lib/Auth.php:420
+msgid "Last login: %s"
+msgstr "Posledné prihlásenie: %s"
+
+#: lib/Auth.php:422
+msgid "Last login: %s from %s"
+msgstr "Posledné prihlásenie: %s z %s"
+
+#: lib/Auth.php:417
+msgid "Last login: Never"
+msgstr "Posledné prihlásenie: nikdy"
+
+#: config/themes/html-lavender.php:9
+msgid "Lavender"
+msgstr "Lavender"
+
+#: templates/portal/menu.inc:12
+msgid "Layout"
+msgstr "Vzhµad"
+
+#: config/themes/html-lightblue.php:9
+msgid "Light Blue"
+msgstr "Light Blue"
+
+#: lib/Form.php:1452
+msgid "Link"
+msgstr "Linka"
+
+#: lib/Text.php:779
+msgid "Links"
+msgstr "Linky"
+
+#: templates/help/menu.inc:9
+msgid "List Help Topics"
+msgstr "Zoznam tém Pomocníka"
+
+#: lib/MIME/Headers.php:501
+msgid "List-Archive"
+msgstr "List-Archive (Adresa archívu diskus. skupiny)"
+
+#: lib/MIME/Headers.php:496
+msgid "List-Help"
+msgstr "List-Help (Adresa s pomocníkom pre diskusnú skupinu)"
+
+#: lib/MIME/Headers.php:503
+msgid "List-Id"
+msgstr "List-Id (Identifikácia diskusnej skupiny)"
+
+#: lib/MIME/Headers.php:499
+msgid "List-Owner"
+msgstr "List-Owner"
+
+#: lib/MIME/Headers.php:500
+msgid "List-Post"
+msgstr "List-Post"
+
+#: lib/MIME/Headers.php:498
+msgid "List-Subscribe"
+msgstr "List-Subscribe (Príkaz na prihlásenie sa do diskusnej skupiny)"
+
+#: lib/MIME/Headers.php:497
+msgid "List-Unsubscribe"
+msgstr "List-Unsubscribe (Príkaz na odhlásenie sa z diskusnej skupiny)"
+
+#: templates/admin/user/nolist.inc:4
+msgid "Listing users is disabled."
+msgstr "Zobrazovanie zoznamu pou¾ívateµov je zakázané."
+
+#: config/registry.php.dist:572
+msgid "Literature"
+msgstr "Literatúra"
+
+#: po/translation.php:1179
+msgid "Loading libraries..."
+msgstr ""
+
+#: lib/Crypt/smime.php:524 lib/MIME/Viewer/icalendar.php:573
+msgid "Location"
+msgstr "Lokalita"
+
+#: login.php:134 templates/navbar/menu.inc:21 templates/login/mobile.inc:3
+#: templates/login/mobile.inc:15 templates/login/login.inc:100
+#: templates/guest/guest.inc:23
+msgid "Log in"
+msgstr "Prihlásenie"
+
+#: templates/portal/menu.inc:26
+msgid "Log out"
+msgstr "Odhlási»"
+
+#: menu.php:171 util/sidebar.php:172
+msgid "Log out of %s"
+msgstr "Odhlásenie z %s"
+
+#: lib/Menu.php:312
+msgid "Login"
+msgstr "Prihlásenie"
+
+#: login.php:21
+msgid ""
+"Login failed for some reason. Most likely your username or password was "
+"entered incorrectly."
+msgstr ""
+"Prihlásenie do systému zlyhalo. Pravdepodobne ste zadali nesprávne "
+"pou¾ívateµské meno alebo heslo."
+
+#: menu.php:170 menu.php:172 lib/Menu.php:309 util/sidebar.php:171
+#: util/sidebar.php:173 config/registry.php.dist:50
+msgid "Logout"
+msgstr "Odhlásenie"
+
+#: lib/Form.php:1117
+msgid "Long text"
+msgstr "Dlhý text"
+
+#: config/themes/html-luc.php:9
+msgid "Loyola"
+msgstr "Loyola"
+
+#: config/themes/html-lucblue.php:9
+msgid "Loyola Blue"
+msgstr "Loyola Blue"
+
+#: lib/Form/Renderer.php:520 lib/Form/Renderer.php:538
+#: lib/Form/Renderer.php:568 templates/data/date.inc:30
+#: templates/data/date.inc:31 templates/data/date.inc:32
+#: templates/data/date.inc:33
+msgid "MM"
+msgstr "MM"
+
+#: lib/MIME/Viewer/tnef.php:39
+msgid "MS-TNEF Attachment contained no data."
+msgstr "Príloha MS-TNEF neobsahuje údaje."
+
+#: lib/Notification/Listener/mobile.php:40
+msgid "MSG"
+msgstr "SPRÁVA"
+
+#: config/registry.php.dist:75
+msgid "Mail"
+msgstr "Po¹ta"
+
+#: config/registry.php.dist:68
+msgid "Mail & News"
+msgstr "Po¹ta & News"
+
+#: po/translation.php:1198
+msgid "Make sure that you have PEAR installed and in your include path."
+msgstr ""
+
+#: po/translation.php:557 po/translation.php:927
+msgid "Making directory %s"
+msgstr "Vytvára sa adresár %s"
+
+#: lib/Form/Renderer.php:541 lib/Form/Renderer.php:571
+#: templates/javascript/open_calendar.js:88
+msgid "March"
+msgstr "Marec"
+
+#: templates/data/csvmap.inc:101
+msgid "Matching fields"
+msgstr "Zhodné polia"
+
+#: lib/Form.php:1049 lib/Form.php:1071
+msgid "Maximum length"
+msgstr "Maximálna då¾ka"
+
+#: lib/Form/Renderer.php:543 lib/Form/Renderer.php:573
+#: templates/javascript/open_calendar.js:90
+msgid "May"
+msgstr "Máj"
+
+#: lib/MIME/Viewer/icalendar.php:534
+msgid "Meeting Cancellation"
+msgstr "Zru¹enie stretnutia"
+
+#: lib/MIME/Viewer/icalendar.php:506
+msgid "Meeting Information"
+msgstr "Informácie o stretnutí"
+
+#: lib/MIME/Viewer/icalendar.php:512
+msgid "Meeting Proposal"
+msgstr "Návrh na stretnutie"
+
+#: lib/MIME/Viewer/icalendar.php:528
+msgid "Meeting Reply"
+msgstr "Odpoveï na stretnutie"
+
+#: lib/MIME/Viewer/icalendar.php:517
+msgid "Meeting Update"
+msgstr "Aktualizácia stretnutia"
+
+#: lib/MIME/Viewer/icalendar.php:522
+msgid "Meeting Update Request"
+msgstr "®iados» na aktualizáciu stretnutia"
+
+#: config/registry.php.dist:156
+msgid "Meetings"
+msgstr "Stretnutia"
+
+#: templates/admin/groups/edit.inc:19
+msgid "Members"
+msgstr "Èlenovia"
+
+#: config/prefs.php.dist:97
+msgid "Menu mode:"
+msgstr "Zobrazenie menu:"
+
+#: po/translation.php:413
+msgid "Merging all %s.po files to the compendium... "
+msgstr ""
+
+#: po/translation.php:660
+msgid "Merging the PO file for %s to the compendium... "
+msgstr ""
+
+#: po/translation.php:370
+msgid "Merging translation for module %s..."
+msgstr ""
+
+#: lib/Notification/Listener/status.php:33
+msgid "Message"
+msgstr "Správa"
+
+#: lib/Crypt/smime.php:233
+msgid ""
+"Message Verified Successfully but the signer's certificate could not be "
+"verified."
+msgstr ""
+"Správa bola úspe¹ne overená, ale certifikát odosielateµa nemo¾no overi»."
+
+#: lib/MIME/Viewer/rar.php:71 lib/MIME/Viewer/zip.php:74
+msgid "Method"
+msgstr "Metóda"
+
+#: lib/RPC.php:168
+msgid "Method '%s' is not defined"
+msgstr "Metóda '%s' nie je definovaná"
+
+#: lib/MIME/Viewer/tnef.php:41
+msgid "Mime Type"
+msgstr "Mime typ"
+
+#: lib/Form/Renderer.php:440
+msgid "Mirror"
+msgstr "Mirror"
+
+#: templates/javascript/open_calendar.js:77
+msgid "Mo"
+msgstr "Po"
+
+#: config/registry.php.dist:130
+msgid "Mobile Mail"
+msgstr "Mobilný mail"
+
+#: lib/MIME/Viewer/rar.php:70 lib/MIME/Viewer/zip.php:73
+#: lib/MIME/Viewer/tgz.php:73
+msgid "Modified Date"
+msgstr "Èas zmeny"
+
+#: po/translation.php:536
+msgid "Module"
+msgstr "Modul"
+
+#: lib/Crypt/smime.php:621
+msgid "Modulus"
+msgstr "Modulus"
+
+#: lib/Form.php:2042
+msgid "Month and year"
+msgstr "Mesiac a rok"
+
+#: lib/Maintenance.php:39
+msgid "Monthly"
+msgstr "Mesaène"
+
+#: lib/Block.php:225 lib/Block.php:226
+msgid "Move Down"
+msgstr "Presunú» nadol"
+
+#: lib/Block.php:210 lib/Block.php:211
+msgid "Move Left"
+msgstr "Presunú» vµavo"
+
+#: lib/Block.php:217 lib/Block.php:218
+msgid "Move Right"
+msgstr "Presunú» vpravo"
+
+#: lib/Block.php:190 lib/Block.php:191
+msgid "Move Up"
+msgstr "Presunú» nahor"
+
+#: lib/Form/Renderer.php:638
+msgid "Move down"
+msgstr "Presunú» nadol"
+
+#: lib/VFS/ftp.php:626
+msgid "Move failed: %s"
+msgstr "Presunutie zlyhalo: %s"
+
+#: lib/Form/Renderer.php:637 lib/Form/Renderer.php:638
+msgid "Move up"
+msgstr "Presunú» nahor"
+
+#: config/themes/html-mozilla.php:9
+msgid "Mozilla"
+msgstr "Mozilla"
+
+#: lib/Form.php:1715
+msgid "Multiple selection"
+msgstr "Viacero mo¾ností výberu"
+
+#: config/registry.php.dist:387 config/registry.php.dist:395
+msgid "My Account"
+msgstr "Moje konto"
+
+#: portal.php:51
+msgid "My Summary"
+msgstr "Súhrnné informácie"
+
+#: portal_edit.php:655
+msgid "My Summary Layout"
+msgstr "Vzhµad stránky so súhrnnými informáciami"
+
+#: templates/maintenance/agreement_bottom.inc:7
+msgid "NO, I Do NOT Agree"
+msgstr "Nie, nesúhlasím."
+
+#: lib/Crypt/pgp.php:382 lib/MIME/Viewer/vcard.php:114
+#: lib/MIME/Viewer/tnef.php:41 lib/MIME/Viewer/icalendar.php:586
+msgid "Name"
+msgstr "Meno"
+
+#: config/themes/html-NeXTgrey.php:9
+msgid "NeXT"
+msgstr "NeXT"
+
+#: lib/MIME/Viewer/icalendar.php:709
+msgid "Needs Action"
+msgstr "Vy¾aduje akciu"
+
+#: lib/Crypt/smime.php:532
+msgid "Netscape Base URL"
+msgstr "Základná URL adresa Netscape"
+
+#: lib/Crypt/smime.php:534
+msgid "Netscape CA Revocation URL"
+msgstr "URL adresa pre zneplatnené CA Netscape"
+
+#: lib/Crypt/smime.php:536
+msgid "Netscape CA policy URL"
+msgstr "URL adresa pre politiku CA Netscape"
+
+#: lib/Crypt/smime.php:535
+msgid "Netscape Renewal URL"
+msgstr "URL adresa pre obnovovanie certifikátor Netscape"
+
+#: lib/Crypt/smime.php:533
+msgid "Netscape Revocation URL"
+msgstr "URL adresa pre zneplatòovanie Netscape"
+
+#: lib/Crypt/smime.php:537
+msgid "Netscape SSL server name"
+msgstr "Meno SSL servera Netscape"
+
+#: lib/Crypt/smime.php:538
+msgid "Netscape certificate comment"
+msgstr "Komentár certifikátu Netscape"
+
+#: lib/Crypt/smime.php:531
+msgid "Netscape certificate type"
+msgstr "Typ certifikátu Netscape"
+
+#: config/registry.php.dist:315
+msgid "Network"
+msgstr "Sie»"
+
+#: lib/Crypt/pgp.php:396 config/prefs.php.dist:61
+msgid "Never"
+msgstr "Nikdy"
+
+#: templates/admin/user/update.inc:34
+msgid "New Username (optional)"
+msgstr "Nové pou¾ívateµské meno (nepovinné)"
+
+#: lib/Block/google.php:56
+msgid "News"
+msgstr "News"
+
+#: templates/data/tsvinfo.inc:21 templates/data/datemap.inc:46
+#: templates/data/csvmap.inc:127 templates/data/csvinfo.inc:32
+msgid "Next"
+msgstr "Ïalej"
+
+#: lib/PrefsUI.php:297 lib/PrefsUI.php:301
+msgid "Next options"
+msgstr "Ïal¹ie nastavenia"
+
+#: po/translation.php:161
+msgid "No"
+msgstr "Nie"
+
+#: lib/Auth/mcal.php:53
+msgid "No calendar name provided for MCAL authentication."
+msgstr "Pre MCAL autentifikáciu nebolo zadané meno kalendára."
+
+#: po/translation.php:1218
+msgid "No command specified."
+msgstr "Nebol ¹pecifikovaný príkaz."
+
+#: lib/Horde.php:355
+msgid "No configuration information specified for %s."
+msgstr "Neexistuje konfigurácia pre %s."
+
+#: lib/VFS/ftp.php:700
+msgid "No configuration information specified for FTP VFS."
+msgstr "Neexistuje konfigurácia pre FTP VFS."
+
+#: lib/VFS/sql.php:527
+msgid "No configuration information specified for SQL VFS."
+msgstr "Neexistuje konfigurácia pre SQL VFS."
+
+#: lib/VFS/sql_file.php:689
+msgid "No configuration information specified for SQL-File VFS."
+msgstr "Neexistuje konfigurácia pre SQL-File VFS."
+
+#: lib/Links.php:211
+msgid "No description found"
+msgstr "Popis nebol nájdený"
+
+#: po/translation.php:1112
+msgid "No entry with the id '%s' exists in the original help file."
+msgstr ""
+
+#: po/translation.php:361 po/translation.php:408
+msgid "No locale specified."
+msgstr "Neboli ¹pecifikované lokalizaèné informácie (locale)."
+
+#: lib/Auth/imap.php:96
+msgid "No password provided for IMAP authentication."
+msgstr "Pre IMAP autentifikáciu nebolo zadané heslo."
+
+#: lib/Auth/krb5.php:73
+msgid "No password provided for Kerberos authentication."
+msgstr "Pre Kerberos autentifikáciu nebolo zadané heslo."
+
+#: lib/Auth/ldap.php:85
+msgid "No password provided for LDAP authentication."
+msgstr "Pre LDAP autentifikáciu nebolo zadané heslo."
+
+#: lib/Auth/passwd.php:138
+msgid "No password provided for PASSWD authentication."
+msgstr "Pre PASSWD autentifikáciu nebolo zadané heslo."
+
+#: lib/Auth/radius.php:147
+msgid "No password provided for RADIUS authentication."
+msgstr "Pre RADIUS autentifikáciu nebolo zadané heslo."
+
+#: lib/Auth/smb.php:88
+msgid "No password provided for SMB authentication."
+msgstr "Pre SMB autentifikáciu nebolo zadané heslo."
+
+#: templates/admin/user/approve.inc:19
+msgid "No pending signups."
+msgstr "®iadne prebiehajúce prihlásenia."
+
+#: lib/Prefs/session.php:54
+msgid "No preferences are available."
+msgstr "Nie sú dostupné ¾iadne nastavenia."
+
+#: lib/RPC/xmlrpc.php:116
+msgid "No valid XML data returned"
+msgstr "Neboli vrátené platné XML údaje"
+
+#: lib/Form/Renderer.php:780 lib/Form/Renderer.php:790
+#: lib/Form/Renderer.php:801 lib/Form/Renderer.php:818
+msgid "No values"
+msgstr "®iadne hodnoty"
+
+#: lib/MIME/Viewer/icalendar.php:607
+msgid "Non Participant"
+msgstr "Nie je úèastník"
+
+#: lib/Crypt/pgp.php:398 lib/MIME/Viewer/icalendar.php:563
+msgid "None"
+msgstr "®iaden"
+
+#: config/nls.php.dist:179
+msgid "Nordic (ISO-8859-10)"
+msgstr "Nordic (ISO-8859-10)"
+
+#: lib/Crypt/smime.php:590
+msgid "Not After"
+msgstr "Nie po"
+
+#: lib/Crypt/smime.php:589
+msgid "Not Before"
+msgstr "Nie pred"
+
+#: lib/VFS/file.php:313
+msgid "Not a directory"
+msgstr "Nie je adresár"
+
+#: lib/VFS.php:94 lib/VFS.php:109 lib/VFS.php:123 lib/VFS.php:137
+#: lib/VFS.php:152 lib/VFS.php:165 lib/VFS.php:180 lib/VFS.php:207
+#: lib/VFS.php:263 lib/VFS.php:314 lib/VFS.php:368 lib/VFS.php:382
+msgid "Not supported."
+msgstr "Nie je podporované."
+
+#: lib/MIME/Viewer/vcard.php:212 config/registry.php.dist:178
+msgid "Notes"
+msgstr "Poznámky"
+
+#: templates/maintenance/confirm_top.inc:10
+msgid "Notice"
+msgstr "Poznámka"
+
+#: lib/Notification.php:102
+msgid "Notification listener %s not found."
+msgstr "Notification listener %s nebol nájdený."
+
+#: lib/Form/Renderer.php:549 lib/Form/Renderer.php:579
+#: templates/javascript/open_calendar.js:96
+msgid "November"
+msgstr "November"
+
+#: lib/Form.php:910
+msgid "Number"
+msgstr "Èíslo"
+
+#: lib/Form.php:1177
+msgid "Number of characters"
+msgstr "Poèet znakov"
+
+#: lib/Form.php:1121 lib/Form.php:1175 lib/Form.php:1197
+msgid "Number of columns"
+msgstr "Poèet ståpcov"
+
+#: lib/Form.php:1119 lib/Form.php:1173 lib/Form.php:1195
+msgid "Number of rows"
+msgstr "Poèet riadkov"
+
+#: lib/MIME/Viewer/icalendar.php:486 lib/MIME/Viewer/icalendar.php:666
+#: po/translation.php:149 po/translation.php:1189
+msgid "OK"
+msgstr "OK"
+
+#: templates/shares/edit.inc:106
+msgid "Object Creator"
+msgstr "Autor objektu"
+
+#: lib/Form/Renderer.php:548 lib/Form/Renderer.php:578
+#: templates/javascript/open_calendar.js:95
+msgid "October"
+msgstr "Október"
+
+#: lib/Form/Renderer.php:773
+msgid "Off"
+msgstr "Vypnuté"
+
+#: config/registry.php.dist:361
+msgid "Office"
+msgstr "Pracovisko"
+
+#: lib/Form/Renderer.php:773
+msgid "On"
+msgstr "Zapnuté"
+
+#: lib/Form.php:1477 lib/Form.php:1521
+msgid "Only one email address allowed."
+msgstr "Je povolená iba jedna e-mailová adresa."
+
+#: lib/MIME/Viewer/icalendar.php:603
+msgid "Optional Participant"
+msgstr "Nepovinný úèastník"
+
+#: lib/Menu.php:290 templates/portal/menu.inc:18 templates/navbar/menu.inc:18
+msgid "Options"
+msgstr "Nastavenia"
+
+#: po/translation.php:115
+msgid "Options:"
+msgstr "Mo¾nosti:"
+
+#: lib/Crypt/smime.php:520
+msgid "Organisation"
+msgstr "Organizácia"
+
+#: lib/Crypt/smime.php:521
+msgid "Organisational Unit"
+msgstr "Organizaèná jednotka"
+
+#: admin/templates.php:137
+msgid "Original application template"
+msgstr "Pôvodná ¹ablóna aplikácie"
+
+#: admin/templates.php:118
+msgid "Original templates in %s:"
+msgstr "Pôvodné ¹ablóny v %s:"
+
+#: config/prefs.php.dist:17 config/prefs.php.dist:24
+msgid "Other Information"
+msgstr "Ïal¹ie informácie"
+
+#: templates/shares/edit.inc:26
+msgid "Owner Permissions"
+msgstr "Práva vlastníka"
+
+#: lib/Crypt/pgp.php:1263
+msgid "PGP Digital Signature"
+msgstr "Digitálny PGP podpis"
+
+#: lib/Crypt/pgp.php:1312
+msgid "PGP Encrypted Data"
+msgstr "Údaje za¹ifrované PGP"
+
+#: lib/Crypt/pgp.php:1368
+msgid "PGP Public Key"
+msgstr "Verejný PGP kµúè"
+
+#: lib/Crypt/pgp.php:1347
+msgid "PGP Signed/Encrypted Data"
+msgstr "Údaje podpísané/za¹ifrované PGP"
+
+#: admin/phpshell.php:65
+msgid "PHP Code"
+msgstr "PHP kód"
+
+#: admin/phpshell.php:22 lib/api.php:83
+msgid "PHP Shell"
+msgstr "PHP Shell"
+
+#: po/translation.php:152
+msgid "PHP support in xgettext: "
+msgstr ""
+
+#: admin/user.php:38 lib/Form.php:1568 templates/login/login.inc:87
+#: templates/admin/user/update.inc:35 config/registry.php.dist:426
+msgid "Password"
+msgstr "Heslo"
+
+#: lib/Form.php:1603
+msgid "Password with confirmation"
+msgstr "Heslo s potvrdením"
+
+#: templates/rpcsum/manage.inc:41
+msgid "Password:"
+msgstr "Heslo:"
+
+#: templates/login/mobile.inc:11
+msgid "Password: "
+msgstr "Heslo: "
+
+#: admin/user.php:66
+msgid "Passwords cannot be blank."
+msgstr "Heslo nemô¾e by» prázdne."
+
+#: admin/user.php:130 lib/Form.php:1584 templates/admin/user/update.inc:14
+msgid "Passwords must match."
+msgstr "Heslá musia by» rovnaké."
+
+#: admin/sqlshell.php:98 util/editor/designmode/editor.php:75
+msgid "Paste"
+msgstr "Vlo¾i»"
+
+#: templates/admin/user/approve.inc:4 templates/admin/user/removequeued.inc:4
+msgid "Pending Signups:"
+msgstr "Prebiehajúce prihlásenia:"
+
+#: templates/maintenance/confirm_bottom.inc:6
+msgid "Perform Maintenance Operations"
+msgstr "Vykona» operácie údr¾by"
+
+#: config/prefs.php.dist:106
+msgid "Perform maintenance operations on login?"
+msgstr "Vykona» operácie údr¾by pri prihlásení?"
+
+#: lib/Registry.php:421
+msgid "Permission denied for %s/%s."
+msgstr "Prístup zamietnutý pre %s/%s."
+
+#: lib/api.php:79
+msgid "Permissions"
+msgstr "Práva"
+
+#: admin/perms.php:256
+msgid "Permissions Administration"
+msgstr "Administrácia práv"
+
+#: config/registry.php.dist:137
+msgid "Personal Information"
+msgstr "Osobné informácie"
+
+#: lib/MIME/Viewer/vcard.php:163
+msgid "Phone"
+msgstr "Telefón"
+
+#: lib/Form.php:2011
+msgid "Please enter a month and a year."
+msgstr "Zadajte prosím mesiac a rok."
+
+#: lib/Form.php:2102
+msgid "Please enter a valid date; check the number of days in the month."
+msgstr "Zadajte prosím platný dátum; skontrolujte poèet dní v mesiaci."
+
+#: lib/Form.php:1889
+msgid "Please enter a valid time."
+msgstr "Zadajte prosím platný èas."
+
+#: templates/problem/javascript.inc:7
+msgid "Please provide a summary of the problem."
+msgstr "Prosím uveïte zhrnutie problému."
+
+#: templates/login/login.inc:14 templates/login/login.inc:18
+msgid "Please provide your username and password"
+msgstr "Prosím zadajte svoje pou¾ívateµské meno a heslo"
+
+#: templates/maintenance/agreement_top.inc:12
+msgid ""
+"Please read the following text.  You MUST agree with the terms to use the "
+"system."
+msgstr ""
+"Preèítajte si prosím nasledujúci text. MUSÍTE súhlasi» s podmienkami "
+"pou¾itia systému."
+
+#: po/translation.php:17
+msgid "Please report any bugs to i18n@lists.horde.org."
+msgstr ""
+
+#: lib/MIME/Viewer/icalendar.php:543
+msgid ""
+"Please review the following information, and then select an action from the "
+"menu below."
+msgstr ""
+"Prosím skontrolujte nasledujúce informácie a potom si vyberte akciu z menu "
+"uvedeného ni¾¹ie."
+
+#: lib/MIME/Viewer/icalendar.php:438
+msgid "Please select an action from the menu below."
+msgstr "Prosím vyberte si akciu z menu uvedeného ni¾¹ie."
+
+#: config/registry.php.dist:514
+msgid "Polls"
+msgstr "Ankety"
+
+#: lib/Prefs/ldap.php:101
+msgid "Prefs_ldap: Required LDAP extension not found."
+msgstr "Prefs_ldap: po¾adované roz¹írenie LDAP nebolo nájdené."
+
+#: lib/Prefs/session.php:36
+msgid "Prefs_session: Required session extension not found."
+msgstr "Prefs_session: po¾adované roz¹írenie session nebolo nájdené."
+
+#: config/registry.php.dist:353
+msgid "Presentations"
+msgstr "Prezentácie"
+
+#: lib/Form/Renderer.php:410
+msgid "Preview"
+msgstr "Uká¾ka"
+
+#: lib/PrefsUI.php:287 lib/PrefsUI.php:291
+msgid "Previous options"
+msgstr "Predchádzajúce nastavenia"
+
+#: config/registry.php.dist:198
+msgid "Previous task"
+msgstr "Predchádzajúca úloha"
+
+#: lib/Crypt/pgp.php:394
+msgid "Private Key"
+msgstr "Privátny kµúè"
+
+#: problem.php:113
+msgid "Problem Description"
+msgstr "Popis problému"
+
+#: config/registry.php.dist:60
+msgid "Problem?"
+msgstr "Ohlási» problém"
+
+#: lib/Form.php:1661
+msgid "Prompt text"
+msgstr "Zada» text"
+
+#: lib/Crypt/pgp.php:394
+msgid "Public Key"
+msgstr "Verejný kµúè"
+
+#: lib/Crypt/smime.php:595
+msgid "Public Key Algorithm"
+msgstr "Algoritmus verejného kµúèa"
+
+#: lib/Crypt/pgp.php:215
+msgid "Public/Private keypair not generated successfully."
+msgstr "Kµúèový pár nebol vygenerovaný úspe¹ne."
+
+#: lib/Crypt/smime.php:611
+msgid "RSA Public Key (%d bit)"
+msgstr "RSA verejný kµúè (%d bitov)"
+
+#: lib/Form.php:1735
+msgid "Radio selection"
+msgstr "Výber z mo¾ností"
+
+#: config/registry.php.dist:568
+msgid "Random Fortune"
+msgstr "Náhodná fortuna"
+
+#: lib/MIME/Viewer/rar.php:72 lib/MIME/Viewer/zip.php:76
+msgid "Ratio"
+msgstr "Pomer"
+
+#: templates/shares/edit.inc:29 templates/shares/edit.inc:63
+#: templates/shares/edit.inc:86 templates/shares/edit.inc:109
+#: templates/shares/edit.inc:132 templates/shares/edit.inc:175
+#: templates/admin/perms/edit.inc:19 templates/admin/perms/edit.inc:42
+#: templates/admin/perms/edit.inc:65 templates/admin/perms/edit.inc:88
+#: templates/admin/perms/edit.inc:131
+msgid "Read"
+msgstr "Èíta»"
+
+#: templates/admin/user/remove.inc:12
+msgid "Really delete %s? This operation cannot be undone."
+msgstr "Naozaj vymaza» %s? Túto operáciu nemo¾no vráti» spä»."
+
+#: config/prefs.php.dist:67
+msgid "Refresh Portal View:"
+msgstr "Obnovi» zobrazenie portálu:"
+
+#: lib/Form.php:1045 lib/Form.php:1067
+msgid "Regex"
+msgstr "Regulárny výraz"
+
+#: lib/MIME/Viewer/icalendar.php:460 lib/MIME/Viewer/icalendar.php:479
+msgid "Remember the free/busy information."
+msgstr "Pamäta» si informácie o zaneprázdnenosti."
+
+#: rpcsum.php:98 config/prefs.php.dist:25
+msgid "Remote Servers"
+msgstr "Vzdialené servery"
+
+#: templates/rpcsum/manage.inc:35
+msgid "Remote URL (http://www.example.com/horde):"
+msgstr "Vzdialená URL (http://www.example.com/horde):"
+
+#: templates/rpcsum/manage.inc:5
+msgid "Remote summaries"
+msgstr "Vzdialené súhrnné informácie"
+
+#: templates/admin/groups/edit.inc:21
+msgid "Remove"
+msgstr "Odstráni»"
+
+#: lib/Block.php:148 lib/Block.php:149
+msgid "Remove Block"
+msgstr "Odstráni» blok"
+
+#: lib/MIME/Viewer/icalendar.php:661
+msgid "Remove from my calendar"
+msgstr "Odstráni» z kalendára"
+
+#: templates/data/csvmap.inc:126
+msgid "Remove pair"
+msgstr "Odstráni» pár"
+
+#: templates/admin/user/remove.inc:16
+msgid "Remove user"
+msgstr "Odstráni» pou¾ívateµa"
+
+#: templates/admin/user/remove.inc:7
+msgid "Remove user: %s"
+msgstr "Odstráni» pou¾ívateµa: %s"
+
+#: lib/MIME/Viewer/icalendar.php:197 lib/MIME/Viewer/icalendar.php:281
+#: lib/MIME/Viewer/icalendar.php:351
+msgid "Reply Sent."
+msgstr "Odpoveï odoslaná."
+
+#: lib/MIME/Viewer/icalendar.php:462 lib/MIME/Viewer/icalendar.php:471
+#: lib/MIME/Viewer/icalendar.php:481
+msgid "Reply with Not Supported Message"
+msgstr "Odpoveda» so správou: Nepodporované"
+
+#: lib/MIME/Viewer/icalendar.php:469
+msgid "Reply with free/busy for next 2 months."
+msgstr "Odpoveda» správou o zaneprázdnenosti na nasledujúce 2 mesiace."
+
+#: lib/MIME/Viewer/icalendar.php:468
+msgid "Reply with requested free/busy information."
+msgstr "Odpoveda» správou s po¾adovanou informáciou o zaneprázdnenosti."
+
+#: lib/MIME/Viewer/icalendar.php:189
+msgid "Reply: %s"
+msgstr "Odpoveda»: %s"
+
+#: lib/RPC/xmlrpc.php:114
+msgid "Request couldn't be answered. Returned errorcode: "
+msgstr "Na ¾iados» nemo¾no odpoveda». Chybový kód: "
+
+#: lib/Horde.php:365
+msgid "Required '%s' not specified in %s configuration."
+msgstr "V konfigurácii %s nie je ¹pecifikovaná polo¾ka '%s'."
+
+#: lib/VFS/sql.php:533 lib/VFS/ftp.php:706 lib/VFS/sql_file.php:695
+msgid "Required '%s' not specified in VFS configuration."
+msgstr "V konfigurácii VFS nie je ¹pecifikovaná polo¾ka '%s'."
+
+#: lib/MIME/Viewer/icalendar.php:595
+msgid "Required Participant"
+msgstr "Po¾adovaný úèastník"
+
+#: config/registry.php.dist:290
+msgid "Reseller"
+msgstr "Reseller"
+
+#: config/registry.php.dist:292
+msgid "Reseller Ticket"
+msgstr "Reseller Ticket"
+
+#: admin/user.php:33 lib/Form/Renderer.php:208 templates/rpcsum/manage.inc:52
+#: templates/admin/user/update.inc:43
+msgid "Reset"
+msgstr "Vymaza» formulár"
+
+#: admin/phpshell.php:68 admin/cmdshell.php:30 admin/sqlshell.php:48
+msgid "Results"
+msgstr "Výsledky"
+
+#: po/translation.php:693
+msgid "Results (including Horde):"
+msgstr "Výsledky (vrátane Horde):"
+
+#: po/translation.php:691
+msgid "Results:"
+msgstr "Výsledky:"
+
+#: templates/rpcsum/manage.inc:53 templates/prefs/end.inc:7
+msgid "Return to Options"
+msgstr "Návrat na nastavenia"
+
+#: config/registry.php.dist:573
+msgid "Riddles"
+msgstr "Hádanky"
+
+#: lib/MIME/Viewer/vcard.php:202 lib/MIME/Viewer/icalendar.php:586
+msgid "Role"
+msgstr "Úloha"
+
+#: lib/Form/Renderer.php:431
+msgid "Rotate 180"
+msgstr "Otoèi» o 180 stupòov"
+
+#: lib/Form/Renderer.php:428
+msgid "Rotate Left"
+msgstr "Otoèi» vµavo"
+
+#: lib/Form/Renderer.php:434
+msgid "Rotate Right"
+msgstr "Otoèi» vpravo"
+
+#: admin/sqlshell.php:99
+msgid "Run"
+msgstr "Spusti»"
+
+#: lib/Crypt/smime.php:265
+msgid "S/MIME Cryptographic Signature"
+msgstr "S/MIME kryptografický podpis"
+
+#: lib/Crypt/smime.php:303
+msgid "S/MIME Encrypted Message"
+msgstr "Správa za¹ifrovaná pomocou S/MIME"
+
+#: config/registry.php.dist:535
+msgid "SMS Messaging"
+msgstr "Posielanie SMS"
+
+#: admin/sqlshell.php:45
+msgid "SQL Query"
+msgstr "SQL dotaz"
+
+#: admin/sqlshell.php:23 lib/api.php:87
+msgid "SQL Shell"
+msgstr "SQL Shell"
+
+#: lib/Form/Renderer.php:524
+msgid "SS"
+msgstr "SS"
+
+#: config/registry.php.dist:436
+msgid "SSH"
+msgstr "SSH"
+
+#: lib/Notification/Listener/mobile.php:38
+msgid "SUCCESS"
+msgstr "ÚSPECH"
+
+#: templates/javascript/open_calendar.js:82
+msgid "Sa"
+msgstr "So"
+
+#: templates/shares/edit.inc:206 templates/admin/groups/edit.inc:53
+#: templates/admin/perms/edit.inc:162
+msgid "Save '%s'"
+msgstr "Ulo¾i» '%s'"
+
+#: templates/prefs/end.inc:5
+msgid "Save Options"
+msgstr "Ulo¾i» nastavenia"
+
+#: po/translation.php:1288
+msgid "Searching Horde applications..."
+msgstr "Hµadajú sa aplikácie Horde..."
+
+#: po/translation.php:126
+msgid "Searching gettext binaries..."
+msgstr "Hµadajú sa programy gettext..."
+
+#: templates/admin/perms/edit.inc:107 templates/admin/perms/edit.inc:149
+msgid "Select"
+msgstr "Vyberte"
+
+#: lib/Form/Renderer.php:605
+msgid "Select a date"
+msgstr "Vyberte dátum"
+
+#: templates/shares/edit.inc:193
+msgid "Select a group to add"
+msgstr "Vyberte skupinu na pridanie"
+
+#: templates/shares/edit.inc:38
+msgid "Select a new owner"
+msgstr "Vyberte nového vlastníka"
+
+#: templates/rpcsum/manage.inc:11
+msgid "Select a server"
+msgstr "Vyberte server"
+
+#: templates/shares/edit.inc:151
+msgid "Select a user to add"
+msgstr "Vyberte pou¾ívateµa na pridanie"
+
+#: util/special_characters.php:37
+msgid ""
+"Select the characters you need from the boxes below. You can then copy and "
+"paste them from the textarea."
+msgstr ""
+"Vyberte znaky, ktoré potrebujete. Potom si ich mô¾ete skopírova» z tohto "
+"okna do textu správy."
+
+#: templates/data/date.inc:17
+msgid "Select the date delimiter:"
+msgstr "Vyberte oddeµovaè vo formáte dátumu:"
+
+#: templates/data/date.inc:27
+msgid "Select the date format:"
+msgstr "Vyberte formát dátumu:"
+
+#: templates/data/time.inc:16
+msgid "Select the time delimiter:"
+msgstr "Vyberte oddeµovaè vo formáte èasu:"
+
+#: templates/data/time.inc:25
+msgid "Select the time format:"
+msgstr "Vyberte formát èasu:"
+
+#: templates/data/csvmap.inc:64
+msgid "Select two matching fields."
+msgstr "Vyberte dve zhodné polia."
+
+#: config/prefs.php.dist:53
+msgid "Select your color scheme."
+msgstr "Vyberte si farebnú schému"
+
+#: config/prefs.php.dist:36
+msgid "Select your preferred language:"
+msgstr "Vyberte jazyk:"
+
+#: lib/MIME/Viewer/icalendar.php:656
+msgid "Send Latest Information"
+msgstr "Odosla» najnov¹ie informácie"
+
+#: templates/problem/problem.inc:34
+msgid "Send Problem Report"
+msgstr "Posla» správu o probléme"
+
+#: lib/Form/Renderer.php:547 lib/Form/Renderer.php:577
+#: templates/javascript/open_calendar.js:94
+msgid "September"
+msgstr "September"
+
+#: lib/Crypt/smime.php:649
+msgid "Serial Number"
+msgstr "Sériové èíslo"
+
+#: lib/Form.php:1780
+msgid "Set"
+msgstr "Mno¾ina"
+
+#: config/prefs.php.dist:13
+msgid "Set the current time zone."
+msgstr "Nastavenie aktuálnej èasovej zóny."
+
+#: config/prefs.php.dist:26
+msgid "Set up remote servers that you want to access from your portal."
+msgstr ""
+"Nastavenie vzdialených serverov, ku ktorým chcete pristupova» z Vá¹ho "
+"portálu."
+
+#: config/prefs.php.dist:7
+msgid "Set your preferred display language."
+msgstr "Nastavenie preferovaného jazyka"
+
+#: config/prefs.php.dist:19
+msgid ""
+"Set your startup application, color scheme, page refreshing, and other "
+"display options."
+msgstr ""
+"Nastavenie aplikácie spú¹»anej pri ¹tarte, farebnej schémy, intervalu "
+"obnovovania stránky a iných vlastností zobrazenia."
+
+#: templates/problem/problem.inc:21
+msgid "Short Summary:"
+msgstr "Krátky súhrn:"
+
+#: config/prefs.php.dist:133
+msgid "Should access keys be defined for most links?"
+msgstr "Majú sa pre väè¹inu liniek vytvori» skratkové klávesy?"
+
+#: templates/shares/edit.inc:28 templates/shares/edit.inc:62
+#: templates/shares/edit.inc:85 templates/shares/edit.inc:108
+#: templates/shares/edit.inc:131 templates/shares/edit.inc:174
+#: templates/admin/perms/edit.inc:18 templates/admin/perms/edit.inc:41
+#: templates/admin/perms/edit.inc:64 templates/admin/perms/edit.inc:87
+#: templates/admin/perms/edit.inc:130
+msgid "Show"
+msgstr "Zobrazi»"
+
+#: config/prefs.php.dist:170
+msgid "Show last login time when logging in?"
+msgstr "Má sa pri prihlásení zobrazi» èas posledného prihlásenia?"
+
+#: lib/Form.php:2235
+msgid "Show picker"
+msgstr "Umo¾ni» výber farby"
+
+#: config/prefs.php.dist:75
+msgid "Show the %s Menu on the left?"
+msgstr "Zobrazi» menu %s na µavej strane?"
+
+#: lib/Block.php:162 lib/Block.php:163 lib/Block.php:182 lib/Block.php:183
+#: lib/Block.php:198 lib/Block.php:199 lib/Block.php:237 lib/Block.php:238
+msgid "Shrink"
+msgstr "Zmen¹i»"
+
+#: portal_edit.php:260 portal_edit.php:295 portal_edit.php:328
+#: portal_edit.php:363 portal_edit.php:388 portal_edit.php:420
+#: portal_edit.php:446 portal_edit.php:471
+msgid "Shrink or move neighbouring block(s) out of the way first"
+msgstr "Najprv musíte zmen¹i» alebo presunú» susedný blok (bloky)."
+
+#: lib/Signup.php:259
+msgid "Sign up"
+msgstr "Prihlási» sa"
+
+#: templates/login/login.inc:106
+msgid "Sign up if not registered"
+msgstr "Prihlási» sa, ak nie som registrovaný"
+
+#: lib/Crypt/smime.php:660
+msgid "Signature"
+msgstr "Podpis"
+
+#: lib/Crypt/smime.php:659
+msgid "Signature Algorithm"
+msgstr "Algoritmus podpisu"
+
+#: config/themes/html-simplex.php:9
+msgid "Simplex"
+msgstr "Simplex"
+
+#: lib/Form.php:1047 lib/Form.php:1069 lib/Form.php:1719 lib/Form.php:2348
+#: lib/MIME/Viewer/rar.php:69 lib/MIME/Viewer/zip.php:72
+#: lib/MIME/Viewer/tgz.php:72
+msgid "Size"
+msgstr "Veµkos»"
+
+#: templates/maintenance/confirm_bottom.inc:9
+msgid "Skip Maintenance"
+msgstr "Preskoèi» údr¾bu"
+
+#: po/translation.php:545 po/translation.php:725
+msgid "Skipped..."
+msgstr ""
+
+#: lib/Form.php:2344
+msgid "Sort order selection"
+msgstr "Nastavenie triedenia"
+
+#: config/nls.php.dist:180
+msgid "South European (ISO-8859-3)"
+msgstr "South European (ISO-8859-3)"
+
+#: lib/Form.php:824
+msgid "Spacer"
+msgstr ""
+
+#: config/registry.php.dist:97
+msgid "Spam"
+msgstr "Spam"
+
+#: util/special_characters.php:14
+msgid "Special Character Input"
+msgstr "Vlo¾i» ¹peciálne znaky"
+
+#: lib/MIME/Viewer/icalendar.php:446 lib/MIME/Viewer/icalendar.php:551
+msgid "Start"
+msgstr "©tart"
+
+#: lib/Form.php:2044 lib/Form.php:2231
+msgid "Start year"
+msgstr ""
+
+#: lib/Crypt/smime.php:523
+msgid "State or Province"
+msgstr "©tát alebo provincia"
+
+#: lib/MIME/Viewer/icalendar.php:586
+msgid "Status"
+msgstr "Stav"
+
+#: lib/Form.php:2237
+msgid "Storage format"
+msgstr "Formát ulo¾enia údajov"
+
+#: lib/Crypt/smime.php:525
+msgid "Street Address"
+msgstr "Ulica"
+
+#: lib/Form.php:1065
+msgid "String list"
+msgstr "Zoznam re»azcov"
+
+#: templates/javascript/open_calendar.js:83
+msgid "Su"
+msgstr "Ne"
+
+#: lib/Crypt/smime.php:559
+msgid "Subject"
+msgstr "Predmet"
+
+#: lib/Crypt/smime.php:594
+msgid "Subject Public Key Info"
+msgstr "Informácia o verejnom kµúèi"
+
+#: lib/Form/Renderer.php:205
+msgid "Submit"
+msgstr "Odosla»"
+
+#: signup.php:41
+msgid ""
+"Submitted request to add '%s' to the system. You can not log in until your "
+"request has been approved."
+msgstr ""
+"Po¾iadavka na pridanie '%s' do systému bola odoslaná. Nemô¾ete sa prihlási», "
+"kým nebude Va¹a po¾iadavka schválená."
+
+#: admin/sqlshell.php:82 lib/Notification/Listener/status.php:31
+msgid "Success"
+msgstr "Úspech"
+
+#: admin/user.php:84
+msgid "Successfully added '%s' to the system."
+msgstr "'%s' bola úspe¹ne pridaná do systému."
+
+#: admin/groups.php:82 admin/perms.php:84
+msgid "Successfully deleted '%s'."
+msgstr "Vymazanie '%s' bola úspe¹né."
+
+#: admin/user.php:105
+msgid "Successfully removed '%s' from the system."
+msgstr "Vymazanie '%s' zo systému bolo úspe¹né."
+
+#: admin/user.php:148
+msgid "Successfully updated '%s'"
+msgstr "Aktualizácia '%s' bola úspe¹ná."
+
+#: lib/MIME/Viewer/icalendar.php:561 lib/MIME/Viewer/icalendar.php:563
+msgid "Summary"
+msgstr "Krátky súhrn"
+
+#: config/registry.php.dist:525
+msgid "Support"
+msgstr "Podpora"
+
+#: lib/Crypt/smime.php:527
+msgid "Surname"
+msgstr "Priezvisko"
+
+#: lib/Data/tsv.php:161
+msgid "TSV file"
+msgstr "Súbor s hodnotami oddelenými tabulátorom"
+
+#: config/registry.php.dist:211
+msgid "Task"
+msgstr "Úloha"
+
+#: config/registry.php.dist:189
+msgid "Tasks"
+msgstr "Úlohy"
+
+#: config/themes/html-gennevilliers.php:17
+msgid "Teal"
+msgstr "Teal"
+
+#: lib/Crypt/smime.php:526
+msgid "Telephone Number"
+msgstr "Telefónne èíslo"
+
+#: lib/Template.php:473
+msgid "Template '%s' not found."
+msgstr "©ablóna '%s' nebola nájdená."
+
+#: admin/templates.php:171
+msgid "Template Administration"
+msgstr "Správa ¹ablón"
+
+#: lib/MIME/Viewer/icalendar.php:644
+msgid "Tentatively Accept request"
+msgstr "Predbe¾ne akceptova» po¾iadavku"
+
+#: lib/MIME/Viewer/icalendar.php:692
+msgid "Tentatively Accepted"
+msgstr "Predbe¾ne akceptovaná"
+
+#: lib/Form.php:1043
+msgid "Text"
+msgstr "Text"
+
+#: config/prefs.php.dist:94
+msgid "Text Only"
+msgstr "Iba text"
+
+#: templates/javascript/open_calendar.js:80
+msgid "Th"
+msgstr "©t"
+
+#: config/nls.php.dist:181
+msgid "Thai (TIS-620)"
+msgstr "Thai (TIS-620)"
+
+#: po/translation.php:922
+msgid "The %s help file for %s doesn't yet exist. Creating a new one."
+msgstr ""
+
+#: deletelink.php:38
+msgid "The %s link to %s has been removed."
+msgstr "Linka %s na %s bola vymazaná."
+
+#: maintenance.php:31
+msgid "The Maintenance:: class did not load successfully"
+msgstr "Trieda Maintenance:: sa nenahrala správne"
+
+#: util/colorpicker.php:29
+msgid "The Options window has closed. Exiting."
+msgstr "Okno Nastavenia bolo zatvorené."
+
+#: lib/Crypt/pgp.php:1152
+msgid ""
+"The detached PGP signature block is required to verify the signed message."
+msgstr ""
+"Na overenie podpísanej správy je potrebný samostatný blok s PGP signatúrou."
+
+#: lib/Crypt.php:127
+msgid "The encryption features require a secure web connection."
+msgstr "Pre vyu¾itie ¹ifrovania musíte ma» bezpeèné pripojenie."
+
+#: lib/Horde.php:366
+msgid "The file %s should contain a %s setting."
+msgstr "Súbor %s by mal obsahova» nastavenie %s."
+
+#: lib/Horde.php:356
+msgid "The file %s should contain some %s settings."
+msgstr "Súbor %s by mal obsahova» nastavenia %s."
+
+#: lib/Data.php:254
+msgid "The file contained no data."
+msgstr "Súbor neobsahuje nijaké údaje."
+
+#: po/translation.php:950 po/translation.php:1076
+msgid "The help file %s didn't start with <?xml"
+msgstr ""
+
+#: deletelink.php:41
+msgid "The link has been removed"
+msgstr "Linka bola vymazaná."
+
+#: lib/Crypt/pgp.php:132
+msgid ""
+"The location of the GnuPG binary must be given to the Crypt_pgp:: class."
+msgstr "Trieda Crypt_pgp:: musí pozna» umiestnenie programu GnuPG."
+
+#: lib/Registry.php:428
+msgid "The method %s is not defined in the API for %s."
+msgstr "Metóda %s nie je definovaná v API pre %s."
+
+#: lib/Crypt/smime.php:1221
+msgid "The openssl module is required for the Horde_Crypt_smime:: class."
+msgstr "Pre triedu Horde_Crypt_smime:: je po¾adovaný modul openssl."
+
+#: lib/Prefs.php:289
+msgid ""
+"The preference \"%s\" could not be saved because its data exceeded the "
+"maximum allowable size"
+msgstr ""
+"Nastavenie \"%s\" nemo¾no ulo¾i», preto¾e veµkos» údajov pre toto nastavenie "
+"prekraèuje maximálnu povolenú veµkos»."
+
+#: lib/MIME/Viewer/deb.php:35 lib/MIME/Viewer/enscript.php:38
+#: lib/MIME/Viewer/mspowerpoint.php:35 lib/MIME/Viewer/msword.php:35
+#: lib/MIME/Viewer/rpm.php:35 lib/MIME/Viewer/webcpp.php:37
+#: lib/MIME/Viewer/srchighlite.php:40 lib/MIME/Viewer/msexcel.php:35
+msgid ""
+"The program used to view this data type (%s) was not found on the system."
+msgstr "Program na zobrazenie tohto typu správy (%s) sa nepodarilo nájs»."
+
+#: rpcsum.php:90
+msgid "The server \"%s\" has been deleted."
+msgstr "Server \"%s\" bol vymazaný."
+
+#: rpcsum.php:61
+msgid "The server \"%s\" has been saved."
+msgstr "Server \"%s\" bol ulo¾ený."
+
+#: lib/Data.php:301
+msgid "The uploaded data was lost since the previous step."
+msgstr "Nahrané údaje sa od posledného kroku stratili."
+
+#: lib/Data/csv.php:225 lib/Data/tsv.php:167
+msgid "The uploaded file could not be saved."
+msgstr "Nahraný súbor nebolo mo¾né ulo¾i»."
+
+#: lib/MIME/Viewer/icalendar.php:94
+msgid "The user's free/busy information was sucessfully stored."
+msgstr "Informácia o zaneprázdnenosti pou¾ívateµa bola úspe¹ne ulo¾ená."
+
+#: lib/MIME/Contents.php:314
+msgid "There are no parts that can be displayed inline."
+msgstr "®iadne èasti nemo¾no zobrazi» v správe."
+
+#: lib/Form.php:1153
+msgid ""
+"There are too many characters in this field. You have entered %s characters; "
+"you must enter less than %s."
+msgstr "Zadali ste príli¹ veµa znakov: %s; musíte zada» menej ako %s znakov."
+
+#: po/translation.php:913
+msgid "There doesn't yet exist a help file for %s."
+msgstr ""
+
+#: signup.php:46
+msgid "There was a problem adding '%s' to the system. %s."
+msgstr "Nastala chyba pri pridávaní '%s' do systému: %s."
+
+#: admin/user.php:74
+msgid "There was a problem adding '%s' to the system: %s"
+msgstr "Nastala chyba pri pridávaní '%s' do systému: %s"
+
+#: admin/user.php:103
+msgid "There was a problem removing '%s' from the system."
+msgstr "Nastala chyba pri odstraòovaní '%s' zo systému."
+
+#: admin/user.php:139
+msgid "There was a problem updating '%s': %s"
+msgstr "Nastala chyba pri aktualizácii '%s': %s"
+
+#: lib/Server.php:145
+msgid "There was a problem with the file upload: No %s was uploaded."
+msgstr "Nastala chyba pri nahrávaní súboru na server: %s nebol nahraný."
+
+#: lib/Server.php:150
+msgid ""
+"There was a problem with the file upload: The %s was larger than the maximum "
+"allowed size (%d bytes)."
+msgstr ""
+"Nastala chyba pri nahrávaní súboru na server: Súbor %s bol väè¹í ako "
+"maximálna povolená veµkos» (%d bajtov)."
+
+#: lib/Server.php:152
+msgid ""
+"There was a problem with the file upload: The %s was only partially uploaded."
+msgstr ""
+"Nastala chyba pri nahrávaní súboru na server: Súbor %s bol nahraný iba "
+"èiastoène."
+
+#: lib/MIME/Viewer/vcard.php:49
+msgid "There was an error importing the contact data."
+msgstr "Nastala chyba pri importovaní kontaktu."
+
+#: lib/MIME/Viewer/icalendar.php:76
+msgid "There was an error importing the event: %s."
+msgstr "Nastala chyba pri importe udalosti: %s."
+
+#: lib/MIME/Viewer/icalendar.php:106
+msgid "There was an error importing this task: %s."
+msgstr "Nastala chyba pri importovaní úlohy: %s."
+
+#: lib/MIME/Viewer/icalendar.php:92
+msgid "There was an error importing user's free/busy information: %s."
+msgstr "Nastala chyba pri importovaní informácie o zaneprázdnenosti: %s."
+
+#: po/translation.php:960 po/translation.php:966 po/translation.php:1086
+#: po/translation.php:1092
+msgid ""
+"There was an error opening the file %s. Try running translation.php with the "
+"flag -d to see any error messages from the xml parser."
+msgstr ""
+
+#: lib/Crypt/smime.php:238
+msgid "There was an unknown error verifying this message."
+msgstr "Nastala neznáma chyba pri overovaní tejto správy."
+
+#: lib/MIME/Viewer/icalendar.php:83 lib/MIME/Viewer/icalendar.php:97
+#: lib/MIME/Viewer/icalendar.php:113 lib/MIME/Viewer/icalendar.php:200
+msgid "This action is not supported."
+msgstr "Táto akcia nie je podporovaná."
+
+#: lib/MIME/Viewer/icalendar.php:119 lib/MIME/Viewer/icalendar.php:361
+msgid "This action is not yet implemented."
+msgstr "Táto akcia e¹te nie je implementovaná."
+
+#: lib/Registry.php:626
+msgid "This application is not activated."
+msgstr "Táto applikácia nie je aktivovaná."
+
+#: lib/MIME/Viewer/vcard.php:51
+msgid ""
+"This contact data has been successfully added to your address book. Click "
+"below to view:"
+msgstr ""
+"Tento kontakt bol úspe¹ne pridaný do Va¹ej knihy adries. Kliknite ni¾¹ie pre "
+"zobrazenie:"
+
+#: lib/MIME/Viewer/rar.php:52
+msgid "This does not appear to be a valid rar archive."
+msgstr "Tento súbor pravdepodobne nie je platný rar archív."
+
+#: lib/MIME/Viewer/zip.php:55
+msgid "This does not appear to be a valid zip file."
+msgstr "Tento súbor pravdepodobne nie je platný zip súbor."
+
+#: lib/Form.php:2362
+msgid "This does not seem to be a valid card number."
+msgstr "Táto hodnota pravdepodobne nie je platné èíslo karty."
+
+#: lib/MIME/Viewer/icalendar.php:79
+msgid ""
+"This event has been successfully added to your calendar. Click icon to view:"
+msgstr ""
+"Táto udalos» bola úspe¹ne pridaná do Vá¹ho kalendára. Kliknite na ikonu pre "
+"zobrazenie:"
+
+#: lib/Form.php:892 lib/Form.php:921 lib/Form.php:950 lib/Form.php:1014
+#: lib/Form.php:1150 lib/Form.php:1287 lib/Form.php:1470 lib/Form.php:1509
+#: lib/Form.php:1555 lib/Form.php:1579 lib/Form.php:1628 lib/Form.php:1694
+#: lib/Form.php:1859 lib/Form.php:1892 lib/Form.php:2105 lib/Form.php:2251
+#: lib/Form.php:2561 lib/Form.php:2569
+msgid "This field is required."
+msgstr "Toto pole je povinné."
+
+#: lib/Form.php:929
+msgid "This field may only contain integers."
+msgstr "Toto pole mô¾e obsahova» iba celé èísla."
+
+#: lib/Form.php:1867
+msgid "This field may only contain numbers and the colon."
+msgstr "Toto pole mô¾e obsahova» iba èísla a dvojbodku."
+
+#: lib/Form.php:900
+msgid "This field may only contain numbers."
+msgstr "Toto pole mô¾e obsahova» iba èísla."
+
+#: lib/Form.php:958
+msgid "This field must be a comma or space separated list of integers"
+msgstr "Toto pole musí obsahova» zoznam èísel oddelený èiarkou alebo medzerou"
+
+#: lib/Form.php:2259
+msgid ""
+"This field must contain a color code in the RGB Hex format, for example "
+"'#1234af'."
+msgstr ""
+"Toto pole musí obsahova» kód farby v hexadecimálnom RGB formáte, napr. "
+"'#1234af'."
+
+#: lib/Form.php:357
+msgid "This form has already been processed."
+msgstr "Tento formulár bol u¾ spracovaný."
+
+#: lib/IMAP/Search.php:112
+msgid "This function requires 'imap' to be built into PHP."
+msgstr "Táto funkcia vy¾aduje podporu 'imap' v PHP."
+
+#: lib/PrefsUI.php:133
+msgid "This number must be at least one."
+msgstr "Èíslo musí by» najmenej 1."
+
+#: po/translation.php:147
+msgid ""
+"This program was only tested on gettext 0.11. There is no\n"
+"guarantee that it will work with your version of gettext."
+msgstr ""
+
+#: po/translation.php:1145
+msgid "This script must be run from the command line."
+msgstr ""
+
+#: lib/Compress/gzip.php:48
+msgid "This server can't uncompress zip and gzip files."
+msgstr "Server nemô¾e rozbali» súbory zip a gzip."
+
+#: lib/Registry.php:152
+msgid "This system is currently deactivated."
+msgstr "Tento systém je momentálne deaktivovaný."
+
+#: lib/MIME/Viewer/icalendar.php:109
+msgid ""
+"This task has been successfully added to your tasklist. Click icon to view:"
+msgstr ""
+"Táto úloha bola úspe¹ne pridaná do Vá¹ho zoznamu úloh. Kliknite na ikonu pre "
+"zobrazenie:"
+
+#: lib/PrefsUI.php:131
+msgid "This value must be a number."
+msgstr "Táto hodnota musí by» èíselná"
+
+#: util/colorpicker.php:35
+msgid "This window must be called from an Options window"
+msgstr "Toto okno sa musí spú¹»a» z okna Nastavenia"
+
+#: config/registry.php.dist:272
+msgid "Tickets"
+msgstr "Tickets"
+
+#: lib/Form.php:1877
+msgid "Time"
+msgstr "Èas"
+
+#: config/registry.php.dist:369
+msgid "Time Tracking"
+msgstr "Time Tracking"
+
+#: config/prefs.php.dist:12
+msgid "Time Zone"
+msgstr "Èasová zóna"
+
+#: lib/Form.php:1977
+msgid "Time selection"
+msgstr "Výber èasu"
+
+#: lib/MIME/Viewer/vcard.php:197
+msgid "Title"
+msgstr "Titulok"
+
+#: lib/Block.php:441
+msgid "Title Goes Here!"
+msgstr "Sem patrí nadpis!"
+
+#: lib/Form/Renderer.php:674
+msgid ""
+"To select multiple items, hold down the Control/Option key while clicking."
+msgstr ""
+"Na výber viacerých hodnôt podr¾te poèas klikania klávesu Control/Option."
+
+#: po/translation.php:536
+msgid "Translated"
+msgstr ""
+
+#: lib/Form.php:1428
+msgid "True or false"
+msgstr "Logická hodnota (pravda alebo nepravda)"
+
+#: templates/javascript/open_calendar.js:78
+msgid "Tu"
+msgstr "Ut"
+
+#: config/nls.php.dist:182
+msgid "Turkish (ISO-8859-9)"
+msgstr "Turkish (ISO-8859-9)"
+
+#: lib/CLI.php:249
+msgid "Type your choice: "
+msgstr "Zadajte Va¹u voµbu:"
+
+#: lib/MIME/Viewer/vcard.php:217
+msgid "URL"
+msgstr "URL"
+
+#: lib/VFS/file.php:317
+msgid "Unable to access VFS directory."
+msgstr "Nemo¾no pristupova» z adresára VFS."
+
+#: lib/Signup.php:98
+msgid "Unable to add extra user information when signing up."
+msgstr "Nemo¾no prida» pou¾ívateµské informácie poèas prihlásenia."
+
+#: lib/VFS/file.php:288 lib/VFS/musql.php:479 lib/VFS/ftp.php:321
+msgid "Unable to change permission for VFS file %s/%s."
+msgstr "Nemo¾no zmeni» práva VFS súboru %s/%s."
+
+#: lib/VFS/ftp.php:642
+msgid "Unable to change to %s."
+msgstr "Nemo¾no zmeni» na %s."
+
+#: lib/Links/sql.php:214 lib/Auth/sql.php:430
+msgid "Unable to connect to SQL server."
+msgstr "Chyba pri pokuse o pripojenie na SQL server."
+
+#: lib/VFS/ftp.php:715
+msgid "Unable to connect with SSL."
+msgstr "Chyba pri pokuse o pripojenie pomocou SSL."
+
+#: lib/VFS/file.php:156 lib/VFS/sql_file.php:172 lib/VFS/sql_file.php:177
+#: lib/VFS/sql_file.php:185
+msgid "Unable to copy VFS file."
+msgstr "Nemo¾no kopírova» VFS súbor."
+
+#: lib/VFS/file.php:257 lib/VFS/sql_file.php:243
+msgid "Unable to create VFS directory."
+msgstr "Nemo¾no vytvori» VFS adresár."
+
+#: lib/VFS/musql.php:115
+msgid "Unable to create VFS file."
+msgstr "Nemo¾no vytvori» VFS súbor."
+
+#: lib/VFS/musql.php:256 lib/VFS/ftp.php:299
+msgid "Unable to create VFS folder."
+msgstr "Nemo¾no vytvori» VFS prieèinok."
+
+#: lib/Compress/tar.php:79 lib/Compress/gzip.php:82
+msgid "Unable to decompress data."
+msgstr "Nemo¾no dekomprimova» údaje."
+
+#: lib/VFS/file.php:234 lib/VFS/sql.php:291 lib/VFS/musql.php:316
+#: lib/VFS/ftp.php:232 lib/VFS/sql_file.php:331
+msgid "Unable to delete %s, the directory is not empty"
+msgstr "Nemo¾no vymaza» %s, adresár nie je prázdny."
+
+#: admin/groups.php:80 admin/perms.php:82
+msgid "Unable to delete '%s': %s."
+msgstr "Nemo¾no vymaza» '%s': %s."
+
+#: lib/VFS/sql_file.php:347 lib/VFS/sql_file.php:351
+msgid "Unable to delete VFS directory recursively."
+msgstr "Nemo¾no rekurzívne vymaza» VFS adresár."
+
+#: lib/VFS/file.php:240 lib/VFS/musql.php:329 lib/VFS/musql.php:342
+#: lib/VFS/musql.php:350 lib/VFS/sql_file.php:343
+msgid "Unable to delete VFS directory."
+msgstr "Nemo¾no vymaza» VFS adresár."
+
+#: lib/VFS/sql.php:312 lib/VFS/sql.php:322
+msgid "Unable to delete VFS directory: %s."
+msgstr "Nemo¾no vymaza» VFS adresár: %s."
+
+#: lib/VFS/file.php:208 lib/VFS/sql.php:192 lib/VFS/musql.php:160
+#: lib/VFS/musql.php:173 lib/VFS/musql.php:180 lib/VFS/ftp.php:171
+#: lib/VFS/sql_file.php:379 lib/VFS/sql_file.php:387
+msgid "Unable to delete VFS file."
+msgstr "Nemo¾no vymaza» VFS súbor."
+
+#: lib/VFS/sql.php:303
+msgid "Unable to delete VFS recursively: %s."
+msgstr "Nemo¾no rekurzívne vymaza» VFS: %s."
+
+#: lib/VFS/ftp.php:685
+msgid "Unable to determine current directory."
+msgstr "Nemo¾no urèi» aktuálny adresár."
+
+#: lib/Crypt/smime.php:553
+msgid "Unable to extract certificate details"
+msgstr "Nemo¾no získa» podrobnosti o certifikáte"
+
+#: lib/VFS/file.php:126 lib/VFS/file.php:131 lib/VFS/file.php:151
+#: lib/VFS/sql_file.php:142 lib/VFS/sql_file.php:147
+msgid "Unable to move VFS file."
+msgstr "Nemo¾no presunú» VFS súbor."
+
+#: lib/VFS/file.php:99 lib/VFS/file.php:187 lib/VFS/sql_file.php:104
+#: lib/VFS/sql_file.php:107
+msgid "Unable to open VFS file for writing."
+msgstr "Nemo¾no otvori» VFS súbor na zápis."
+
+#: lib/VFS/file.php:65 lib/VFS/ftp.php:96 lib/VFS/sql_file.php:73
+msgid "Unable to open VFS file."
+msgstr "Nemo¾no otvori» VFS súbor."
+
+#: lib/MIME/Viewer/tgz.php:44
+msgid "Unable to open compressed archive."
+msgstr "Nemo¾no otvori» skomprimovaný archív."
+
+#: lib/VFS/file.php:567
+msgid "Unable to read the vfsroot directory."
+msgstr "Nemo¾no èíta» z adresára vfsroot."
+
+#: lib/VFS/sql_file.php:287
+msgid "Unable to rename VFS directory."
+msgstr "Nemo¾no premenova» VFS adresár."
+
+#: lib/VFS/sql.php:230
+msgid "Unable to rename VFS directory: %s."
+msgstr "Nemo¾no premenova» VFS adresár: %s."
+
+#: lib/VFS/file.php:514 lib/VFS/musql.php:226 lib/VFS/ftp.php:277
+msgid "Unable to rename VFS file %s/%s."
+msgstr "Nemo¾no premenova» VFS súbor %s/%s."
+
+#: lib/VFS/sql.php:225 lib/VFS/musql.php:207 lib/VFS/musql.php:462
+#: lib/VFS/sql_file.php:276 lib/VFS/sql_file.php:298
+msgid "Unable to rename VFS file."
+msgstr "Nemo¾no premenova» VFS súbor."
+
+#: lib/MIME/Viewer/msword.php:58
+msgid "Unable to translate this Word document"
+msgstr "Nepodarilo sa prelo¾i» tento dokument Wordu"
+
+#: lib/VFS/file.php:107 lib/VFS/file.php:191 lib/VFS/sql_file.php:115
+#: lib/VFS/sql_file.php:120
+msgid "Unable to write VFS file data."
+msgstr "Nemo¾no zapísa» údaje VFS súboru."
+
+#: lib/VFS/ftp.php:124 lib/VFS/ftp.php:127
+msgid "Unable to write VFS file."
+msgstr "Nemo¾no zapísa» VFS súbor."
+
+#: util/editor/designmode/editor.php:84
+msgid "Underline"
+msgstr "Podèiarknu»"
+
+#: templates/prefs/end.inc:6
+msgid "Undo Changes"
+msgstr "Zru¹i» zmeny"
+
+#: lib/MIME/Viewer/icalendar.php:387
+msgid "Unhandled component of type: %s"
+msgstr "Neo¹etrený komponent typu: %s"
+
+#: config/nls.php.dist:183
+msgid "Unicode (UTF-8)"
+msgstr "Unicode (UTF-8)"
+
+#: lib/Crypt/pgp.php:400 lib/Crypt/pgp.php:401
+msgid "Unknown"
+msgstr "Neznámy"
+
+#: lib/iCalendar/vevent.php:34
+msgid "Unknown Organizer"
+msgstr "Neznámy organizátor"
+
+#: po/translation.php:1337
+msgid "Unknown command: %s"
+msgstr "Neznámy príkaz: %s"
+
+#: lib/Crypt/smime.php:634 lib/Crypt/smime.php:883 lib/Crypt/smime.php:889
+msgid "Unsupported Extension"
+msgstr "Nepodporované roz¹írenie"
+
+#: lib/Serialize.php:103
+msgid "Unsupported serialization type"
+msgstr "Nepodporovaný typ serializácie"
+
+#: lib/Serialize.php:233
+msgid "Unsupported unserialization type"
+msgstr "Nepodporovaný typ deserializácie"
+
+#: po/translation.php:536
+msgid "Untranslated"
+msgstr "Neprelo¾ené"
+
+#: templates/admin/user/list.inc:13
+msgid "Update"
+msgstr "Aktualizácia"
+
+#: templates/admin/user/update.inc:30
+msgid "Update %s"
+msgstr "Aktualizova» %s"
+
+#: lib/MIME/Viewer/icalendar.php:651
+msgid "Update respondent status"
+msgstr "Aktualizova» stav úèastníka"
+
+#: templates/admin/user/update.inc:42
+msgid "Update user"
+msgstr "Aktualizova» pou¾ívateµa"
+
+#: admin/groups.php:137 admin/perms.php:250
+msgid "Updated '%s'."
+msgstr "Aktualizácia '%s' bola úspe¹ná."
+
+#: po/translation.php:945 po/translation.php:1071
+msgid "Updating %s help file for %s."
+msgstr ""
+
+#: lib/Form/Renderer.php:407
+msgid "Upload"
+msgstr "Nahra»"
+
+#: po/translation.php:39 po/translation.php:95 po/translation.php:96
+msgid "Usage:"
+msgstr "Pou¾itie:"
+
+#: templates/prefs/select.inc:3
+msgid "Use Default Value"
+msgstr "Pou¾i» prednastavenú hodnotu"
+
+#: admin/user.php:184
+msgid "User Administration"
+msgstr "Správa pou¾ívateµov"
+
+#: prefs.php:103
+msgid "User Options"
+msgstr "Pou¾ívateµské nastavenia"
+
+#: signup.php:55
+msgid "User Registration"
+msgstr "Registrácia pou¾ívateµa"
+
+#: admin/user.php:37 templates/login/login.inc:82
+msgid "Username"
+msgstr "Pou¾ívateµské meno"
+
+#: lib/Signup.php:121
+msgid "Username '%s' already exists."
+msgstr "Pou¾ívateµ '%s' u¾ existuje."
+
+#: lib/Auth.php:635
+msgid "Username and/or password not correct."
+msgstr "Pou¾ívateµské meno a/alebo heslo nie je správne."
+
+#: templates/rpcsum/manage.inc:38
+msgid "Username:"
+msgstr "Pou¾ívateµské meno:"
+
+#: templates/login/mobile.inc:8
+msgid "Username: "
+msgstr "Pou¾ívateµské meno: "
+
+#: lib/api.php:71 templates/admin/perms/edit.inc:85
+msgid "Users"
+msgstr "Pou¾ívatelia"
+
+#: templates/admin/user/list.inc:4
+msgid "Users in the system:"
+msgstr "Pou¾ívatelia systému:"
+
+#: lib/VFS/file.php:93 lib/VFS/file.php:181
+msgid "VFS directory does not exist."
+msgstr "VFS adresár neexistuje."
+
+#: config/registry.php.dist:446
+msgid "Vacation"
+msgstr "Dovolenka"
+
+#: lib/Crypt/smime.php:588
+msgid "Validity"
+msgstr "Platnos»"
+
+#: lib/Form.php:1717 lib/Form.php:1782 lib/Form.php:2346
+msgid "Values"
+msgstr "Hodnoty"
+
+#: lib/Form.php:1659
+msgid "Values to select from"
+msgstr ""
+
+#: lib/Crypt/smime.php:235
+msgid "Verification failed - this message may have been tampered with."
+msgstr "Overenie zlyhalo - táto správa mohla by» zmenená."
+
+#: lib/Crypt/smime.php:648
+msgid "Version"
+msgstr "Verzia"
+
+#: config/registry.php.dist:252
+msgid "Version Control"
+msgstr "Mana¾ment verzií"
+
+#: config/nls.php.dist:184
+msgid "Vietnamese (VISCII)"
+msgstr "Vietnamese (VISCII)"
+
+#: lib/MIME/Contents.php:874
+msgid "View %s"
+msgstr "Zobrazi» %s"
+
+#: config/registry.php.dist:578
+msgid "View an external web page"
+msgstr "Zobrazi» externú www stránku"
+
+#: lib/Form/Renderer.php:876
+msgid "View map"
+msgstr "Zobrazi» mapu"
+
+#: lib/Notification/Listener/mobile.php:39
+msgid "WARN"
+msgstr "VAROVANIE"
+
+#: lib/Notification/Listener/status.php:32
+msgid "Warning"
+msgstr "Varovanie"
+
+#: po/translation.php:147 po/translation.php:560 po/translation.php:590
+#: po/translation.php:601 po/translation.php:913 po/translation.php:922
+#: po/translation.php:930 po/translation.php:940 po/translation.php:950
+#: po/translation.php:960 po/translation.php:966 po/translation.php:1076
+#: po/translation.php:1086 po/translation.php:1092 po/translation.php:1112
+msgid "Warning: "
+msgstr "Varovanie: "
+
+#: templates/javascript/open_calendar.js:79
+msgid "We"
+msgstr "St"
+
+#: lib/Block/google.php:52
+msgid "Web"
+msgstr "Web"
+
+#: config/registry.php.dist:455
+msgid "Webserver"
+msgstr "Webserver"
+
+#: lib/Maintenance.php:40
+msgid "Weekly"
+msgstr "Tý¾denne"
+
+#: mobile.php:28
+msgid "Welcome"
+msgstr "Vitajte"
+
+#: templates/login/mobile.inc:4 templates/login/login.inc:63
+msgid "Welcome to %s"
+msgstr "Víta Vás %s"
+
+#: mobile.php:29 templates/portal/menu.inc:6
+msgid "Welcome, %s"
+msgstr "Vitajte, %s"
+
+#: config/nls.php.dist:163
+msgid "Western (ISO-8859-1)"
+msgstr "Western (ISO-8859-1)"
+
+#: config/nls.php.dist:164
+msgid "Western (ISO-8859-15)"
+msgstr "Western (ISO-8859-15)"
+
+#: config/prefs.php.dist:125
+msgid "What application should %s display after login?"
+msgstr "Ktorú aplikáciu má %s zobrazi» po prihlásení?"
+
+#: templates/data/csvinfo.inc:21
+msgid "What is the delimiter character?"
+msgstr "Aký je znak pre oddeµovaè?"
+
+#: templates/data/csvinfo.inc:24
+msgid "What is the quote character?"
+msgstr "Aký je znak pre úvodzovku?"
+
+#: config/registry.php.dist:224
+msgid "Wishlists"
+msgstr "Wishlists"
+
+#: lib/MIME/Viewer/vcard.php:142
+msgid "Work Address"
+msgstr "Adresa do práce"
+
+#: lib/MIME/Viewer/vcard.php:159
+msgid "Work Phone"
+msgstr "Telefón do práce"
+
+#: admin/setup.php:50
+msgid "Writing not possible. Copy this code manually to %s."
+msgstr "Nemo¾no zapísa». Skopírujte tento kód ruène do %s."
+
+#: po/translation.php:1022
+msgid "Writing updated help file to %s."
+msgstr ""
+
+#: admin/setup.php:47
+msgid "Wrote %s successfully."
+msgstr "Zápis %s bol úspe¹ný."
+
+#: lib/Crypt/smime.php:542
+msgid "X509v3 Basic Constraints"
+msgstr "Základné obmedzenia X509v3"
+
+#: lib/Crypt/smime.php:541
+msgid "X509v3 Extended Key Usage"
+msgstr "Pou¾itie roz¹íreného kµúèa X509v3"
+
+#: lib/Crypt/smime.php:543
+msgid "X509v3 Subject Alternative Name"
+msgstr "Alternatívne meno subjektu X509v3"
+
+#: lib/Crypt/smime.php:544
+msgid "X509v3 Subject Key Identifier"
+msgstr "Identifikátor kµúèa subjektu X509v3"
+
+#: lib/Crypt/smime.php:630
+msgid "X509v3 extensions"
+msgstr "roz¹írenia X509v3"
+
+#: templates/data/date.inc:30 templates/data/date.inc:31
+#: templates/data/date.inc:32 templates/data/date.inc:33
+msgid "YY"
+msgstr "YY"
+
+#: lib/Form/Renderer.php:551 lib/Form/Renderer.php:585
+msgid "YYYY"
+msgstr "YYYY"
+
+#: lib/Maintenance.php:38
+msgid "Yearly"
+msgstr "Roène"
+
+#: po/translation.php:158
+msgid "Yes"
+msgstr "Áno"
+
+#: templates/maintenance/agreement_bottom.inc:6
+msgid "Yes, I Agree"
+msgstr "Súhlasím."
+
+#: lib/Form.php:1481 lib/Form.php:1525
+msgid "You did not enter a valid email address."
+msgstr "Nezadali ste platnú e-mailovú adresu."
+
+#: lib/Data.php:264
+msgid ""
+"You didn't map any fields from the imported file to the corresponding fields "
+"in %s."
+msgstr ""
+"Neurèili ste vz»ah polí z importovaného súboru k zodpovedajúcim poliam v %s."
+
+#: login.php:20
+msgid "You have been logged out.<br />Thank you for using the system."
+msgstr "Práve ste sa odhlásili.<br />Ïakujeme, ¾e pou¾ívate ná¹ systém."
+
+#: lib/Form.php:1020
+msgid "You have to enter a valid value."
+msgstr "Musíte zada» platnú hodnotu."
+
+#: lib/Perms.php:50
+msgid "You must configure a Category backend to use %s."
+msgstr "Pre pou¾itie %s musíte nakonfigurova» modul pre Kategórie."
+
+#: lib/Signup.php:40
+msgid "You must configure a Signup backend to use Signups."
+msgstr "Pre pou¾ívanie musíte nakonfigurova» modul Signup."
+
+#: templates/problem/javascript.inc:11
+msgid "You must describe the problem before you can send the problem report."
+msgstr "Musíte popísa» problém predtým, ako odo¹lete správu o probléme."
+
+#: rpcsum.php:92
+msgid "You must select an server to be deleted."
+msgstr "Musíte vybra» server, ktorý chcete vymaza»."
+
+#: admin/user.php:100
+msgid "You must specify a username to remove."
+msgstr "Musíte urèi» meno pou¾ívateµa, ktorého chcete vymaza»."
+
+#: admin/user.php:64 templates/admin/user/update.inc:8
+msgid "You must specify the username to add."
+msgstr "Musíte urèi» meno pou¾ívateµa, ktorého chcete prida»."
+
+#: admin/user.php:126
+msgid "You must specify the username to update."
+msgstr "Musíte urèi» pou¾ívateµa, ktorý sa má aktualizova»."
+
+#: lib/Compress/zip.php:138
+msgid "You must specify what action to perform."
+msgstr "Musíte urèi» akciu, ktorá sa má vykona»."
+
+#: login.php:19
+msgid "Your %s session has expired. Please login again."
+msgstr "Platnos» va¹ej relácie '%s' vypr¹ala. Prosím, prihláste sa znovu."
+
+#: templates/problem/problem.inc:16
+msgid "Your Email Address:"
+msgstr "Va¹a Emailová adresa:"
+
+#: config/prefs.php.dist:5 config/prefs.php.dist:11
+msgid "Your Information"
+msgstr "Va¹e informácie"
+
+#: templates/problem/problem.inc:11
+msgid "Your Name:"
+msgstr "Va¹e meno:"
+
+#: templates/admin/user/noadd.inc:9
+msgid ""
+"Your authentication backend does not support adding users, or the feature "
+"has been disabled for some other reason."
+msgstr ""
+"Vá¹ autentifikaèný modul nepodporuje pridávanie pou¾ívateµov, alebo bola "
+"táto mo¾nos» z nejakého dôvodu zakázaná."
+
+#: templates/admin/user/nolist.inc:9
+msgid ""
+"Your authentication backend does not support listing users, or the feature "
+"has been disabled for some other reason."
+msgstr ""
+"Vá¹ autentifikaèný modul nepodporuje zobrazovanie zoznamu pou¾ívateµov, "
+"alebo bola táto mo¾nos» z nejakého dôvodu zakázaná."
+
+#: lib/Block/iframe.php:51
+msgid "Your browser does not support this feature."
+msgstr "Vá¹ prehliadaè nepodporuje túto funkciu."
+
+#: templates/javascript/print.js:27
+msgid ""
+"Your browser does not support this print option. Press Control/Option + P to "
+"print."
+msgstr ""
+"Vá¹ prehliadaè nepodporuje túto mo¾nos» tlaèe. Stlaète CTRL+P pre tlaè "
+"stránky."
+
+#: config/prefs.php.dist:45
+msgid "Your current time zone:"
+msgstr "Va¹a aktuálna èasová zóna:"
+
+#: lib/PrefsUI.php:169
+msgid "Your options have been updated."
+msgstr "Va¹e nastavenia boli aktualizované."
+
+#: templates/rpcsum/manage.inc:9
+msgid "Your remote servers:"
+msgstr "Va¹e vzdialené servery:"
+
+#: problem.php:56
+msgid "[Problem Report]"
+msgstr "[Sprava o probleme]"
+
+#: lib/Horde.php:160
+msgid "[line %s of %s]"
+msgstr "[riadok %s v %s]"
+
+#: po/translation.php:590
+msgid "an error has occured:"
+msgstr "vyskytla sa chyba:"
+
+#: po/translation.php:378 po/translation.php:436 po/translation.php:497
+#: po/translation.php:625 po/translation.php:682 po/translation.php:752
+msgid "done"
+msgstr "hotovo"
+
+#: po/translation.php:438 po/translation.php:470 po/translation.php:499
+#: po/translation.php:650 po/translation.php:684 po/translation.php:754
+msgid "failed"
+msgstr "chyba"
+
+#: lib/Server.php:105
+msgid "file"
+msgstr "súbor"
+
+#: po/translation.php:132
+msgid "found: "
+msgstr ""
+
+#: lib/Form/Renderer.php:455
+msgid "h:"
+msgstr ""
+
+#: config/registry.php.dist:262
+msgid "i18n"
+msgstr "i18n"
+
+#: menu.php:77 util/sidebar.php:78
+msgid "name"
+msgstr "meno"
+
+#: po/translation.php:324
+msgid "not changed"
+msgstr "nezmenený"
+
+#: po/translation.php:134
+msgid "not found"
+msgstr "nenájdený."
+
+#: lib/RPC.php:137
+msgid "not implemented"
+msgstr "nie je implementované"
+
+#: lib/Crypt/smime.php:1207
+msgid "not yet implemented"
+msgstr "zatiaµ nie je implementované"
+
+#: po/translation.php:601
+msgid "the Horde PO file for the locale %s does not exist:"
+msgstr ""
+
+#: admin/user.php:38 lib/Signup.php:264
+msgid "type the password twice to confirm"
+msgstr "pre potvrdenie zadajte heslo dvakrát"
+
+#: lib/MIME/Part.php:16
+msgid "unnamed"
+msgstr "nepomenovaná"
+
+#: po/translation.php:321
+msgid "updated"
+msgstr "aktualizované"
+
+#: lib/MIME/Viewer/vcard.php:38
+msgid "vCard"
+msgstr "vCard"
+
+#: lib/Form/Renderer.php:447
+msgid "w:"
+msgstr ""

@@ -1,0 +1,35 @@
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <tr>
+    <td class="menu">
+      <table border="0" width="100%">
+        <tr>
+          <loop:menu>
+          <td align="center" nowrap="nowrap" valign="<tag:menu.valign />" class="<tag:menu.status />">
+            <a href="<tag:menu.url />"  onmouseout="window.status='';" onmouseover="window.status='<tag:menu.text />'; return true;" class="menuitem" accesskey="<tag:menu.accesskey />" target="<tag:menu.target />"><tag:menu.button /></a>&nbsp;
+          </td>
+          </loop:menu>
+          <td width="100%">&nbsp;</td><!-- spacer -->
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><br />
+
+<tag:notify />
+
+<tag:form />
+
+<if:php>
+<br />
+<table width="100%">
+  <tr>
+    <td class="smallheader">
+      <gettext>Generated Code</gettext>
+    </td>
+  </tr><tr class="light">
+    <td>
+      <textarea style="width:95%;" rows="20"><tag:php /></textarea>
+    </td>
+  </tr>
+</table>
+</if:php>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<help>
+<entry>
+<title>Yhteenvetonäkymä</title>
+ <para>
+ Tässä yhteenvetonäkymässä näet nopeasti yhteenvedon sinulle tarkeistä asioista. Esimerkiksi näet onko postilaatikkoosi tullut uusia viestejä, tulevat tapahtumat kalenterista, tehtävät tehtävälistassa, otsikot valitsemistasi uutispalveluista jne. Monissa yhteenvedoissa on linkki useimmin käytettyihin toimintoihin, kuten esimerkiksi uuden viestin kirjoittaminen, uuden tapahtuman lisääminen jne.
+ </para>
+ <para>
+ Tämän sinun sisältöä voi muokata asetuksista. Esimerkiksi voi valita mitä yhteenvetoja ja missä järjestyksessä ne näytetään.
+ </para>
+</entry>
+<entry>
+<title>Ohjelma navigointipalkki</title>
+ <para>
+ Sinun alalaidassa on ohjelma navigointipalkki. Valitsemalla navigointipalkista ohjelman ikonin voit nopeasti ja helposti vaihtaa ohjelmasta toiseen.
+ </para>
+</entry>
+</help>

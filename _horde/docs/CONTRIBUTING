@@ -1,0 +1,38 @@
+
+HORDE: How to Help
+------------------
+
+There are many ways in which you can help out in the development of any of
+the Horde projects. The first and best way you are already doing: you're
+using them. One of the keys to a great product is its users. Without users
+we can't find bugs or get feedback on what's good and what's bad.
+
+There are also certain areas that the development lacks in. Support for
+operating systems other than Linux are secondary. Most of the developers
+currently primarily use Linux (not saying all). Recently we've had more luck
+with testing on other platforms. This is mainly directed towards the Windows
+platform as Windows and Linux can act completely different (and Netscape and
+Internet Explorer even more so).
+
+With this said, one of the best ways you can help is to test. If you can
+help us smooth out the code across all (or even any) platforms, you're doing
+a great service to the project.
+
+Now, if that's not enough and you want to dig in and help code, you should
+first subscribe to the project lists and read the Coding Standards (see the
+Horde README file, and the file CODING_STANDARDS in this directory).
+
+Please send any comments or questions pertaining to this document to
+<core@horde.org>.
+
+-------------------------------------------------------------------------
+
+Copyright 1999 Ivan E. Moore II <rkrusty@tdyc.com>
+Copyright 1999 Mike Hardy <mikeh@spark.com>
+
+This code is licensed under the GNU Public License.
+See the file COPYING in the top directory.
+
+Last Updated: 2001/12/16
+
+$Horde: horde/docs/CONTRIBUTING,v 1.2 2001/12/23 16:36:43 rich Exp $

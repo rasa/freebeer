@@ -1,0 +1,6801 @@
+# Horde German translation.
+# Copyright (C) 2001-2004 Jan Schneider.
+# Jan Schneider <jan@horde.org>, 2001-2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Horde 3.0-cvs\n"
+"Report-Msgid-Bugs-To: dev@lists.horde.org\n"
+"POT-Creation-Date: 2004-02-14 13:49+0100\n"
+"PO-Revision-Date: 2004-02-13 11:28+0100\n"
+"Last-Translator: Jan Schneider <jan@horde.org>\n"
+"Language-Team: German <i18n@lists.horde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: po/translation.php:49
+msgid ""
+"  -M, --message=MESSAGE  Use this commit message instead of the default ones."
+msgstr ""
+"  -M, --message=MESSAGE  Diese Nachricht anstelle der Standardnachricht\n"
+"                         verwenden."
+
+#: po/translation.php:53
+msgid ""
+"  -a, --add=FILE        Add this PO file to the compendium. Useful to\n"
+"                        include a compendium from a different branch to\n"
+"                        the generated compendium."
+msgstr ""
+"  -a, --add=FILE        Diese PO-Datei zum Kompendium hinzufügen. Nützlich,\n"
+"                        um ein Kompendium aus einem anderen Branch in das\n"
+"                        generierte Kompendium einzufügen."
+
+#: po/translation.php:112
+msgid ""
+"  -b, --base=/PATH  Full path to the (Horde) base directory that should be\n"
+"                    used."
+msgstr ""
+"  -b, --base=/PATH  Vollständiger Pfad zu dem (Horde-) Verzeichnis, das\n"
+"                    benutzt werden soll."
+
+#: po/translation.php:69
+msgid ""
+"  -c, --compendium=FILE  Merge new translations to this compendium file\n"
+"                         instead of the default one (compendium.po in the\n"
+"                         horde/po directory."
+msgstr ""
+"  -c, --compendium=FILE  Neue Übersetzungen in dieses Kompendium einfügen\n"
+"                         anstatt in das Standard-Kompendium (compendium.po\n"
+"                         im horde/po Verzeichnis."
+
+#: po/translation.php:63 po/translation.php:80 po/translation.php:86
+msgid ""
+"  -c, --compendium=FILE  Use this compendium file instead of the default\n"
+"                         one (compendium.po in the horde/po directory)."
+msgstr ""
+"  -c, --compendium=FILE  Dieses an Stelle des Standard-Kompendiums\n"
+"                         (compendium.po im horde/po Verzeichnis) verwenden."
+
+#: po/translation.php:113
+msgid "  -d, --debug       Show error messages from the executed binaries."
+msgstr ""
+"  -d, --debug       Fehlermeldungen der ausgeführten Programme anzeigen."
+
+#: po/translation.php:54
+msgid "  -d, --directory=DIR   Create compendium in this directory."
+msgstr "  -d, --directory=DIR   Kompendium in diesem Verzeichnis erzeugen."
+
+#: po/translation.php:114
+msgid "  -h, --help        Show this help message."
+msgstr "  -h, --help        Diese Hilfe anzeigen."
+
+#: po/translation.php:42 po/translation.php:67 po/translation.php:74
+msgid "  -l, --locale=ll_CC     Use only this locale."
+msgstr "  -l, --locale=ll_CC     Nur dieses Locale verwenden."
+
+#: po/translation.php:47 po/translation.php:61 po/translation.php:78
+#: po/translation.php:84
+msgid "  -l, --locale=ll_CC     Use this locale."
+msgstr "  -l, --locale=ll_CC     Dieses Locale verwenden."
+
+#: po/translation.php:55
+msgid "  -l, --locale=ll_CC    Use this locale."
+msgstr "  -l, --locale=ll_CC    Dieses Locale verwenden."
+
+#: po/translation.php:68
+msgid "  -m, --module=MODULE    Build MO files only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Nur MO-Dateien für dieses (Horde-) Modul erzeugen."
+
+#: po/translation.php:43
+msgid "  -m, --module=MODULE    Cleanup PO files only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    PO-Dateien nur für dieses (Horde-) Modul\n"
+"                         aufräumen."
+
+#: po/translation.php:48
+msgid ""
+"  -m, --module=MODULE    Commit translations only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Nur Übersetzungen für dieses (Horde-) Modul\n"
+"                         einchecken."
+
+#: po/translation.php:62
+msgid "  -m, --module=MODULE    Create a PO file only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Nur PO-Dateien für dieses (Horde-) Modul erzeugen."
+
+#: po/translation.php:79
+msgid "  -m, --module=MODULE    Merge PO files only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    PO-Dateien nur für dieses (Horde-) Modul\n"
+"                         zusammenführen."
+
+#: po/translation.php:75
+msgid ""
+"  -m, --module=MODULE    Update help files only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE    Nur Hilfe-Dateien für dieses (Horde-) Modul "
+"aktualisieren."
+
+#: po/translation.php:85
+msgid "  -m, --module=MODULE    Update only this (Horde) module."
+msgstr "  -m, --module=MODULE    Nur dieses (Horde-) Modul aktualisieren."
+
+#: po/translation.php:58
+msgid "  -m, --module=MODULE  Generate POT file only for this (Horde) module."
+msgstr ""
+"  -m, --module=MODULE  Nur eine POT-Datei für dieses (Horde-) Modul erzeugen."
+
+#: po/translation.php:70
+msgid ""
+"  -n, --no-compendium    Don't merge new translations to the compendium."
+msgstr ""
+"  -n, --no-compendium    Keine neuen Übersetzungen in das Kompendium "
+"einfügen."
+
+#: po/translation.php:64 po/translation.php:81 po/translation.php:87
+msgid "  -n, --no-compendium    Don't use a compendium."
+msgstr "  -n, --no-compendium    Kein Kompendium verwenden."
+
+#: po/translation.php:115
+msgid "  -t, --test        Show the executed commands but don't run anything."
+msgstr ""
+"  -t, --test        Die auszuführenden Befehle anzeigen aber nicht ausführen."
+
+#: po/translation.php:104
+msgid ""
+"  cleanup     Cleans the PO files up from untranslated and obsolete entries."
+msgstr ""
+"  cleanup     Säubert die PO-Dateien von unübersetzten und nicht mehr\n"
+"              benötigten Einträgen."
+
+#: po/translation.php:107
+msgid "  commit      Commit translations to the CVS server."
+msgstr "  commit      Übersetzungen auf dem CVS-Server einchecken."
+
+#: po/translation.php:108
+msgid "  commit-help Commit help files to the CVS server."
+msgstr "  commit-help Hilfedateien auf dem CVS-Server einchecken."
+
+#: po/translation.php:98
+msgid ""
+"  compendium  Rebuild the compendium file. Warning: This overwrites the\n"
+"              current compendium."
+msgstr ""
+"  compendium  Kompendium neu erstellen. Warnung: Damit wird das aktuelle\n"
+"              Kompendium überschrieben."
+
+#: po/translation.php:99
+msgid "  extract     Generate PO template (.pot) files."
+msgstr "  extract     PO Vorlagen (.pot Dateien) erzeugen."
+
+#: po/translation.php:97
+msgid "  help        Show this help message."
+msgstr "  help        Diese Hilfe anzeigen."
+
+#: po/translation.php:100
+msgid ""
+"  init        Create one or more PO files for a new locale. Warning: This\n"
+"              overwrites the existing PO files of this locale."
+msgstr ""
+"  init        Ein oder mehrere PO-Dateien für ein neues Locale erzeugen.\n"
+"              Warnung: Damit werden bestehende PO-Dateien für dieses Locale\n"
+"              überschrieben."
+
+#: po/translation.php:105
+msgid "  make        Build binary MO files from the specified PO files."
+msgstr ""
+"  make        Kompilierte MO-Dateien aus den angegebenen PO-Dateien erzeugen."
+
+#: po/translation.php:106
+msgid ""
+"  make-help   Mark all entries in the XML help file being up-to-date and\n"
+"              prepare the file for the next execution of update-help. You\n"
+"              should only run make-help AFTER update-help and revising the\n"
+"              help file."
+msgstr ""
+"  make-help   Alle Einträge in der XML-Hilfedatei als aktuell markieren und\n"
+"              die Datei für die nächste Ausführung von update-help\n"
+"              vorbereiten. Sie sollten make-help nur NACH update-help und "
+"der\n"
+"              Überarbeitung der Hilfedatei ausführen."
+
+#: po/translation.php:101
+msgid ""
+"  merge       Merge the current PO file with the current PO template file."
+msgstr ""
+"  merge       Aktuelle PO-Datei mit der aktuellen PO-Vorlage zusammenführen."
+
+#: po/translation.php:102
+msgid "  update      Run extract and merge sequent."
+msgstr "  update      extract und merge nacheinander ausführen."
+
+#: po/translation.php:103
+msgid ""
+"  update-help Extract all new and changed entries from the English XML help\n"
+"              file and merge them with the existing ones."
+msgstr ""
+"  update-help Alle neuen und geänderten Einträge aus der englischen XML-\n"
+"              Hilfedatei extrahieren und mit der bestehenden Datei\n"
+"              zusammenführen."
+
+#: templates/maintenance/confirm_top.inc:11
+#, php-format
+msgid ""
+" &#151; %s is ready to perform the maintenance operations checked below."
+msgstr ""
+" &#151; %s wird die Wartungsarbeiten durchführen, die unten markiert sind."
+
+#: framework/Form/Form.php:2251
+#, php-format
+msgid " (%s days ago)"
+msgstr " (vor %s Tagen)"
+
+#: framework/Horde/Horde.php:1194
+#, php-format
+msgid " (Accesskey %s)"
+msgstr " (Zugriffstaste %s)"
+
+#: templates/links/links.inc:1
+msgid " (Read only)"
+msgstr " (Nur Lesen)"
+
+#: framework/Form/Form.php:2247
+msgid " (today)"
+msgstr " (heute)"
+
+#: framework/Form/Form.php:2249
+msgid " (yesterday)"
+msgstr " (gestern)"
+
+#: lib/Block/weatherdotcom.php:188
+msgid " and "
+msgstr " und "
+
+#: lib/Block/weatherdotcom.php:200
+msgid " at "
+msgstr " mit "
+
+#: po/translation.php:1061
+#, php-format
+msgid "%d bytes written."
+msgstr "%d Bytes geschrieben."
+
+#: po/translation.php:1157
+#, php-format
+msgid "%d of %d entries marked as up-to-date"
+msgstr "%d von %d Einträgen als aktuell markiert"
+
+#: templates/maintenance/notice_top.inc:4
+#, php-format
+msgid "%s - Notice"
+msgstr "%s - Hinweis"
+
+#: admin/setup/config.php:30
+#, php-format
+msgid "%s Configuration"
+msgstr "%s-Konfiguration"
+
+#: framework/Crypt/Crypt/smime.php:652
+#, php-format
+msgid "%s Fingerprint"
+msgstr "%s Fingerabdruck"
+
+#: framework/MIME/MIME/Contents.php:800
+#, php-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: templates/maintenance/confirm_top.inc:4
+#, php-format
+msgid "%s Maintenance Operations - Confirmation"
+msgstr "%s Wartungsarbeiten - Bestätigung"
+
+#: framework/Auth/Auth/Signup.php:274
+#, php-format
+msgid "%s Sign Up"
+msgstr "%s Registrierung"
+
+#: prefs.php:84
+#, php-format
+msgid "%s Standard"
+msgstr "%s Standard"
+
+#: templates/maintenance/agreement_top.inc:4
+#, php-format
+msgid "%s Terms of Agreement"
+msgstr "%s Nutzungsbedingungen"
+
+#: framework/VFS/VFS/ftp.php:557 framework/VFS/VFS/ftp.php:622
+#, php-format
+msgid "%s already exists."
+msgstr "%s existiert bereits."
+
+#: lib/Block/metar.php:144 lib/Block/metar.php:150
+#, php-format
+msgid "%s at %s %s"
+msgstr "%s mit %s %s"
+
+#: lib/Block/metar.php:224
+#, php-format
+msgid "%s at %s ft"
+msgstr "%s in %s ft"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:533
+#, php-format
+msgid "%s has cancelled %s."
+msgstr "%s hat %s abgesagt."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:429
+#, php-format
+msgid "%s has replied to a free/busy request."
+msgstr "%s hat auf eine Frei/Gebucht-Anfrage geantwortet."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:527
+#, php-format
+msgid "%s has replied to the invitation to %s."
+msgstr "%s hat auf die Einladung zu %s geantwortet."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:419
+#, php-format
+msgid "%s has sent you free/busy information."
+msgstr "%s hat Ihnen Frei/Gebucht-Informationen geschickt."
+
+#: framework/Form/Form.php:2230
+#, php-format
+msgid "%s is required"
+msgstr "%s ist notwendig"
+
+#: lib/Block/metar.php:271
+#, php-format
+msgid "%s minutes"
+msgstr "%s Minuten"
+
+#: lib/api.php:69 po/translation.php:1223
+#, php-format
+msgid "%s not found."
+msgstr "%s nicht gefunden."
+
+#: po/translation.php:503
+#, php-format
+msgid "%s not found. Run 'translation extract' first."
+msgstr "%s nicht gefunden. Führen Sie erst 'translation extract' aus."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:424
+#, php-format
+msgid "%s requests your free/busy information."
+msgstr "%s bittet um Ihre Frei/Gebucht-Informationen."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:511
+#, php-format
+msgid "%s requests your presence at %s."
+msgstr "%s bittet um Ihre Anwesenheit bei %s."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:516
+#, php-format
+msgid "%s wishes to add to %s."
+msgstr "%s möchte zu %s hinzufügen."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:505
+#, php-format
+msgid "%s wishes to make you aware of %s."
+msgstr "%s möchte Sie auf %s aufmerksam machen."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:521
+#, php-format
+msgid "%s wishes to receive the latest information about %s."
+msgstr "%s möchte die neuesten Informationen über %s erhalten."
+
+#: framework/Notification/Notification/Listener/mobile.php:97
+#, php-format
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: framework/CLI/CLI.php:271
+#, php-format
+msgid "'%s' is not a valid choice."
+msgstr "'%s' ist keine gültige Auswahl."
+
+#: framework/Horde/Horde/Registry.php:566
+#: framework/Horde/Horde/Registry.php:862
+#, php-format
+msgid "'%s' is not configured in the Horde Registry."
+msgstr "'%s' ist in der Horde Registry nicht konfiguriert."
+
+#: framework/Tree/Tree.php:146
+#, php-format
+msgid "'%s' tree renderer not found."
+msgstr "Der Baum-Renderer für %s wurde nicht gefunden."
+
+#: admin/groups.php:56
+#, php-format
+msgid "'%s' was added to the groups system."
+msgstr "'%s' wurde zum Gruppensystem hinzugefügt."
+
+#: admin/perms/addchild.php:85
+#, php-format
+msgid "'%s' was added to the permissions system."
+msgstr "'%s' wurde zum Rechtesystem hinzugefügt."
+
+#: admin/groups.php:54 admin/perms/addchild.php:83
+#, php-format
+msgid "'%s' was not created: %s."
+msgstr "'%s' wurde nicht erstellt: %s."
+
+#: lib/Block/metar.php:173 lib/Block/metar.php:178
+#, php-format
+msgid ", gusting %s %s"
+msgstr ", big %s %s"
+
+#: lib/Block/metar.php:186
+#, php-format
+msgid ", variable from %s to %s"
+msgstr ", schwankend von %s bis %s"
+
+#: framework/Form/Form.php:1968 framework/Form/Form.php:2027
+#: framework/UI/UI/VarRenderer/html.php:541
+msgid "-- select --"
+msgstr "-- Auswählen --"
+
+#: po/translation.php:1201 po/translation.php:1203
+msgid "---------------------------"
+msgstr "---------------------------"
+
+#: framework/PDF/PDF.php:2631
+#, php-format
+msgid "16-bit depth not supported: %s"
+msgstr "16 Bit Farbtiefe nicht unterstützt: %s"
+
+#: templates/data/time.inc:28
+msgid "24 hours"
+msgstr "24 Stunden"
+
+#: lib/Block/metar.php:105
+msgid "A database backend is required for this block."
+msgstr "Fr diesen Block wird eine Datenbank bentigt."
+
+#: framework/Horde/Horde.php:156
+msgid "A fatal error has occurred"
+msgstr "Ein schwerer Fehler ist aufgetreten:"
+
+#: config/hooks.php.dist:222
+msgid "A new signup has been received and is awaiting your approval."
+msgstr ""
+"Eine neue Registrierung wurde entgegengenommen und wartet auf Ihre "
+"Bestätigung."
+
+#: framework/Crypt/Crypt/pgp.php:926
+msgid "A public PGP key is required to encrypt a message."
+msgstr ""
+"Ein öffentlicher PGP-Schlüssel wird für die Verschlüsselung einer Nachricht "
+"benötigt."
+
+#: framework/Crypt/Crypt/pgp.php:1152
+msgid "A public PGP key is required to verify a signed message."
+msgstr ""
+"Ein öffentlicher PGP-Schlüssel wird für die Überprüfung einer "
+"unterzeichneten Nachricht benötigt."
+
+#: framework/Crypt/Crypt/pgp.php:1083
+msgid ""
+"A public PGP key, private PGP key, and passphrase are required to decrypt a "
+"message."
+msgstr ""
+"Ein öffentlicher und ein privater PGP-Schlüssel sowie ein Kennwort wird für "
+"die Entschlüsselung einer Nachricht benötigt."
+
+#: framework/Crypt/Crypt/pgp.php:1002
+msgid ""
+"A public PGP key, private PGP key, and passphrase are required to sign a "
+"message."
+msgstr ""
+"Ein öffentlicher und ein privater PGP-Schlüssel sowie ein Kennwort wird für "
+"die Unterzeichnung einer Nachricht benötigt."
+
+#: framework/Crypt/Crypt/smime.php:483
+msgid ""
+"A public S/MIME key, private S/MIME key, and passphrase are required to "
+"decrypt a message."
+msgstr ""
+"Ein öffentlicher und ein privater S/MIME-Schlüssel sowie ein Kennwort wird "
+"für die Entschlüsselung einer Nachricht benötigt."
+
+#: framework/Crypt/Crypt/smime.php:413
+msgid ""
+"A public S/MIME key, private S/MIME key, and passphrase are required to sign "
+"a message."
+msgstr ""
+"Ein öffentlicher und ein privater S/MIME-Schlüssel sowie ein Kennwort wird "
+"für die Unterzeichnung einer Nachricht benötigt."
+
+#: framework/Crypt/Crypt/smime.php:336
+msgid "A public SMIME key is required to encrypt a message."
+msgstr ""
+"Ein öffentlicher S/MIME-Schlüssel wird für die Verschlüsselung einer "
+"Nachricht benötigt."
+
+#: templates/data/time.inc:29
+msgid "AM/PM"
+msgstr "AM/PM"
+
+#: templates/javascript/htmlarea/htmlarea.js:168
+msgid "About this editor"
+msgstr "Über diesen Editor"
+
+#: templates/help/menu.inc:13
+msgid "About..."
+msgstr "Info..."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:643
+msgid "Accept request"
+msgstr "Anfrage akzeptieren"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:684
+msgid "Accepted"
+msgstr "Angenommen"
+
+#: framework/VFS/VFS/musql.php:270
+msgid "Access denied creating VFS directory."
+msgstr "Zugriff verweigert beim Anlegen des VFS-Verzeichnisses."
+
+#: framework/VFS/VFS/musql.php:129
+msgid "Access denied creating VFS file."
+msgstr "Zugriff verweigert beim Anlegen der VFS-Datei."
+
+#: config/registry.php.dist:395
+msgid "Accounting"
+msgstr "Buchhaltung"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:454
+#: framework/MIME/MIME/Viewer/icalendar.php:628
+msgid "Actions"
+msgstr "Aktionen"
+
+#: admin/perms/addchild.php:54 framework/Perms/Perms/UI.php:133
+#: templates/portal/add.inc:18 templates/admin/groups/addchild.inc:16
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: templates/links/footer.inc:8
+#, php-format
+msgid "Add %s"
+msgstr "%s hinzufügen"
+
+#: admin/groups.php:182 admin/groups.php:183
+msgid "Add Child Group"
+msgstr "Neue Untergruppe hinzufügen"
+
+#: framework/Perms/Perms/UI.php:77 framework/Perms/Perms/UI.php:78
+msgid "Add Child Permission"
+msgstr "Neue Unterrechte hinzufügen"
+
+#: templates/portal/add.inc:6
+msgid "Add Here:"
+msgstr "Hier hinzufügen:"
+
+#: admin/groups.php:176 admin/groups.php:177
+msgid "Add New Group"
+msgstr "Neue Gruppe hinzufügen"
+
+#: framework/Perms/Perms/UI.php:71 framework/Perms/Perms/UI.php:72
+msgid "Add New Permission"
+msgstr "Neue Rechte hinzufügen"
+
+#: templates/admin/groups/addchild.inc:9
+#, php-format
+msgid "Add a child group to '%s'"
+msgstr "Untergruppe zu '%s' hinzufügen"
+
+#: admin/perms/addchild.php:53 framework/Perms/Perms/UI.php:132
+#, php-format
+msgid "Add a child permission to '%s'"
+msgstr "Unterrechte zu '%s' hinzufügen"
+
+#: admin/user.php:28
+msgid "Add a new user:"
+msgstr "Fügen Sie einen neuen Benutzer hinzu:"
+
+#: templates/admin/groups/edit.inc:39
+msgid "Add new members"
+msgstr "Neue Mitglieder hinzufügen"
+
+#: templates/data/csvmap.inc:93
+msgid "Add pair"
+msgstr "Paar hinzufügen"
+
+#: config/prefs.php.dist:171
+#, php-format
+msgid "Add the %s Menu as a Mozilla Sidebar"
+msgstr "Das %s-Menü zur Mozilla Sidebar hinzufügen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:634
+#: framework/MIME/MIME/Viewer/icalendar.php:640
+msgid "Add this to my calendar"
+msgstr "Zu meinem Kalender hinzufügen"
+
+#: framework/MIME/MIME/Viewer/vcard.php:72
+msgid "Add to my address book:"
+msgstr "Zu meinem Adressbuch hinzufügen:"
+
+#: admin/user.php:29
+msgid "Add user"
+msgstr "Benutzer hinzufügen"
+
+#: admin/user.php:75
+#, php-format
+msgid ""
+"Added '%s' to the system, but could not add additional signup information: %"
+"s."
+msgstr ""
+"'%s' wurde zum System hinzugefügt, aber die zusätzlichen "
+"Anmeldeinformationen konnten nicht gespeichert werden: %s"
+
+#: signup.php:45
+#, php-format
+msgid "Added '%s' to the system. You can log in now."
+msgstr "'%s' wurde zum System hinzugefügt. Sie können sich jetzt anmelden."
+
+#: po/translation.php:853
+msgid "Adding new files to repository:"
+msgstr "Neue Dateien werden zum Repository hinzugefügt:"
+
+#: templates/admin/user/noadd.inc:4
+msgid "Adding users is disabled."
+msgstr "Das Hinzufügen von Benutzern ist nicht möglich."
+
+#: framework/MIME/MIME/Viewer/vcard.php:144 framework/Form/Form.php:1421
+msgid "Address"
+msgstr "Adresse"
+
+#: config/registry.php.dist:157
+msgid "Address Book"
+msgstr "Adressbuch"
+
+#: admin/index.php:19 framework/Horde/Horde.php:1336
+#: services/portal/menu.php:155 services/portal/menu.php:156
+#: services/portal/menu.php:157 templates/portal/menu.inc:14
+#: templates/navbar/menu.inc:13
+msgid "Administration"
+msgstr "Administration"
+
+#: config/registry.php.dist:482
+msgid "Ads"
+msgstr "Werbung"
+
+#: framework/NLS/NLS/tld.php:18 framework/NLS/NLS/countries.php:9
+#: framework/NLS/NLS/GeoIP.php:57
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: framework/NLS/NLS/tld.php:21 framework/NLS/NLS/countries.php:10
+#: framework/NLS/NLS/GeoIP.php:58
+msgid "Albania"
+msgstr "Albanien"
+
+#: framework/NLS/NLS/tld.php:74 framework/NLS/NLS/countries.php:11
+#: framework/NLS/NLS/GeoIP.php:71
+msgid "Algeria"
+msgstr "Algerien"
+
+#: framework/MIME/MIME/Viewer/vcard.php:122
+msgid "Alias"
+msgstr "Spitzname"
+
+#: templates/javascript/htmlarea/htmlarea.js:153
+msgid "Align Center"
+msgstr "Zentrieren"
+
+#: templates/javascript/htmlarea/htmlarea.js:152
+msgid "Align Left"
+msgstr "Links ausrichten"
+
+#: templates/javascript/htmlarea/htmlarea.js:154
+msgid "Align Right"
+msgstr "Rechts ausrichten"
+
+#: templates/shares/edit.inc:71
+msgid "All Authenticated Users"
+msgstr "Alle angemeldeten Benutzer"
+
+#: admin/groups.php:32 admin/groups.php:180
+msgid "All Groups"
+msgstr "Alle Gruppen"
+
+#: admin/perms/addchild.php:38 framework/Perms/Perms/UI.php:75
+msgid "All Permissions"
+msgstr "Alle Rechte"
+
+#: framework/Form/Form.php:1800
+msgid "Allow multiple addresses"
+msgstr "Mehrere Adressen erlauben"
+
+#: framework/PDF/PDF.php:2641
+#, php-format
+msgid "Alpha channel not supported: %s"
+msgstr "Alphakanal nicht unterstützt: %s"
+
+#: framework/DataTree/DataTree/sql.php:348
+msgid "Already exists"
+msgstr "Existiert bereits"
+
+#: config/prefs.php.dist:87
+msgid "Alternate IMSP Login"
+msgstr "Alternative IMSP-Anmeldung"
+
+#: config/prefs.php.dist:307
+msgid "Alternate IMSP Password"
+msgstr "Alternatives IMSP-Passwort"
+
+#: config/prefs.php.dist:299
+msgid "Alternate IMSP Username"
+msgstr "Alternativer IMSP-Benutzername"
+
+#: admin/templates.php:142
+msgid "Alternate templates"
+msgstr "Alternative Vorlagen"
+
+#: framework/NLS/NLS/tld.php:27 framework/NLS/NLS/countries.php:12
+#: framework/NLS/NLS/GeoIP.php:59
+msgid "American Samoa"
+msgstr "Amerikanisch-Samoa"
+
+#: framework/Links/Links.php:219
+#, php-format
+msgid "An error occurred following this link: %s"
+msgstr "Beim Aufrufen dieses Links ist ein Fehler aufgetreten: %s"
+
+#: framework/Prefs/Prefs/UI.php:100 framework/Prefs/Prefs/UI.php:120
+msgid "An illegal value was specified."
+msgstr "Es wurde ein ungültiger Wert angegeben."
+
+#: framework/NLS/NLS/tld.php:16 framework/NLS/NLS/countries.php:13
+#: framework/NLS/NLS/GeoIP.php:56
+msgid "Andorra"
+msgstr "Andorra"
+
+#: framework/NLS/NLS/tld.php:24 framework/NLS/NLS/countries.php:14
+#: framework/NLS/NLS/GeoIP.php:59
+msgid "Angola"
+msgstr "Angola"
+
+#: framework/NLS/NLS/tld.php:20 framework/NLS/NLS/countries.php:15
+#: framework/NLS/NLS/GeoIP.php:58
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: framework/NLS/NLS/GeoIP.php:120
+msgid "Anonymous Proxy"
+msgstr "Anonymer Proxy"
+
+#: framework/NLS/NLS/tld.php:25 framework/NLS/NLS/countries.php:16
+#: framework/NLS/NLS/GeoIP.php:59
+msgid "Antarctica"
+msgstr "Antarktis"
+
+#: framework/NLS/NLS/tld.php:19 framework/NLS/NLS/countries.php:17
+#: framework/NLS/NLS/GeoIP.php:57
+msgid "Antigua and Barbuda"
+msgstr "Antigua und Barbuda"
+
+#: admin/templates.php:73 framework/Block/Block/UI.php:59
+msgid "Application"
+msgstr "Anwendung"
+
+#: admin/setup/index.php:88
+msgid "Application is ready."
+msgstr "Anwendung ist bereit."
+
+#: templates/shares/edit.inc:224
+msgid "Apply to Child Shares"
+msgstr "Auf Unterrechte anwenden"
+
+#: templates/admin/user/approve.inc:33
+msgid "Approve"
+msgstr "Bestätigen"
+
+#: framework/UI/UI/VarRenderer/html.php:306
+#: framework/UI/UI/VarRenderer/html.php:336
+#: templates/javascript/open_calendar.js:69
+msgid "April"
+msgstr "April"
+
+#: config/nls.php.dist:167
+msgid "Arabic (Windows-1256)"
+msgstr "Arabisch (Windows-1256)"
+
+#: framework/MIME/MIME/Viewer/rar.php:62 framework/MIME/MIME/Viewer/zip.php:66
+#: framework/MIME/MIME/Viewer/tgz.php:66
+msgid "Archive File Size"
+msgstr "Archivgröße"
+
+#: framework/MIME/MIME/Viewer/rar.php:61 framework/MIME/MIME/Viewer/zip.php:65
+#: framework/MIME/MIME/Viewer/tgz.php:65
+msgid "Archive Name"
+msgstr "Archivname"
+
+#: templates/admin/user/removequeued.inc:9
+#, php-format
+msgid "Are you sure you want to remove the signup request for %s ?"
+msgstr ""
+"Sind Sie sicher, dass Sie die Registrierungsanfrage von %s löschen möchten?"
+
+#: templates/admin/groups/delete.inc:9
+#, php-format
+msgid "Are you sure you wish to delete '%s' and any sub-groups?"
+msgstr "Sind Sie sicher, dass Sie '%s' und alle Untergruppen löschen möchten?"
+
+#: framework/NLS/NLS/tld.php:26 framework/NLS/NLS/countries.php:18
+#: framework/NLS/NLS/GeoIP.php:59
+msgid "Argentina"
+msgstr "Argentinien"
+
+#: framework/NLS/NLS/tld.php:22 framework/NLS/NLS/countries.php:19
+#: framework/NLS/NLS/GeoIP.php:58
+msgid "Armenia"
+msgstr "Armenien"
+
+#: config/nls.php.dist:168
+msgid "Armenian (ARMSCII-8)"
+msgstr "Armenisch (ARMSCII-8)"
+
+#: framework/NLS/NLS/tld.php:30 framework/NLS/NLS/countries.php:20
+#: framework/NLS/NLS/GeoIP.php:60
+msgid "Aruba"
+msgstr "Aruba"
+
+#: framework/NLS/NLS/tld.php:15
+msgid "Ascension Island"
+msgstr "Ascension-Inseln"
+
+#: framework/NLS/NLS/GeoIP.php:56
+msgid "Asia/Pacific Region"
+msgstr "Asien/Pazifische Region"
+
+#: config/prefs.php.dist:201
+msgid "Ask for confirmation before doing maintenance operations?"
+msgstr "Anstehende Wartungsarbeiten bestätigen lassen?"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:166
+#: framework/MIME/MIME/Viewer/icalendar.php:250
+#: framework/MIME/MIME/Viewer/icalendar.php:320
+msgid "Attached is an iCalendar file reply to a request you sent"
+msgstr ""
+"Im Anhang finden Sie eine iCalendar-Datei als Anwort auf eine Anfrage, die "
+"Sie gestellt haben."
+
+#: admin/groups.php:74
+msgid "Attempt to delete a non-existent group."
+msgstr "Es wurde versucht, eine nicht existierende Gruppe zu löschen."
+
+#: admin/perms/delete.php:39
+msgid "Attempt to delete a non-existent permission."
+msgstr "Es wurde versucht, ein nicht existierendes Recht zu löschen."
+
+#: admin/perms/edit.php:55
+msgid "Attempt to edit a non-existent permission."
+msgstr "Es wurde versucht, ein nicht existierendes Recht zu bearbeiten."
+
+#: services/shares/edit.php:53
+msgid "Attempt to edit a non-existent share."
+msgstr "Es wurde versucht, ein nicht existierendes Recht zu bearbeiten."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:580
+msgid "Attendees"
+msgstr "Teilnehmer"
+
+#: framework/MIME/MIME/Viewer/rar.php:67 framework/MIME/MIME/Viewer/zip.php:71
+#: framework/MIME/MIME/Viewer/tgz.php:71
+msgid "Attributes"
+msgstr "Attribute"
+
+#: framework/UI/UI/VarRenderer/html.php:310
+#: framework/UI/UI/VarRenderer/html.php:340
+#: templates/javascript/open_calendar.js:73
+msgid "August"
+msgstr "August"
+
+#: framework/NLS/NLS/tld.php:29 framework/NLS/NLS/countries.php:21
+#: framework/NLS/NLS/GeoIP.php:60
+msgid "Australia"
+msgstr "Australien"
+
+#: framework/NLS/NLS/tld.php:28 framework/NLS/NLS/countries.php:22
+#: framework/NLS/NLS/GeoIP.php:60
+msgid "Austria"
+msgstr "Österreich"
+
+#: framework/Auth/Auth/cyrsql.php:100
+msgid "Auth_cyrsql: Required imap extension not found."
+msgstr "Auth_cyrsql: Die benötigte IMAP-Erweiterung wurde nicht gefunden."
+
+#: framework/Auth/Auth/cyrus.php:136
+msgid "Auth_cyrus: Backend does not have required capabilites."
+msgstr "Auth_cyrus: Das Backend hat nicht die benötigten Fähigkeiten."
+
+#: framework/Auth/Auth/cyrus.php:123
+msgid "Auth_cyrus: Required imap extension not found."
+msgstr "Auth_cyrus: Die benötigte IMAP-Erweiterung wurde nicht gefunden."
+
+#: framework/Auth/Auth/ftp.php:40
+msgid ""
+"Auth_ftp: Required FTP extension not found. Compile PHP with the --enable-"
+"ftp switch."
+msgstr ""
+"Auth_ftp: Die benötigte FTP-Erweiterung wurde nicht gefunden. Kompilieren "
+"Sie PHP mit dem --enable-ftp Parameter."
+
+#: framework/Auth/Auth/imap.php:62
+msgid "Auth_imap: Required IMAP extension not found."
+msgstr "Auth_imap: Die benötigte IMAP-Erweiterung wurde nicht gefunden."
+
+#: framework/Auth/Auth/krb5.php:52
+msgid "Auth_krb5: Required krb5 extension not found."
+msgstr "Auth_krb5: Die benötigte Kerberos-Erweiterung wurde nicht gefunden."
+
+#: framework/Auth/Auth/ldap.php:56
+msgid "Auth_ldap: Required LDAP extension not found."
+msgstr "Auth_ldap: Die benötigte LDAP-Erweiterung wurde nicht gefunden."
+
+#: framework/Auth/Auth/ldap.php:181
+#, php-format
+msgid "Auth_ldap: Unable to add user %s. This is what the server said: "
+msgstr ""
+"Auth_ldap: Der Benutzer %s konnte nicht hinzugefügt werden. Meldung des "
+"Servers: "
+
+#: framework/Auth/Auth/ldap.php:220
+#, php-format
+msgid "Auth_ldap: Unable to remove user %s"
+msgstr "Auth_ldap: Benutzer %s konnte nicht gelöscht werden"
+
+#: framework/Auth/Auth/ldap.php:279
+#, php-format
+msgid "Auth_ldap: Unable to update user %s"
+msgstr "Auth_ldap: Benutzer %s konnte nicht aktualisiert werden"
+
+#: framework/Auth/Auth/mcal.php:49
+msgid "Auth_mcal: Required MCAL extension not found."
+msgstr "Auth_mcal: Die benötigte MCAL-Erweiterung wurde nicht gefunden."
+
+#: framework/Auth/Auth/smb.php:64
+msgid "Auth_smbauth: Required smbauth extension not found."
+msgstr "Auth_smbauth: Die benötigte Samba-Erweiterung wurde nicht gefunden."
+
+#: framework/Auth/Auth/radius.php:173
+msgid "Authentication rejected by RADIUS server."
+msgstr "Die Authentifizierung wurde vom RADIUS-Server zurückgewiesen."
+
+#: framework/VFS/VFS/ftp.php:727
+msgid "Authentication to FTP server failed."
+msgstr "Anmeldung beim FTP-Server fehlgeschlagen."
+
+#: templates/data/csvmap.inc:83
+msgid "Available fields:"
+msgstr "Verfügbare Felder:"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:617
+msgid "Awaiting Response"
+msgstr "Auf Antwort wartend"
+
+#: framework/NLS/NLS/tld.php:31 framework/NLS/NLS/countries.php:23
+#: framework/NLS/NLS/GeoIP.php:60
+msgid "Azerbaijan"
+msgstr "Aserbaidschan"
+
+#: templates/javascript/htmlarea/htmlarea.js:161
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+#: framework/Auth/Auth/krb5.php:82
+msgid "Bad kerberos password."
+msgstr "Falsches Kerberos-Kennwort."
+
+#: framework/Auth/Auth/krb5.php:84
+msgid "Bad kerberos username."
+msgstr "Falscher Kerberos-Benutzername."
+
+#: framework/NLS/NLS/tld.php:45 framework/NLS/NLS/countries.php:24
+#: framework/NLS/NLS/GeoIP.php:63
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: framework/NLS/NLS/tld.php:38 framework/NLS/NLS/countries.php:25
+#: framework/NLS/NLS/GeoIP.php:62
+msgid "Bahrain"
+msgstr "Bahrein"
+
+#: config/nls.php.dist:169
+msgid "Baltic (ISO-8859-13)"
+msgstr "Baltisch (ISO-8859-13)"
+
+#: framework/NLS/NLS/tld.php:34 framework/NLS/NLS/countries.php:26
+#: framework/NLS/NLS/GeoIP.php:61
+msgid "Bangladesh"
+msgstr "Bangladesch"
+
+#: framework/NLS/NLS/tld.php:33 framework/NLS/NLS/countries.php:27
+#: framework/NLS/NLS/GeoIP.php:61
+msgid "Barbados"
+msgstr "Barbados"
+
+#: config/themes/html-barbie.php:9
+msgid "Barbie"
+msgstr "Barbie"
+
+#: framework/Form/Form.php:2485
+msgid "Bare"
+msgstr "Blank"
+
+#: framework/NLS/NLS/tld.php:49 framework/NLS/NLS/countries.php:28
+#: framework/NLS/NLS/GeoIP.php:64
+msgid "Belarus"
+msgstr "Weißruland"
+
+#: framework/NLS/NLS/tld.php:35 framework/NLS/NLS/countries.php:29
+#: framework/NLS/NLS/GeoIP.php:61
+msgid "Belgium"
+msgstr "Belgien"
+
+#: framework/NLS/NLS/tld.php:50 framework/NLS/NLS/countries.php:30
+#: framework/NLS/NLS/GeoIP.php:64
+msgid "Belize"
+msgstr "Belize"
+
+#: framework/NLS/NLS/tld.php:40 framework/NLS/NLS/countries.php:31
+#: framework/NLS/NLS/GeoIP.php:62
+msgid "Benin"
+msgstr "Benin"
+
+#: framework/NLS/NLS/tld.php:41 framework/NLS/NLS/countries.php:32
+#: framework/NLS/NLS/GeoIP.php:63
+msgid "Bermuda"
+msgstr "Bermudas"
+
+#: framework/NLS/NLS/tld.php:46 framework/NLS/NLS/countries.php:33
+#: framework/NLS/NLS/GeoIP.php:64
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: framework/MIME/MIME/Viewer/vcard.php:129
+msgid "Birthday"
+msgstr "Geburtstag"
+
+#: templates/portal/layout.inc:88
+msgid "Block Settings"
+msgstr "Blockeinstellungen"
+
+#: templates/portal/layout.inc:73
+msgid "Block Type"
+msgstr "Blocktyp"
+
+#: framework/Form/Form.php:1847
+msgid "Block selection"
+msgstr "Blockauswahl"
+
+#: config/themes/html-bluewhite.php:9
+msgid "Blue and White"
+msgstr "Blau und Weiß"
+
+#: services/editor/designmode/editor.php:77
+#: templates/javascript/htmlarea/htmlarea.js:146
+msgid "Bold"
+msgstr "Fett"
+
+#: framework/NLS/NLS/tld.php:43 framework/NLS/NLS/countries.php:34
+#: framework/NLS/NLS/GeoIP.php:63
+msgid "Bolivia"
+msgstr "Bolivien"
+
+#: config/registry.php.dist:241
+msgid "Bookmarks"
+msgstr "Lesezeichen"
+
+#: framework/NLS/NLS/tld.php:32 framework/NLS/NLS/countries.php:35
+#: framework/NLS/NLS/GeoIP.php:61
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnien-Herzegowina"
+
+#: framework/NLS/NLS/tld.php:48 framework/NLS/NLS/countries.php:36
+#: framework/NLS/NLS/GeoIP.php:64
+msgid "Botswana"
+msgstr "Botswana"
+
+#: framework/NLS/NLS/tld.php:47 framework/NLS/NLS/countries.php:37
+#: framework/NLS/NLS/GeoIP.php:64
+msgid "Bouvet Island"
+msgstr "Bouvetinsel"
+
+#: framework/NLS/NLS/tld.php:44 framework/NLS/NLS/countries.php:38
+#: framework/NLS/NLS/GeoIP.php:63
+msgid "Brazil"
+msgstr "Brasilien"
+
+#: framework/NLS/NLS/tld.php:117 framework/NLS/NLS/countries.php:39
+#: framework/NLS/NLS/GeoIP.php:82
+msgid "British Indian Ocean Territory"
+msgstr "Britisches Territorium im Indischen Ozean"
+
+#: config/themes/html-brown.php:9
+msgid "Brown"
+msgstr "Braun"
+
+#: framework/NLS/NLS/tld.php:42 framework/NLS/NLS/countries.php:40
+#: framework/NLS/NLS/GeoIP.php:63
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+#: po/translation.php:572
+#, php-format
+msgid "Building MO files for module %s..."
+msgstr "MO-Dateien für das %s Modul werden erstellt..."
+
+#: po/translation.php:584
+#, php-format
+msgid "Building locale %s... "
+msgstr "Locale %s wird erstellt... "
+
+#: framework/NLS/NLS/tld.php:37 framework/NLS/NLS/countries.php:41
+#: framework/NLS/NLS/GeoIP.php:62
+msgid "Bulgaria"
+msgstr "Bulgarien"
+
+#: templates/javascript/htmlarea/htmlarea.js:157
+msgid "Bulleted List"
+msgstr "Unnummerierte Liste"
+
+#: framework/NLS/NLS/tld.php:36 framework/NLS/NLS/countries.php:42
+#: framework/NLS/NLS/GeoIP.php:62
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: config/themes/html-burntorange.php:12
+msgid "Burnt Orange"
+msgstr "Rot-Orange"
+
+#: framework/NLS/NLS/tld.php:39 framework/NLS/NLS/countries.php:43
+#: framework/NLS/NLS/GeoIP.php:62
+msgid "Burundi"
+msgstr "Burundi"
+
+#: config/registry.php.dist:472
+msgid "CMS"
+msgstr "CMS"
+
+#: framework/MIME/MIME/Viewer/zip.php:75
+msgid "CRC"
+msgstr "CRC"
+
+#: framework/Crypt/Crypt/smime.php:546
+msgid "CRL Distribution Points"
+msgstr "CRL Distributionsstelle"
+
+#: framework/UI/UI/VarRenderer/html.php:369 config/registry.php.dist:177
+msgid "Calendar"
+msgstr "Kalender"
+
+#: lib/Block/weatherdotcom.php:195
+msgid "Calm"
+msgstr "Windstill"
+
+#: framework/NLS/NLS/tld.php:128 framework/NLS/NLS/countries.php:44
+#: framework/NLS/NLS/GeoIP.php:84
+msgid "Cambodia"
+msgstr "Kambodscha"
+
+#: framework/NLS/NLS/tld.php:60 framework/NLS/NLS/countries.php:45
+#: framework/NLS/NLS/GeoIP.php:68
+msgid "Cameroon"
+msgstr "Kamerun"
+
+#: config/themes/html-camouflage.php:9
+msgid "Camouflage"
+msgstr "Camouflage"
+
+#: framework/Auth/Auth/cyrus.php:240 framework/Auth/Auth/cyrsql.php:234
+#, php-format
+msgid "Can't connect to IMAP server: %s"
+msgstr "Verbindung zum IMAP-Server kann nicht hergestellt werden: %s"
+
+#: framework/NLS/NLS/tld.php:51 framework/NLS/NLS/countries.php:46
+#: framework/NLS/NLS/GeoIP.php:65
+msgid "Canada"
+msgstr "Kanada"
+
+#: admin/user.php:97 templates/admin/groups/delete.inc:14
+#: templates/admin/user/remove.inc:17
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: templates/problem/problem.inc:59
+msgid "Cancel Problem Report"
+msgstr "Problembericht Abbrechen"
+
+#: framework/VFS/VFS/ftp.php:253
+msgid "Cannot delete file: "
+msgstr "Datei konnte nicht gelöscht werden: "
+
+#: framework/VFS/VFS/ftp.php:249
+msgid "Cannot remove directory: "
+msgstr "Verzeichnis konnte nicht entfernt werden: "
+
+#: framework/DataTree/DataTree/sql.php:497
+#, php-format
+msgid "Cannot remove; children exist (%s)"
+msgstr "Konnte nicht entfernt werden; Kinder existieren (%s)"
+
+#: framework/DataTree/DataTree/sql.php:439
+msgid ""
+"Cannot reorder, number of entries supplied for reorder does not match number "
+"stored."
+msgstr ""
+"Umsortieren nicht möglich. Die Anzahl der Einträge, die umsortiert werden "
+"sollen, stimmt nicht mit der Anzahl der gespeicherten Einträge überein."
+
+#: framework/NLS/NLS/tld.php:65 framework/NLS/NLS/countries.php:47
+#: framework/NLS/NLS/GeoIP.php:69
+msgid "Cape Verde"
+msgstr "Kap Verde"
+
+#: framework/NLS/NLS/tld.php:135 framework/NLS/NLS/countries.php:48
+#: framework/NLS/NLS/GeoIP.php:87
+msgid "Cayman Islands"
+msgstr "Cayman-Inseln"
+
+#: framework/MIME/MIME/Viewer/vcard.php:161
+msgid "Cell Phone"
+msgstr "Mobiltelefon"
+
+#: config/nls.php.dist:170
+msgid "Celtic (ISO-8859-14)"
+msgstr "Keltisch (ISO-8859-14)"
+
+#: framework/NLS/NLS/tld.php:54 framework/NLS/NLS/countries.php:49
+#: framework/NLS/NLS/GeoIP.php:66
+msgid "Central African Republic"
+msgstr "Zentralafrikanische Republik"
+
+#: config/nls.php.dist:171
+msgid "Central European (ISO-8859-2)"
+msgstr "Mitteleuropäisch (ISO-8859-2)"
+
+#: framework/Crypt/Crypt/smime.php:647
+msgid "Certificate Details"
+msgstr "Zertifikatdetails"
+
+#: framework/Crypt/Crypt/smime.php:545
+msgid "Certificate Policies"
+msgstr "Zertifikatrichtlinien"
+
+#: framework/NLS/NLS/tld.php:221 framework/NLS/NLS/countries.php:50
+#: framework/NLS/NLS/GeoIP.php:109
+msgid "Chad"
+msgstr "Tschad"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:599
+msgid "Chair Person"
+msgstr "Besprechungsleiter"
+
+#: templates/rpcsum/manage.inc:48 templates/rpcsum/javascript.inc:24
+msgid "Change"
+msgstr "Ändern"
+
+#: templates/maintenance/confirm_top.inc:13
+msgid "Check the box for any operation(s) you want to perform at this time."
+msgstr "Markieren Sie alle Aufgaben, die jetzt durchgeführt werden sollen."
+
+#: framework/NLS/NLS/tld.php:59 framework/NLS/NLS/countries.php:51
+#: framework/NLS/NLS/GeoIP.php:68
+msgid "Chile"
+msgstr "Chile"
+
+#: framework/NLS/NLS/tld.php:61 framework/NLS/NLS/countries.php:52
+#: framework/NLS/NLS/GeoIP.php:68
+msgid "China"
+msgstr "China"
+
+#: config/nls.php.dist:172
+msgid "Chinese Simplified (GB2312)"
+msgstr "Chinesisch vereinfacht (GB2312)"
+
+#: config/nls.php.dist:173
+msgid "Chinese Traditional (Big5)"
+msgstr "Chinesisch traditionell (Big5)"
+
+#: framework/Auth/Auth/Signup.php:280
+msgid "Choose a password"
+msgstr "Wählen Sie ein Passwort"
+
+#: framework/Auth/Auth/Signup.php:279
+msgid "Choose a username"
+msgstr "Wählen Sie einen Benutzernamen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:455
+#: framework/MIME/MIME/Viewer/icalendar.php:629
+msgid "Choose an action:"
+msgstr "Aktion auswählen:"
+
+#: config/prefs.php.dist:129
+msgid "Choose how to display dates:"
+msgstr "Legen Sie fest, wie das Datum angezeigt werden soll:"
+
+#: framework/NLS/NLS/tld.php:66 framework/NLS/NLS/countries.php:53
+#: framework/NLS/NLS/GeoIP.php:69
+msgid "Christmas Island"
+msgstr "Weihnachtsinsel"
+
+#: framework/VFS/VFS.php:472 framework/VC/VC.php:123
+#, php-format
+msgid "Class definition of %s not found."
+msgstr "Klassendefinition für %s nicht gefunden."
+
+#: po/translation.php:752
+#, php-format
+msgid "Cleaning up PO files for module %s..."
+msgstr "PO-Dateien für das %s Modul werden aufgeräumt..."
+
+#: po/translation.php:764
+#, php-format
+msgid "Cleaning up locale %s... "
+msgstr "Locale %s wird aufgeräumt... "
+
+#: templates/maintenance/notice_bottom.inc:6
+msgid "Click to Continue"
+msgstr "Fortfahren"
+
+#: config/registry.php.dist:216 config/registry.php.dist:291
+msgid "Client"
+msgstr "Kunde"
+
+#: config/registry.php.dist:294
+msgid "Client Ticket"
+msgstr "Kundenticket"
+
+#: services/keyboard.php:146 templates/shares/edit.inc:17
+msgid "Close Window"
+msgstr "Fenster schließen"
+
+#: lib/Block/metar.php:229
+msgid "Clouds"
+msgstr "Wolken"
+
+#: framework/NLS/NLS/tld.php:52 framework/NLS/NLS/countries.php:54
+#: framework/NLS/NLS/GeoIP.php:65
+msgid "Cocos (Keeling) Islands"
+msgstr "Kokosinseln"
+
+#: framework/NLS/NLS/tld.php:62 framework/NLS/NLS/countries.php:55
+#: framework/NLS/NLS/GeoIP.php:68
+msgid "Colombia"
+msgstr "Kolumbien"
+
+#: lib/Block/color.php:15 lib/Block/color.php:26
+msgid "Color"
+msgstr "Farbe"
+
+#: framework/Block/Block/Collection.php:216
+#: framework/Block/Block/Collection.php:217
+#: framework/UI/UI/VarRenderer/html.php:380 services/images/colorpicker.php:14
+msgid "Color Picker"
+msgstr "Farbauswahl"
+
+#: framework/Form/Form.php:2729
+msgid "Colour selection"
+msgstr "Farbwahl"
+
+#: config/registry.php.dist:360
+msgid "Comics"
+msgstr "Comics"
+
+#: admin/cmdshell.php:25
+msgid "Command"
+msgstr "Befehl"
+
+#: admin/cmdshell.php:20 lib/api.php:103
+msgid "Command Shell"
+msgstr "Befehlszeile"
+
+#: po/translation.php:38
+msgid "Command options:"
+msgstr "Befehlsoptionen"
+
+#: po/translation.php:96
+msgid "Commands:"
+msgstr "Befehle:"
+
+#: framework/Crypt/Crypt/pgp.php:388
+msgid "Comment"
+msgstr "Kommentar"
+
+#: po/translation.php:892
+msgid "Committing:"
+msgstr "Checke ein:"
+
+#: framework/Crypt/Crypt/smime.php:519
+msgid "Common Name"
+msgstr "Eindeutiger Name"
+
+#: framework/NLS/NLS/tld.php:130 framework/NLS/NLS/countries.php:56
+#: framework/NLS/NLS/GeoIP.php:85
+msgid "Comoros"
+msgstr "Komoren"
+
+#: framework/MIME/MIME/Viewer/vcard.php:207
+msgid "Company"
+msgstr "Firma"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:700
+msgid "Completed"
+msgstr "Erledigt"
+
+#: lib/Block/metar.php:234
+msgid "Conditions"
+msgstr "Bedingungen"
+
+#: framework/Horde/Horde.php:1341 services/portal/menu.php:161
+#: services/portal/menu.php:162 services/portal/menu.php:163
+#: templates/portal/menu.inc:15 templates/navbar/menu.inc:14
+#: templates/admin/common-header.inc:9
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: admin/setup/index.php:83
+msgid "Configuration needs updating."
+msgstr "Die Konfiguration muss aktualisiert werden."
+
+#: admin/setup/index.php:57
+#, php-format
+msgid "Configure %s"
+msgstr "%s konfigurieren"
+
+#: templates/admin/user/update.inc:36
+msgid "Confirm Password"
+msgstr "Passwort bestätigen"
+
+#: framework/NLS/NLS/tld.php:55 framework/NLS/NLS/countries.php:57
+#: framework/NLS/NLS/GeoIP.php:67
+msgid "Congo"
+msgstr "Kongo"
+
+#: framework/NLS/NLS/tld.php:53 framework/NLS/NLS/countries.php:58
+#: framework/NLS/NLS/GeoIP.php:66
+msgid "Congo, The Democratic Republic of the"
+msgstr "Demokratische Republic Kongo"
+
+#: framework/Crypt/Crypt/pgp.php:781
+#, php-format
+msgid "Connection refused to the public keyserver. Reason: %s (%s)"
+msgstr ""
+"Verbindung zum öffentlichen Schlüsselserver wurde abgewiesen. Grund: %s (%s)"
+
+#: framework/VFS/VFS/ftp.php:722
+msgid "Connection to FTP server failed."
+msgstr "Verbindung zum FTP-Server fehlgeschlagen"
+
+#: framework/MIME/MIME/Viewer/rar.php:59 framework/MIME/MIME/Viewer/zip.php:63
+#: framework/MIME/MIME/Viewer/tgz.php:63
+#, php-format
+msgid "Contents of '%s'"
+msgstr "Inhalt von '%s'"
+
+#: framework/NLS/NLS/tld.php:58 framework/NLS/NLS/countries.php:59
+#: framework/NLS/NLS/GeoIP.php:67
+msgid "Cook Islands"
+msgstr "Cook-Inseln"
+
+#: services/editor/designmode/editor.php:71
+msgid "Copy"
+msgstr "Kopiere"
+
+#: framework/VFS/VFS/ftp.php:594
+#, php-format
+msgid "Copy failed: %s"
+msgstr "Kopieren fehlgeschlagen: %s"
+
+#: templates/javascript/htmlarea/htmlarea.js:173
+msgid "Copy selection"
+msgstr "Auswahl kopieren"
+
+#: po/translation.php:969
+#, php-format
+msgid "Copying %s to %s"
+msgstr "Kopiere %s nach %s"
+
+#: config/themes/html-cornflower.php:9
+msgid "Cornflower"
+msgstr "Kornblume"
+
+#: framework/NLS/NLS/tld.php:63 framework/NLS/NLS/countries.php:60
+#: framework/NLS/NLS/GeoIP.php:68
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: framework/NLS/NLS/tld.php:57 framework/NLS/NLS/countries.php:61
+#: framework/NLS/NLS/GeoIP.php:67
+msgid "Cote d'Ivoire"
+msgstr "Elfenbeinküste"
+
+#: framework/Crypt/Crypt/pgp.php:962
+msgid "Could not PGP encrypt message."
+msgstr "Die Nachricht konnte nicht mit PGP verschlüsselt werden."
+
+#: framework/Crypt/Crypt/pgp.php:1040
+msgid "Could not PGP sign message."
+msgstr "Die Nachricht konnte nicht mit PGP unterzeichnet werden."
+
+#: framework/Crypt/Crypt/smime.php:372
+msgid "Could not S/MIME encrypt message."
+msgstr "Die Nachricht konnte nicht mit S/MIME verschlüsselt werden."
+
+#: framework/Crypt/Crypt/smime.php:445
+msgid "Could not S/MIME sign message."
+msgstr "Die Nachricht konnte nicht mit S/MIME unterzeichnet werden."
+
+#: framework/Auth/Auth/ldap.php:106
+msgid "Could not bind to LDAP server."
+msgstr "Verbindung zum LDAP-Server fehlgeschlagen."
+
+#: framework/Horde/Horde.php:1314
+#, php-format
+msgid "Could not call function %s in application %s."
+msgstr "Die Funktion %s in der Anwendung %s konnte nicht aufgerufen werden."
+
+#: po/translation.php:972
+#, php-format
+msgid "Could not copy %s to %s"
+msgstr "Konnte %s nicht nach %s kopieren"
+
+#: po/translation.php:592 po/translation.php:962
+#, php-format
+msgid "Could not create locale directory for locale %s:"
+msgstr "Das locale Verzeichnis für das Locale %s konnte nicht erstellt werden:"
+
+#: framework/Crypt/Crypt/pgp.php:1111
+msgid "Could not decrypt PGP data."
+msgstr "PGP-Daten konnten nicht entschlüsselt werden."
+
+#: framework/Crypt/Crypt/smime.php:500
+msgid "Could not decrypt S/MIME data."
+msgstr "S/MIME-Daten konnten nicht entschlüsselt werden."
+
+#: admin/setup/scripts.php:37
+#, php-format
+msgid "Could not delete setup upgrade script '%s'."
+msgstr "Das Aktualisierungsskript '%s' konnte nicht gelöscht werden."
+
+#: framework/Crypt/Crypt/smime.php:363 framework/Crypt/Crypt/pgp.php:944
+msgid "Could not determine the recipient's e-mail address."
+msgstr "Die Emailadresse des Empfängers konnte nicht ermittelt werden."
+
+#: framework/PDF/PDF.php:1224
+msgid "Could not include font definition file."
+msgstr "Die Beschreibungsdatei für die Schriftart konnte nicht geladen werden."
+
+#: framework/PDF/PDF.php:2186
+#, php-format
+msgid "Could not include font metric file: %s"
+msgstr "Die Metrikdatei für die Schriftart konnte nicht geladen werden: %s"
+
+#: framework/Crypt/Crypt/pgp.php:709
+msgid "Could not obtain public key from the keyserver."
+msgstr "Öffentlicher Schlüssel konnte nicht vom Schlüsselserver geholt werden."
+
+#: framework/Maintenance/Maintenance.php:399
+#, php-format
+msgid "Could not open Maintenance_Task module %s"
+msgstr "Das Maintenance_Task Modul %s konnte nicht geöffnet werden"
+
+#: framework/VFS/VFS/Object.php:247
+#, php-format
+msgid "Could not read %s."
+msgstr "%s konnte nicht gelesen werden."
+
+#: framework/Net_IMSP/IMSP/Book.php:1069
+msgid "Could not release the lock."
+msgstr "Die Sperre konnte nicht aufgehoben werden."
+
+#: framework/Net_IMSP/IMSP/Book.php:1242
+msgid "Could not retrieve ACL."
+msgstr "ACL konnte nicht gelesen werden."
+
+#: admin/setup/scripts.php:59
+#, php-format
+msgid "Could not save %s configuration."
+msgstr "%s-Konfiguration konnte nicht gespeichert werden."
+
+#: admin/setup/scripts.php:80
+#, php-format
+msgid "Could not save setup upgrade script to: '%s'."
+msgstr "Das Aktualisierungsskript konnte nicht nach '%s' gespeichert werden."
+
+#: framework/Auth/Auth/ldap.php:116
+msgid "Could not search the LDAP server."
+msgstr "Der LDAP-Server konnte nicht durchsucht werden."
+
+#: config/prefs.php.dist:170
+msgid "Couldn't find the Mozilla Sidebar. Make sure the sidebar is open."
+msgstr ""
+"Die Mozilla Sidebar konnte nicht gefunden werden. Stellen Sie sicher, dass "
+"die Sidebar geöffnet ist."
+
+#: framework/VC/VC/cvs.php:220 framework/VC/VC/svn.php:149
+msgid "Couldn't perform checkout of the requested file"
+msgstr "Das Checkout für diese Datei konnte nicht durchgeführt werden"
+
+#: framework/Form/Form.php:1399
+msgid "Counted text"
+msgstr "Gezählter Text"
+
+#: framework/Crypt/Crypt/smime.php:522
+msgid "Country"
+msgstr "Land"
+
+#: templates/rpcsum/manage.inc:48 templates/rpcsum/manage.inc:52
+#: templates/rpcsum/javascript.inc:21
+msgid "Create"
+msgstr "Erstellen"
+
+#: admin/perms/edit.php:93 framework/Perms/Perms/UI.php:219
+msgid "Creator Permissions"
+msgstr "Erstellerrechte"
+
+#: framework/Form/Form.php:2915
+msgid "Credit card number"
+msgstr "Kreditkartennummer"
+
+#: framework/NLS/NLS/tld.php:109 framework/NLS/NLS/countries.php:62
+#: framework/NLS/NLS/GeoIP.php:80
+msgid "Croatia"
+msgstr "Kroatien"
+
+#: config/registry.php.dist:317
+msgid "Cross Reference"
+msgstr "Querverweis"
+
+#: framework/NLS/NLS/tld.php:64 framework/NLS/NLS/countries.php:63
+#: framework/NLS/NLS/GeoIP.php:69
+msgid "Cuba"
+msgstr "Kuba"
+
+#: lib/Block/moon.php:24
+msgid "Current Phase"
+msgstr "Aktuelle Phase"
+
+#: lib/Block/time.php:28 config/registry.php.dist:573
+msgid "Current Time"
+msgstr "Aktuelle Zeit"
+
+#: lib/Block/metar.php:23
+msgid "Current Weather"
+msgstr "Aktuelles Wetter"
+
+#: lib/Block/weatherdotcom.php:216
+msgid "Current condition: "
+msgstr "Derzeitige Bedingungen: "
+
+#: services/editor/designmode/editor.php:68
+msgid "Cut"
+msgstr "Ausschneiden"
+
+#: templates/javascript/htmlarea/htmlarea.js:172
+msgid "Cut selection"
+msgstr "Auswahl ausschneiden"
+
+#: framework/NLS/NLS/tld.php:67 framework/NLS/NLS/countries.php:64
+#: framework/NLS/NLS/GeoIP.php:69
+msgid "Cyprus"
+msgstr "Zypern"
+
+#: config/nls.php.dist:174
+msgid "Cyrillic (KOI8-R)"
+msgstr "Kyrillisch (KOI8-R)"
+
+#: config/nls.php.dist:175
+msgid "Cyrillic (Windows-1251)"
+msgstr "Kyrillisch (Windows-1251)"
+
+#: config/nls.php.dist:176
+msgid "Cyrillic/Ukrainian (KOI8-U)"
+msgstr "Kyrillisch/Ukrainisch (KOI8-U)"
+
+#: framework/NLS/NLS/tld.php:68 framework/NLS/NLS/countries.php:65
+#: framework/NLS/NLS/GeoIP.php:70
+msgid "Czech Republic"
+msgstr "Tschechische Republik"
+
+#: framework/UI/UI/VarRenderer/html.php:345 templates/data/date.inc:30
+#: templates/data/date.inc:31 templates/data/date.inc:32
+#: templates/data/date.inc:33
+msgid "DD"
+msgstr "TT"
+
+#: services/editor/designmode/editor.php:14
+msgid "DHTML Rich Text Editor"
+msgstr "Erweiteter DHTML-Texteditor"
+
+#: framework/Maintenance/Maintenance.php:41
+msgid "Daily"
+msgstr "Täglich"
+
+#: config/registry.php.dist:491
+msgid "Data"
+msgstr "Daten"
+
+#: framework/Form/Form.php:2279
+msgid "Date"
+msgstr "Datum"
+
+#: templates/admin/user/approve.inc:12
+msgid "Date Received"
+msgstr "Empfangsdatum"
+
+#: framework/Form/Form.php:2689
+msgid "Date selection"
+msgstr "Datumsauswahl"
+
+#: framework/UI/UI/VarRenderer/html.php:314
+#: framework/UI/UI/VarRenderer/html.php:344
+#: templates/javascript/open_calendar.js:77
+msgid "December"
+msgstr "Dezember"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:688
+msgid "Declined"
+msgstr "Abgelehnt"
+
+#: templates/javascript/htmlarea/htmlarea.js:158
+msgid "Decrease Indent"
+msgstr "Einzug verringern"
+
+#: framework/Identity/Identity.php:79
+msgid "Default Identity"
+msgstr "Standardidentität"
+
+#: admin/perms/edit.php:75 framework/Perms/Perms/UI.php:201
+msgid "Default Permissions"
+msgstr "Standardrechte"
+
+#: admin/perms/edit.php:76 framework/Perms/Perms/UI.php:202
+msgid "Default permissions"
+msgstr "Standardrechte"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:646
+msgid "Delegate position"
+msgstr "Delegieren"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:696
+msgid "Delegated"
+msgstr "Delegiert"
+
+#: admin/groups.php:71 admin/perms/delete.php:47 admin/perms/delete.php:53
+#: framework/Perms/Perms.php:419 framework/Perms/Perms/UI.php:324
+#: framework/Perms/Perms/UI.php:344 framework/Links/Links.php:236
+#: templates/shares/edit.inc:42 templates/shares/edit.inc:76
+#: templates/shares/edit.inc:99 templates/shares/edit.inc:122
+#: templates/shares/edit.inc:145 templates/shares/edit.inc:188
+#: templates/rpcsum/manage.inc:24 templates/rpcsum/manage.inc:50
+#: templates/admin/groups/delete.inc:13 templates/admin/user/list.inc:11
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/groups.php:167 admin/groups.php:185
+msgid "Delete Group"
+msgstr "Gruppe löschen"
+
+#: framework/Perms/Perms/UI.php:62 framework/Perms/Perms/UI.php:80
+msgid "Delete Permission"
+msgstr "Rechte löschen"
+
+#: admin/templates.php:148
+msgid "Delete existing alternate template"
+msgstr "Bestehende alternative Vorlage löschen"
+
+#: admin/perms/delete.php:51 framework/Perms/Perms/UI.php:323
+#, php-format
+msgid "Delete permissions for '%s'"
+msgstr "Rechte für '%s' löschen"
+
+#: framework/Perms/Perms/UI.php:326
+#, php-format
+msgid "Delete permissions for '%s' and any sub-permissions?"
+msgstr "Rechte für '%s' und alle Unterrechte löschen?"
+
+#: framework/Links/Links.php:236
+msgid "Delete this link"
+msgstr "Diese Verbindung löschen"
+
+#: admin/perms/delete.php:49
+msgid "Delete this permission and any sub-permissions?"
+msgstr "Dieses Recht und alle Unterrechte löschen?"
+
+#: admin/setup/scripts.php:35
+#, php-format
+msgid "Deleted setup upgrade script '%s'."
+msgstr "Das Aktualisierungsskript '%s' wurde gelöscht."
+
+#: framework/NLS/NLS/tld.php:71 framework/NLS/NLS/countries.php:66
+#: framework/NLS/NLS/GeoIP.php:70
+msgid "Denmark"
+msgstr "Dänemark"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:645
+msgid "Deny request"
+msgstr "Anfrage ablehnen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:474
+msgid "Deny request for free/busy information"
+msgstr "Anfrage für Frei/Gebucht-Informationen ablehnen"
+
+#: services/problem.php:98 services/problem.php:102 services/problem.php:113
+msgid "Describe the Problem"
+msgstr "Beschreiben Sie das Problem"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:568 framework/Form/Form.php:1010
+msgid "Description"
+msgstr "Beschreibung"
+
+#: framework/Horde/Horde.php:186
+msgid "Details (also in Horde's logfile):"
+msgstr "Details (auch in Hordes Logdatei):"
+
+#: framework/Horde/Horde.php:190
+msgid "Details have been logged for the administrator."
+msgstr "Details wurden für den Administrator mitgeloggt."
+
+#: config/registry.php.dist:249
+msgid "Development"
+msgstr "Entwicklung"
+
+#: lib/Block/metar.php:202
+msgid "Dew Point"
+msgstr "Schmelzpunkt"
+
+#: lib/Block/metar.php:279
+msgid "Dew Point for last hour: "
+msgstr "Schmelzpunkt der letzten Stunde: "
+
+#: lib/Block/weatherdotcom.php:178
+msgid "Dew point: "
+msgstr "Schmelzpunkt: "
+
+#: lib/Block/google.php:37
+msgid "Directory"
+msgstr "Verzeichnis"
+
+#: config/registry.php.dist:116
+msgid "Discussions"
+msgstr "Newsgroups"
+
+#: config/prefs.php.dist:116
+msgid "Display 24-hour times?"
+msgstr "Zeit im 24-Stunden-Format anzeigen?"
+
+#: config/prefs.php.dist:71
+msgid "Display Options"
+msgstr "Anzeige-Einstellungen"
+
+#: framework/Form/Form.php:2699
+msgid "Display format"
+msgstr "Anzeigeformat"
+
+#: framework/NLS/NLS/tld.php:70 framework/NLS/NLS/countries.php:67
+#: framework/NLS/NLS/GeoIP.php:70
+msgid "Djibouti"
+msgstr "Dschibuti"
+
+#: framework/PDF/PDF.php:419
+msgid "Do not alter the locale before including the class file."
+msgstr "Nicht die Sprache ändern, bevor die Klassendatei geladen wird."
+
+#: admin/perms/delete.php:47 framework/Perms/Perms/UI.php:324
+msgid "Do not delete"
+msgstr "Nicht löschen"
+
+#: services/maintenance.php:26
+msgid "Do not directly access maintenance.php"
+msgstr "Greifen Sie nicht direkt auf maintenance.php zu"
+
+#: templates/data/tsvinfo.inc:19 templates/data/csvinfo.inc:19
+msgid "Does the first row contain the field names? If yes, check this box:"
+msgstr ""
+"Enthält die erste Zeile die Feldnamen? Wenn ja, dieses Auswahlkästchen "
+"markieren:"
+
+#: framework/NLS/NLS/tld.php:72 framework/NLS/NLS/countries.php:68
+#: framework/NLS/NLS/GeoIP.php:70
+msgid "Dominica"
+msgstr "Dominica"
+
+#: framework/NLS/NLS/tld.php:73 framework/NLS/NLS/countries.php:69
+#: framework/NLS/NLS/GeoIP.php:71
+msgid "Dominican Republic"
+msgstr "Dominikanische Republik"
+
+#: framework/MIME/MIME/Contents.php:809
+msgid "Download"
+msgstr "Herunterladen"
+
+#: framework/MIME/MIME/Contents.php:809
+#, php-format
+msgid "Download %s"
+msgstr "%s Herunterladen"
+
+#: admin/setup/index.php:106
+msgid "Download generated configuration as PHP script."
+msgstr "Erzeugte Konfiguration als PHP-Skript herunterladen."
+
+#: framework/Form/Form.php:2006
+msgid "Drop down list"
+msgstr "Auswahlliste"
+
+#: framework/Crypt/Crypt/pgp.php:388
+msgid "E-Mail"
+msgstr "Email"
+
+#: framework/Notification/Notification/Listener/mobile.php:37
+msgid "ERR"
+msgstr "FEHLER"
+
+#: framework/NLS/NLS/tld.php:75 framework/NLS/NLS/countries.php:70
+#: framework/NLS/NLS/GeoIP.php:71
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: framework/Perms/Perms.php:418 templates/shares/edit.inc:41
+#: templates/shares/edit.inc:75 templates/shares/edit.inc:98
+#: templates/shares/edit.inc:121 templates/shares/edit.inc:144
+#: templates/shares/edit.inc:187 templates/rpcsum/manage.inc:23
+#: templates/portal/edit.inc:22
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: framework/Block/Block/UI.php:51 templates/portal/edit.inc:22
+msgid "Edit Block"
+msgstr "Block bearbeiten"
+
+#: admin/groups.php:166 admin/groups.php:184
+msgid "Edit Group"
+msgstr "Gruppe bearbeiten"
+
+#: framework/Perms/Perms/UI.php:61 framework/Perms/Perms/UI.php:79
+msgid "Edit Permission"
+msgstr "Rechte bearbeiten"
+
+#: services/shares/edit.php:237
+msgid "Edit Permissions"
+msgstr "Rechte bearbeiten"
+
+#: services/shares/edit.php:239
+#, php-format
+msgid "Edit Permissions for %s"
+msgstr "Rechte für '%s' bearbeiten"
+
+#: templates/shares/edit.inc:14
+#, php-format
+msgid "Edit permissions for %s"
+msgstr "Rechte für %s bearbeiten"
+
+#: admin/perms/edit.php:156 framework/Perms/Perms/UI.php:285
+#, php-format
+msgid "Edit permissions for '%s'"
+msgstr "Rechte für '%s' bearbeiten"
+
+#: framework/NLS/NLS/tld.php:77 framework/NLS/NLS/countries.php:71
+#: framework/NLS/NLS/GeoIP.php:71
+msgid "Egypt"
+msgstr "Ägypten"
+
+#: framework/NLS/NLS/tld.php:217 framework/NLS/NLS/countries.php:72
+#: framework/NLS/NLS/GeoIP.php:108
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: framework/MIME/MIME/Viewer/vcard.php:192 framework/Form/Form.php:1798
+msgid "Email"
+msgstr "Email"
+
+#: framework/Crypt/Crypt/smime.php:518 templates/admin/groups/edit.inc:12
+#: templates/admin/user/update.inc:39
+msgid "Email Address"
+msgstr "Emailadresse"
+
+#: framework/Form/Form.php:1863
+msgid "Email addresses must match."
+msgstr "Die Emailadressen müssen gleich sein."
+
+#: framework/Form/Form.php:1888
+msgid "Email with confirmation"
+msgstr "Email mit Bestätigung"
+
+#: framework/UI/UI/VarRenderer/html.php:230
+msgid "Emoticons"
+msgstr "Smileys"
+
+#: framework/Auth/Auth/ldap.php:124
+msgid "Empty result."
+msgstr "Leeres Ergebnis."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:451
+#: framework/MIME/MIME/Viewer/icalendar.php:556
+msgid "End"
+msgstr "Ende"
+
+#: framework/Form/Form.php:2483 framework/Form/Form.php:2693
+msgid "End year"
+msgstr "Endjahr"
+
+#: templates/javascript/htmlarea/htmlarea.js:167
+msgid "Enlarge Editor"
+msgstr "Editor vergrößern"
+
+#: po/translation.php:1048
+#, php-format
+msgid "Entries: %d total, %d up-to-date, %d new, %d changed, %d unknown"
+msgstr ""
+"Einträge: %d insgesamt, %d aktuelle, %d neue, %d geänderte, %d unbekannte"
+
+#: framework/NLS/NLS/tld.php:99 framework/NLS/NLS/countries.php:73
+#: framework/NLS/NLS/GeoIP.php:77
+msgid "Equatorial Guinea"
+msgstr "Äquatorial-Guinea"
+
+#: framework/NLS/NLS/tld.php:79 framework/NLS/NLS/countries.php:74
+#: framework/NLS/NLS/GeoIP.php:72
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: framework/Notification/Notification/Listener/status.php:30
+#: lib/Block/weatherdotcom.php:39 lib/Block/metar.php:34
+msgid "Error"
+msgstr "Fehler"
+
+#: framework/Net_IMSP/IMSP/Book.php:1074
+msgid "Error releasing lock in UNLOCK command."
+msgstr "Fehler beim Freigeben der Sperre mit dem UNLOCK-Kommando."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:195
+#: framework/MIME/MIME/Viewer/icalendar.php:279
+#: framework/MIME/MIME/Viewer/icalendar.php:349
+#, php-format
+msgid "Error sending reply: %s."
+msgstr "Fehler beim Versenden der Antwort: %s"
+
+#: po/translation.php:344 po/translation.php:440 po/translation.php:1250
+#: po/translation.php:1311 po/translation.php:1375
+msgid "Error: "
+msgstr "Fehler: "
+
+#: framework/NLS/NLS/tld.php:76 framework/NLS/NLS/countries.php:75
+#: framework/NLS/NLS/GeoIP.php:71
+msgid "Estonia"
+msgstr "Estland"
+
+#: framework/NLS/NLS/tld.php:81 framework/NLS/NLS/countries.php:76
+#: framework/NLS/NLS/GeoIP.php:72
+msgid "Ethiopia"
+msgstr "Äthiopien"
+
+#: framework/NLS/NLS/GeoIP.php:56
+msgid "Europe"
+msgstr "Europa"
+
+#: config/prefs.php.dist:150
+msgid "Every 15 minutes"
+msgstr "Alle 15 Minuten"
+
+#: config/prefs.php.dist:147
+msgid "Every 30 seconds"
+msgstr "Alle 30 Sekunden"
+
+#: config/prefs.php.dist:149
+msgid "Every 5 minutes"
+msgstr "Alle 5 Minuten"
+
+#: framework/Maintenance/Maintenance.php:42
+msgid "Every Login"
+msgstr "Bei jeder Anmeldung"
+
+#: config/prefs.php.dist:151
+msgid "Every half hour"
+msgstr "Alle halbe Stunde"
+
+#: config/prefs.php.dist:148
+msgid "Every minute"
+msgstr "Alle 60 Sekunden"
+
+#: templates/data/datemap.inc:28
+msgid "Example values:"
+msgstr "Beispielwerte:"
+
+#: admin/phpshell.php:76 admin/cmdshell.php:50 admin/sqlshell.php:104
+msgid "Execute"
+msgstr "Ausführen"
+
+#: po/translation.php:277 po/translation.php:294 po/translation.php:360
+#: po/translation.php:459 po/translation.php:519 po/translation.php:613
+#: po/translation.php:645 po/translation.php:702 po/translation.php:772
+#: po/translation.php:886 po/translation.php:908
+msgid "Executing:"
+msgstr "Führe aus:"
+
+#: framework/Block/Block/Layout.php:384
+msgid "Expand"
+msgstr "Vergrößern"
+
+#: framework/Crypt/Crypt/pgp.php:387
+msgid "Expiration Date"
+msgstr "Verfallsdatum"
+
+#: framework/Crypt/Crypt/smime.php:624
+msgid "Exponent"
+msgstr "Exponent"
+
+#: po/translation.php:255
+#, php-format
+msgid "Extracting from %s... "
+msgstr "Aus %s extrahieren... "
+
+#: framework/Prefs/Prefs/sql.php:359
+msgid "Failed retrieving preferences."
+msgstr "Benutzereinstellungen konnten nicht geladen werden."
+
+#: framework/Auth/Auth/ldap.php:98
+msgid "Failed to connect to LDAP server."
+msgstr "Verbindung zum LDAP Server gescheitert."
+
+#: framework/Auth/Auth/smb.php:102
+msgid "Failed to connect to SMB server."
+msgstr "Verbindung zum SMB-Server gescheitert."
+
+#: framework/Auth/Auth/sasl.php:91
+msgid "Failed to create new SASL connection."
+msgstr "Aufbau einen neuen SASL-Verbindung ist fehlgeschlagen."
+
+#: framework/VFS/VFS/ftp.php:589
+#, php-format
+msgid "Failed to retrieve: %s"
+msgstr "Lesen fehlgeschlagen: %s"
+
+#: framework/VC/VC/cvs.php:1060
+msgid "Failed to spawn cvsps to retrieve patchset information"
+msgstr ""
+"cvsps konnte nicht ausgeführt werden, um Patchsatz-Informationen zu erhalten"
+
+#: framework/VC/VC/cvs.php:766
+msgid "Failed to spawn rlog to retrieve file log information"
+msgstr "rlog konnte nicht ausgeführt werden, um Dateiinformationen zu erhalten"
+
+#: framework/NLS/NLS/tld.php:84 framework/NLS/NLS/countries.php:77
+#: framework/NLS/NLS/GeoIP.php:73
+msgid "Falkland Islands (Malvinas)"
+msgstr "Falklandinseln"
+
+#: framework/NLS/NLS/tld.php:86 framework/NLS/NLS/countries.php:78
+#: framework/NLS/NLS/GeoIP.php:74
+msgid "Faroe Islands"
+msgstr "Faröer"
+
+#: framework/CLI/CLI.php:233
+msgid "Fatal Error!"
+msgstr "Schwerer Fehler!"
+
+#: framework/MIME/MIME/Viewer/vcard.php:166
+msgid "Fax"
+msgstr "Fax"
+
+#: framework/UI/UI/VarRenderer/html.php:304
+#: framework/UI/UI/VarRenderer/html.php:334
+#: templates/javascript/open_calendar.js:67
+msgid "February"
+msgstr "Februar"
+
+#: lib/Block/metar.php:205
+msgid "Feels Like"
+msgstr "Gefühlte Temperatur"
+
+#: lib/Block/weatherdotcom.php:182
+msgid "Feels like: "
+msgstr "Gefühlte Temperatur: "
+
+#: framework/NLS/NLS/tld.php:83 framework/NLS/NLS/countries.php:79
+#: framework/NLS/NLS/GeoIP.php:73
+msgid "Fiji"
+msgstr "Fidschi"
+
+#: framework/MIME/MIME/Viewer/rar.php:63 framework/MIME/MIME/Viewer/zip.php:67
+#: framework/MIME/MIME/Viewer/tgz.php:67
+#, php-format
+msgid "File Count: %s file"
+msgstr "Anzahl: %s Datei"
+
+#: framework/MIME/MIME/Viewer/rar.php:63 framework/MIME/MIME/Viewer/zip.php:67
+#: framework/MIME/MIME/Viewer/tgz.php:67
+#, php-format
+msgid "File Count: %s files"
+msgstr "Anzahl: %s Dateien"
+
+#: config/registry.php.dist:419
+msgid "File Manager"
+msgstr "Dateimanager"
+
+#: framework/MIME/MIME/Viewer/rar.php:66 framework/MIME/MIME/Viewer/zip.php:70
+#: framework/MIME/MIME/Viewer/tgz.php:70
+msgid "File Name"
+msgstr "Dateiname"
+
+#: framework/VC/VC/cvs.php:755 framework/VC/VC/cvs.php:1046
+msgid "File Not Found"
+msgstr "Datei nicht gefunden"
+
+#: framework/Form/Form.php:1466
+msgid "File upload"
+msgstr "Datei-Hochladen"
+
+#: framework/Horde/Horde.php:866
+msgid "File uploads not supported."
+msgstr "Das Hochladen von Dateien wird nicht unterstützt."
+
+#: config/registry.php.dist:94
+msgid "Filters"
+msgstr "Filter"
+
+#: framework/NLS/NLS/tld.php:82 framework/NLS/NLS/countries.php:80
+#: framework/NLS/NLS/GeoIP.php:72
+msgid "Finland"
+msgstr "Finnland"
+
+#: lib/Block/moon.php:169
+msgid "First Half"
+msgstr "Erste Hälfte"
+
+#: lib/Block/moon.php:72 lib/Block/moon.php:74
+msgid "First Quarter"
+msgstr "Erstes Viertel"
+
+#: framework/UI/UI/VarRenderer/html.php:193
+msgid "Fix ratio"
+msgstr "Verhältnis zurücksetzen"
+
+#: framework/UI/UI/VarRenderer/html.php:168
+msgid "Flip"
+msgstr "Umdrehen"
+
+#: framework/VFS/VFS/sql.php:148 framework/VFS/VFS/musql.php:99
+#, php-format
+msgid "Folder %s does not exist"
+msgstr "Das Verzeichnis %s existiert nicht"
+
+#: config/registry.php.dist:203
+msgid "Follow up task"
+msgstr "Folge-Aufgabe"
+
+#: templates/javascript/htmlarea/htmlarea.js:160
+msgid "Font Color"
+msgstr "Schriftfarbe"
+
+#: framework/PDF/PDF.php:1214
+#, php-format
+msgid "Font already added: %s %s"
+msgstr "Schriftart bereits hinzugefügt: %s %s"
+
+#: framework/PDF/PDF.php:2292
+msgid "Font file not found."
+msgstr "Schriftartdatei nicht gefunden."
+
+#: lib/Block/weatherdotcom.php:62
+msgid ""
+"Forecast Days (note that the returned forecast returns both day and night; a "
+"large number here could result in a wide block)"
+msgstr ""
+"Vorhergesagte Tage (Vorhersagen enthalten Tage und Nächte, ein hoher Wert "
+"kann zu einem sehr großen Block führen)"
+
+#: config/registry.php.dist:500
+msgid "Forms"
+msgstr "Formulare"
+
+#: lib/Block/fortune.php:19
+msgid "Fortune"
+msgstr "Tagesspruch"
+
+#: config/registry.php.dist:583
+msgid "Fortune type"
+msgstr "Spruchtyp"
+
+#: config/registry.php.dist:585
+msgid "Fortunes"
+msgstr "Tagessprüche"
+
+#: config/registry.php.dist:125
+msgid "Forums"
+msgstr "Foren"
+
+#: config/registry.php.dist:428
+msgid "Forwards"
+msgstr "Weiterleitung"
+
+#: po/translation.php:1332
+#, php-format
+msgid "Found applications: %s"
+msgstr "Anwendungen gefunden: %s"
+
+#: po/translation.php:1326
+msgid "Found directories:"
+msgstr "Gefundene Verzeichnisse: "
+
+#: templates/javascript/open_calendar.js:61
+msgid "Fr"
+msgstr "Fr"
+
+#: framework/NLS/NLS/tld.php:87 framework/NLS/NLS/countries.php:81
+#: framework/NLS/NLS/GeoIP.php:74
+msgid "France"
+msgstr "Frankreich"
+
+#: framework/NLS/NLS/GeoIP.php:74
+msgid "France, Metropolitan"
+msgstr "Europäisches Frankreich"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:420
+msgid "Free/Busy Information"
+msgstr "Frei/Gebucht-Informationen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:430
+msgid "Free/Busy Reply"
+msgstr "Frei/Gebucht-Antwort"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:425
+msgid "Free/Busy Request"
+msgstr "Frei/Gebucht-Anfrage"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:273
+#: framework/MIME/MIME/Viewer/icalendar.php:343
+msgid "Free/Busy Request Response"
+msgstr "Antwort auf Frei/Gebucht-Anfrage"
+
+#: framework/NLS/NLS/tld.php:91 framework/NLS/NLS/countries.php:82
+#: framework/NLS/NLS/GeoIP.php:75
+msgid "French Guiana"
+msgstr "Französisch-Guayana"
+
+#: framework/NLS/NLS/tld.php:184 framework/NLS/NLS/countries.php:83
+#: framework/NLS/NLS/GeoIP.php:99
+msgid "French Polynesia"
+msgstr "Französisch-Polynesien"
+
+#: framework/NLS/NLS/tld.php:222 framework/NLS/NLS/countries.php:84
+#: framework/NLS/NLS/GeoIP.php:110
+msgid "French Southern Territories"
+msgstr "Französische Gebiete im südlichen Indischen Ozean"
+
+#: lib/Block/weatherdotcom.php:197
+msgid "From the "
+msgstr "Aus"
+
+#: templates/problem/problem.inc:48
+msgid "Full Description"
+msgstr "Vollständige Beschreibung"
+
+#: lib/Block/moon.php:80 lib/Block/moon.php:179
+msgid "Full Moon"
+msgstr "Vollmond"
+
+#: templates/admin/user/update.inc:38
+msgid "Full Name"
+msgstr "Vollständiger Name"
+
+#: config/registry.php.dist:212
+msgid "Funny note"
+msgstr "Lustige Notiz"
+
+#: po/translation.php:568
+msgid "Fuzzy"
+msgstr "Ungenau"
+
+#: framework/NLS/NLS/tld.php:88 framework/NLS/NLS/countries.php:85
+#: framework/NLS/NLS/GeoIP.php:74
+msgid "Gabon"
+msgstr "Gabun"
+
+#: framework/NLS/NLS/tld.php:96 framework/NLS/NLS/countries.php:86
+#: framework/NLS/NLS/GeoIP.php:76
+msgid "Gambia"
+msgstr "Gambia"
+
+#: admin/setup/config.php:43
+#, php-format
+msgid "Generate %s Configuration"
+msgstr "%s-Konfiguration erzeugen"
+
+#: po/translation.php:397
+#, php-format
+msgid "Generating status for module %s..."
+msgstr "Status für das %s-Modul wird generiert..."
+
+#: framework/NLS/NLS/tld.php:90 framework/NLS/NLS/countries.php:87
+#: framework/NLS/NLS/GeoIP.php:75
+msgid "Georgia"
+msgstr "Georgien"
+
+#: framework/NLS/NLS/tld.php:69 framework/NLS/NLS/countries.php:88
+#: framework/NLS/NLS/GeoIP.php:70
+msgid "Germany"
+msgstr "Deutschland"
+
+#: po/translation.php:1244
+msgid "Getopt Error: "
+msgstr "Getopt Fehler: "
+
+#: framework/NLS/NLS/tld.php:93 framework/NLS/NLS/countries.php:89
+#: framework/NLS/NLS/GeoIP.php:76
+msgid "Ghana"
+msgstr "Ghana"
+
+#: framework/NLS/NLS/tld.php:94 framework/NLS/NLS/countries.php:90
+#: framework/NLS/NLS/GeoIP.php:76
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: framework/Crypt/Crypt/smime.php:528
+msgid "Given Name"
+msgstr "Vorname"
+
+#: lib/Block/google.php:19 lib/Block/google.php:39
+msgid "Google Search"
+msgstr "Google Suche"
+
+#: framework/UI/UI/VarRenderer/html.php:174
+msgid "Grayscale"
+msgstr "Graustufen"
+
+#: framework/NLS/NLS/tld.php:100 framework/NLS/NLS/countries.php:91
+#: framework/NLS/NLS/GeoIP.php:77
+msgid "Greece"
+msgstr "Griechenland"
+
+#: config/nls.php.dist:177
+msgid "Greek (ISO-8859-7)"
+msgstr "Griechisch (ISO-8859-7)"
+
+#: config/themes/html-green.php:9
+msgid "Green"
+msgstr "Grün"
+
+#: framework/NLS/NLS/tld.php:95 framework/NLS/NLS/countries.php:92
+#: framework/NLS/NLS/GeoIP.php:76
+msgid "Greenland"
+msgstr "Grönland"
+
+#: framework/NLS/NLS/tld.php:89 framework/NLS/NLS/countries.php:93
+#: framework/NLS/NLS/GeoIP.php:75
+msgid "Grenada"
+msgstr "Grenada"
+
+#: config/themes/html-grey.php:9
+msgid "Grey"
+msgstr "Grau"
+
+#: admin/groups.php:147
+msgid "Group Administration"
+msgstr "Gruppenverwaltung"
+
+#: framework/Group/Group.php:58
+msgid "Group names must be non-empty"
+msgstr "Gruppennamen dürfen nicht leer sein"
+
+#: admin/perms/edit.php:153 framework/Perms/Perms/UI.php:282
+msgid "Group permissions"
+msgstr "Gruppenrechte"
+
+#: admin/perms/edit.php:128 framework/Perms/Perms/UI.php:255 lib/api.php:87
+#: lib/Block/google.php:36 templates/shares/edit.inc:183
+msgid "Groups"
+msgstr "Gruppen"
+
+#: framework/NLS/NLS/tld.php:98 framework/NLS/NLS/countries.php:94
+#: framework/NLS/NLS/GeoIP.php:77
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: framework/NLS/NLS/tld.php:103 framework/NLS/NLS/countries.php:95
+#: framework/NLS/NLS/GeoIP.php:78
+msgid "Guam"
+msgstr "Guam"
+
+#: framework/NLS/NLS/tld.php:102 framework/NLS/NLS/countries.php:96
+#: framework/NLS/NLS/GeoIP.php:78
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: framework/NLS/NLS/tld.php:92
+msgid "Guernsey"
+msgstr "Guernsey"
+
+#: admin/perms/edit.php:84 framework/Perms/Perms/UI.php:210
+#: templates/shares/edit.inc:94
+msgid "Guest Permissions"
+msgstr "Gastrechte"
+
+#: templates/guest/guest.inc:11
+msgid "Guest Services"
+msgstr "Gast-Angebote"
+
+#: admin/perms/edit.php:85 framework/Perms/Perms/UI.php:211
+msgid "Guest permissions"
+msgstr "Gastrechte"
+
+#: framework/NLS/NLS/tld.php:97 framework/NLS/NLS/countries.php:97
+#: framework/NLS/NLS/GeoIP.php:76
+msgid "Guinea"
+msgstr "Guinea"
+
+#: framework/NLS/NLS/tld.php:104 framework/NLS/NLS/countries.php:98
+#: framework/NLS/NLS/GeoIP.php:79
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+#: framework/NLS/NLS/tld.php:105 framework/NLS/NLS/countries.php:99
+#: framework/NLS/NLS/GeoIP.php:79
+msgid "Guyana"
+msgstr "Guyana"
+
+#: framework/UI/UI/VarRenderer/html.php:265
+msgid "HH"
+msgstr "HH"
+
+#: framework/Form/Form.php:1029
+msgid "HTML"
+msgstr "HTML"
+
+#: framework/Auth/Auth/http.php:163
+msgid "HTTP Authentication not found."
+msgstr "HTTP-Authentifizierung nicht gefunden."
+
+#: framework/NLS/NLS/tld.php:110 framework/NLS/NLS/countries.php:100
+#: framework/NLS/NLS/GeoIP.php:81
+msgid "Haiti"
+msgstr "Haiti"
+
+#: framework/Crypt/Crypt/pgp.php:388
+msgid "Hash-Algorithm"
+msgstr "Hash-Algorithmus"
+
+#: framework/Form/Form.php:991 framework/Form/Form.php:2810
+msgid "Header"
+msgstr "Überschrift"
+
+#: config/registry.php.dist:351
+msgid "Headlines"
+msgstr "Nachrichten"
+
+#: framework/NLS/NLS/tld.php:107 framework/NLS/NLS/countries.php:101
+#: framework/NLS/NLS/GeoIP.php:80
+msgid "Heard Island and McDonald Islands"
+msgstr "Heard- und McDonaldinseln"
+
+#: config/nls.php.dist:178
+msgid "Hebrew (ISO-8859-8-I)"
+msgstr "Hebräisch (ISO-8859-8-I)"
+
+#: framework/Menu/Menu.php:301 framework/Help/Help.php:509
+#: framework/Help/Help.php:516 services/help/index.php:15
+#: templates/portal/menu.inc:23 templates/navbar/menu.inc:26
+#: templates/help/index.inc:13
+msgid "Help"
+msgstr "Hilfe"
+
+#: templates/javascript/htmlarea/htmlarea.js:169
+msgid "Help using editor"
+msgstr "Editorhilfe"
+
+#: framework/Form/Form.php:1351
+msgid "Helper"
+msgstr "Hilfe"
+
+#: po/translation.php:94
+msgid ""
+"Helper application to create and maintain translations for the Horde\n"
+"framework and its applications.\n"
+"For an introduction read the file README in this directory."
+msgstr ""
+"Hilfsprogramm für die Erstellung und Wartung von Übersetzungen für das\n"
+"Horde Framework und seine Anwendungen.\n"
+"Für eine Einführung lesen Sie bitte die README-Datei in diesem Verzeichnis."
+
+#: lib/Block/moon.php:27
+msgid "Hemisphere"
+msgstr "Hemisphere"
+
+#: templates/data/tsvinfo.inc:17 templates/data/csvinfo.inc:17
+msgid "Here is the beginning of the file:"
+msgstr "Dies ist der Beginn der Datei:"
+
+#: framework/History/History.php:289
+msgid "History entry names must be non-empty"
+msgstr "Verlaufsnamen dürfen nicht leer sein"
+
+#: framework/NLS/NLS/tld.php:243 framework/NLS/NLS/countries.php:102
+#: framework/NLS/NLS/GeoIP.php:115
+msgid "Holy See (Vatican City State)"
+msgstr "Vatikanstadt"
+
+#: framework/Horde/Horde.php:1331 templates/portal/menu.inc:9
+#: templates/navbar/menu.inc:9
+msgid "Home"
+msgstr "Startseite"
+
+#: framework/MIME/MIME/Viewer/vcard.php:140
+msgid "Home Address"
+msgstr "Adresse privat"
+
+#: framework/MIME/MIME/Viewer/vcard.php:157
+msgid "Home Phone"
+msgstr "Telefon privat"
+
+#: framework/NLS/NLS/tld.php:108 framework/NLS/NLS/countries.php:103
+#: framework/NLS/NLS/GeoIP.php:80
+msgid "Honduras"
+msgstr "Honduras"
+
+#: framework/NLS/NLS/tld.php:106 framework/NLS/NLS/countries.php:104
+#: framework/NLS/NLS/GeoIP.php:79
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: config/registry.php.dist:38
+msgid "Horde"
+msgstr "Horde"
+
+#: templates/admin/common-header.inc:6
+msgid "Horde Administration"
+msgstr "Horde Verwaltung"
+
+#: admin/setup/index.php:129
+msgid "Horde Configuration"
+msgstr "Horde Konfiguration"
+
+#: po/translation.php:1202
+msgid "Horde translation generator"
+msgstr "Horde Übersetzungsgenerator"
+
+#: templates/javascript/htmlarea/htmlarea.js:162
+msgid "Horizontal Rule"
+msgstr "Waagerechte Linie"
+
+#: templates/data/csvinfo.inc:28
+msgid "How many fields (columns) are there?"
+msgstr "Wieviele Felder (Spalten) gibt es?"
+
+#: lib/Block/metar.php:215
+msgid "Humidity"
+msgstr "Luftfeuchtigkeit"
+
+#: lib/Block/weatherdotcom.php:203
+msgid "Humidity: "
+msgstr "Luftfeuchtigkeit: "
+
+#: framework/NLS/NLS/tld.php:111 framework/NLS/NLS/countries.php:105
+#: framework/NLS/NLS/GeoIP.php:81
+msgid "Hungary"
+msgstr "Ungarn"
+
+#: framework/Auth/Auth/cyrus.php:175 framework/Auth/Auth/cyrsql.php:151
+#, php-format
+msgid "IMAP mailbox creation failed: %s"
+msgstr "Anlegen des IMAP-Postfachs ist fehlgeschlagen: %s"
+
+#: framework/Auth/Auth/cyrus.php:219 framework/Auth/Auth/cyrsql.php:210
+#, php-format
+msgid "IMAP mailbox deletion failed: %s"
+msgstr "Löschen des IMAP-Postfachs ist fehlgeschlagen: %s"
+
+#: framework/Auth/Auth/cyrus.php:182 framework/Auth/Auth/cyrsql.php:158
+#, php-format
+msgid "IMAP mailbox quota creation failed: %s"
+msgstr "Festlegen der IMAP-Postfach-Quota ist fehlgeschlagen: %s"
+
+#: framework/Auth/Auth/ipbasic.php:81
+msgid "IP Address not available."
+msgstr "IP-Adresse nicht verfügbar."
+
+#: framework/Auth/Auth/ipbasic.php:93
+msgid "IP Address not within allowed CIDR block."
+msgstr "IP-Adresse nicht im erlaubten CIDR-Block."
+
+#: framework/NLS/NLS/tld.php:120 framework/NLS/NLS/countries.php:106
+#: framework/NLS/NLS/GeoIP.php:83
+msgid "Iceland"
+msgstr "Island"
+
+#: config/prefs.php.dist:180
+msgid "Icons Only"
+msgstr "Nur Bilder"
+
+#: config/prefs.php.dist:181
+msgid "Icons with text"
+msgstr "Bilder und Text"
+
+#: framework/PDF/PDF.php:1963
+#, php-format
+msgid "Image file has no extension and no type was specified: %s"
+msgstr ""
+"Bilddatei hat keine Dateierweiterung, und es wurde kein Typ angegeben: %s"
+
+#: framework/Form/Form.php:1712
+msgid "Image upload"
+msgstr "Bild-Hochladen"
+
+#: lib/Block/google.php:35
+msgid "Images"
+msgstr "Bilder"
+
+#: framework/Data/Data/vcard.php:92 framework/Data/Data/vnote.php:233
+#, php-format
+msgid "Import Error: Expected \"BEGIN\" on line %d."
+msgstr "Import-Fehler: \"BEGIN\" in Zeile %d erwartet."
+
+#: framework/Data/Data/icalendar.php:30
+#, php-format
+msgid "Import Error: Expecting BEGIN on line %d."
+msgstr "Import-Fehler: BEGIN in Zeile %d erwartet."
+
+#: framework/Data/Data/imc.php:45
+msgid "Import Error: Malformed line."
+msgstr "Import Fehler: Ungültige Zeile."
+
+#: framework/Data/Data/icalendar.php:49
+#, php-format
+msgid "Import Error: Mismatch; expecting END:%s on line %d"
+msgstr "Import-Fehler: Falscher Typ. END:%s in Zeile %d erwartet."
+
+#: framework/Data/Data/vcard.php:114 framework/Data/Data/vnote.php:255
+#, php-format
+msgid "Import Error: Type mismatch. Expected \"END:%s\" on line %d."
+msgstr "Import-Fehler: Falscher Typ. \"END:%s\" in Zeile %d erwartet."
+
+#: framework/Data/Data/vcard.php:111 framework/Data/Data/vnote.php:252
+msgid "Import Error: Unexpected end of file."
+msgstr "Import-Fehler: Unerwartetes Dateiende."
+
+#: templates/data/tsvinfo.inc:10 templates/data/datemap.inc:10
+#: templates/data/csvmap.inc:57 templates/data/csvinfo.inc:10
+#, php-format
+msgid "Import, Step %d"
+msgstr "Importieren, Schritt %d"
+
+#: templates/data/datemap.inc:20
+#, php-format
+msgid "Imported field: %s"
+msgstr "Importiertes Feld: %s"
+
+#: templates/data/csvmap.inc:73
+msgid "Imported fields:"
+msgstr "Importierte Felder:"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:704
+msgid "In Process"
+msgstr "In Bearbeitung"
+
+#: framework/PDF/PDF.php:2625
+#, php-format
+msgid "Incorrect PNG file: %s"
+msgstr "Ungültige PNG-Datei: %s"
+
+#: framework/Compress/Compress/zip.php:141
+msgid "Incorrect action code given."
+msgstr "Ungültige Aktion angegeben."
+
+#: framework/PDF/PDF.php:633
+#, php-format
+msgid "Incorrect layout display mode: %s"
+msgstr "Ungültiger Layout-Anzeigemodus: %s"
+
+#: framework/PDF/PDF.php:473
+#, php-format
+msgid "Incorrect orientation: %s"
+msgstr "Ungültige Ausrichtung: %s"
+
+#: framework/PDF/PDF.php:435
+#, php-format
+msgid "Incorrect units: %s"
+msgstr "Ungültige Einheiten: %s"
+
+#: framework/PDF/PDF.php:625
+#, php-format
+msgid "Incorrect zoom display mode: %s"
+msgstr "Ungültiger Vergrößerungs-Anzeigemodus: %s"
+
+#: templates/javascript/htmlarea/htmlarea.js:159
+msgid "Increase Indent"
+msgstr "Einzu vergrößern"
+
+#: framework/NLS/NLS/tld.php:116 framework/NLS/NLS/countries.php:107
+#: framework/NLS/NLS/GeoIP.php:82
+msgid "India"
+msgstr "Indien"
+
+#: templates/shares/edit.inc:140
+msgid "Individual Users"
+msgstr "Einzelne Benutzer"
+
+#: framework/NLS/NLS/tld.php:112 framework/NLS/NLS/countries.php:108
+#: framework/NLS/NLS/GeoIP.php:81
+msgid "Indonesia"
+msgstr "Indonesien"
+
+#: config/registry.php.dist:334
+msgid "Information"
+msgstr "Informationen"
+
+#: po/translation.php:500
+#, php-format
+msgid "Initializing module %s... "
+msgstr "Initialisiere Modul %s... "
+
+#: templates/javascript/htmlarea/htmlarea.js:164
+msgid "Insert Image"
+msgstr "Bild einfügen"
+
+#: templates/javascript/htmlarea/htmlarea.js:165
+msgid "Insert Table"
+msgstr "Tabelle einfügen"
+
+#: templates/javascript/htmlarea/htmlarea.js:163
+msgid "Insert Web Link"
+msgstr "Link einfügen"
+
+#: admin/templates.php:150
+msgid "Insert alternate template"
+msgstr "Alternative Vorlage einfügen"
+
+#: framework/Form/Form.php:1132 framework/Form/Form.php:2937
+msgid "Integer"
+msgstr "Ganzzahl"
+
+#: framework/Form/Form.php:1190
+msgid "Integer list"
+msgstr "Liste von Ganzzahlen"
+
+#: framework/PDF/PDF.php:2650
+#, php-format
+msgid "Interlacing not supported: %s"
+msgstr "Interlacing nicht unterstützt: %s"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:284
+#: framework/MIME/MIME/Viewer/icalendar.php:354
+msgid "Invalid Action selected for this component."
+msgstr "Ungültige Aktion für diese Komponente ausgewählt."
+
+#: admin/setup/config.php:34
+msgid "Invalid application."
+msgstr "Ungültige Anwendung."
+
+#: framework/Form/Form.php:1986 framework/Form/Form.php:2057
+#: framework/Form/Form.php:2131 framework/Form/Form.php:2196
+msgid "Invalid data submitted."
+msgstr "Ungültige Daten eingeben."
+
+#: framework/Compress/Compress/dbx.php:84
+#: framework/Compress/Compress/dbx.php:103
+#: framework/Compress/Compress/dbx.php:223
+msgid "Invalid file format"
+msgstr "Ungültiges Dateiformat"
+
+#: admin/perms/addchild.php:43
+msgid "Invalid parent permission."
+msgstr "Ungültiges Überrecht."
+
+#: framework/VC/VC/cvs.php:208 framework/VC/VC/svn.php:145
+msgid "Invalid revision number"
+msgstr "Ungültige Revisionsnummer"
+
+#: framework/NLS/NLS/tld.php:119 framework/NLS/NLS/countries.php:109
+#: framework/NLS/NLS/GeoIP.php:83
+msgid "Iran, Islamic Republic of"
+msgstr "Islamische Republik Iran"
+
+#: framework/NLS/NLS/tld.php:118 framework/NLS/NLS/countries.php:110
+#: framework/NLS/NLS/GeoIP.php:82
+msgid "Iraq"
+msgstr "Irak"
+
+#: framework/NLS/NLS/tld.php:113 framework/NLS/NLS/countries.php:111
+#: framework/NLS/NLS/GeoIP.php:81
+msgid "Ireland"
+msgstr "Irland"
+
+#: framework/NLS/NLS/tld.php:115
+msgid "Isle of Man"
+msgstr "Isle of Man"
+
+#: framework/NLS/NLS/tld.php:114 framework/NLS/NLS/countries.php:112
+#: framework/NLS/NLS/GeoIP.php:81
+msgid "Israel"
+msgstr "Israel"
+
+#: framework/Crypt/Crypt/smime.php:574
+msgid "Issuer"
+msgstr "Aussteller"
+
+#: services/editor/designmode/editor.php:80
+#: templates/javascript/htmlarea/htmlarea.js:147
+msgid "Italic"
+msgstr "Kursiv"
+
+#: framework/NLS/NLS/tld.php:121 framework/NLS/NLS/countries.php:113
+#: framework/NLS/NLS/GeoIP.php:83
+msgid "Italy"
+msgstr "Italien"
+
+#: framework/NLS/NLS/tld.php:123 framework/NLS/NLS/countries.php:114
+#: framework/NLS/NLS/GeoIP.php:83
+msgid "Jamaica"
+msgstr "Jamaika"
+
+#: framework/UI/UI/VarRenderer/html.php:303
+#: framework/UI/UI/VarRenderer/html.php:333
+#: templates/javascript/open_calendar.js:66
+msgid "January"
+msgstr "Januar"
+
+#: framework/NLS/NLS/tld.php:125 framework/NLS/NLS/countries.php:115
+#: framework/NLS/NLS/GeoIP.php:84
+msgid "Japan"
+msgstr "Japan"
+
+#: config/nls.php.dist:179
+msgid "Japanese (ISO-2022-JP)"
+msgstr "Japanisch (ISO-2022-JP)"
+
+#: framework/NLS/NLS/tld.php:122
+msgid "Jersey"
+msgstr "Jersey"
+
+#: framework/NLS/NLS/tld.php:124 framework/NLS/NLS/countries.php:116
+#: framework/NLS/NLS/GeoIP.php:84
+msgid "Jordan"
+msgstr "Jordanien"
+
+#: framework/UI/UI/VarRenderer/html.php:309
+#: framework/UI/UI/VarRenderer/html.php:339
+#: templates/javascript/open_calendar.js:72
+msgid "July"
+msgstr "Juli"
+
+#: framework/UI/UI/VarRenderer/html.php:308
+#: framework/UI/UI/VarRenderer/html.php:338
+#: templates/javascript/open_calendar.js:71
+msgid "June"
+msgstr "Juni"
+
+#: templates/javascript/htmlarea/htmlarea.js:155
+msgid "Justify"
+msgstr "Im Blocksatz ausrichten"
+
+#: framework/NLS/NLS/tld.php:136 framework/NLS/NLS/countries.php:117
+#: framework/NLS/NLS/GeoIP.php:87
+msgid "Kazakhstan"
+msgstr "Kasachstan"
+
+#: framework/UI/UI/VarRenderer/html.php:199
+msgid "Keep original?"
+msgstr "Original beibehalten?"
+
+#: framework/NLS/NLS/tld.php:126 framework/NLS/NLS/countries.php:118
+#: framework/NLS/NLS/GeoIP.php:84
+msgid "Kenya"
+msgstr "Kenia"
+
+#: framework/Auth/Auth/krb5.php:86
+msgid "Kerberos server rejected authentication."
+msgstr "Kerberos-Server hat Authentifizierung zurückgewiesen."
+
+#: framework/Crypt/Crypt/pgp.php:386
+msgid "Key Creation"
+msgstr "Schlüsselerzeugung"
+
+#: framework/Crypt/Crypt/pgp.php:389
+msgid "Key Fingerprint"
+msgstr "Fingerabdruck des Schlüssels"
+
+#: framework/Crypt/Crypt/pgp.php:387
+msgid "Key Length"
+msgstr "Schlüssellänge"
+
+#: framework/Crypt/Crypt/pgp.php:386
+msgid "Key Type"
+msgstr "Schlüsseltyp"
+
+#: framework/Crypt/Crypt/smime.php:547
+msgid "Key Usage"
+msgstr "Schlüsselzweck"
+
+#: framework/Crypt/Crypt/pgp.php:732
+msgid "Key already exists on the public keyserver."
+msgstr ""
+"Der Schlüssel befindet sich bereits auf dem öffentlichen Schlüsselserver."
+
+#: framework/NLS/NLS/tld.php:129 framework/NLS/NLS/countries.php:119
+#: framework/NLS/NLS/GeoIP.php:85
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: config/themes/html-kolab.php:10
+msgid "Kolab"
+msgstr "Kolab"
+
+#: framework/NLS/NLS/tld.php:132 framework/NLS/NLS/countries.php:120
+#: framework/NLS/NLS/GeoIP.php:86
+msgid "Korea, Democratic People's Republic of"
+msgstr "Demokratische Volksrepublic Korea"
+
+#: framework/NLS/NLS/tld.php:133 framework/NLS/NLS/countries.php:121
+#: framework/NLS/NLS/GeoIP.php:86
+msgid "Korea, Republic of"
+msgstr "Republik Korea"
+
+#: config/nls.php.dist:180
+msgid "Korean (EUC-KR)"
+msgstr "Koreanisch (EUC-KR)"
+
+#: framework/NLS/NLS/tld.php:134 framework/NLS/NLS/countries.php:122
+#: framework/NLS/NLS/GeoIP.php:87
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: framework/NLS/NLS/tld.php:127 framework/NLS/NLS/countries.php:123
+#: framework/NLS/NLS/GeoIP.php:84
+msgid "Kyrgyzstan"
+msgstr "Kirgisistan"
+
+#: templates/login/login.inc:82 po/translation.php:568
+msgid "Language"
+msgstr "Sprache"
+
+#: framework/NLS/NLS/tld.php:137 framework/NLS/NLS/countries.php:124
+#: framework/NLS/NLS/GeoIP.php:88
+msgid "Lao People's Democratic Republic"
+msgstr "Laos"
+
+#: lib/Block/moon.php:172
+msgid "Last Half"
+msgstr "Letzte Hälfte"
+
+#: lib/Block/moon.php:86 lib/Block/moon.php:88
+msgid "Last Quarter"
+msgstr "Letztes Viertel"
+
+#: lib/Block/metar.php:136
+msgid "Last Updated:"
+msgstr "Letzte Aktualisierung:"
+
+#: framework/Auth/Auth.php:583
+#, php-format
+msgid "Last login: %s"
+msgstr "Letzte Anmeldung: %s"
+
+#: framework/Auth/Auth.php:585
+#, php-format
+msgid "Last login: %s from %s"
+msgstr "Letzte Anmeldung: %s von %s"
+
+#: framework/Auth/Auth.php:580
+msgid "Last login: Never"
+msgstr "Letzte Anmeldung: Noch nie"
+
+#: framework/NLS/NLS/tld.php:146 framework/NLS/NLS/countries.php:125
+#: framework/NLS/NLS/GeoIP.php:90
+msgid "Latvia"
+msgstr "Lettland"
+
+#: config/themes/html-lavender.php:9
+msgid "Lavender"
+msgstr "Lavendel"
+
+#: templates/portal/menu.inc:11
+msgid "Layout"
+msgstr "Anpassen"
+
+#: framework/NLS/NLS/tld.php:138 framework/NLS/NLS/countries.php:126
+#: framework/NLS/NLS/GeoIP.php:88
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: framework/NLS/NLS/tld.php:143 framework/NLS/NLS/countries.php:127
+#: framework/NLS/NLS/GeoIP.php:89
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: framework/NLS/NLS/tld.php:142 framework/NLS/NLS/countries.php:128
+#: framework/NLS/NLS/GeoIP.php:89
+msgid "Liberia"
+msgstr "Liberia"
+
+#: framework/NLS/NLS/tld.php:147 framework/NLS/NLS/countries.php:129
+#: framework/NLS/NLS/GeoIP.php:90
+msgid "Libyan Arab Jamahiriya"
+msgstr "Libyen"
+
+#: framework/NLS/NLS/tld.php:140 framework/NLS/NLS/countries.php:130
+#: framework/NLS/NLS/GeoIP.php:89
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: config/themes/html-lightblue.php:9
+msgid "Light Blue"
+msgstr "Hellblau"
+
+#: framework/Form/Form.php:1755
+msgid "Link"
+msgstr "Link"
+
+#: framework/Text/Text.php:801
+msgid "Links"
+msgstr "Links"
+
+#: templates/help/menu.inc:10
+msgid "List Help Topics"
+msgstr "Hilfeeinträge anzeigen"
+
+#: framework/MIME/MIME/Headers.php:651
+msgid "List-Archive"
+msgstr "Listen-Archiv"
+
+#: framework/MIME/MIME/Headers.php:646
+msgid "List-Help"
+msgstr "Listen-Hilfe"
+
+#: framework/MIME/MIME/Headers.php:653
+msgid "List-Id"
+msgstr "Listen-Id"
+
+#: framework/MIME/MIME/Headers.php:649
+msgid "List-Owner"
+msgstr "Listen-Besitzer"
+
+#: framework/MIME/MIME/Headers.php:650
+msgid "List-Post"
+msgstr "Listen-Adresse"
+
+#: framework/MIME/MIME/Headers.php:648
+msgid "List-Subscribe"
+msgstr "Listen-Anmeldung"
+
+#: framework/MIME/MIME/Headers.php:647
+msgid "List-Unsubscribe"
+msgstr "Listen-Abmeldung"
+
+#: templates/admin/user/nolist.inc:4
+msgid "Listing users is disabled."
+msgstr "Das Anzeigen der Benutzer ist nicht möglich."
+
+#: config/registry.php.dist:586
+msgid "Literature"
+msgstr "Literatur"
+
+#: framework/NLS/NLS/tld.php:144 framework/NLS/NLS/countries.php:131
+#: framework/NLS/NLS/GeoIP.php:90
+msgid "Lithuania"
+msgstr "Litauen"
+
+#: po/translation.php:1211
+msgid "Loading libraries..."
+msgstr "Lade Bibliotheken..."
+
+#: config/prefs.php.dist:64
+msgid "Locale and Time"
+msgstr "Sprache und Zeit"
+
+#: framework/Crypt/Crypt/smime.php:524
+#: framework/MIME/MIME/Viewer/icalendar.php:573 lib/Block/weatherdotcom.php:48
+#: lib/Block/sunrise.php:20 lib/Block/metar.php:61
+msgid "Location"
+msgstr "Ort"
+
+#: login.php:145 templates/navbar/menu.inc:21 templates/login/mobile.inc:3
+#: templates/login/mobile.inc:15 templates/login/login.inc:89
+#: templates/guest/guest.inc:30
+msgid "Log in"
+msgstr "Anmelden"
+
+#: services/portal/menu.php:201
+#, php-format
+msgid "Log in to %s"
+msgstr "Anmelden bei %s"
+
+#: templates/portal/menu.inc:26
+msgid "Log out"
+msgstr "Abmelden"
+
+#: services/portal/menu.php:195
+#, php-format
+msgid "Log out of %s"
+msgstr "Abmelden von %s"
+
+#: framework/Menu/Menu.php:311 services/portal/menu.php:200
+#: services/portal/menu.php:202 config/registry.php.dist:59
+msgid "Login"
+msgstr "Anmelden"
+
+#: framework/Auth/Auth.php:832
+msgid "Login failed because your username or password was entered incorrectly."
+msgstr ""
+"Die Anmeldung ist fehlgeschlagen, weil Sie Ihren Benutzernamen oder Ihr "
+"Passwort falsch eingegeben haben."
+
+#: framework/Auth/Auth.php:828
+msgid "Login failed for some reason."
+msgstr "Die Anmeldung ist aus einem unbekannten Grund fehlgeschlagen."
+
+#: framework/Menu/Menu.php:308 services/portal/menu.php:194
+#: services/portal/menu.php:196 config/registry.php.dist:50
+msgid "Logout"
+msgstr "Abmelden"
+
+#: framework/Form/Form.php:1345
+msgid "Long text"
+msgstr "Langer Text"
+
+#: config/themes/html-luc.php:9
+msgid "Loyola"
+msgstr "Loyola"
+
+#: config/themes/html-lucblue.php:9
+msgid "Loyola Blue"
+msgstr "Loyola Blau"
+
+#: framework/NLS/NLS/tld.php:145 framework/NLS/NLS/countries.php:132
+#: framework/NLS/NLS/GeoIP.php:90
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: framework/UI/UI/VarRenderer/html.php:275
+#: framework/UI/UI/VarRenderer/html.php:302
+#: framework/UI/UI/VarRenderer/html.php:332 templates/data/date.inc:30
+#: templates/data/date.inc:31 templates/data/date.inc:32
+#: templates/data/date.inc:33
+msgid "MM"
+msgstr "MM"
+
+#: config/registry.php.dist:342
+msgid "MOTD"
+msgstr "MOTD"
+
+#: framework/MIME/MIME/Viewer/tnef.php:39
+msgid "MS-TNEF Attachment contained no data."
+msgstr "MS-TNEF-Anhang enthielt keine Daten."
+
+#: framework/Notification/Notification/Listener/mobile.php:40
+msgid "MSG"
+msgstr "MELDUNG"
+
+#: framework/NLS/NLS/tld.php:157 framework/NLS/NLS/countries.php:133
+#: framework/NLS/NLS/GeoIP.php:93
+msgid "Macao"
+msgstr "Macao"
+
+#: framework/NLS/NLS/tld.php:153 framework/NLS/NLS/countries.php:134
+#: framework/NLS/NLS/GeoIP.php:92
+msgid "Macedonia, The Former Yugoslav Republic of"
+msgstr "Die ehemalige Jugoslawische Republik Mazedonien"
+
+#: framework/NLS/NLS/tld.php:151 framework/NLS/NLS/countries.php:135
+#: framework/NLS/NLS/GeoIP.php:91
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+#: config/registry.php.dist:84
+msgid "Mail"
+msgstr "Webmail"
+
+#: config/registry.php.dist:77
+msgid "Mail & News"
+msgstr "Email & Nachrichten"
+
+#: config/registry.php.dist:135
+msgid "Mail Admin"
+msgstr "Email-Administration"
+
+#: po/translation.php:1230
+msgid "Make sure that you have PEAR installed and in your include path."
+msgstr ""
+"Stellen Sie sicher, dass PEAR installiert ist und sich im Pfad befindet."
+
+#: po/translation.php:589 po/translation.php:959
+#, php-format
+msgid "Making directory %s"
+msgstr "Erstelle Verzeichnis %s"
+
+#: framework/NLS/NLS/tld.php:165 framework/NLS/NLS/countries.php:136
+#: framework/NLS/NLS/GeoIP.php:95
+msgid "Malawi"
+msgstr "Malawi"
+
+#: framework/NLS/NLS/tld.php:167 framework/NLS/NLS/countries.php:137
+#: framework/NLS/NLS/GeoIP.php:96
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: framework/NLS/NLS/tld.php:164 framework/NLS/NLS/countries.php:138
+#: framework/NLS/NLS/GeoIP.php:95
+msgid "Maldives"
+msgstr "Malidiven"
+
+#: framework/NLS/NLS/tld.php:154 framework/NLS/NLS/countries.php:139
+#: framework/NLS/NLS/GeoIP.php:93
+msgid "Mali"
+msgstr "Mali"
+
+#: framework/NLS/NLS/tld.php:162 framework/NLS/NLS/countries.php:140
+#: framework/NLS/NLS/GeoIP.php:95
+msgid "Malta"
+msgstr "Malta"
+
+#: framework/UI/UI/VarRenderer/html.php:753
+msgid "Mapquest map"
+msgstr "Mapquest-Karte"
+
+#: framework/UI/UI/VarRenderer/html.php:305
+#: framework/UI/UI/VarRenderer/html.php:335
+#: templates/javascript/open_calendar.js:68
+msgid "March"
+msgstr "März"
+
+#: framework/NLS/NLS/tld.php:152 framework/NLS/NLS/countries.php:141
+#: framework/NLS/NLS/GeoIP.php:92
+msgid "Marshall Islands"
+msgstr "Marshallinseln"
+
+#: framework/NLS/NLS/tld.php:159 framework/NLS/NLS/countries.php:142
+#: framework/NLS/NLS/GeoIP.php:94
+msgid "Martinique"
+msgstr "Martinique"
+
+#: templates/data/csvmap.inc:101
+msgid "Matching fields"
+msgstr "Zugeordnete Felder"
+
+#: framework/NLS/NLS/tld.php:160 framework/NLS/NLS/countries.php:143
+#: framework/NLS/NLS/GeoIP.php:94
+msgid "Mauritania"
+msgstr "Mauretanien"
+
+#: framework/NLS/NLS/tld.php:163 framework/NLS/NLS/countries.php:144
+#: framework/NLS/NLS/GeoIP.php:95
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: lib/Block/metar.php:291
+msgid "Max temp last 24 hours: "
+msgstr "Höchsttemperatur der letzten 24 Stunden: "
+
+#: lib/Block/metar.php:283
+msgid "Max temp last 6 hours: "
+msgstr "Höchsttemperatur der letzten 6 Stunden: "
+
+#: framework/Form/Form.php:970 framework/Form/Form.php:1271
+#: framework/Form/Form.php:1293
+msgid "Maximum length"
+msgstr "Maximale Länge"
+
+#: framework/UI/UI/VarRenderer/html.php:307
+#: framework/UI/UI/VarRenderer/html.php:337
+#: templates/javascript/open_calendar.js:70
+msgid "May"
+msgstr "Mai"
+
+#: framework/NLS/NLS/tld.php:253 framework/NLS/NLS/countries.php:145
+#: framework/NLS/NLS/GeoIP.php:118
+msgid "Mayotte"
+msgstr "Mayotte Island"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:534
+msgid "Meeting Cancellation"
+msgstr "Besprechungsabsage"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:506
+msgid "Meeting Information"
+msgstr "Besprechungs-Informationen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:512
+msgid "Meeting Proposal"
+msgstr "Besprechungsvorschlag"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:528
+msgid "Meeting Reply"
+msgstr "Besprechungsantwort"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:517
+msgid "Meeting Update"
+msgstr "Besprechungsaktualisierung"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:522
+msgid "Meeting Update Request"
+msgstr "Anfrage für Besprechungsaktualisierung"
+
+#: config/registry.php.dist:167
+msgid "Meetings"
+msgstr "Besprechungen"
+
+#: templates/admin/groups/edit.inc:19
+msgid "Members"
+msgstr "Mitglieder"
+
+#: config/prefs.php.dist:182
+msgid "Menu mode:"
+msgstr "Menümodus:"
+
+#: po/translation.php:445
+#, php-format
+msgid "Merging all %s.po files to the compendium... "
+msgstr "Füge alle %s.po Dateien zum Kompendium hinzu..."
+
+#: po/translation.php:692
+#, php-format
+msgid "Merging the PO file for %s to the compendium... "
+msgstr "Füge die PO-Datei für %s zu dem Kompendium hinzu..."
+
+#: po/translation.php:356
+#, php-format
+msgid "Merging translation for module %s..."
+msgstr "Führe Übersetzungen für das %s-Modul zusammen..."
+
+#: framework/Notification/Notification/Listener/status.php:33
+msgid "Message"
+msgstr "Nachricht"
+
+#: framework/Crypt/Crypt/smime.php:233
+msgid ""
+"Message Verified Successfully but the signer's certificate could not be "
+"verified."
+msgstr ""
+"Die Nachricht konnte erfolgreich überprüft werden aber nicht das Zertifikat "
+"des Absenders."
+
+#: config/registry.php.dist:603
+msgid "Metar Weather"
+msgstr "Metar Wetter"
+
+#: lib/Block/metar.php:35
+msgid "Metar block not available."
+msgstr "Metarblock nicht verfügbar."
+
+#: lib/Block/metar.php:98
+msgid ""
+"Metar block not available. Details have been logged for the administrator."
+msgstr ""
+"Metarblock nicht verfügbar. Details wurden für den Administrator mitgeloggt."
+
+#: framework/MIME/MIME/Viewer/rar.php:70 framework/MIME/MIME/Viewer/zip.php:74
+msgid "Method"
+msgstr "Methode"
+
+#: framework/RPC/RPC/xmlrpc.php:82 framework/RPC/RPC/soap.php:110
+#, php-format
+msgid "Method '%s' is not defined"
+msgstr "Die Methode '%s' ist nicht definiert"
+
+#: lib/Block/weatherdotcom.php:57 lib/Block/metar.php:71
+msgid "Metric"
+msgstr "Metrisch"
+
+#: framework/NLS/NLS/tld.php:166 framework/NLS/NLS/countries.php:146
+#: framework/NLS/NLS/GeoIP.php:96
+msgid "Mexico"
+msgstr "Mexiko"
+
+#: framework/NLS/NLS/tld.php:85 framework/NLS/NLS/countries.php:147
+#: framework/NLS/NLS/GeoIP.php:73
+msgid "Micronesia, Federated States of"
+msgstr "Föderierte Staaten von Mikronesien"
+
+#: framework/MIME/MIME/Viewer/tnef.php:41
+msgid "Mime Type"
+msgstr "Mimetyp"
+
+#: lib/Block/metar.php:295
+msgid "Min temp last 24 hours: "
+msgstr "Tiefsttemperatur der letzten 24 Stunden: "
+
+#: lib/Block/metar.php:287
+msgid "Min temp last 6 hours: "
+msgstr "Tiefsttemperatur der letzten 6 Stunden: "
+
+#: framework/UI/UI/VarRenderer/html.php:171
+msgid "Mirror"
+msgstr "Spiegeln"
+
+#: admin/setup/index.php:63
+msgid ""
+"Missing configuration. You have to generate it now if you want to use this "
+"application."
+msgstr ""
+"Fehlende Konfiguration. Sie müssen diese jetzt erzeugen, wenn Sie die "
+"Anwendung verwenden möchten."
+
+#: framework/PDF/PDF.php:2587
+#, php-format
+msgid "Missing or incorrect image file: %s"
+msgstr "Fehlende oder falsche Bilddatei: %s"
+
+#: framework/PDF/PDF.php:2691
+#, php-format
+msgid "Missing palette in: %s"
+msgstr "Fehlende Palette in: %s"
+
+#: templates/javascript/open_calendar.js:57
+msgid "Mo"
+msgstr "Mo"
+
+#: config/registry.php.dist:143
+msgid "Mobile Mail"
+msgstr "Email Mobil"
+
+#: framework/MIME/MIME/Viewer/rar.php:69 framework/MIME/MIME/Viewer/zip.php:73
+#: framework/MIME/MIME/Viewer/tgz.php:73
+msgid "Modified Date"
+msgstr "Änderungsdatum"
+
+#: po/translation.php:568
+msgid "Module"
+msgstr "Module"
+
+#: framework/Crypt/Crypt/smime.php:621
+msgid "Modulus"
+msgstr "Modulus"
+
+#: framework/NLS/NLS/tld.php:150 framework/NLS/NLS/countries.php:148
+#: framework/NLS/NLS/GeoIP.php:91
+msgid "Moldova, Republic of"
+msgstr "Republik Moldau"
+
+#: framework/NLS/NLS/tld.php:149 framework/NLS/NLS/countries.php:149
+#: framework/NLS/NLS/GeoIP.php:91
+msgid "Monaco"
+msgstr "Monaco"
+
+#: framework/NLS/NLS/tld.php:156 framework/NLS/NLS/countries.php:150
+#: framework/NLS/NLS/GeoIP.php:93
+msgid "Mongolia"
+msgstr "Mongolei"
+
+#: framework/Form/Form.php:2479
+msgid "Month and year"
+msgstr "Monat und Jahr"
+
+#: framework/Maintenance/Maintenance.php:39
+msgid "Monthly"
+msgstr "Monatlich"
+
+#: framework/NLS/NLS/tld.php:161 framework/NLS/NLS/countries.php:151
+#: framework/NLS/NLS/GeoIP.php:95
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: lib/Block/moon.php:14 config/registry.php.dist:599
+msgid "Moon Phases"
+msgstr "Mondphasen"
+
+#: framework/NLS/NLS/tld.php:148 framework/NLS/NLS/countries.php:152
+#: framework/NLS/NLS/GeoIP.php:91
+msgid "Morocco"
+msgstr "Marokko"
+
+#: framework/Block/Block/Layout.php:418
+msgid "Move Down"
+msgstr "Nach unten"
+
+#: framework/Block/Block/Layout.php:422
+msgid "Move Left"
+msgstr "Nach links"
+
+#: framework/Block/Block/Layout.php:426
+msgid "Move Right"
+msgstr "Nach rechts"
+
+#: framework/Block/Block/Layout.php:414
+msgid "Move Up"
+msgstr "Nach oben"
+
+#: framework/UI/UI/VarRenderer/html.php:402
+msgid "Move down"
+msgstr "Nach unten"
+
+#: framework/VFS/VFS/ftp.php:627
+#, php-format
+msgid "Move failed: %s"
+msgstr "Verschieben fehlgeschlagen: %s"
+
+#: framework/UI/UI/VarRenderer/html.php:401
+#: framework/UI/UI/VarRenderer/html.php:402
+msgid "Move up"
+msgstr "Nach oben"
+
+#: framework/NLS/NLS/tld.php:168 framework/NLS/NLS/countries.php:153
+#: framework/NLS/NLS/GeoIP.php:96
+msgid "Mozambique"
+msgstr "Mosambik"
+
+#: config/themes/html-mozilla.php:9
+msgid "Mozilla"
+msgstr "Mozilla"
+
+#: framework/Form/Form.php:2083
+msgid "Multi-level drop down lists"
+msgstr "Auswahlliste in mehreren Ebenen"
+
+#: framework/Form/Form.php:2141
+msgid "Multiple selection"
+msgstr "Mehrfachauswahl"
+
+#: config/registry.php.dist:402 config/registry.php.dist:410
+msgid "My Account"
+msgstr "Mein Konto"
+
+#: services/portal/index.php:51
+msgid "My Portal"
+msgstr "Mein Portal"
+
+#: services/portal/edit.php:114
+msgid "My Portal Layout"
+msgstr "Mein Portallayout"
+
+#: framework/NLS/NLS/tld.php:155 framework/NLS/NLS/countries.php:154
+#: framework/NLS/NLS/GeoIP.php:93
+msgid "Myanmar"
+msgstr "Burma"
+
+#: templates/maintenance/agreement_bottom.inc:7
+msgid "NO, I Do NOT Agree"
+msgstr "NEIN, ich stimme NICHT zu"
+
+#: framework/Crypt/Crypt/pgp.php:386 framework/MIME/MIME/Viewer/vcard.php:114
+#: framework/MIME/MIME/Viewer/tnef.php:41
+#: framework/MIME/MIME/Viewer/icalendar.php:586
+msgid "Name"
+msgstr "Name"
+
+#: framework/NLS/NLS/tld.php:169 framework/NLS/NLS/countries.php:155
+#: framework/NLS/NLS/GeoIP.php:96
+msgid "Namibia"
+msgstr "Namibia"
+
+#: framework/NLS/NLS/tld.php:178 framework/NLS/NLS/countries.php:156
+#: framework/NLS/NLS/GeoIP.php:98
+msgid "Nauru"
+msgstr "Nauru"
+
+#: config/themes/html-NeXTgrey.php:9
+msgid "NeXT"
+msgstr "NeXT"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:709
+msgid "Needs Action"
+msgstr "Aktion benötigt"
+
+#: framework/NLS/NLS/tld.php:177 framework/NLS/NLS/countries.php:157
+#: framework/NLS/NLS/GeoIP.php:98
+msgid "Nepal"
+msgstr "Nepal"
+
+#: framework/NLS/NLS/tld.php:175 framework/NLS/NLS/countries.php:158
+#: framework/NLS/NLS/GeoIP.php:98
+msgid "Netherlands"
+msgstr "Niederlande"
+
+#: framework/NLS/NLS/tld.php:23 framework/NLS/NLS/countries.php:159
+#: framework/NLS/NLS/GeoIP.php:58
+msgid "Netherlands Antilles"
+msgstr "Niederländische Antillen"
+
+#: framework/Crypt/Crypt/smime.php:532
+msgid "Netscape Base URL"
+msgstr "Netscape-Basis-URL"
+
+#: framework/Crypt/Crypt/smime.php:534
+msgid "Netscape CA Revocation URL"
+msgstr "Netscape-CA-Sperrungs-URL"
+
+#: framework/Crypt/Crypt/smime.php:536
+msgid "Netscape CA policy URL"
+msgstr "Netscape-CA-Richtlinien-URL"
+
+#: framework/Crypt/Crypt/smime.php:535
+msgid "Netscape Renewal URL"
+msgstr "Netscape-Zetifikatserneuerungs-URL"
+
+#: framework/Crypt/Crypt/smime.php:533
+msgid "Netscape Revocation URL"
+msgstr "Netscape-Sperrungs-URL"
+
+#: framework/Crypt/Crypt/smime.php:537
+msgid "Netscape SSL server name"
+msgstr "Netscape-SSL-Servername"
+
+#: framework/Crypt/Crypt/smime.php:538
+msgid "Netscape certificate comment"
+msgstr "Netscape-Kommentar"
+
+#: framework/Crypt/Crypt/smime.php:531
+msgid "Netscape certificate type"
+msgstr "Netscape-Zertifikattyp"
+
+#: config/registry.php.dist:326
+msgid "Network"
+msgstr "Netzwerk"
+
+#: framework/Crypt/Crypt/pgp.php:400 config/prefs.php.dist:146
+msgid "Never"
+msgstr "Nie"
+
+#: framework/NLS/NLS/tld.php:170 framework/NLS/NLS/countries.php:160
+#: framework/NLS/NLS/GeoIP.php:96
+msgid "New Caledonia"
+msgstr "Neukaledonien"
+
+#: lib/Block/moon.php:44 lib/Block/moon.php:66 lib/Block/moon.php:177
+msgid "New Moon"
+msgstr "Neumond"
+
+#: templates/admin/user/update.inc:34
+msgid "New Username (optional)"
+msgstr "Neuer Benutzername (optional)"
+
+#: framework/NLS/NLS/tld.php:180 framework/NLS/NLS/countries.php:161
+#: framework/NLS/NLS/GeoIP.php:99
+msgid "New Zealand"
+msgstr "Neuseeland"
+
+#: lib/Block/google.php:38
+msgid "News"
+msgstr "Nachrichten"
+
+#: templates/data/tsvinfo.inc:21 templates/data/datemap.inc:46
+#: templates/data/csvmap.inc:127 templates/data/csvinfo.inc:32
+msgid "Next"
+msgstr "Weiter"
+
+#: framework/UI/UI/Pager.php:83 framework/UI/UI/Pager.php:84
+msgid "Next Page"
+msgstr "Seite vor"
+
+#: lib/Block/moon.php:25
+msgid "Next Phase"
+msgstr "Nächste Phase"
+
+#: framework/Prefs/Prefs/UI.php:307 framework/Prefs/Prefs/UI.php:311
+msgid "Next options"
+msgstr "Nächste Einstellungen"
+
+#: framework/NLS/NLS/tld.php:174 framework/NLS/NLS/countries.php:162
+#: framework/NLS/NLS/GeoIP.php:97
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: framework/NLS/NLS/tld.php:171 framework/NLS/NLS/countries.php:163
+#: framework/NLS/NLS/GeoIP.php:97
+msgid "Niger"
+msgstr "Niger"
+
+#: framework/NLS/NLS/tld.php:173 framework/NLS/NLS/countries.php:164
+#: framework/NLS/NLS/GeoIP.php:97
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: framework/NLS/NLS/tld.php:179 framework/NLS/NLS/countries.php:165
+#: framework/NLS/NLS/GeoIP.php:98
+msgid "Niue"
+msgstr "Niue"
+
+#: framework/Block/Block/Layout.php:76 framework/Block/Block/Layout.php:223
+#: framework/Block/Block/Layout.php:244
+msgid "No block exists at the requested position"
+msgstr "Es existiert kein Block an der angegebenen Position"
+
+#: framework/Auth/Auth/mcal.php:53
+msgid "No calendar name provided for MCAL authentication."
+msgstr "Kein Kalendername für die MCAL-Authentifizierung angegeben."
+
+#: admin/perms/addchild.php:61 framework/Perms/Perms/UI.php:141
+msgid "No child permissions are to be added below this level."
+msgstr ""
+"Unterhalb dieser Ebene können keine weiteren Unterrechte hinzugefügt werden."
+
+#: po/translation.php:1250
+msgid "No command specified."
+msgstr "Kein Befehl angegeben."
+
+#: framework/Horde/Horde.php:164 framework/Horde/Horde.php:330
+#: framework/Util/Util.php:651
+#, php-format
+msgid "No configuration information specified for %s."
+msgstr "Für %s wurden keine Konfigurationsinformationen angegeben."
+
+#: framework/VFS/VFS/ftp.php:701
+msgid "No configuration information specified for FTP VFS."
+msgstr ""
+"Für den FTP-VFS-Treiber wurden keine Konfigurationsinformationen angegeben."
+
+#: framework/VFS/VFS/sql.php:540
+msgid "No configuration information specified for SQL VFS."
+msgstr ""
+"Für den SQL-VFS-Treiber wurden keine Konfigurationsinformationen angegeben."
+
+#: framework/VFS/VFS/sql_file.php:710
+msgid "No configuration information specified for SQL-File VFS."
+msgstr ""
+"Für den SQL-Datei-VFS-Treiber wurden keine Konfigurationsinformationen "
+"angegeben."
+
+#: framework/Links/Links.php:228
+msgid "No description found"
+msgstr "Keine Beschreibung gefunden"
+
+#: po/translation.php:1144
+#, php-format
+msgid "No entry with the id '%s' exists in the original help file."
+msgstr ""
+"Es existiert kein Eintrag mit der id '%s' in der ursprünglichen Hilfedatei."
+
+#: po/translation.php:344 po/translation.php:440
+msgid "No locale specified."
+msgstr "Kein locale angegeben."
+
+#: lib/Block/weatherdotcom.php:100 lib/Block/sunrise.php:38
+#: lib/Block/metar.php:109
+msgid "No location is set."
+msgstr "Es wurde kein Ort festgelegt."
+
+#: framework/Auth/Auth/http.php:92
+msgid "No password provided for HTTP authentication."
+msgstr "Kein Passwort für die HTTP-Authentifizierung angegeben."
+
+#: framework/Auth/Auth/imap.php:96
+msgid "No password provided for IMAP authentication."
+msgstr "Kein Passwort für die IMAP-Authentifizierung angegeben."
+
+#: framework/Auth/Auth/krb5.php:73
+msgid "No password provided for Kerberos authentication."
+msgstr "Kein Passwort für die Kerberos-Authentifizierung angegeben."
+
+#: framework/Auth/Auth/ldap.php:92
+msgid "No password provided for LDAP authentication."
+msgstr "Kein Passwort für die LDAP-Authentifizierung angegeben."
+
+#: framework/Auth/Auth/sasl.php:81 framework/Auth/Auth/login.php:87
+#: framework/Auth/Auth/pam.php:78
+msgid "No password provided for Login authentication."
+msgstr "Kein Passwort für die Login-Authentifizierung angegeben."
+
+#: framework/Auth/Auth/passwd.php:138
+msgid "No password provided for PASSWD authentication."
+msgstr "Kein Passwort für die PASSWD-Authentifizierung angegeben."
+
+#: framework/Auth/Auth/smb.php:88
+msgid "No password provided for SMB authentication."
+msgstr "Kein Passwort für die SMB-Authentifizierung angegeben."
+
+#: templates/admin/user/approve.inc:19
+msgid "No pending signups."
+msgstr "Keine ausstehenden Registrierungen."
+
+#: framework/VC/VC/cvs.php:665 framework/VC/VC/cvs.php:693
+#: framework/VC/VC/svn.php:540 framework/VC/VC/svn.php:576
+msgid "No revisions"
+msgstr "Keine Revisionen"
+
+#: lib/Block/weatherdotcom.php:113
+msgid "No temporary directory available for cache."
+msgstr "Keine temporäres Verzeichnis für den Cache gefunden."
+
+#: framework/RPC/RPC/xmlrpc.php:139
+msgid "No valid XML data returned"
+msgstr "Es wurden keine gültigen XML-Daten zurückgegeben"
+
+#: framework/UI/UI/VarRenderer/html.php:641
+#: framework/UI/UI/VarRenderer/html.php:651
+#: framework/UI/UI/VarRenderer/html.php:662
+#: framework/UI/UI/VarRenderer/html.php:679
+msgid "No values"
+msgstr "Keine Werte"
+
+#: admin/setup/index.php:68
+msgid "No version found in original configuration. Regenerate configuration."
+msgstr ""
+"Keine Versionsnummer in der Originalkonfiguration gefunden. Erneuern Sie "
+"Ihre Konfiguration."
+
+#: admin/setup/index.php:76
+msgid "No version found in your configuration. Regenerate configuration."
+msgstr ""
+"Keine Versionsnummer in Ihrer Konfiguration gefunden. Erneuern Sie Ihre "
+"Konfiguration."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:607
+msgid "Non Participant"
+msgstr "Kein Teilnehmer"
+
+#: framework/Crypt/Crypt/pgp.php:402
+#: framework/MIME/MIME/Viewer/icalendar.php:563
+msgid "None"
+msgstr "Keiner"
+
+#: config/nls.php.dist:181
+msgid "Nordic (ISO-8859-10)"
+msgstr "Nordisch (ISO-8859-10)"
+
+#: framework/NLS/NLS/tld.php:172 framework/NLS/NLS/countries.php:166
+#: framework/NLS/NLS/GeoIP.php:97
+msgid "Norfolk Island"
+msgstr "Norfolkinsel"
+
+#: lib/Block/moon.php:30 lib/Block/moon.php:58
+msgid "Northern Hemisphere"
+msgstr "Nördliche Hemisphere"
+
+#: framework/NLS/NLS/tld.php:158 framework/NLS/NLS/countries.php:167
+#: framework/NLS/NLS/GeoIP.php:94
+msgid "Northern Mariana Islands"
+msgstr "Nördliche Marianen"
+
+#: framework/NLS/NLS/tld.php:176 framework/NLS/NLS/countries.php:168
+#: framework/NLS/NLS/GeoIP.php:98
+msgid "Norway"
+msgstr "Norwegen"
+
+#: framework/Crypt/Crypt/smime.php:590
+msgid "Not After"
+msgstr "Gültig bis"
+
+#: framework/Crypt/Crypt/smime.php:589
+msgid "Not Before"
+msgstr "Gültig ab"
+
+#: framework/VC/VC/svn.php:111
+msgid "Not Implemented"
+msgstr "Nicht implementiert"
+
+#: framework/PDF/PDF.php:2590
+#, php-format
+msgid "Not a JPEG file: %s"
+msgstr "Keine JPEG-Datei: %s"
+
+#: framework/PDF/PDF.php:2619
+#, php-format
+msgid "Not a PNG file: %s"
+msgstr "Keine PNG-Datei: %s"
+
+#: framework/VFS/VFS/file.php:314
+msgid "Not a directory"
+msgstr "Kein Verzeichnis"
+
+#: framework/VFS/VFS.php:94 framework/VFS/VFS.php:109
+#: framework/VFS/VFS.php:123 framework/VFS/VFS.php:137
+#: framework/VFS/VFS.php:152 framework/VFS/VFS.php:165
+#: framework/VFS/VFS.php:180 framework/VFS/VFS.php:207
+#: framework/VFS/VFS.php:263 framework/VFS/VFS.php:314
+#: framework/VFS/VFS.php:368 framework/VFS/VFS.php:382
+msgid "Not supported."
+msgstr "Nicht unterstützt."
+
+#: framework/MIME/MIME/Viewer/vcard.php:212 config/registry.php.dist:187
+msgid "Notes"
+msgstr "Notizen"
+
+#: templates/maintenance/confirm_top.inc:10
+msgid "Notice"
+msgstr "Hinweis"
+
+#: framework/UI/UI/VarRenderer/html.php:313
+#: framework/UI/UI/VarRenderer/html.php:343
+#: templates/javascript/open_calendar.js:76
+msgid "November"
+msgstr "November"
+
+#: framework/Form/Form.php:1103
+msgid "Number"
+msgstr "Zahl"
+
+#: framework/Form/Form.php:1405
+msgid "Number of characters"
+msgstr "Anzahl der Zeichen"
+
+#: framework/Form/Form.php:1349 framework/Form/Form.php:1403
+#: framework/Form/Form.php:1425
+msgid "Number of columns"
+msgstr "Anzahl der Spalten"
+
+#: framework/Form/Form.php:1347 framework/Form/Form.php:1401
+#: framework/Form/Form.php:1423
+msgid "Number of rows"
+msgstr "Anzahl der Zeilen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:486
+#: framework/MIME/MIME/Viewer/icalendar.php:666 po/translation.php:147
+#: po/translation.php:1221
+msgid "OK"
+msgstr "OK"
+
+#: templates/shares/edit.inc:117
+msgid "Object Creator"
+msgstr "Objektersteller"
+
+#: admin/perms/edit.php:94 framework/Perms/Perms/UI.php:220
+msgid "Object creator permissions"
+msgstr "Objekterstellerrechte"
+
+#: framework/Form/Form.php:1161
+msgid "Octal"
+msgstr "Oktalzahl"
+
+#: framework/UI/UI/VarRenderer/html.php:312
+#: framework/UI/UI/VarRenderer/html.php:342
+#: templates/javascript/open_calendar.js:75
+msgid "October"
+msgstr "Oktober"
+
+#: framework/UI/UI/VarRenderer/html.php:633
+msgid "Off"
+msgstr "Aus"
+
+#: config/registry.php.dist:377
+msgid "Office"
+msgstr "Büro"
+
+#: framework/NLS/NLS/tld.php:181 framework/NLS/NLS/countries.php:169
+#: framework/NLS/NLS/GeoIP.php:99
+msgid "Oman"
+msgstr "Oman"
+
+#: framework/UI/UI/VarRenderer/html.php:633
+msgid "On"
+msgstr "An"
+
+#: framework/Form/Form.php:1780 framework/Form/Form.php:1870
+msgid "Only one email address allowed."
+msgstr "Nur eine Email-Adresse erlaubt."
+
+#: services/shares/edit.php:65
+msgid ""
+"Only the owner or system administrator may change ownership or owner "
+"permissions for a share"
+msgstr ""
+"Nur der Besitzer oder der Systemadministrator kann den Besitzer oder die "
+"Besitzerrechte ändern"
+
+#: lib/Block/iframe.php:33
+msgid "Open in a new window"
+msgstr "In neuem Fenster öffnen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:603
+msgid "Optional Participant"
+msgstr "Optionaler Teilnehmer"
+
+#: framework/Menu/Menu.php:288 templates/portal/menu.inc:18
+#: templates/navbar/menu.inc:18
+msgid "Options"
+msgstr "Einstellungen"
+
+#: po/translation.php:111
+msgid "Options:"
+msgstr "Optionen:"
+
+#: templates/javascript/htmlarea/htmlarea.js:156
+msgid "Ordered List"
+msgstr "Nummerierte Liste"
+
+#: framework/Crypt/Crypt/smime.php:520
+msgid "Organisation"
+msgstr "Organisation"
+
+#: framework/Crypt/Crypt/smime.php:521
+msgid "Organisational Unit"
+msgstr "Organisationsabteilung"
+
+#: admin/templates.php:135
+msgid "Original application template"
+msgstr "Originalvorlage der Anwendung"
+
+#: admin/templates.php:116
+#, php-format
+msgid "Original templates in %s:"
+msgstr "Originalvorlage in %s:"
+
+#: framework/NLS/NLS/GeoIP.php:120 services/keyboard.php:117
+msgid "Other"
+msgstr "Sonstige"
+
+#: config/prefs.php.dist:70 config/prefs.php.dist:78 config/prefs.php.dist:86
+msgid "Other Information"
+msgstr "Andere Informationen"
+
+#: templates/shares/edit.inc:37
+msgid "Owner Permissions"
+msgstr "Besitzerrechte"
+
+#: framework/Auth/Auth/pam.php:82
+msgid "PAM authentication is not available."
+msgstr "PAM-Authentifizierung ist nicht verfügbar."
+
+#: framework/Form/Form.php:941
+msgid "PEAR Error"
+msgstr "PEAR-Fehler"
+
+#: framework/Crypt/Crypt/pgp.php:1264
+msgid "PGP Digital Signature"
+msgstr "Digitale PGP-Unterschrift"
+
+#: framework/Crypt/Crypt/pgp.php:1313
+msgid "PGP Encrypted Data"
+msgstr "PGP-verschlüsselte Daten"
+
+#: framework/Crypt/Crypt/pgp.php:1369
+msgid "PGP Public Key"
+msgstr "Öffentlicher PGP-Schlüssel"
+
+#: framework/Crypt/Crypt/pgp.php:1348
+msgid "PGP Signed/Encrypted Data"
+msgstr "Mit PGP unterzeichnete/verschlüsselte Daten"
+
+#: admin/phpshell.php:63
+msgid "PHP Code"
+msgstr "PHP Code"
+
+#: admin/phpshell.php:20 lib/api.php:95
+msgid "PHP Shell"
+msgstr "PHP Shell"
+
+#: framework/NLS/NLS/tld.php:187 framework/NLS/NLS/countries.php:170
+#: framework/NLS/NLS/GeoIP.php:100
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: framework/NLS/NLS/tld.php:194 framework/NLS/NLS/countries.php:171
+#: framework/NLS/NLS/GeoIP.php:102
+msgid "Palau"
+msgstr "Palau"
+
+#: framework/NLS/NLS/tld.php:192 framework/NLS/NLS/countries.php:172
+#: framework/NLS/NLS/GeoIP.php:102
+msgid "Palestinian Territory, Occupied"
+msgstr "Besetzte Palästinensische Gebiete"
+
+#: framework/NLS/NLS/tld.php:182 framework/NLS/NLS/countries.php:173
+#: framework/NLS/NLS/GeoIP.php:99
+msgid "Panama"
+msgstr "Panama"
+
+#: framework/NLS/NLS/tld.php:185 framework/NLS/NLS/countries.php:174
+#: framework/NLS/NLS/GeoIP.php:100
+msgid "Papua New Guinea"
+msgstr "Papua-Neuguinea"
+
+#: framework/NLS/NLS/tld.php:195 framework/NLS/NLS/countries.php:175
+#: framework/NLS/NLS/GeoIP.php:103
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: admin/user.php:34 framework/Form/Form.php:1917 templates/login/login.inc:76
+#: templates/admin/user/update.inc:35 config/registry.php.dist:438
+msgid "Password"
+msgstr "Passwort"
+
+#: framework/Auth/Auth/radius.php:149
+msgid "Password required for RADIUS authentication."
+msgstr "Kein Passwort für die RADIUS-Authentifizierung angegeben."
+
+#: framework/Form/Form.php:1952
+msgid "Password with confirmation"
+msgstr "Passwort mit Bestätigung"
+
+#: templates/rpcsum/manage.inc:41
+msgid "Password:"
+msgstr "Passwort:"
+
+#: templates/login/mobile.inc:11
+msgid "Password: "
+msgstr "Passwort: "
+
+#: admin/user.php:62
+msgid "Passwords cannot be blank."
+msgstr "Passwörter dürfen nicht leer sein."
+
+#: admin/user.php:126 framework/Form/Form.php:1933
+#: templates/admin/user/update.inc:14
+msgid "Passwords must match."
+msgstr "Die Passwörter müssen gleich sein."
+
+#: admin/sqlshell.php:96 services/editor/designmode/editor.php:74
+msgid "Paste"
+msgstr "Einfügen"
+
+#: templates/javascript/htmlarea/htmlarea.js:174
+msgid "Paste from clipboard"
+msgstr "Von der Zwischenablage einfügen"
+
+#: templates/admin/user/approve.inc:4 templates/admin/user/removequeued.inc:4
+msgid "Pending Signups:"
+msgstr "Ausstehende Registrierungen:"
+
+#: templates/maintenance/confirm_bottom.inc:6
+msgid "Perform Maintenance Operations"
+msgstr "Wartungsarbeiten durchführen"
+
+#: config/prefs.php.dist:191
+msgid "Perform maintenance operations on login?"
+msgstr "Wartungsarbeiten nach der Anmeldung durchführen?"
+
+#: admin/perms/addchild.php:64 admin/perms/addchild.php:67
+msgid "Permission"
+msgstr "Rechte"
+
+#: admin/perms/delete.php:69
+#, php-format
+msgid "Permission '%s' not deleted."
+msgstr "Recht '%s' wurde nicht gelöscht."
+
+#: framework/VC/VC/cvs.php:406
+msgid "Permission Denied"
+msgstr "Zugriff verweigert"
+
+#: lib/api.php:91
+msgid "Permissions"
+msgstr "Rechte"
+
+#: admin/perms/edit.php:176 admin/perms/addchild.php:94
+#: admin/perms/index.php:24 admin/perms/delete.php:75
+msgid "Permissions Administration"
+msgstr "Rechteverwaltung"
+
+#: framework/Perms/Perms/UI.php:146 framework/Perms/Perms/UI.php:149
+#: framework/Perms/Perms/UI.php:153
+msgid "Permissions for"
+msgstr "Rechte für"
+
+#: config/registry.php.dist:149
+msgid "Personal Information"
+msgstr "Persönliche Informationen"
+
+#: framework/NLS/NLS/tld.php:183 framework/NLS/NLS/countries.php:176
+#: framework/NLS/NLS/GeoIP.php:99
+msgid "Peru"
+msgstr "Peru"
+
+#: framework/NLS/NLS/tld.php:186 framework/NLS/NLS/countries.php:177
+#: framework/NLS/NLS/GeoIP.php:100
+msgid "Philippines"
+msgstr "Philippinen"
+
+#: framework/MIME/MIME/Viewer/vcard.php:163
+msgid "Phone"
+msgstr "Telefon"
+
+#: config/registry.php.dist:509
+msgid "Photos"
+msgstr "Fotos"
+
+#: framework/NLS/NLS/tld.php:190 framework/NLS/NLS/countries.php:178
+#: framework/NLS/NLS/GeoIP.php:101
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: framework/Form/Form.php:2448
+msgid "Please enter a month and a year."
+msgstr "Bitte einen Monat und ein Jahr angeben."
+
+#: framework/Form/Form.php:2546
+msgid "Please enter a valid date, check the number of days in the month."
+msgstr ""
+"Bitte geben Sie ein gültiges Datum an; überprüfen Sie die Zahl der Tage in "
+"dem Monat."
+
+#: framework/Form/Form.php:2327
+msgid "Please enter a valid time."
+msgstr "Bitte einen gültigen Zeitwert eingeben."
+
+#: templates/problem/problem.inc:7
+msgid "Please provide a summary of the problem."
+msgstr "Bitte geben Sie eine Zusammenfassung Ihres Problems an."
+
+#: templates/login/login.inc:18 templates/login/login.inc:22
+msgid "Please provide your username and password"
+msgstr "Bitte geben Sie Ihren Benutzernamen und Ihr Passwort an"
+
+#: templates/maintenance/agreement_top.inc:12
+msgid ""
+"Please read the following text.  You MUST agree with the terms to use the "
+"system."
+msgstr ""
+"Bitte lesen Sie sich den folgenden Text sorgfältig durch. Sie MÜSSEN diesen "
+"Bedingungen zustimmen, um diese Dienste zu benutzen."
+
+#: po/translation.php:17
+msgid "Please report any bugs to i18n@lists.horde.org."
+msgstr "Bitte alle Fehler an i18n@lists.horde.org melden."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:543
+msgid ""
+"Please review the following information, and then select an action from the "
+"menu below."
+msgstr ""
+"Bitte überprüfen Sie die folgenden Informationen und wählen Sie anschließend "
+"eine Aktion aus dem unteren Menü."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:438
+msgid "Please select an action from the menu below."
+msgstr "Bitte wählen Sie eine Aktion aus dem Menü aus."
+
+#: framework/NLS/NLS/tld.php:188 framework/NLS/NLS/countries.php:179
+#: framework/NLS/NLS/GeoIP.php:100
+msgid "Poland"
+msgstr "Polen"
+
+#: config/registry.php.dist:518
+msgid "Polls"
+msgstr "Umfragen"
+
+#: framework/NLS/NLS/tld.php:193 framework/NLS/NLS/countries.php:180
+#: framework/NLS/NLS/GeoIP.php:102
+msgid "Portugal"
+msgstr "Portugal"
+
+#: lib/Block/metar.php:251 lib/Block/metar.php:256
+#, php-format
+msgid "Precipitation for last %s hour(s): "
+msgstr "Niederschlag in den letzten %s Stunde(n): "
+
+#: framework/Prefs/Prefs/ldap.php:101
+msgid "Prefs_ldap: Required LDAP extension not found."
+msgstr "Prefs_ldap: Die benötigte LDAP-Erweiterung wurde nicht gefunden."
+
+#: framework/Prefs/Prefs/session.php:36
+msgid "Prefs_session: Required session extension not found."
+msgstr "Prefs_session: Die benötigte Session-Erweiterung wurde nicht gefunden."
+
+#: config/registry.php.dist:370
+msgid "Presentations"
+msgstr "Präsentationen"
+
+#: lib/Block/metar.php:210
+msgid "Pressure"
+msgstr "Luftdruck"
+
+#: lib/Block/metar.php:244
+msgid "Pressure at sea level: "
+msgstr "Luftdruck auf Seehöhe: "
+
+#: lib/Block/weatherdotcom.php:186
+msgid "Pressure: "
+msgstr "Luftdruck: "
+
+#: framework/UI/UI/VarRenderer/html.php:142
+msgid "Preview"
+msgstr "Vorschau"
+
+#: framework/UI/UI/Pager.php:52 framework/UI/UI/Pager.php:53
+msgid "Previous Page"
+msgstr "Seite zurück"
+
+#: framework/Prefs/Prefs/UI.php:297 framework/Prefs/Prefs/UI.php:301
+msgid "Previous options"
+msgstr "Voherige Einstellungen"
+
+#: config/registry.php.dist:205
+msgid "Previous task"
+msgstr "Voherige Aufgabe"
+
+#: framework/Crypt/Crypt/pgp.php:398
+msgid "Private Key"
+msgstr "Privater Schlüssel"
+
+#: services/problem.php:116
+msgid "Problem Description"
+msgstr "Problembeschreibung"
+
+#: config/registry.php.dist:70
+msgid "Problem?"
+msgstr "Probleme"
+
+#: config/registry.php.dist:275
+msgid "Projects"
+msgstr "Projekte"
+
+#: framework/Form/Form.php:2010 framework/Form/Form.php:2087
+msgid "Prompt text"
+msgstr "Nachfragetext"
+
+#: framework/Crypt/Crypt/pgp.php:398
+msgid "Public Key"
+msgstr "Öffentlicher Schlüssel"
+
+#: framework/Crypt/Crypt/smime.php:595
+msgid "Public Key Algorithm"
+msgstr "Algorithmus des öffentlichen Schlüssels"
+
+#: framework/Crypt/Crypt/pgp.php:219
+msgid "Public/Private keypair not generated successfully."
+msgstr "Das öffentliche/private Schlüsselpaar konnte nicht erstellt werden."
+
+#: framework/NLS/NLS/tld.php:191 framework/NLS/NLS/countries.php:181
+#: framework/NLS/NLS/GeoIP.php:101
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: framework/NLS/NLS/tld.php:196 framework/NLS/NLS/countries.php:182
+#: framework/NLS/NLS/GeoIP.php:103
+msgid "Qatar"
+msgstr "Katar"
+
+#: framework/Crypt/Crypt/smime.php:611
+#, php-format
+msgid "RSA Public Key (%d bit)"
+msgstr "Öffentlicher RSA Schlüssel (%d Bit)"
+
+#: framework/Form/Form.php:2163
+msgid "Radio selection"
+msgstr "Auswahlknopf"
+
+#: config/registry.php.dist:581
+msgid "Random Fortune"
+msgstr "Zufälliger Tagesspruch"
+
+#: framework/MIME/MIME/Viewer/rar.php:71 framework/MIME/MIME/Viewer/zip.php:76
+msgid "Ratio"
+msgstr "Verhältnis"
+
+#: framework/Perms/Perms.php:417 templates/shares/edit.inc:40
+#: templates/shares/edit.inc:74 templates/shares/edit.inc:97
+#: templates/shares/edit.inc:120 templates/shares/edit.inc:143
+#: templates/shares/edit.inc:186
+msgid "Read"
+msgstr "Lesen"
+
+#: templates/admin/user/remove.inc:12
+#, php-format
+msgid "Really delete %s? This operation cannot be undone."
+msgstr ""
+"%s wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden."
+
+#: templates/javascript/htmlarea/htmlarea.js:171
+msgid "Redoes your last action"
+msgstr "Führt letzte Aktion erneut aus"
+
+#: config/prefs.php.dist:152
+msgid "Refresh Portal View:"
+msgstr "Portalansicht aktualisieren:"
+
+#: framework/Form/Form.php:966 framework/Form/Form.php:1267
+#: framework/Form/Form.php:1289
+msgid "Regex"
+msgstr "Regulärer Ausdruck"
+
+#: lib/Block/metar.php:311
+msgid "Remarks"
+msgstr "Bemerkungen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:460
+#: framework/MIME/MIME/Viewer/icalendar.php:479
+msgid "Remember the free/busy information."
+msgstr "Frei/Gebucht-Informationen merken."
+
+#: services/portal/rpcsum.php:98 config/prefs.php.dist:79
+msgid "Remote Servers"
+msgstr "Entfernte Server"
+
+#: templates/rpcsum/manage.inc:35
+msgid "Remote URL (http://www.example.com/horde):"
+msgstr "Serveradresse (http://www.example.com/horde):"
+
+#: templates/rpcsum/manage.inc:5
+msgid "Remote summaries"
+msgstr "Portalinhalte von anderen Servern"
+
+#: templates/admin/groups/edit.inc:21 templates/admin/user/approve.inc:40
+#: templates/admin/user/removequeued.inc:15
+msgid "Remove"
+msgstr "Entfernen"
+
+#: templates/portal/layout.inc:9
+msgid "Remove Block"
+msgstr "Block löschen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:661
+msgid "Remove from my calendar"
+msgstr "Aus meinem Kalender entfernen"
+
+#: templates/data/csvmap.inc:126
+msgid "Remove pair"
+msgstr "Paar löschen"
+
+#: admin/setup/index.php:117
+msgid "Remove saved script from server's temporary directory."
+msgstr "Gespeichertes Skript aus dem temporären Verzeichnis entfernen."
+
+#: templates/admin/user/remove.inc:16
+msgid "Remove user"
+msgstr "Benutzer löschen"
+
+#: templates/admin/user/remove.inc:7
+#, php-format
+msgid "Remove user: %s"
+msgstr "Benutzer löschen: %s"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:197
+#: framework/MIME/MIME/Viewer/icalendar.php:281
+#: framework/MIME/MIME/Viewer/icalendar.php:351
+msgid "Reply Sent."
+msgstr "Antwort versendet."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:462
+#: framework/MIME/MIME/Viewer/icalendar.php:471
+#: framework/MIME/MIME/Viewer/icalendar.php:481
+msgid "Reply with Not Supported Message"
+msgstr "Mit \"Nicht unterstützt\"-Nachricht antworten."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:469
+msgid "Reply with free/busy for next 2 months."
+msgstr "Mit Frei/Gebucht-Informationen für die nächsten zwei Monate antworten."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:468
+msgid "Reply with requested free/busy information."
+msgstr "Mit erfragten Frei/Gebucht-Informationen antworten."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:189
+#, php-format
+msgid "Reply: %s"
+msgstr "Antwort: %s"
+
+#: framework/RPC/RPC/xmlrpc.php:137
+msgid "Request couldn't be answered. Returned errorcode: "
+msgstr "Anfrage konnte nicht beantwortet werden. Zurückgegebener Fehlercode: "
+
+#: framework/Horde/Horde.php:170 framework/Horde/Horde.php:340
+#, php-format
+msgid "Required '%s' not specified in %s configuration."
+msgstr "'%s' wurde in der Konfiguration für %s nicht angegeben."
+
+#: framework/VFS/VFS/sql.php:546 framework/VFS/VFS/ftp.php:707
+#: framework/VFS/VFS/sql_file.php:716
+#, php-format
+msgid "Required '%s' not specified in VFS configuration."
+msgstr "'%s' wurde in der VFS-Konfiguration nicht angegeben."
+
+#: framework/Util/Util.php:658
+#, php-format
+msgid "Required '%s' not specified in configuration."
+msgstr "'%s' wurde in der Konfiguration nicht angegeben."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:595
+msgid "Required Participant"
+msgstr "Erforderlicher Teilnehmer"
+
+#: config/registry.php.dist:302
+msgid "Reseller"
+msgstr "Weiterverkäufer"
+
+#: config/registry.php.dist:304
+msgid "Reseller Ticket"
+msgstr "Weiterverkäufer-Ticket"
+
+#: admin/user.php:29 framework/Form/Form.php:250
+#: framework/Form/Form/Renderer.php:251 templates/rpcsum/manage.inc:52
+#: templates/admin/user/update.inc:43
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: admin/phpshell.php:66 admin/cmdshell.php:28 admin/sqlshell.php:46
+msgid "Results"
+msgstr "Ergebnisse"
+
+#: po/translation.php:725
+msgid "Results (including Horde):"
+msgstr "Ergebnisse (inkl. Horde):"
+
+#: po/translation.php:723
+msgid "Results:"
+msgstr "Ergebnisse:"
+
+#: templates/rpcsum/manage.inc:53 templates/prefs/end.inc:7
+msgid "Return to Options"
+msgstr "Zurück zu Einstellungen"
+
+#: framework/NLS/NLS/tld.php:197 framework/NLS/NLS/countries.php:183
+#: framework/NLS/NLS/GeoIP.php:103
+msgid "Reunion"
+msgstr "Réunion"
+
+#: config/registry.php.dist:587
+msgid "Riddles"
+msgstr "Rätsel"
+
+#: framework/MIME/MIME/Viewer/vcard.php:202
+#: framework/MIME/MIME/Viewer/icalendar.php:586
+msgid "Role"
+msgstr "Rolle"
+
+#: framework/NLS/NLS/tld.php:198 framework/NLS/NLS/countries.php:184
+#: framework/NLS/NLS/GeoIP.php:103
+msgid "Romania"
+msgstr "Rumänien"
+
+#: framework/UI/UI/VarRenderer/html.php:162
+msgid "Rotate 180"
+msgstr "Um 180° drehen"
+
+#: framework/UI/UI/VarRenderer/html.php:159
+msgid "Rotate Left"
+msgstr "Nach links drehen"
+
+#: framework/UI/UI/VarRenderer/html.php:165
+msgid "Rotate Right"
+msgstr "Nach rechts drehen"
+
+#: admin/sqlshell.php:97
+msgid "Run"
+msgstr "Starten"
+
+#: framework/NLS/NLS/tld.php:199 framework/NLS/NLS/countries.php:185
+#: framework/NLS/NLS/GeoIP.php:104
+msgid "Russian Federation"
+msgstr "Russische Förderation"
+
+#: framework/NLS/NLS/tld.php:200 framework/NLS/NLS/countries.php:186
+#: framework/NLS/NLS/GeoIP.php:104
+msgid "Rwanda"
+msgstr "Ruanda"
+
+#: framework/Crypt/Crypt/smime.php:265
+msgid "S/MIME Cryptographic Signature"
+msgstr "S/MIME krytographische Unterschrift"
+
+#: framework/Crypt/Crypt/smime.php:303
+msgid "S/MIME Encrypted Message"
+msgstr "Mit S/MIME verschlüsselte Nachricht"
+
+#: framework/Auth/Auth/sasl.php:85
+msgid "SASL authentication is not available."
+msgstr "SASL-Authentifizierung ist nicht verfügbar."
+
+#: config/registry.php.dist:546
+msgid "SMS Messaging"
+msgstr "SMS-Versand"
+
+#: admin/sqlshell.php:43
+msgid "SQL Query"
+msgstr "SQL-Abfrage"
+
+#: admin/sqlshell.php:21 lib/api.php:99
+msgid "SQL Shell"
+msgstr "SQL Shell"
+
+#: framework/UI/UI/VarRenderer/html.php:290
+msgid "SS"
+msgstr "SS"
+
+#: config/registry.php.dist:447
+msgid "SSH"
+msgstr "SSH"
+
+#: framework/Notification/Notification/Listener/mobile.php:38
+msgid "SUCCESS"
+msgstr "ERFOLG"
+
+#: templates/javascript/open_calendar.js:62
+msgid "Sa"
+msgstr "Sa"
+
+#: framework/NLS/NLS/tld.php:207 framework/NLS/NLS/countries.php:187
+#: framework/NLS/NLS/GeoIP.php:105
+msgid "Saint Helena"
+msgstr "Saint Helena"
+
+#: framework/NLS/NLS/tld.php:131 framework/NLS/NLS/countries.php:188
+#: framework/NLS/NLS/GeoIP.php:85
+msgid "Saint Kitts and Nevis"
+msgstr "Saint Kitts und Nevis"
+
+#: framework/NLS/NLS/tld.php:139 framework/NLS/NLS/countries.php:189
+#: framework/NLS/NLS/GeoIP.php:88
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+#: framework/NLS/NLS/tld.php:189 framework/NLS/NLS/countries.php:190
+#: framework/NLS/NLS/GeoIP.php:101
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint Pierre und Miquelon"
+
+#: framework/NLS/NLS/tld.php:244 framework/NLS/NLS/countries.php:191
+#: framework/NLS/NLS/GeoIP.php:116
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent und die Grenadinen"
+
+#: framework/NLS/NLS/tld.php:251 framework/NLS/NLS/countries.php:192
+#: framework/NLS/NLS/GeoIP.php:118
+msgid "Samoa"
+msgstr "Samoa"
+
+#: framework/NLS/NLS/tld.php:212 framework/NLS/NLS/countries.php:193
+#: framework/NLS/NLS/GeoIP.php:107
+msgid "San Marino"
+msgstr "San Marino"
+
+#: framework/NLS/NLS/tld.php:216 framework/NLS/NLS/countries.php:194
+#: framework/NLS/NLS/GeoIP.php:108
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome und Principe"
+
+#: framework/NLS/NLS/GeoIP.php:120
+msgid "Satellite Provider"
+msgstr "Satellitenprovider"
+
+#: framework/NLS/NLS/tld.php:201 framework/NLS/NLS/countries.php:195
+#: framework/NLS/NLS/GeoIP.php:104
+msgid "Saudi Arabia"
+msgstr "Saudi-Arabien"
+
+#: templates/portal/layout.inc:97
+msgid "Save"
+msgstr "Speichern"
+
+#: templates/shares/edit.inc:222
+#, php-format
+msgid "Save %s"
+msgstr "%s speichern"
+
+#: templates/admin/groups/edit.inc:53
+#, php-format
+msgid "Save '%s'"
+msgstr "'%s' speichern"
+
+#: templates/prefs/end.inc:5
+msgid "Save Options"
+msgstr "Einstellungen speichern"
+
+#: admin/setup/index.php:110
+msgid ""
+"Save generated configuration as a PHP script to your server's temporary "
+"directory."
+msgstr ""
+"Erzeugte Konfiguration als PHP-Skript im temporären Verzeichnis Ihres Server "
+"speichern."
+
+#: admin/setup/scripts.php:57
+#, php-format
+msgid "Saved %s configuration."
+msgstr "%s-Konfiguration gespeichert."
+
+#: admin/setup/scripts.php:78
+#, php-format
+msgid "Saved setup upgrade script to: '%s'."
+msgstr "Das Aktualisierungsskript wurde in '%s' gespeichert."
+
+#: po/translation.php:1321
+msgid "Searching Horde applications..."
+msgstr "Suche Horde-Anwendungen..."
+
+#: po/translation.php:122
+msgid "Searching gettext binaries..."
+msgstr "Suche gettext Programme..."
+
+#: framework/UI/UI/VarRenderer/html.php:369
+msgid "Select a date"
+msgstr "Datum auswählen"
+
+#: templates/shares/edit.inc:204
+msgid "Select a group to add"
+msgstr "Hinzuzufügende Gruppen auswählen"
+
+#: templates/shares/edit.inc:49
+msgid "Select a new owner"
+msgstr "Neuen Besitzer auswählen"
+
+#: templates/rpcsum/manage.inc:11
+msgid "Select a server"
+msgstr "Server auswählen"
+
+#: templates/shares/edit.inc:162
+msgid "Select a user to add"
+msgstr "Hinzuzufügenden Benutzer auswählen"
+
+#: framework/Form/Form.php:2549
+msgid "Select all date components."
+msgstr "Legen Sie alle Datumskomponenten fest."
+
+#: services/keyboard.php:37
+msgid ""
+"Select the characters you need from the boxes below. You can then copy and "
+"paste them from the text area."
+msgstr ""
+"Wählen Sie die benötigten Zeichen aus den jeweiligen Feldern aus. Dann "
+"können Sie diese aus dem Textfeld kopieren und in Ihre Nachricht einfügen."
+
+#: templates/data/date.inc:17
+msgid "Select the date delimiter:"
+msgstr "Wählen Sie das Datumstrennzeichen:"
+
+#: templates/data/date.inc:27
+msgid "Select the date format:"
+msgstr "Wählen Sie das Datumsformat:"
+
+#: templates/data/time.inc:16
+msgid "Select the time delimiter:"
+msgstr "Wählen Sie das Zeittrennzeichen:"
+
+#: templates/data/time.inc:25
+msgid "Select the time format:"
+msgstr "Wählen Sie das Zeitformat:"
+
+#: templates/data/csvmap.inc:64
+msgid "Select two matching fields."
+msgstr "Wählen Sie zwei zusammengehörige Felder aus."
+
+#: config/prefs.php.dist:138
+msgid "Select your color scheme."
+msgstr "Wählen Sie ein Farbschema."
+
+#: config/prefs.php.dist:98
+msgid "Select your preferred language:"
+msgstr "Wählen Sie Ihre bevorzugte Sprache:"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:656
+msgid "Send Latest Information"
+msgstr "Aktuelle Informationen versenden"
+
+#: templates/problem/problem.inc:58
+msgid "Send Problem Report"
+msgstr "Problembericht abschicken"
+
+#: framework/NLS/NLS/tld.php:213 framework/NLS/NLS/countries.php:196
+#: framework/NLS/NLS/GeoIP.php:107
+msgid "Senegal"
+msgstr "Senegal"
+
+#: lib/Block/metar.php:301
+msgid "Sensor: "
+msgstr "Sensor: "
+
+#: framework/UI/UI/VarRenderer/html.php:311
+#: framework/UI/UI/VarRenderer/html.php:341
+#: templates/javascript/open_calendar.js:74
+msgid "September"
+msgstr "September"
+
+#: framework/NLS/NLS/countries.php:197
+msgid "Serbia and Montenegro"
+msgstr "Serbien und Montenegro"
+
+#: framework/Crypt/Crypt/smime.php:649
+msgid "Serial Number"
+msgstr "Seriennummer"
+
+#: framework/Form/Form.php:2211
+msgid "Set"
+msgstr "Auswahl-Satz"
+
+#: config/prefs.php.dist:80
+msgid "Set up remote servers that you want to access from your portal."
+msgstr ""
+"Legen Sie entfernte Server fest, auf die Sie von Ihrem Portal aus zugreifen "
+"möchten."
+
+#: config/prefs.php.dist:65
+msgid "Set your preferred language, timezone and date options."
+msgstr "Wählen Sie Ihre bevorzugte Sprache, Zeitzone und Datumseinstellungen."
+
+#: config/prefs.php.dist:72
+msgid ""
+"Set your startup application, color scheme, page refreshing, and other "
+"display options."
+msgstr ""
+"Legen Sie das die Startanwendung, das Farbschema, die Seitenaktualisierung "
+"und andere Anzeigeeinstellungen fest."
+
+# Mehrere passende Orte mit diesem Parameter: 
+#: lib/Block/weatherdotcom.php:137
+msgid "Several locations possible with the parameter: "
+msgstr "Mehrere passende Orte mit diesem Parameter: "
+
+#: framework/NLS/NLS/tld.php:203 framework/NLS/NLS/countries.php:198
+#: framework/NLS/NLS/GeoIP.php:105
+msgid "Seychelles"
+msgstr "Seychellen"
+
+#: config/registry.php.dist:537
+msgid "Shopping"
+msgstr "Einkauf"
+
+#: templates/problem/problem.inc:43
+msgid "Short Summary"
+msgstr "Kurze Zusammenfassung"
+
+#: config/prefs.php.dist:218
+msgid "Should access keys be defined for most links?"
+msgstr "Sollen Tastenkombinationen für die meisten Links aktiviert werden?"
+
+#: framework/Perms/Perms.php:416 templates/shares/edit.inc:39
+#: templates/shares/edit.inc:73 templates/shares/edit.inc:96
+#: templates/shares/edit.inc:119 templates/shares/edit.inc:142
+#: templates/shares/edit.inc:185
+msgid "Show"
+msgstr "Zeigen"
+
+#: config/prefs.php.dist:255
+msgid "Show last login time when logging in?"
+msgstr "Anzeigen, wann die letzte Anmeldung erfolgt ist?"
+
+#: framework/Form/Form.php:2695
+msgid "Show picker"
+msgstr "Auswähler anzeigen"
+
+#: config/prefs.php.dist:160
+#, php-format
+msgid "Show the %s Menu on the left?"
+msgstr "Das %s-Menü auf der linken Seite anzeigen?"
+
+#: framework/Block/Block/Layout.php:389
+msgid "Shrink"
+msgstr "Verkleinern"
+
+#: framework/Block/Block/Layout.php:682 framework/Block/Block/Layout.php:744
+#: framework/Block/Block/Layout.php:802 framework/Block/Block/Layout.php:864
+#: framework/Block/Block/Layout.php:899 framework/Block/Block/Layout.php:936
+#: framework/Block/Block/Layout.php:964 framework/Block/Block/Layout.php:994
+msgid "Shrink or move neighbouring block(s) out of the way first"
+msgstr "Verkleinern oder verschieben Sie erst die benachbarten Blöcke"
+
+#: framework/NLS/NLS/tld.php:211 framework/NLS/NLS/countries.php:199
+#: framework/NLS/NLS/GeoIP.php:106
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: framework/Auth/Auth/Signup.php:276
+msgid "Sign up"
+msgstr "Registrieren"
+
+#: templates/login/login.inc:95
+msgid "Sign up if not registered"
+msgstr "Noch kein Zugang? Hier registrieren."
+
+#: framework/Crypt/Crypt/smime.php:660
+msgid "Signature"
+msgstr "Signatur"
+
+#: framework/Crypt/Crypt/smime.php:659
+msgid "Signature Algorithm"
+msgstr "Signaturalgorithmus"
+
+#: config/themes/html-simplex.php:9
+msgid "Simplex"
+msgstr "Simplex"
+
+#: framework/NLS/NLS/tld.php:206 framework/NLS/NLS/countries.php:200
+#: framework/NLS/NLS/GeoIP.php:105
+msgid "Singapore"
+msgstr "Singapur"
+
+#: framework/MIME/MIME/Viewer/rar.php:68 framework/MIME/MIME/Viewer/zip.php:72
+#: framework/MIME/MIME/Viewer/tgz.php:72 framework/Form/Form.php:968
+#: framework/Form/Form.php:1269 framework/Form/Form.php:1291
+#: framework/Form/Form.php:2145 framework/Form/Form.php:2808
+msgid "Size"
+msgstr "Größe"
+
+#: templates/maintenance/confirm_bottom.inc:9
+msgid "Skip Maintenance"
+msgstr "Wartungsarbeiten überspringen"
+
+#: po/translation.php:402 po/translation.php:577 po/translation.php:757
+msgid "Skipped..."
+msgstr "Übersprungen..."
+
+#: framework/NLS/NLS/tld.php:210 framework/NLS/NLS/countries.php:201
+#: framework/NLS/NLS/GeoIP.php:106
+msgid "Slovakia"
+msgstr "Slowakei"
+
+#: framework/NLS/NLS/tld.php:208 framework/NLS/NLS/countries.php:202
+#: framework/NLS/NLS/GeoIP.php:106
+msgid "Slovenia"
+msgstr "Slowenien"
+
+#: lib/Block/metar.php:263
+msgid "Snow depth: "
+msgstr "Schneehöhe: "
+
+#: lib/Block/metar.php:267
+msgid "Snow equivalent in water: "
+msgstr "Schneemenge als Wasser: "
+
+#: framework/NLS/NLS/tld.php:202 framework/NLS/NLS/countries.php:203
+#: framework/NLS/NLS/GeoIP.php:104
+msgid "Solomon Islands"
+msgstr "Solomoninseln"
+
+#: framework/NLS/NLS/tld.php:214 framework/NLS/NLS/countries.php:204
+#: framework/NLS/NLS/GeoIP.php:107
+msgid "Somalia"
+msgstr "Somalien"
+
+#: framework/Form/Form.php:2804
+msgid "Sort order selection"
+msgstr "Auswahl der Sortierreihenfolge"
+
+#: framework/NLS/NLS/tld.php:255 framework/NLS/NLS/countries.php:205
+#: framework/NLS/NLS/GeoIP.php:119
+msgid "South Africa"
+msgstr "Südafrika"
+
+#: config/nls.php.dist:182
+msgid "South European (ISO-8859-3)"
+msgstr "Südeuropäisch (ISO-8859-3)"
+
+#: framework/NLS/NLS/tld.php:101 framework/NLS/NLS/countries.php:206
+#: framework/NLS/NLS/GeoIP.php:78
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Südgeorgien und die Südlichen Sandwichinseln"
+
+#: lib/Block/moon.php:31 lib/Block/moon.php:60
+msgid "Southern Hemisphere"
+msgstr "Südliche Hemisphere"
+
+#: framework/Form/Form.php:892
+msgid "Spacer"
+msgstr "Abstandhalter"
+
+#: framework/NLS/NLS/tld.php:80 framework/NLS/NLS/countries.php:207
+#: framework/NLS/NLS/GeoIP.php:72
+msgid "Spain"
+msgstr "Spanien"
+
+#: config/registry.php.dist:104
+msgid "Spam"
+msgstr "Spam"
+
+#: services/keyboard.php:14
+msgid "Special Character Input"
+msgstr "Sonderzeichen-Eingabe"
+
+#: framework/NLS/NLS/tld.php:141 framework/NLS/NLS/countries.php:208
+#: framework/NLS/NLS/GeoIP.php:89
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: lib/Block/weatherdotcom.php:56 lib/Block/metar.php:70
+msgid "Standard"
+msgstr "Standard"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:446
+#: framework/MIME/MIME/Viewer/icalendar.php:551
+msgid "Start"
+msgstr "Beginn"
+
+#: framework/Form/Form.php:2481 framework/Form/Form.php:2691
+msgid "Start year"
+msgstr "Startjahr"
+
+#: framework/Crypt/Crypt/smime.php:523
+msgid "State or Province"
+msgstr "Bundesstaat oder Provinz"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:586
+msgid "Status"
+msgstr "Status"
+
+#: po/translation.php:409
+#, php-format
+msgid "Status for locale %s... "
+msgstr "Status für Locale %s... "
+
+#: framework/Form/Form.php:2697
+msgid "Storage format"
+msgstr "Speicherformat"
+
+#: framework/Crypt/Crypt/smime.php:525
+msgid "Street Address"
+msgstr "Straße"
+
+#: templates/javascript/htmlarea/htmlarea.js:149
+msgid "Strikethrough"
+msgstr "Durchgestrichen"
+
+#: framework/Form/Form.php:1287
+msgid "String list"
+msgstr "Zeichenliste"
+
+#: templates/javascript/open_calendar.js:63
+msgid "Su"
+msgstr "So"
+
+#: framework/Crypt/Crypt/smime.php:559
+msgid "Subject"
+msgstr "Betreff"
+
+#: framework/Crypt/Crypt/smime.php:594
+msgid "Subject Public Key Info"
+msgstr "Angaben zum öffentlichen Schlüssel des Zertifikatinhabers"
+
+#: framework/Form/Form.php:243 framework/Form/Form/Renderer.php:248
+msgid "Submit"
+msgstr "Abschicken"
+
+#: signup.php:49
+#, php-format
+msgid ""
+"Submitted request to add '%s' to the system. You can not log in until your "
+"request has been approved."
+msgstr ""
+"Die Anfrage '%s' zum System hinzuzufügen wurde abgeschickt. Sie können sich "
+"noch nicht anmelden, bis Ihre Anfrage bestätigt worden ist."
+
+#: templates/javascript/htmlarea/htmlarea.js:150
+msgid "Subscript"
+msgstr "Tiefgestellt"
+
+#: admin/sqlshell.php:80
+#: framework/Notification/Notification/Listener/status.php:31
+msgid "Success"
+msgstr "Erfolg"
+
+#: admin/user.php:80
+#, php-format
+msgid "Successfully added '%s' to the system."
+msgstr "'%s' wurde erfolgreich hinzugefügt."
+
+#: admin/groups.php:80 admin/perms/delete.php:62
+#, php-format
+msgid "Successfully deleted '%s'."
+msgstr "'%s' wurde erfolgreich gelöscht."
+
+#: admin/user.php:101
+#, php-format
+msgid "Successfully removed '%s' from the system."
+msgstr "'%s' wurde erfolgreich gelöscht."
+
+#: admin/user.php:144
+#, php-format
+msgid "Successfully updated '%s'"
+msgstr "'%s' wurde erfolgreich aktualisiert"
+
+#: framework/NLS/NLS/tld.php:204 framework/NLS/NLS/countries.php:209
+#: framework/NLS/NLS/GeoIP.php:105
+msgid "Sudan"
+msgstr "Sudan"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:561
+#: framework/MIME/MIME/Viewer/icalendar.php:563
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: lib/Block/sunrise.php:64
+msgid "Sun Rise"
+msgstr "Sonnenaufgang"
+
+#: lib/Block/sunrise.php:69
+msgid "Sun Set"
+msgstr "Sonnenuntergang"
+
+#: lib/Block/weatherdotcom.php:167
+msgid "Sunrise"
+msgstr "Sonnenaufgang"
+
+#: lib/Block/sunrise.php:14 config/registry.php.dist:595
+msgid "Sunrise/Sunset"
+msgstr "Sonnenauf/untergang"
+
+#: lib/Block/weatherdotcom.php:166
+msgid "Sunrise: "
+msgstr "Sonnenaufgang: "
+
+#: lib/Block/weatherdotcom.php:170
+msgid "Sunset"
+msgstr "Sonnenuntergang"
+
+#: lib/Block/weatherdotcom.php:169
+msgid "Sunset: "
+msgstr "Sonnenuntergang: "
+
+#: templates/javascript/htmlarea/htmlarea.js:151
+msgid "Superscript"
+msgstr "Hochgestellt"
+
+#: config/registry.php.dist:528
+msgid "Support"
+msgstr "Support"
+
+#: framework/NLS/NLS/tld.php:215 framework/NLS/NLS/countries.php:210
+#: framework/NLS/NLS/GeoIP.php:107
+msgid "Suriname"
+msgstr "Surinam"
+
+#: framework/Crypt/Crypt/smime.php:527
+msgid "Surname"
+msgstr "Nachname"
+
+#: framework/NLS/NLS/tld.php:209 framework/NLS/NLS/countries.php:211
+#: framework/NLS/NLS/GeoIP.php:106
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard und Jan Mayen"
+
+#: framework/NLS/NLS/tld.php:219 framework/NLS/NLS/countries.php:212
+#: framework/NLS/NLS/GeoIP.php:109
+msgid "Swaziland"
+msgstr "Swasiland"
+
+#: framework/NLS/NLS/tld.php:205 framework/NLS/NLS/countries.php:213
+#: framework/NLS/NLS/GeoIP.php:105
+msgid "Sweden"
+msgstr "Schweden"
+
+#: framework/NLS/NLS/tld.php:56 framework/NLS/NLS/countries.php:214
+#: framework/NLS/NLS/GeoIP.php:67
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: framework/NLS/NLS/tld.php:218 framework/NLS/NLS/countries.php:215
+#: framework/NLS/NLS/GeoIP.php:108
+msgid "Syrian Arab Republic"
+msgstr "Arabische Republik Syrien"
+
+#: framework/Data/Data/tsv.php:163
+msgid "TSV file"
+msgstr "TSV-Datei"
+
+#: framework/NLS/NLS/tld.php:234 framework/NLS/NLS/GeoIP.php:112
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: framework/NLS/NLS/countries.php:216
+msgid "Taiwan, Province of China"
+msgstr "Taiwan, chinesische Provinz"
+
+#: framework/NLS/NLS/tld.php:225 framework/NLS/NLS/countries.php:217
+#: framework/NLS/NLS/GeoIP.php:110
+msgid "Tajikistan"
+msgstr "Tadschikistan"
+
+#: framework/NLS/NLS/tld.php:235 framework/NLS/NLS/countries.php:218
+#: framework/NLS/NLS/GeoIP.php:113
+msgid "Tanzania, United Republic of"
+msgstr "Vereinigte Republik Tansania"
+
+#: config/registry.php.dist:218
+msgid "Task"
+msgstr "Aufgabe"
+
+#: config/registry.php.dist:197
+msgid "Tasks"
+msgstr "Aufgaben"
+
+#: config/themes/html-gennevilliers.php:17
+msgid "Teal"
+msgstr "Mint"
+
+#: framework/Crypt/Crypt/smime.php:526
+msgid "Telephone Number"
+msgstr "Telefonnummer"
+
+#: lib/Block/metar.php:275
+msgid "Temp for last hour: "
+msgstr "Temperatur der letzten Stunde: "
+
+#: lib/Block/metar.php:199
+msgid "Temperature"
+msgstr "Temperatur"
+
+#: lib/Block/weatherdotcom.php:174
+msgid "Temperature: "
+msgstr "Temperatur: "
+
+#: framework/Template/Template.php:490
+#, php-format
+msgid "Template '%s' not found."
+msgstr "Vorlage '%s' nicht gefunden."
+
+#: admin/templates.php:169
+msgid "Template Administration"
+msgstr "Vorlagenverwaltung"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:644
+msgid "Tentatively Accept request"
+msgstr "Anfrage vorläufig annehmen"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:692
+msgid "Tentatively Accepted"
+msgstr "Vorläufig angenommen"
+
+#: framework/Form/Form.php:964 framework/Form/Form.php:1265
+msgid "Text"
+msgstr "Text"
+
+#: config/prefs.php.dist:179
+msgid "Text Only"
+msgstr "Nur Text"
+
+#: templates/javascript/open_calendar.js:60
+msgid "Th"
+msgstr "Do"
+
+#: config/nls.php.dist:183
+msgid "Thai (TIS-620)"
+msgstr "Thailändisch (TIS-620)"
+
+#: framework/NLS/NLS/tld.php:224 framework/NLS/NLS/countries.php:219
+#: framework/NLS/NLS/GeoIP.php:110
+msgid "Thailand"
+msgstr "Thailand"
+
+#: po/translation.php:954
+#, php-format
+msgid "The %s help file for %s doesn't yet exist. Creating a new one."
+msgstr "Die %s Hilfedatei für %s existiert noch nicht. Erstelle eine neue."
+
+#: services/links/delete.php:34
+#, php-format
+msgid "The %s link to %s has been removed."
+msgstr "Die %s-Verbindung nach %s wurde entfernt."
+
+#: services/maintenance.php:31
+msgid "The Maintenance:: class did not load successfully"
+msgstr "Die Maintenance:: Klasse konnte nicht geladen werden"
+
+#: services/images/colorpicker.php:29
+msgid "The Options window has closed. Exiting."
+msgstr "Das Einstellungen-Fenster ist geschlossen worden. Abbruch."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:50
+msgid "The calendar data is invalid"
+msgstr "Die Kalenderdaten sind ungültig"
+
+#: framework/Crypt/Crypt/pgp.php:1156
+msgid ""
+"The detached PGP signature block is required to verify the signed message."
+msgstr ""
+"Der PGP-Signaturblock wird benötigt, um die unterzeichnete Nachricht zu "
+"überprüfen."
+
+#: framework/Crypt/Crypt.php:127
+msgid "The encryption features require a secure web connection."
+msgstr ""
+"Die Verschlüsselungsfunktionen benötigen eine sichere Serververbindung."
+
+#: framework/Horde/Horde.php:171 framework/Horde/Horde.php:341
+#, php-format
+msgid "The file %s should contain a %s setting."
+msgstr "Die Datei %s sollten einen %s Eintrag enthalten."
+
+#: framework/Horde/Horde.php:165 framework/Horde/Horde.php:331
+#, php-format
+msgid "The file %s should contain some %s settings."
+msgstr "Die Datei %s sollte einige %s Einträge enthalten."
+
+#: framework/Data/Data.php:263
+msgid "The file contained no data."
+msgstr "Die Datei enthielt keine Daten."
+
+#: po/translation.php:982 po/translation.php:1108
+#, php-format
+msgid "The help file %s didn't start with <?xml"
+msgstr "Die Hilfedatei %s beginnt nicht mit <?xml"
+
+#: services/links/delete.php:37
+msgid "The link has been removed"
+msgstr "Die Verbindung wurde entfernt"
+
+#: framework/Crypt/Crypt/pgp.php:135
+msgid ""
+"The location of the GnuPG binary must be given to the Crypt_pgp:: class."
+msgstr ""
+"Der Ort des GnuPG-Programms muss der Crypt_pgp:: Klasse übergeben werden."
+
+#: framework/Horde/Horde/Registry.php:416
+#, php-format
+msgid "The method %s is not defined in the API for %s."
+msgstr "Die Methode %s ist in der API für %s nicht definiert."
+
+#: framework/Crypt/Crypt/smime.php:1221
+msgid "The openssl module is required for the Horde_Crypt_smime:: class."
+msgstr "Das OpenSSL-Modul wird für die Horde_Crypt_smime:: Klasse benötigt."
+
+#: framework/Prefs/Prefs.php:280
+#, php-format
+msgid ""
+"The preference \"%s\" could not be saved because its data exceeded the "
+"maximum allowable size"
+msgstr ""
+"Die Benutzereinstellung \"%s\" konnte nicht gespeichert werden, weil ihre "
+"Daten die maximal erlaubte Größe überschreiten"
+
+#: framework/MIME/MIME/Viewer/deb.php:35
+#: framework/MIME/MIME/Viewer/enscript.php:38
+#: framework/MIME/MIME/Viewer/mspowerpoint.php:35
+#: framework/MIME/MIME/Viewer/msword.php:35
+#: framework/MIME/MIME/Viewer/rpm.php:35
+#: framework/MIME/MIME/Viewer/webcpp.php:37
+#: framework/MIME/MIME/Viewer/srchighlite.php:40
+#: framework/MIME/MIME/Viewer/msexcel.php:35
+#, php-format
+msgid ""
+"The program used to view this data type (%s) was not found on the system."
+msgstr ""
+"Das Programm für die Anzeige dieses Dateityps (%s) wurde nicht gefunden."
+
+#: services/portal/rpcsum.php:90
+#, php-format
+msgid "The server \"%s\" has been deleted."
+msgstr "Der Server \"%s\" wurde entfernt."
+
+#: services/portal/rpcsum.php:61
+#, php-format
+msgid "The server \"%s\" has been saved."
+msgstr "Der Server \"%s\" wurde gespeichert."
+
+#: framework/Block/Block/Layout.php:282
+msgid "The specified row does not exist."
+msgstr "Die angegebene Zeile existiert nicht."
+
+#: framework/Data/Data.php:310
+msgid "The uploaded data was lost since the previous step."
+msgstr ""
+"Die hochgeladenen Daten sind nach dem letzten Schritt verloren gegangen."
+
+#: framework/Data/Data/csv.php:226 framework/Data/Data/tsv.php:169
+msgid "The uploaded file could not be saved."
+msgstr "Die hochgeladene Datei konnte nicht gespeichert werden."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:94
+msgid "The user's free/busy information was sucessfully stored."
+msgstr ""
+"Die Frei/Gebucht-Information des Benutzers wurde erfolgreich gespeichert."
+
+#: lib/Block/weatherdotcom.php:40 lib/Block/weatherdotcom.php:91
+msgid "The weather.com block is not available."
+msgstr "Der weather.com Block ist nicht verfügbar."
+
+#: framework/MIME/MIME/Contents.php:321
+msgid "There are no parts that can be displayed inline."
+msgstr "Es gibt keine anzeigbaren Nachrichtenteile."
+
+#: framework/Form/Form.php:1381
+#, php-format
+msgid ""
+"There are too many characters in this field. You have entered %s characters; "
+"you must enter less than %s."
+msgstr ""
+"Dieses Feld enthält zu viele Zeichen. Sie haben %s Zeichen angegeben; Sie "
+"müssen weniger als %s angeben."
+
+#: po/translation.php:945
+#, php-format
+msgid "There doesn't yet exist a help file for %s."
+msgstr "Es existiert noch keine Hilfedatei für %s."
+
+#: signup.php:54
+#, php-format
+msgid "There was a problem adding '%s' to the system. %s."
+msgstr "Beim Hinzufügen von '%s' zum System ist ein Problem aufgetreten. %s."
+
+#: admin/user.php:70
+#, php-format
+msgid "There was a problem adding '%s' to the system: %s"
+msgstr "Beim Hinzufügen von '%s' zum System ist ein Problem aufgetreten: %s"
+
+#: admin/user.php:99
+#, php-format
+msgid "There was a problem removing '%s' from the system."
+msgstr "Beim Löschen von '%s' ist ein Problem aufgetreten."
+
+#: admin/user.php:135
+#, php-format
+msgid "There was a problem updating '%s': %s"
+msgstr "Beim Aktualisieren von '%s' ist ein Problem aufgetreten: %s"
+
+#: framework/Horde/Horde.php:887
+#, php-format
+msgid "There was a problem with the file upload: No %s was uploaded."
+msgstr ""
+"Beim Hochladen der Datei ist ein Fehler aufgetreten. %s wurde nicht "
+"hochgeladen."
+
+#: framework/Horde/Horde.php:892
+#, php-format
+msgid ""
+"There was a problem with the file upload: The %s was larger than the maximum "
+"allowed size (%d bytes)."
+msgstr ""
+"Beim Hochladen der Datei ist ein Fehler aufgetreten. %s war größer als die "
+"maximal erlaubte Größe (%d Bytes)."
+
+#: framework/Horde/Horde.php:894
+#, php-format
+msgid ""
+"There was a problem with the file upload: The %s was only partially uploaded."
+msgstr ""
+"Beim Hochladen der Datei ist ein Fehler aufgetreten. %s wurde nur teilweise "
+"hochgeladen."
+
+#: framework/MIME/MIME/Viewer/vcard.php:49
+msgid "There was an error importing the contact data."
+msgstr "Beim Importieren der Kontaktdaten ist ein Fehler aufgetreten."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:76
+#, php-format
+msgid "There was an error importing the event: %s."
+msgstr "Beim Importieren des Termins ist ein Fehler aufgetreten: %s."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:106
+#, php-format
+msgid "There was an error importing this task: %s."
+msgstr "Beim Importieren dieser Aufgabe ist ein Fehler aufgetreten: %s."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:92
+#, php-format
+msgid "There was an error importing user's free/busy information: %s."
+msgstr ""
+"Beim Importieren der Frei/Gebucht-Informationen ist ein Fehler aufgetreten: %"
+"s."
+
+#: po/translation.php:992 po/translation.php:998 po/translation.php:1118
+#: po/translation.php:1124
+#, php-format
+msgid ""
+"There was an error opening the file %s. Try running translation.php with the "
+"flag -d to see any error messages from the xml parser."
+msgstr ""
+"Beim Öffnen der Datei %s ist ein Fehler aufgetreten. Versuchen Sie, "
+"translation.php mit dem -d Schalter auszuführen und achten Sie auf "
+"Fehlermeldungen des XML-Parsers."
+
+#: framework/Crypt/Crypt/smime.php:238
+msgid "There was an unknown error verifying this message."
+msgstr ""
+"Beim Überprüfen dieser Nachricht ist ein unbekannter Fehler aufgetreten."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:83
+#: framework/MIME/MIME/Viewer/icalendar.php:97
+#: framework/MIME/MIME/Viewer/icalendar.php:113
+#: framework/MIME/MIME/Viewer/icalendar.php:200
+msgid "This action is not supported."
+msgstr "Diese Aktion wird nicht unterstützt."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:119
+#: framework/MIME/MIME/Viewer/icalendar.php:361
+msgid "This action is not yet implemented."
+msgstr "Diese Aktion ist noch nicht implementiert."
+
+#: framework/MIME/MIME/Viewer/vcard.php:51
+msgid ""
+"This contact data has been successfully added to your address book. Click "
+"below to view:"
+msgstr ""
+"Die Daten wurden erfolgreich Ihrem Adressbuch hinzugefügt. Klicken Sie "
+"unten, um sich den Eintrag anzuschauen:"
+
+#: framework/MIME/MIME/Viewer/rar.php:51
+msgid "This does not appear to be a valid rar archive."
+msgstr "Dies scheint kein gültiges RAR-Archiv zu sein."
+
+#: framework/MIME/MIME/Viewer/zip.php:55
+msgid "This does not appear to be a valid zip file."
+msgstr "Dies scheint kein gültiges ZIP-Archiv zu sein."
+
+#: framework/Form/Form.php:2830
+msgid "This does not seem to be a valid card number."
+msgstr "Dies scheint keine gültige Kartennummer zu sein."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:79
+msgid ""
+"This event has been successfully added to your calendar. Click icon to view:"
+msgstr ""
+"Dieser Termin wurde erfolgreich Ihrem Kalender hinzugefügt. Klicken Sie auf "
+"das Symbol, um ihn sich anzuschauen:"
+
+#: framework/Form/Form.php:1040 framework/Form/Form.php:1114
+#: framework/Form/Form.php:1143 framework/Form/Form.php:1172
+#: framework/Form/Form.php:1236 framework/Form/Form.php:1378
+#: framework/Form/Form.php:1514 framework/Form/Form.php:1773
+#: framework/Form/Form.php:1858 framework/Form/Form.php:1904
+#: framework/Form/Form.php:1928 framework/Form/Form.php:1977
+#: framework/Form/Form.php:2048 framework/Form/Form.php:2120
+#: framework/Form/Form.php:2290 framework/Form/Form.php:2330
+#: framework/Form/Form.php:2543 framework/Form/Form.php:2711
+#: framework/Form/Form.php:2822 framework/Form/Form.php:3036
+#: framework/Form/Form.php:3044
+msgid "This field is required."
+msgstr "Dieses Feld ist notwendig."
+
+#: framework/Form/Form.php:1122
+msgid "This field may only contain integers."
+msgstr "Dieses Feld darf nur ganze Zahlen enthalten."
+
+#: framework/Form/Form.php:2298
+msgid "This field may only contain numbers and the colon."
+msgstr "Dieses Feld darf nur Zahlen und einen Punkt enthalten."
+
+#: framework/Form/Form.php:1151
+msgid "This field may only contain octal values."
+msgstr "Dieses Feld darf nur Oktalzahlen enthalten."
+
+#: framework/Form/Form.php:1180
+msgid "This field must be a comma or space separated list of integers"
+msgstr ""
+"Dieses Feld muss eine komma- oder leerzeichengetrennte Liste von ganzen "
+"Zahlen enthalten"
+
+#: framework/Form/Form.php:1051
+msgid "This field must be a valid number."
+msgstr "Dieses Feld muss eine gültige Zahl enthalten."
+
+#: framework/Form/Form.php:2719
+msgid ""
+"This field must contain a color code in the RGB Hex format, for example "
+"'#1234af'."
+msgstr ""
+"Dieses Feld muss einen Farbwert im hexadezimalen RGB-Format enthalten, z. B. "
+"'#1234af'."
+
+#: framework/Form/Form.php:426
+msgid "This form has already been processed."
+msgstr "Diese Formular wurde bereits verarbeitet."
+
+#: templates/help/about.inc:3
+#, php-format
+msgid "This is %s."
+msgstr "Dies ist %s."
+
+#: framework/Prefs/Prefs/UI.php:131
+msgid "This number must be at least one."
+msgstr "Diese Zahl muss 1 oder größer sein."
+
+#: po/translation.php:1177
+msgid "This script must be run from the command line."
+msgstr "Dieses Skript muss von der Kommandozeile ausgeführt werden."
+
+#: framework/Compress/Compress/gzip.php:48
+msgid "This server can't uncompress zip and gzip files."
+msgstr "Dieser Server kann ZIP- und GZIP-Datein nicht entpacken."
+
+#: framework/Horde/Horde/Registry.php:145
+msgid "This system is currently deactivated."
+msgstr "Dieses System ist zur Zeit deaktiviert."
+
+#: framework/MIME/MIME/Viewer/icalendar.php:109
+msgid ""
+"This task has been successfully added to your tasklist. Click icon to view:"
+msgstr ""
+"Diese Aufgabe wurde erfolgreich Ihrer Aufgabenliste hinzugefügt. Klicken Sie "
+"auf das Symbol, um sich diese anzuschauen:"
+
+#: framework/Prefs/Prefs/UI.php:129
+msgid "This value must be a number."
+msgstr "Dieser Wert muss eine Zahl sein."
+
+#: services/images/colorpicker.php:35
+msgid "This window must be called from an Options window"
+msgstr "Dieses Fenster muss von einem Einstellungen-Fenster geöffnet werden"
+
+#: config/registry.php.dist:285
+msgid "Tickets"
+msgstr "Tickets"
+
+#: framework/Form/Form.php:2308
+msgid "Time"
+msgstr "Zeit"
+
+#: config/registry.php.dist:385
+msgid "Time Tracking"
+msgstr "Zeiterfassung"
+
+#: lib/Block/time.php:15
+msgid "Time format"
+msgstr "Zeitformat"
+
+#: framework/Form/Form.php:2414
+msgid "Time selection"
+msgstr "Zeitauswahl"
+
+#: framework/NLS/NLS/tld.php:230 framework/NLS/NLS/countries.php:220
+#: framework/NLS/NLS/GeoIP.php:111
+msgid "Timor-Leste"
+msgstr "Timor-Leste"
+
+#: framework/MIME/MIME/Viewer/vcard.php:197 lib/Block/iframe.php:18
+msgid "Title"
+msgstr "Titel"
+
+#: framework/UI/UI/VarRenderer/html.php:489
+msgid ""
+"To select multiple items, hold down the Control (PC) or Command (Mac) key "
+"while clicking."
+msgstr ""
+"Halten Sie beim Klicken Strg bzw. (PC) Command (Mac) gedrückt, um mehrere "
+"Einträge auszuwählen."
+
+#: lib/Block/weatherdotcom.php:236
+msgid "Today"
+msgstr "Heute"
+
+#: templates/javascript/htmlarea/htmlarea.js:166
+msgid "Toggle HTML Source"
+msgstr "Zu HTML-Quellcode umschalten"
+
+#: framework/NLS/NLS/tld.php:223 framework/NLS/NLS/countries.php:221
+#: framework/NLS/NLS/GeoIP.php:110
+msgid "Togo"
+msgstr "Togo"
+
+#: framework/NLS/NLS/tld.php:226 framework/NLS/NLS/countries.php:222
+#: framework/NLS/NLS/GeoIP.php:111
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: lib/Block/weatherdotcom.php:238
+msgid "Tomorrow"
+msgstr "Morgen"
+
+#: framework/NLS/NLS/tld.php:229 framework/NLS/NLS/countries.php:223
+#: framework/NLS/NLS/GeoIP.php:111
+msgid "Tonga"
+msgstr "Tonga"
+
+#: po/translation.php:568
+msgid "Translated"
+msgstr "Übersetzt"
+
+#: framework/NLS/NLS/tld.php:232 framework/NLS/NLS/countries.php:224
+#: framework/NLS/NLS/GeoIP.php:112
+msgid "Trinidad and Tobago"
+msgstr "Trinidad und Tobago"
+
+#: framework/Form/Form.php:1731
+msgid "True or false"
+msgstr "Wahr oder falsch"
+
+#: templates/javascript/open_calendar.js:58
+msgid "Tu"
+msgstr "Di"
+
+#: framework/NLS/NLS/tld.php:228 framework/NLS/NLS/countries.php:225
+#: framework/NLS/NLS/GeoIP.php:111
+msgid "Tunisia"
+msgstr "Tunesien"
+
+#: framework/NLS/NLS/tld.php:231 framework/NLS/NLS/countries.php:226
+#: framework/NLS/NLS/GeoIP.php:112
+msgid "Turkey"
+msgstr "Türkei"
+
+#: config/nls.php.dist:184
+msgid "Turkish (ISO-8859-9)"
+msgstr "Türkisch (ISO-8859-9)"
+
+#: framework/NLS/NLS/tld.php:227 framework/NLS/NLS/countries.php:227
+#: framework/NLS/NLS/GeoIP.php:111
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: framework/NLS/NLS/tld.php:220 framework/NLS/NLS/countries.php:228
+#: framework/NLS/NLS/GeoIP.php:109
+msgid "Turks and Caicos Islands"
+msgstr "Turks- und Caicosinseln"
+
+#: framework/NLS/NLS/tld.php:233 framework/NLS/NLS/countries.php:229
+#: framework/NLS/NLS/GeoIP.php:112
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: framework/CLI/CLI.php:261
+msgid "Type your choice: "
+msgstr "Ihre Auswahl: "
+
+#: lib/Block/weatherdotcom.php:212
+msgid "U.V. index: "
+msgstr "UV-Index: "
+
+#: framework/MIME/MIME/Viewer/vcard.php:217 lib/Block/iframe.php:15
+msgid "URL"
+msgstr "Homepage"
+
+#: framework/NLS/NLS/tld.php:237 framework/NLS/NLS/countries.php:230
+#: framework/NLS/NLS/GeoIP.php:113
+msgid "Uganda"
+msgstr "Uganda"
+
+#: framework/NLS/NLS/tld.php:236 framework/NLS/NLS/countries.php:231
+#: framework/NLS/NLS/GeoIP.php:113
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: framework/VFS/VFS/file.php:318
+msgid "Unable to access VFS directory."
+msgstr "Auf das VFS-Verzeichnis konnte nicht zugegriffen werden."
+
+#: framework/Auth/Auth/Signup.php:100
+msgid "Unable to add extra user information when signing up."
+msgstr ""
+"Die zusätzlichen Benutzerinformationen konnten bei der Registrierung nicht "
+"hinzufügt werden."
+
+#: framework/Kolab/Kolab.php:460
+#, php-format
+msgid "Unable to add message from %s to mailbox %s: "
+msgstr "Die Nachricht von %s konnte nicht im Ordner %s gespeichert werden: "
+
+#: framework/VC/VC/cvs.php:161
+#, php-format
+msgid "Unable to annotate; server said: %s"
+msgstr "Kommentierung nicht möglich. Meldung des Servers: %s"
+
+#: framework/VFS/VFS/file.php:290 framework/VFS/VFS/musql.php:483
+#: framework/VFS/VFS/ftp.php:322
+#, php-format
+msgid "Unable to change permission for VFS file %s/%s."
+msgstr ""
+"Die Zugriffsrechte für die VFS-Datei %s/%s konnten nicht geändert werden."
+
+#: framework/VFS/VFS/ftp.php:643
+#, php-format
+msgid "Unable to change to %s."
+msgstr "%s kann nicht geändert werden."
+
+#: framework/Auth/Auth/sql.php:349
+msgid "Unable to connect to SQL server."
+msgstr "Verbindung zum SQL Server kann nicht hergestellt werden."
+
+#: framework/VFS/VFS/ftp.php:716
+msgid "Unable to connect with SSL."
+msgstr "SSL-Verbindung kann nicht hergestellt werden."
+
+#: framework/VFS/VFS/file.php:157 framework/VFS/VFS/sql_file.php:189
+#: framework/VFS/VFS/sql_file.php:194 framework/VFS/VFS/sql_file.php:202
+msgid "Unable to copy VFS file."
+msgstr "Die VFS-Datei konnte nicht kopiert werden."
+
+#: framework/VFS/VFS/file.php:259 framework/VFS/VFS/musql.php:258
+#: framework/VFS/VFS/ftp.php:300 framework/VFS/VFS/sql_file.php:260
+msgid "Unable to create VFS directory."
+msgstr "Das VFS-Verzeichnis konnte nicht angelegt werden."
+
+#: framework/VFS/VFS/musql.php:117
+msgid "Unable to create VFS file."
+msgstr "Die VFS-Datei konnte nicht angelegt werden."
+
+#: framework/Kolab/Kolab.php:241
+#, php-format
+msgid "Unable to create mailbox %s: "
+msgstr "Der Ordner konnte nicht erstellt werden: %s"
+
+#: framework/Compress/Compress/tar.php:79
+#: framework/Compress/Compress/gzip.php:82
+msgid "Unable to decompress data."
+msgstr "Die Daten konnten nicht dekomprimiert werden."
+
+#: framework/VFS/VFS/file.php:236 framework/VFS/VFS/sql.php:294
+#: framework/VFS/VFS/musql.php:319 framework/VFS/VFS/ftp.php:233
+#: framework/VFS/VFS/sql_file.php:349
+#, php-format
+msgid "Unable to delete %s, the directory is not empty"
+msgstr "%s konnte nicht gelöscht werden, das Verzeichnis ist nicht leer"
+
+#: admin/groups.php:78 admin/perms/delete.php:60
+#, php-format
+msgid "Unable to delete '%s': %s."
+msgstr "'%s' kann nicht gelöscht werden: %s."
+
+#: framework/VFS/VFS/sql_file.php:365 framework/VFS/VFS/sql_file.php:369
+msgid "Unable to delete VFS directory recursively."
+msgstr "Das VFS-Verzeichnis konnte nicht rekursiv gelöscht werden."
+
+#: framework/VFS/VFS/file.php:242 framework/VFS/VFS/musql.php:332
+#: framework/VFS/VFS/musql.php:345 framework/VFS/VFS/musql.php:353
+#: framework/VFS/VFS/sql_file.php:361
+msgid "Unable to delete VFS directory."
+msgstr "Das VFS-Verzeichnis konnte nicht gelöscht werden."
+
+#: framework/VFS/VFS/sql.php:315 framework/VFS/VFS/sql.php:325
+#, php-format
+msgid "Unable to delete VFS directory: %s."
+msgstr "Das VFS-Verzeichnis konnte nicht gelöscht werden: %s."
+
+#: framework/VFS/VFS/file.php:209 framework/VFS/VFS/sql.php:194
+#: framework/VFS/VFS/musql.php:162 framework/VFS/VFS/musql.php:175
+#: framework/VFS/VFS/musql.php:182 framework/VFS/VFS/ftp.php:172
+#: framework/VFS/VFS/sql_file.php:397 framework/VFS/VFS/sql_file.php:405
+msgid "Unable to delete VFS file."
+msgstr "Die VFS-Datei konnte nicht gelöscht werden."
+
+#: framework/VFS/VFS/sql.php:306
+#, php-format
+msgid "Unable to delete VFS recursively: %s."
+msgstr "Das VFS konnte nicht rekursiv gelöscht werden: %s."
+
+#: framework/VFS/VFS/ftp.php:686
+msgid "Unable to determine current directory."
+msgstr "Das aktuelle Verzeichnis konnte nicht bestimmt werden."
+
+#: framework/Crypt/Crypt/smime.php:553
+msgid "Unable to extract certificate details"
+msgstr "Die Zertifikatdetails konnten nicht ausgelesen werden"
+
+#: framework/VC/VC/cvs.php:400
+msgid "Unable to find directory"
+msgstr "Das Verzeichnis konnte nicht gefunden werden"
+
+#: framework/VFS/VFS/file.php:127 framework/VFS/VFS/file.php:132
+#: framework/VFS/VFS/file.php:152 framework/VFS/VFS/sql_file.php:159
+#: framework/VFS/VFS/sql_file.php:164
+msgid "Unable to move VFS file."
+msgstr "Die VFS-Datei konnte nicht verschoben werden."
+
+#: framework/VFS/VFS/file.php:100 framework/VFS/VFS/file.php:188
+#: framework/VFS/VFS/sql_file.php:125 framework/VFS/VFS/sql_file.php:128
+msgid "Unable to open VFS file for writing."
+msgstr "Die VFS-Datei konnte nicht zum Beschreiben geöffnet werden."
+
+#: framework/VFS/VFS/file.php:65 framework/VFS/VFS/ftp.php:97
+#: framework/VFS/VFS/sql_file.php:75
+msgid "Unable to open VFS file."
+msgstr "Die VFS-Datei konnte nicht geöffnet werden."
+
+#: framework/MIME/MIME/Viewer/tgz.php:45
+msgid "Unable to open compressed archive."
+msgstr "Das Archiv konnte nicht geöffnet werden."
+
+#: framework/PDF/PDF.php:2614
+#, php-format
+msgid "Unable to open image file: %s"
+msgstr "Bilddatei konnte nicht geöffnet werden: %s"
+
+#: framework/Kolab/Kolab.php:234 framework/Kolab/Kolab.php:251
+#, php-format
+msgid "Unable to open mailbox %s: "
+msgstr "Der Ordner %s konnte nicht geöffnet werden: "
+
+#: framework/VFS/VFS/file.php:575
+msgid "Unable to read the vfsroot directory."
+msgstr "Das vfsroot-Verzeichnis konnte nicht gelesen werden."
+
+#: framework/VFS/VFS/sql_file.php:304
+msgid "Unable to rename VFS directory."
+msgstr "Das VFS-Verzeichnis konnte nicht umbenannt werden."
+
+#: framework/VFS/VFS/sql.php:232
+#, php-format
+msgid "Unable to rename VFS directory: %s."
+msgstr "Das VFS-Verzeichnis konnte nicht umbenannt werden: %s."
+
+#: framework/VFS/VFS/file.php:517 framework/VFS/VFS/musql.php:228
+#: framework/VFS/VFS/ftp.php:278
+#, php-format
+msgid "Unable to rename VFS file %s/%s."
+msgstr "Die VFS-Datei %s/%s konnte nicht umbenannt werden."
+
+#: framework/VFS/VFS/sql.php:227 framework/VFS/VFS/musql.php:209
+#: framework/VFS/VFS/musql.php:466 framework/VFS/VFS/sql_file.php:293
+#: framework/VFS/VFS/sql_file.php:315
+msgid "Unable to rename VFS file."
+msgstr "Die VFS-Datei konnte nicht umbenannt werden."
+
+#: framework/Kolab/Kolab.php:534
+#, php-format
+msgid "Unable to retrieve free/busy information for user %s on server %s"
+msgstr ""
+"Fehler beim Auslesen der Frei-/Gebucht-Informationen für den Benutzer %s vom "
+"Server %s"
+
+#: framework/PDF/PDF.php:2163
+#, php-format
+msgid "Unable to save PDF file: %s"
+msgstr "PDF-Datei konnte nicht gespeichert werden: %s"
+
+#: framework/PDF/PDF.php:2144
+msgid "Unable to send PDF file, some data has already been output to browser."
+msgstr ""
+"Die PDF-Datei konnte nicht heruntergeladen werden, weil bereits Daten an den "
+"Browser geschickt wurden."
+
+#: framework/Kolab/Kolab.php:565 framework/Kolab/Kolab.php:573
+#, php-format
+msgid "Unable to store free/busy information for user %s on server %s"
+msgstr ""
+"Fehler beim Speichern der Frei-/Gebucht-Informationen für den Benutzer %s "
+"auf dem Server %s"
+
+#: framework/MIME/MIME/Viewer/msword.php:58
+msgid "Unable to translate this Word document"
+msgstr "Dieses Word-Dokument lässt sich nicht anzeigen"
+
+#: framework/VFS/VFS/file.php:108 framework/VFS/VFS/file.php:192
+#: framework/VFS/VFS/sql_file.php:132 framework/VFS/VFS/sql_file.php:137
+msgid "Unable to write VFS file data."
+msgstr "Die VFS-Daten konnten nicht geschrieben werden."
+
+#: framework/VFS/VFS/ftp.php:125 framework/VFS/VFS/ftp.php:128
+msgid "Unable to write VFS file."
+msgstr "Die VFS-Datei konnte nicht gespeichert werden."
+
+#: services/editor/designmode/editor.php:83
+#: templates/javascript/htmlarea/htmlarea.js:148
+msgid "Underline"
+msgstr "Unterstrichen"
+
+#: templates/prefs/end.inc:6
+msgid "Undo Changes"
+msgstr "Änderungen rückgängig machen"
+
+#: templates/javascript/htmlarea/htmlarea.js:170
+msgid "Undoes your last action"
+msgstr "Macht die letzte Aktion rückgängig"
+
+#: framework/VC/VC/cvs.php:230
+#, php-format
+msgid "Unexpected output from Checkout: %s"
+msgstr "Unerwartete Ausgabe des Checkouts: %s"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:387
+#, php-format
+msgid "Unhandled component of type: %s"
+msgstr "Nicht verarbeitete Komponente des Typs: %s"
+
+#: config/nls.php.dist:185
+msgid "Unicode (UTF-8)"
+msgstr "Unicode (UTF-8)"
+
+#: framework/NLS/NLS/tld.php:17 framework/NLS/NLS/countries.php:232
+#: framework/NLS/NLS/GeoIP.php:57
+msgid "United Arab Emirates"
+msgstr "Vereinigte Arabische Emirate"
+
+#: framework/NLS/NLS/tld.php:238 framework/NLS/NLS/countries.php:233
+#: framework/NLS/NLS/GeoIP.php:75
+msgid "United Kingdom"
+msgstr "Vereinigtes Königreich"
+
+#: framework/NLS/NLS/tld.php:240 framework/NLS/NLS/countries.php:234
+#: framework/NLS/NLS/GeoIP.php:114
+msgid "United States"
+msgstr "Vereinigte Staaten"
+
+#: framework/NLS/NLS/tld.php:239 framework/NLS/NLS/countries.php:235
+#: framework/NLS/NLS/GeoIP.php:114
+msgid "United States Minor Outlying Islands"
+msgstr "Kleinere Amerikanische Überseeinseln"
+
+#: lib/Block/weatherdotcom.php:53 lib/Block/metar.php:67
+msgid "Units"
+msgstr "Einheiten"
+
+#: framework/Crypt/Crypt/pgp.php:404 framework/Crypt/Crypt/pgp.php:405
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: po/translation.php:1375
+#, php-format
+msgid "Unknown command: %s"
+msgstr "Unbekannter Befehl: %s"
+
+#: framework/PDF/PDF.php:2644
+#, php-format
+msgid "Unknown compression method: %s"
+msgstr "Unbekannte Komprimierungsmethode: %s"
+
+#: framework/PDF/PDF.php:2647
+#, php-format
+msgid "Unknown filter method: %s"
+msgstr "Unbekannte Filtermethode: %s"
+
+#: framework/PDF/PDF.php:451
+#, php-format
+msgid "Unknown page format: %s"
+msgstr "Unbekanntes Seitenformat: %s"
+
+#: framework/Crypt/Crypt/smime.php:634 framework/Crypt/Crypt/smime.php:883
+#: framework/Crypt/Crypt/smime.php:889
+msgid "Unsupported Extension"
+msgstr "Erweiterung nicht unterstützt"
+
+#: framework/PDF/PDF.php:1975
+#, php-format
+msgid "Unsupported image file type: %s"
+msgstr "Nicht unterstütztes Bild-Dateiformat: %s"
+
+#: po/translation.php:568
+msgid "Untranslated"
+msgstr "Unübersetzt"
+
+#: admin/perms/edit.php:63 framework/Perms/Perms/UI.php:188
+#: templates/admin/user/list.inc:13
+msgid "Update"
+msgstr "Aktualisierung"
+
+#: templates/admin/user/update.inc:30
+#, php-format
+msgid "Update %s"
+msgstr "%s aktualisieren"
+
+#: framework/MIME/MIME/Viewer/icalendar.php:651
+msgid "Update respondent status"
+msgstr "Status der Teilnehmer aktualisieren"
+
+#: templates/admin/user/update.inc:42
+msgid "Update user"
+msgstr "Benutzer aktualisieren"
+
+#: admin/groups.php:135 admin/perms/edit.php:169 services/shares/edit.php:230
+#, php-format
+msgid "Updated '%s'."
+msgstr "'%s' wurde aktualisiert."
+
+#: po/translation.php:977 po/translation.php:1103
+#, php-format
+msgid "Updating %s help file for %s."
+msgstr "Aktualisiere %s Hilfedatei für %s."
+
+#: admin/setup/scripts.php:69
+msgid "Upgrade script deleted."
+msgstr "Aktualisierungsskript gelöscht."
+
+#: framework/UI/UI/VarRenderer/html.php:138
+msgid "Upload"
+msgstr "Hochladen"
+
+#: framework/NLS/NLS/tld.php:241 framework/NLS/NLS/countries.php:236
+#: framework/NLS/NLS/GeoIP.php:114
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: po/translation.php:35 po/translation.php:91 po/translation.php:92
+msgid "Usage:"
+msgstr "Aufruf:"
+
+#: templates/prefs/select.inc:3
+msgid "Use Default Value"
+msgstr "Standardwert verwenden"
+
+#: config/prefs.php.dist:88
+msgid "Use if name/password is different for IMSP server."
+msgstr ""
+"Bitte ausfüllen, wenn Sie einen anderen Benutzernamen/Passwort für den IMSP-"
+"Server haben."
+
+#: framework/Horde/Horde/Registry.php:638
+#, php-format
+msgid "User %s is not authorised for %s."
+msgstr "Benutzer %s ist für %s nicht autorisiert."
+
+#: admin/user.php:180
+msgid "User Administration"
+msgstr "Benutzerverwaltung"
+
+#: prefs.php:89
+msgid "User Options"
+msgstr "Benutzereinstellungen"
+
+#: signup.php:63
+msgid "User Registration"
+msgstr "Benutzerregistrierung"
+
+#: signup.php:18
+msgid "User Registration has been disabled for this site."
+msgstr "Die Benutzerregistrierung wurde auf diesem System deaktiviert."
+
+#: admin/perms/edit.php:124 framework/Perms/Perms/UI.php:251
+msgid "User permissions"
+msgstr "Benutzerrechte"
+
+#: admin/user.php:33 templates/login/login.inc:71
+#: templates/admin/user/approve.inc:11
+msgid "Username"
+msgstr "Benutzername"
+
+#: framework/Auth/Auth/Signup.php:131
+#, php-format
+msgid "Username '%s' already exists."
+msgstr "Der Benutzername '%s' existiert bereits."
+
+#: templates/rpcsum/manage.inc:38
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: templates/login/mobile.inc:8
+msgid "Username: "
+msgstr "Benutzername: "
+
+#: admin/perms/edit.php:98 framework/Perms/Perms/UI.php:224 lib/api.php:83
+msgid "Users"
+msgstr "Benutzer"
+
+#: templates/admin/user/list.inc:4
+msgid "Users in the system:"
+msgstr "Benutzer des Systems:"
+
+#: framework/NLS/NLS/tld.php:242 framework/NLS/NLS/countries.php:237
+#: framework/NLS/NLS/GeoIP.php:115
+msgid "Uzbekistan"
+msgstr "Usbekistan"
+
+#: framework/VFS/VFS/file.php:94 framework/VFS/VFS/file.php:182
+msgid "VFS directory does not exist."
+msgstr "Das VFS-Verzeichnis existiert nicht."
+
+#: config/registry.php.dist:456
+msgid "Vacation"
+msgstr "Abwesenheit"
+
+#: framework/Form/Form.php:938
+msgid "Valid locations found include: "
+msgstr "Passende gefundene Orte: "
+
+#: framework/Crypt/Crypt/smime.php:588
+msgid "Validity"
+msgstr "Gültigkeit"
+
+#: framework/Form/Form.php:2143 framework/Form/Form.php:2165
+#: framework/Form/Form.php:2213 framework/Form/Form.php:2806
+msgid "Values"
+msgstr "Werte"
+
+#: framework/Form/Form.php:2008 framework/Form/Form.php:2085
+msgid "Values to select from"
+msgstr "Werte, aus denen ausgewählt werden kann"
+
+#: framework/NLS/NLS/tld.php:249 framework/NLS/NLS/countries.php:238
+#: framework/NLS/NLS/GeoIP.php:118
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: lib/Block/weatherdotcom.php:193
+msgid "Variable"
+msgstr "Drehend"
+
+#: framework/NLS/NLS/tld.php:245 framework/NLS/NLS/countries.php:239
+#: framework/NLS/NLS/GeoIP.php:116
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: framework/Crypt/Crypt/smime.php:235
+msgid "Verification failed - this message may have been tampered with."
+msgstr ""
+"Überprüfung fehlgeschlagen - diese Nachricht könnte manipuliert worden sein."
+
+#: framework/Crypt/Crypt/smime.php:648
+msgid "Version"
+msgstr "Version"
+
+#: config/registry.php.dist:257
+msgid "Version Control"
+msgstr "Versionskontrolle"
+
+#: framework/NLS/NLS/tld.php:248 framework/NLS/NLS/countries.php:240
+#: framework/NLS/NLS/GeoIP.php:117
+msgid "Viet Nam"
+msgstr "Vietnam"
+
+#: config/nls.php.dist:186
+msgid "Vietnamese (VISCII)"
+msgstr "Vietnamesisch (VISCII)"
+
+#: framework/MIME/MIME/Contents.php:937
+#, php-format
+msgid "View %s"
+msgstr "%s anzeigen"
+
+#: config/registry.php.dist:591
+msgid "View an external web page"
+msgstr "Eine externe Webseite anzeigen"
+
+#: framework/MIME/MIME/Contents.php:786
+#, php-format
+msgid "View as %s"
+msgstr "Anzeigen als %s"
+
+#: framework/NLS/NLS/tld.php:246 framework/NLS/NLS/countries.php:241
+#: framework/NLS/NLS/GeoIP.php:117
+msgid "Virgin Islands, British"
+msgstr "Britische Jungferninseln"
+
+#: framework/NLS/NLS/tld.php:247 framework/NLS/NLS/countries.php:242
+#: framework/NLS/NLS/GeoIP.php:117
+msgid "Virgin Islands, U.S."
+msgstr "Amerikanische Jungferninseln"
+
+#: lib/Block/metar.php:194
+msgid "Visibility"
+msgstr "Sicht"
+
+#: lib/Block/weatherdotcom.php:207
+msgid "Visibility: "
+msgstr "Sicht: "
+
+#: framework/Notification/Notification/Listener/mobile.php:39
+msgid "WARN"
+msgstr "WARNUNG"
+
+#: admin/setup/scripts.php:71
+#, php-format
+msgid "WARNING!!! REMOVE SCRIPT MANUALLY FROM %s."
+msgstr "WARNUNG!!! LÖSCHEN SIE DAS SKRIPT MANUELL AUS %s."
+
+#: framework/NLS/NLS/tld.php:250 framework/NLS/NLS/countries.php:243
+#: framework/NLS/NLS/GeoIP.php:118
+msgid "Wallis and Futuna"
+msgstr "Wallis und Futuna"
+
+#: framework/Notification/Notification/Listener/status.php:32
+msgid "Warning"
+msgstr "Warnung"
+
+#: po/translation.php:144 po/translation.php:592 po/translation.php:622
+#: po/translation.php:633 po/translation.php:945 po/translation.php:954
+#: po/translation.php:962 po/translation.php:972 po/translation.php:982
+#: po/translation.php:992 po/translation.php:998 po/translation.php:1108
+#: po/translation.php:1118 po/translation.php:1124 po/translation.php:1144
+msgid "Warning: "
+msgstr "Warnung: "
+
+#: templates/javascript/open_calendar.js:59
+msgid "We"
+msgstr "Mi"
+
+#: lib/Block/weatherdotcom.php:23
+msgid "Weather Forecast"
+msgstr "Wettervorhersage"
+
+#: lib/Block/google.php:34
+msgid "Web"
+msgstr "Web"
+
+#: config/registry.php.dist:464
+msgid "Web Site"
+msgstr "Website"
+
+#: framework/Maintenance/Maintenance.php:40
+msgid "Weekly"
+msgstr "Wöchentlich"
+
+#: services/portal/mobile.php:28
+msgid "Welcome"
+msgstr "Willkommen"
+
+#: templates/login/mobile.inc:4 templates/login/login.inc:44
+#, php-format
+msgid "Welcome to %s"
+msgstr "Willkommen bei %s"
+
+#: services/portal/mobile.php:29 templates/portal/menu.inc:6
+#, php-format
+msgid "Welcome, %s"
+msgstr "Willkommen, %s"
+
+#: config/nls.php.dist:187
+msgid "Western (ISO-8859-1)"
+msgstr "Westeuropäisch (ISO-8859-1)"
+
+#: config/nls.php.dist:188
+msgid "Western (ISO-8859-15)"
+msgstr "Westeuropäisch (ISO-8859-15)"
+
+#: framework/NLS/NLS/tld.php:78 framework/NLS/NLS/countries.php:244
+#: framework/NLS/NLS/GeoIP.php:72
+msgid "Western Sahara"
+msgstr "Westsahara"
+
+#: config/prefs.php.dist:210
+#, php-format
+msgid "What application should %s display after login?"
+msgstr "Welche Anwendung soll %s nach dem Anmelden angezeigen?"
+
+#: templates/data/csvinfo.inc:21
+msgid "What is the delimiter character?"
+msgstr "Welches Trennzeichen wird verwendet?"
+
+#: templates/data/csvinfo.inc:24
+msgid "What is the quote character?"
+msgstr "Welche Anführungszeichen werden verwendet?"
+
+#: lib/Block/moon.php:21
+msgid "Which phases"
+msgstr "Welche Phasen"
+
+#: config/registry.php.dist:555
+msgid "Wiki"
+msgstr "Wiki"
+
+#: lib/Block/metar.php:76
+msgid "Wind speed in knots"
+msgstr "Windgeschwindigtkeit in Knoten"
+
+#: lib/Block/metar.php:141
+msgid "Wind:"
+msgstr "Wind:"
+
+#: lib/Block/weatherdotcom.php:191
+msgid "Wind: "
+msgstr "Wind: "
+
+#: config/registry.php.dist:231
+msgid "Wishlists"
+msgstr "Wunschzettel"
+
+#: framework/MIME/MIME/Viewer/vcard.php:142
+msgid "Work Address"
+msgstr "Adresse geschäftlich"
+
+#: framework/MIME/MIME/Viewer/vcard.php:159
+msgid "Work Phone"
+msgstr "Telefon geschäftlich"
+
+#: admin/setup/config.php:57
+#, php-format
+msgid ""
+"Writing not possible. You can either use the available upgrade script or "
+"copy manually the code below to %s."
+msgstr ""
+"Speichern nicht möglich. Sie können entweder das Aktualisierungsskript "
+"verwenden, oder den untenstehenden Code manuell nach %s kopieren."
+
+#: po/translation.php:1054
+#, php-format
+msgid "Writing updated help file to %s."
+msgstr "Schreibe aktualisierte Hilfedatei nach %s."
+
+#: admin/setup/config.php:54
+#, php-format
+msgid "Wrote %s successfully."
+msgstr "%s wurde erfolgreich gespeichert."
+
+#: framework/Crypt/Crypt/smime.php:542
+msgid "X509v3 Basic Constraints"
+msgstr "X509v3 Generelle Einschränkung"
+
+#: framework/Crypt/Crypt/smime.php:541
+msgid "X509v3 Extended Key Usage"
+msgstr "X509v3 Erweiterter Schlüsselzweck"
+
+#: framework/Crypt/Crypt/smime.php:543
+msgid "X509v3 Subject Alternative Name"
+msgstr "X509v3 Alternativer Name des Zertifikatinhabers"
+
+#: framework/Crypt/Crypt/smime.php:544
+msgid "X509v3 Subject Key Identifier"
+msgstr "X509v3 Identität des Zertifikatschlüssels"
+
+#: framework/Crypt/Crypt/smime.php:630
+msgid "X509v3 extensions"
+msgstr "X509v3 Erweiterungen"
+
+#: templates/data/date.inc:30 templates/data/date.inc:31
+#: templates/data/date.inc:32 templates/data/date.inc:33
+msgid "YY"
+msgstr "JJ"
+
+#: framework/UI/UI/VarRenderer/html.php:315
+#: framework/UI/UI/VarRenderer/html.php:349
+msgid "YYYY"
+msgstr "JJJJ"
+
+#: framework/UI/UI/VarRenderer/html.php:756
+msgid "Yahoo! map"
+msgstr "Yahoo! Karte"
+
+#: framework/Maintenance/Maintenance.php:38
+msgid "Yearly"
+msgstr "Jährlich"
+
+#: framework/NLS/NLS/tld.php:252 framework/NLS/NLS/countries.php:245
+#: framework/NLS/NLS/GeoIP.php:118
+msgid "Yemen"
+msgstr "Jemen"
+
+#: templates/maintenance/agreement_bottom.inc:6
+msgid "Yes, I Agree"
+msgstr "Ja, ich stimme zu"
+
+#: config/hooks.php.dist:226
+#, php-format
+msgid "You can approve this signup at %s"
+msgstr "Sie können diese Registrierung unter %s bestätigen"
+
+#: framework/Form/Form.php:1784 framework/Form/Form.php:1874
+msgid "You did not enter a valid email address."
+msgstr "Sie haben keine gültige Emailadresse angegeben."
+
+#: framework/Data/Data.php:273
+#, php-format
+msgid ""
+"You didn't map any fields from the imported file to the corresponding fields "
+"in %s."
+msgstr ""
+"Sie haben keine Felder aus den importierten Daten den entsprechenden Feldern "
+"in %s zugeordnet."
+
+#: framework/Auth/Auth.php:824
+msgid "You have been logged out.<br />Thank you for using the system."
+msgstr ""
+"Sie haben sich abgemeldet.<br />Vielen Dank für die Benutzung dieses Systems."
+
+#: framework/Form/Form.php:1242
+msgid "You have to enter a valid value."
+msgstr "Sie müssen einen gültigen Wert angegeben."
+
+#: framework/Perms/Perms.php:50
+msgid "You must configure a DataTree backend to use Horde."
+msgstr "Sie müssen ein DataTree-Backend konfigurieren, um Horde zu verwenden."
+
+#: framework/Auth/Auth/Signup.php:38
+msgid "You must configure a DataTree backend to use Signups."
+msgstr ""
+"Sie müssen ein DataTree-Backend konfigurieren, um Signups zu verwenden."
+
+#: templates/problem/problem.inc:11
+msgid "You must describe the problem before you can send the problem report."
+msgstr "Sie müssen das Problem beschreiben, um den Bericht abzuschicken."
+
+#: services/portal/rpcsum.php:92
+msgid "You must select an server to be deleted."
+msgstr "Sie müssen erst den zu entfernenden Server auswählen."
+
+#: admin/user.php:96
+msgid "You must specify a username to remove."
+msgstr "Sie müssen einen zu löschenden Benutzernamen angeben."
+
+#: admin/user.php:60 templates/admin/user/update.inc:8
+msgid "You must specify the username to add."
+msgstr "Sie müssen einen hinzuzufügenden Benutzernamen angeben."
+
+#: admin/user.php:122
+msgid "You must specify the username to update."
+msgstr "Sie müssen den zu aktualisierenden Benutzernamen angeben."
+
+#: framework/Compress/Compress/zip.php:144
+msgid "You must specify what action to perform."
+msgstr "Sie müssen eine Aktion angeben."
+
+#: framework/Auth/Auth.php:816
+#, php-format
+msgid "Your %s session has expired. Please login again."
+msgstr "Ihre %s-Session ist abgelaufen. Bitte melden Sie sich erneut an."
+
+#: templates/problem/problem.inc:38
+msgid "Your Email Address"
+msgstr "Ihre Email-Adresse"
+
+#: config/prefs.php.dist:63
+msgid "Your Information"
+msgstr "Ihre Angaben"
+
+#: framework/Auth/Auth.php:820
+#, php-format
+msgid ""
+"Your Internet Address has changed since the beginning of your %s session. To "
+"protect your security, you must login again."
+msgstr ""
+"Ihre Internetadresse hat sich geändert seit Sie die %s-Sitzung begonnen "
+"haben. Zum Schutz Ihrer Sicherheit müssen Sie sich neu anmelden."
+
+#: templates/problem/problem.inc:33
+msgid "Your Name"
+msgstr "Ihr Name"
+
+#: templates/admin/user/noadd.inc:9
+msgid ""
+"Your authentication backend does not support adding users, or the feature "
+"has been disabled for some other reason."
+msgstr ""
+"Ihr Authentifizierungssystem erlaubt kein Hinzufügen von neuen Benutzern, "
+"oder diese Möglichkeit wurde ausgeschaltet."
+
+#: templates/admin/user/nolist.inc:9
+msgid ""
+"Your authentication backend does not support listing users, or the feature "
+"has been disabled for some other reason."
+msgstr ""
+"Ihr Authentifizierungssystem erlaubt das Anzeigen der Benutzer nicht, oder "
+"diese Möglichkeit wurde ausgeschaltet."
+
+#: lib/Block/iframe.php:48
+msgid "Your browser does not support this feature."
+msgstr "Ihr Browser unterstützt diese Funktion nicht."
+
+#: templates/javascript/print.js:27
+msgid ""
+"Your browser does not support this print option. Press Control/Option + P to "
+"print."
+msgstr ""
+"Ihr Browser unterstützt diese Druckfunktion nicht. Bitte drücken Sie Strg/"
+"Option + P um zu drucken."
+
+#: config/prefs.php.dist:107
+msgid "Your current time zone:"
+msgstr "Ihre aktuelle Zeitzone:"
+
+#: po/translation.php:144
+msgid ""
+"Your gettext version is too old and does not support PHP natively.\n"
+"Not all strings will be extracted."
+msgstr ""
+"Ihre gettext Version ist zu alt und unterstützt PHP nicht direkt.\n"
+"Nicht alle Texte werden korrekt extrahiert."
+
+#: framework/Prefs/Prefs/UI.php:170
+msgid "Your options have been updated."
+msgstr "Ihre Einstellungen wurden gespeichert."
+
+#: templates/rpcsum/manage.inc:9
+msgid "Your remote servers:"
+msgstr "Ihre Server:"
+
+#: framework/NLS/NLS/tld.php:254 framework/NLS/NLS/GeoIP.php:119
+msgid "Yugoslavia"
+msgstr "Jugoslawien"
+
+#: framework/NLS/NLS/GeoIP.php:119
+msgid "Zaire"
+msgstr "Zaire"
+
+#: framework/NLS/NLS/tld.php:256 framework/NLS/NLS/countries.php:246
+#: framework/NLS/NLS/GeoIP.php:119
+msgid "Zambia"
+msgstr "Sambia"
+
+#: framework/NLS/NLS/tld.php:257 framework/NLS/NLS/countries.php:247
+#: framework/NLS/NLS/GeoIP.php:119
+msgid "Zimbabwe"
+msgstr "Simbabwe"
+
+#: services/problem.php:59
+msgid "[Problem Report]"
+msgstr "[Problembericht]"
+
+#: framework/Horde/Horde.php:184
+#, php-format
+msgid "[line %s of %s]"
+msgstr "[Zeile %s von %s]"
+
+#: po/translation.php:622
+msgid "an error has occured:"
+msgstr "ein Fehler ist aufgetreten:"
+
+#: lib/Block/metar.php:157
+msgid "calm"
+msgstr "windstill"
+
+#: framework/VC/VC.php:287
+msgid "day"
+msgstr "Tag"
+
+#: framework/VC/VC.php:287
+msgid "days"
+msgstr "Tagen"
+
+#: po/translation.php:364 po/translation.php:468 po/translation.php:529
+#: po/translation.php:657 po/translation.php:714 po/translation.php:784
+msgid "done"
+msgstr "fertig"
+
+#: po/translation.php:470 po/translation.php:502 po/translation.php:531
+#: po/translation.php:682 po/translation.php:716 po/translation.php:786
+msgid "failed"
+msgstr "fehlgeschlagen"
+
+#: framework/Horde/Horde.php:847
+msgid "file"
+msgstr "Datei"
+
+#: po/translation.php:128
+msgid "found: "
+msgstr "gefunden: "
+
+#: lib/Block/metar.php:159
+#, php-format
+msgid "from the %s (%s) at %s %s"
+msgstr "aus %s (%s) mit %s %s"
+
+#: framework/UI/UI/VarRenderer/html.php:186
+msgid "h:"
+msgstr "h:"
+
+#: framework/VC/VC.php:286
+msgid "hour"
+msgstr "Stunde"
+
+#: framework/VC/VC.php:286
+msgid "hours"
+msgstr "Stunden"
+
+#: config/registry.php.dist:266
+msgid "i18n"
+msgstr "Übersetzungen"
+
+#: framework/VC/VC.php:285
+msgid "minute"
+msgstr "Minute"
+
+#: framework/VC/VC.php:285
+msgid "minutes"
+msgstr "Minuten"
+
+#: framework/VC/VC.php:289
+msgid "month"
+msgstr "Monat"
+
+#: framework/VC/VC.php:289
+msgid "months"
+msgstr "Monaten"
+
+#: services/portal/menu.php:100
+msgid "name"
+msgstr "Name"
+
+#: po/translation.php:309
+msgid "not changed"
+msgstr "nicht geändert"
+
+#: po/translation.php:130
+msgid "not found"
+msgstr "nicht gefunden"
+
+#: framework/RPC/RPC.php:110
+msgid "not implemented"
+msgstr "nicht implementiert"
+
+#: framework/Crypt/Crypt/smime.php:1207
+msgid "not yet implemented"
+msgstr "Noch nicht implementiert"
+
+#: framework/VC/VC.php:284
+msgid "second"
+msgstr "Sekunde"
+
+#: framework/VC/VC.php:284
+msgid "seconds"
+msgstr "Sekunden"
+
+#: po/translation.php:633
+#, php-format
+msgid "the Horde PO file for the locale %s does not exist:"
+msgstr "Hordes PO-Datei für das Locale %s existiert nicht:"
+
+#: admin/user.php:34 framework/Auth/Auth/Signup.php:280
+msgid "type the password twice to confirm"
+msgstr "geben Sie das Passwort ein zweites Mal zur Bestätigung ein"
+
+#: framework/MIME/MIME/Part.php:17
+msgid "unnamed"
+msgstr "unbenannt"
+
+#: po/translation.php:306
+msgid "updated"
+msgstr "aktualisiert"
+
+#: framework/MIME/MIME/Viewer/vcard.php:38
+msgid "vCard"
+msgstr "vCard"
+
+#: framework/VC/VC.php:298
+msgid "very little time"
+msgstr "sehr kurze Zeit"
+
+#: framework/UI/UI/VarRenderer/html.php:178
+msgid "w:"
+msgstr "b:"
+
+#: config/registry.php.dist:607
+msgid "weather.com"
+msgstr "weather.com"
+
+#: framework/VC/VC.php:288
+msgid "week"
+msgstr "Woche"
+
+#: framework/VC/VC.php:288
+msgid "weeks"
+msgstr "Wochen"
+
+#: framework/VC/VC.php:290
+msgid "year"
+msgstr "Jahr"
+
+#: framework/VC/VC.php:290
+msgid "years"
+msgstr "Jahre"
