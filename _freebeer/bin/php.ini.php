@@ -15,7 +15,9 @@ error_reporting(2047);
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(__FILE__)));
 
-if (phpversion() < '5.0') {
+define('PHP5', phpversion() >= '5.0');
+
+if (!PHP5) {
 	require_once FREEBEER_BASE . '/lib/Backport.php'; // scandir
 }
 
@@ -55,12 +57,20 @@ if (OS_WINDOWS) {
 	$cli_php_exe = $php_dir . '/cli/php.exe';
 	$phpcli_exe = $php_dir . '/phpcli.exe';
 
+	$extension_dir = $php_dir . '/extensions';
+
 	if (phpversion() == '4.2.0') {
 		copy($php_dir . '/sapi/php.exe', $php_exe);
 		copy($php_dir . '/php-cli.exe', $phpcli_exe);
 	}
 
-	$extension_dir = $php_dir . '/extensions';
+	if (PHP5) {
+		$extension_dir = $php_dir . '/ext';
+		$php_exe = $php_dir . '/php.exe';
+		$cli_php_exe = $php_dir . '/php-win.exe';
+		$phpcli_exe = $php_dir . '/php-win.exe';
+	}
+
 	$windir = getenv('windir');
 	if (!$windir) {
 		// PHP 5.0 ucases all env vars
@@ -108,6 +118,27 @@ $excludes = array(
 );
 
 $builtin = array(
+	'5.0.0'	=> array(
+		'bcmath'	=> 1,
+		'calendar'	=> 1,
+		'com_dotnet'=> 1,
+		'ctype'		=> 1,
+		'dom'		=> 1,
+		'ftp'		=> 1,
+		'iconv'		=> 1, // new
+		'libxml'	=> 1,
+		'odbc'		=> 1,
+		'pcre'		=> 1,
+		'session'	=> 1,
+		'SimpleXML'	=> 1, // case
+		'SPL'		=> 1, // new
+		'SQLite'	=> 1, // case
+		'standard'	=> 1,
+		'tokenizer'	=> 1,
+		'wddx'		=> 1,
+		'xml'		=> 1,
+		'zlib'		=> 1,
+	),
 	'5.0.0b2'	=> array(
 		'bcmath'	=> 1,
 		'calendar'	=> 1,
@@ -127,7 +158,6 @@ $builtin = array(
 		'xml'		=> 1,
 		'zlib'		=> 1,
 	),
-
 	'5.0.0b1'	=> array(
 		'bcmath'	=> 1,
 		'calendar'	=> 1,
@@ -205,8 +235,14 @@ $builtin = array(
 	),
 );
 
+$builtin['5.0.1'] = $builtin['5.0.0'];
+
 $builtin['5.0.0b3'] = $builtin['5.0.0b2'];
 
+$builtin['4.3.9RC2'] = $builtin['4.3.0'];
+$builtin['4.3.8'] = $builtin['4.3.0'];
+$builtin['4.3.7'] = $builtin['4.3.0'];
+$builtin['4.3.6'] = $builtin['4.3.0'];
 $builtin['4.3.5'] = $builtin['4.3.0'];
 $builtin['4.3.4'] = $builtin['4.3.0'];
 $builtin['4.3.3'] = $builtin['4.3.0'];
@@ -292,6 +328,14 @@ if (isset($extensions['php_gd.dll']) && isset($extensions['php_gd2.dll']) ) {
 	$excludes['php_gd.dll'] = 'Can\'t load both php_gd.dll & php_gd2.dll';
 }
 
+if (phpversion() >= '5.0.0') {
+	$excludes['php_exif.dll']		= 'Unable to load';
+	$excludes['php_iisfunc.dll']	= 'Segfaults PHP 5.0.1';
+	$excludes['php_yaz.dll']		= 'Entry point not found';
+	$excludes['php_imagick.dll']	= 'Entry point not found';
+	$excludes['php_stats.dll']		= 'Invalid library (maybe not a PHP library)';
+}
+
 if (phpversion() == '4.3.1') {
 	$excludes['php_fdf.dll'] = 'Segfaults PHP 4.3.1';
 }
@@ -301,7 +345,7 @@ if (preg_match('/4.2.3|4.2.2|4.2.1/', phpversion())) {
 }
 
 if (preg_match('/4.1.1|4.0.6|4.0.5/', phpversion())) {
-	$excludes['php_dotnet.dll'] = 'Reports: dotnet: Unable to initialize module';
+	$excludes['php_dotnet.dll'] = 'dotnet: Unable to initialize module';
 }
 
 if (phpversion() == '4.1.0') {
@@ -371,7 +415,13 @@ while (!feof($fp)) {
 			}
 			$include_path .= $pear_dir;
 		}
-		$line = "include_path = \"$include_path\"\n";
+		if (substr($include_path, 0, 1) != '"') {
+			$include_path = '"' . $include_path;
+		}
+		if (substr($include_path, -1, 1) != '"') {
+			$include_path .= '"';
+		}
+		$line = "include_path = $include_path\n";
 	}
 	if (preg_match('/^\s*register_argc_argv\s*/i', $line)) {
 		$line = "register_argc_argv = On\n";

@@ -9,7 +9,7 @@ SET foreign_key_checks=0;
 --
 DROP TABLE IF EXISTS challenges;
 CREATE TABLE challenges (
-  id BIGINT(20) unsigned NOT NULL DEFAULT '0' auto_increment,
+  id BIGINT(20) unsigned NOT NULL auto_increment,
   challenge CHAR(22) binary NOT NULL DEFAULT '',
   used CHAR(1) NOT NULL DEFAULT '',
   login VARCHAR(80) NOT NULL DEFAULT '',
@@ -30,7 +30,7 @@ CREATE TABLE challenges (
 --
 DROP TABLE IF EXISTS logins;
 CREATE TABLE logins (
-  id INT(11) unsigned NOT NULL DEFAULT '0' auto_increment,
+  id INT(11) unsigned NOT NULL auto_increment,
   login VARCHAR(80) binary NOT NULL DEFAULT '',
   password VARCHAR(80) binary NOT NULL DEFAULT '',
   UNIQUE (login),

@@ -96,8 +96,8 @@ class fbRandom {
             $instances[$signature] = new $classname($seed);
 
 			if (!is_null($seed)) {
-				$this = &$instances[$signature];
-				$this->setSeed($seed);
+				$instance = &$instances[$signature];
+				$instance->setSeed($seed);
 			}
 
         }

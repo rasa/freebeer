@@ -36,7 +36,8 @@ if (!function_exists('mb_substr')) {
 		}
 		
 		if (is_null($length)) {
-			return substr($str, $i);
+			$rv = substr($str, $i);
+			return $rv ? $rv : '';
 		}
 
 		if ($length == 0) {
@@ -56,7 +57,8 @@ if (!function_exists('mb_substr')) {
 			}
 		}
 
-		return substr($str, $i, $j - $i);
+		$rv = substr($str, $i, $j - $i);
+		return $rv ? $rv : '';
 	}
 }
 

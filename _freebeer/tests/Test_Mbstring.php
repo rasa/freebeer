@@ -85,7 +85,7 @@ class _Test_Mbstring extends fbTestCase {
 			} else {
 				$rv = mb_substr($str, $start, $length);
 			}
-			$this->assertEquals($expected, $rv, "key='$key'");
+			$this->assertEquals($expected, $rv, "key='$key' gettype(expected)=" . gettype($expected) . ' gettype(rv)=' . gettype($rv));
 		}
 	}
 

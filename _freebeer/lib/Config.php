@@ -170,10 +170,6 @@ $this->__writeAll($conf);
 			return false;
 		}
 
-//echo "<pre>\n";
-//print_r($freebeer);
-//exit;
-
 		$a = &$freebeer->toArray();
 
 		if (!isset($a['freebeer'])) {
