@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/tests/Random/Test_Random_MT_Rand.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/tests/Random/Test_Random_MT_Rand.php,v 1.3 2004/03/07 17:51:32 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once FREEBEER_BASE . '/tests/_init.php';
 
@@ -37,6 +37,10 @@ class _Test_Random_MT_Rand extends _Test_Random {
 		return $rv;
 	}
 
+}
+
+# make PHPUnit_GUI_SetupDecorator() happy
+class _Random_Test_Random_MT_Rand extends _Test_Random_MT_Rand {
 }
 
 ?>
@@ -228,4 +232,5 @@ class _Test_Random_MT_Rand extends _Test_Random {
 //		$expected = 0;
 //		$this->assertEquals($expected, $rv);
 	}
+	
 */ ?>

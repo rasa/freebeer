@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/HTTPS.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/HTTPS.php,v 1.2 2004/03/07 17:51:17 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 /*!
 	\file HTTPS.php
@@ -25,19 +25,19 @@ require_once FREEBEER_BASE . '/lib/System.php';	// $_SERVER vars
 */
 class fbHTTPS {
 	var $_convert_input_src = false;
-	var $_enabled = true;
-	var $_http_host	= '';
-	var $_http_port	= 80;
-	var $_http_path	= '';
+	var $_enabled		= true;
+	var $_http_host		= '';
+	var $_http_port		= 80;
+	var $_http_path		= '';
 	var $_https_host	= '';
 	var $_https_port	= 443;
-	var $_https_path = '';
+	var $_https_path 	= '';
 
 	/*!
 		Constructor
 	*/
 	function fbHTTPS() {
-		$conf = &new fbConfig();
+		$conf = &fbConfig::getInstance();
 		$conf->getSection($this);
 
 		if (!$this->_http_host) {

@@ -1,16 +1,16 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/ADOdb/ADOdb_Debug.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/ADOdb/ADOdb_Debug.php,v 1.2 2004/03/07 17:51:17 ross Exp $
 
-// Copyright (c) 2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 // Copyright (c) 2001-2003, Bold New World, Inc. (http://bnw.com/) All rights reserved.  Used by permission.
 
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(dirname(__FILE__))));
 
-require_once FREEBEER_BASE . '/lib/ADOdb.php';
+require_once FREEBEER_BASE . '/lib/ADOdb/ADOdb.php';
 require_once FREEBEER_BASE . '/lib/Debug.php';
 
 // is this still used?

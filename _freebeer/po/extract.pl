@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 #
+# $CVSHeader: _freebeer/po/extract.pl,v 1.2 2004/03/07 17:51:24 ross Exp $
+
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
+
 # $Horde: horde/po/extract.pl,v 1.6 2001/09/14 20:03:33 jon Exp $
 #
 # Perl script to extract strings from all the files and print

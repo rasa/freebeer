@@ -1,10 +1,10 @@
 #!/usr/bin/php
 <?php
 
-// $CVSHeader: _freebeer/bin/update_htaccess.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/bin/update_htaccess.php,v 1.2 2004/03/07 17:51:14 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 error_reporting(2047);
 @ini_set('html_errors', false);
@@ -19,6 +19,9 @@ require_once FREEBEER_BASE . '/lib/File.php'; // scandir
 
 function update_htaccess($dir) {
 	if (preg_match('|/opt/|', $dir)) {
+			return true;
+	}
+	if (preg_match('|/CVS/|', $dir)) {
 			return true;
 	}
 	if (preg_match('|/wip/|', $dir)) {

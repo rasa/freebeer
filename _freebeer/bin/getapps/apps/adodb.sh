@@ -1,7 +1,8 @@
 #!/bin/sh
-# $CVSHeader: _freebeer/bin/getapps/apps/adodb.sh,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+# $CVSHeader: _freebeer/bin/getapps/apps/adodb.sh,v 1.4 2004/03/07 19:32:22 ross Exp $
 
-set -x
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
 
 if [ -z "$FREEBEER_BASE" ]; then
 	FREEBEER_BASE=`dirname $0`
@@ -15,7 +16,7 @@ if [ -z "$FREEBEER_BASE" ]; then
 fi
 
 if [ -z "$ADODBVER" ]; then
-	ADODBVER=410
+	ADODBVER=420
 fi
 RTAG=R_$ADODBVER
 

@@ -1,10 +1,10 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/lib.arcfour.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/lib.arcfour.php,v 1.2 2004/03/07 17:51:34 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith. All rights reserved.
-// The contents of this file are made available subject to the terms of either
-// the GNU Lesser General Public License Version 2.1 or the Revised BSD License
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
+
 // See doc/license.txt or http://freebeer.sf.net/license.txt for details.
 
 require_once './_demo.php';
@@ -101,7 +101,7 @@ See
 </p>
 
 <address>
-$CVSHeader: _freebeer/www/demo/lib.arcfour.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/lib.arcfour.php,v 1.2 2004/03/07 17:51:34 ross Exp $
 </address>
 
 </body>

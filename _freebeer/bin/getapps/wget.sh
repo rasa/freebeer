@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# $CVSHeader: _freebeer/bin/getapps/wget.sh,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+# $CVSHeader: _freebeer/bin/getapps/wget.sh,v 1.4 2004/03/07 19:32:21 ross Exp $
 
-# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
 
 if [ -z "$FREEBEER_BASE" ]; then
 	FREEBEER_BASE=`dirname $0`
@@ -18,12 +18,9 @@ fi
 
 VTAG=$APP
 
-# cygwin doesn't appear to support pushd/popd
-CWD=`pwd`
-#pushd $FREEBEER_BASE/var/tmp
-cd $FREEBEER_BASE/var/tmp
+pushd $FREEBEER_BASE/var/tmp
 
-rm -fr $DIR ${APP}_docs
+# rm -fr $DIR ${APP}_docs
 
 if [ ! -f "$FILE" ]; then
 	wget $URL
@@ -50,5 +47,4 @@ fi
 
 . $FREEBEER_BASE/bin/getapps/cvsimport.sh
 
-cd $CWD
-#popd
+popd

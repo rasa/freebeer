@@ -1,7 +1,7 @@
-// $CVSHeader: _freebeer/www/lib/Base64.js,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/lib/Base64.js,v 1.3 2004/03/08 04:29:18 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 function Base64() {
 }
@@ -104,11 +104,3 @@ Base64.decode = function(data) {
 
 	return rv;
 }
-
-new Base64(); // fix Netscape 3 bug
-
-Base64.prototype.encode = Base64.encode;
-Base64.prototype.decode = Base64.decode;
-
-Base64.prototype.encode_map = Base64.encode_map;
-Base64.prototype.decode_map = Base64.decode_map;

@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/HTTP.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/HTTP.php,v 1.3 2004/03/08 04:29:17 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 /*!
 	\file HTTP.php
@@ -246,7 +246,7 @@ class fbHTTP {
 		if (headers_sent()) {
 			return false;
 		}
-		header('Last-Modified: Tue, 19 Jan 2038 03:14:07 GMT');			// Newest date, always modified
+		header('Last-Modified: Mon, 31 Dec 2029 23:59:59 GMT');			// Newest date, always modified
 		header('Cache-Control: no-store, no-cache, must-revalidate');	// HTTP/1.1
 		header('Cache-Control: post-check=0, pre-check=0', false);		// HTTP/1.1
 		header('Pragma: no-cache');										// HTTP/1.0

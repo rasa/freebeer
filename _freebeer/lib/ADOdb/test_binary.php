@@ -1,6 +1,12 @@
 <?php
 
+// $CVSHeader: _freebeer/lib/ADOdb/test_binary.php,v 1.2 2004/03/07 17:51:17 ross Exp $
+
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
+
 // test writing binary data to file
+/*
 $sql = "DELETE FROM sessions";
 $conn->Execute($sql);
 for ($i = 0; $i < 256; ++$i) {
@@ -13,5 +19,6 @@ for ($i = 0; $i < 256; ++$i) {
 	$rs = $conn->Execute($sql);
 	ADODB_Session::_dumprs($rs);
 }
+*/
 
 ?>

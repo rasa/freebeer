@@ -1,6 +1,11 @@
+// $CVSHeader: _freebeer/www/lib/crypt.js,v 1.2 2004/03/07 17:51:35 ross Exp $
+
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
+
 /*
 
-$CVSHeader: _freebeer/www/lib/crypt.js,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+$CVSHeader: _freebeer/www/lib/crypt.js,v 1.2 2004/03/07 17:51:35 ross Exp $
 
 Source: http://www.troop326.us/admin/javacrypt.js
 

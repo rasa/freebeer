@@ -1,10 +1,10 @@
 <?php 
 
-// $CVSHeader: _freebeer/lib/HTML/Calendar.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/HTML/Calendar.php,v 1.2 2004/03/07 17:51:20 ross Exp $
 
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-// +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
+
 // +----------------------------------------------------------------------+
 // | Copyright (c) 2002 The PHP Group                                     |
 // +----------------------------------------------------------------------+

@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/ADOdb.ADOdb.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/ADOdb.ADOdb.php,v 1.2 2004/03/07 17:51:33 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once './_demo.php';
 
@@ -17,7 +17,7 @@ fbDebug::setLevel(FB_DEBUG_ALL);
 
 echo html_header_demo('fbADOConnection Class');
 
-echo "<pre>";
+// echo "<pre>";
 
 $adodb_drivers = fbADOdb::getDrivers();
 
@@ -78,17 +78,7 @@ if (!empty($_REQUEST['submit'])) {
 
 fbDebug::setLevel(FB_DEBUG_ALL);
 
-$dbh = &fbADONewConnection($driver);
-if ($dbh) {
-	$dbh->debug = $debug;
-	$rv = $dbh->PConnect($host, $user, $password, 'hmac_login');
-}
-
-$dbh->Execute("select * from challenges");
-
 ?>
-
-<p>
 <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="debug"			value="<?php echo $debug ?>" />
 <input type="hidden" name="driver"			value="<?php echo $driver ?>" />
@@ -99,7 +89,6 @@ $dbh->Execute("select * from challenges");
 <input type="submit" name="submit"	value="Refresh" />
 
 </form>
-</p>
 
 <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="driver"		value="<?php echo $driver ?>" />
@@ -204,8 +193,26 @@ foreach ($defaults as $key => $value) {
 </form>
 </p>
 
+<?php
+
+flush();
+
+$dbh = &fbADONewConnection($driver);
+if ($dbh) {
+	$dbh->debug = $debug;
+	$rv = $dbh->Connect();
+	$dbh->selectDB('hmac_login');
+//	$rv = $dbh->PConnect($host, $user, $password, 'hmac_login');
+}
+
+$rv = $dbh->Execute("select * from challenges");
+
+print "<pre>";
+print_r($rv);
+?>
+
 <address>
-$CVSHeader: _freebeer/www/demo/ADOdb.ADOdb.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/ADOdb.ADOdb.php,v 1.2 2004/03/07 17:51:33 ross Exp $
 </address>
 
 </body>

@@ -1,13 +1,13 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/HMAC_Login/ADOdb.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/HMAC_Login/ADOdb.php,v 1.2 2004/03/07 17:51:20 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 /*!
 	\file HMAC_Login/ADOdb.php
-	\brief Secure login using ADOdb database class	
+	\brief Secure login using ADOdb database class
 */
 
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
@@ -15,7 +15,6 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 
 require_once FREEBEER_BASE . '/lib/HTTP.php';	// getRemoteAddress();
 require_once FREEBEER_BASE . '/lib/Mhash.php';
-require_once FREEBEER_BASE . '/lib/Random.php';
 
 require_once FREEBEER_BASE . '/lib/HMAC_Login.php';
 require_once FREEBEER_BASE . '/lib/ADOdb/ADOdb.php';
@@ -30,8 +29,8 @@ require_once ADODB_DIR . '/adodb-error.inc.php';
 
 /*!
 	\class fbHMAC_Login_ADOdb
-	
-	\brief Secure login using ADOdb database class	
+
+	\brief Secure login using ADOdb database class
 */
 class fbHMAC_Login_ADOdb extends fbHMAC_Login {
 	/*!

@@ -1,3 +1,8 @@
+-- $CVSHeader: _freebeer/sql/hmac_login/hmac_login_postgresql.sql,v 1.2 2004/03/07 17:51:26 ross Exp $
+
+-- Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+-- Licensed under the BSD or LGPL License. See license.txt for details.
+
 -- 
 -- Created by SQL::Translator::Producer::PostgreSQL
 -- Created on Mon Sep 15 13:00:30 2003

@@ -1,5 +1,5 @@
 /* 
-$CVSHeader: _freebeer/www/opt/dynamicdrive.com/disableenter.js,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+$CVSHeader: _freebeer/www/opt/dynamicdrive.com/disableenter.js,v 1.1.1.1 2004/03/03 22:48:41 ross Exp $
 Source: http://www.dynamicdrive.com/dynamicindex16/disableenter.htm
 Usage:
 

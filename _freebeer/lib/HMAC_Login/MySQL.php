@@ -1,27 +1,26 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/HMAC_Login/MySQL.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/HMAC_Login/MySQL.php,v 1.2 2004/03/07 17:51:20 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 /*!
 	\file HMAC_Login/Mysql.php
-	\brief Secure login using native Mysql functions	
+	\brief Secure login using native Mysql functions
 */
 
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(dirname(__FILE__))));
 
-require_once FREEBEER_BASE . '/lib/Random.php';
-require_once FREEBEER_BASE . '/lib/Mhash.php';
 require_once FREEBEER_BASE . '/lib/HTTP.php';
+require_once FREEBEER_BASE . '/lib/Mhash.php';
 
 require_once FREEBEER_BASE . '/lib/HMAC_Login.php';
 
 /*!
 	\class fbHMAC_Login_MySQL
-	\brief Secure login using native Mysql functions	
+	\brief Secure login using native Mysql functions
 */
 class fbHMAC_Login_MySQL extends fbHMAC_Login {
 	/*!

@@ -1,9 +1,9 @@
 ::@echo off
 
-:: $CVSHeader: _freebeer/bin/pear-install.bat,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $
+:: $CVSHeader: _freebeer/bin/pear-install.bat,v 1.2 2004/03/07 17:51:14 ross Exp $
 
-:: Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-:: Licensed under the BSD or LGPL License. See doc/license.txt for details.
+:: Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+:: Licensed under the BSD or LGPL License. See license.txt for details.
 
 set PACKAGES=Archive_Tar Console_Getopt XML_RPC PEAR XML_Util XML_Parser Config http://pear.php.net/get/PHPUnit-0.6.2.tgz DB Log Date HTML_Form HTML_Common HTML_Table Net_UserAgent_Detect 
 

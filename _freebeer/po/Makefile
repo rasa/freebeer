@@ -1,4 +1,4 @@
-# $CVSHeader: _freebeer/po/Makefile,v 1.1.1.1 2004/01/18 00:12:05 ross Exp $
+# $CVSHeader: _freebeer/po/Makefile,v 1.1.1.1 2004/03/03 22:48:41 ross Exp $
 
 # Makefile to generate .mo files from .po files
 

@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/Config.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/Config.php,v 1.2 2004/03/07 17:51:17 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 /*!
 	\file Config.php
@@ -19,10 +19,10 @@ require_once FREEBEER_BASE . '/lib/Pear/Pear.php';
 
 require_once 'Config.php';	// /opt/Pear/Config.php
 
-		$GLOBALS['CONFIG_TYPES']['xml'] = array(
-			FREEBEER_BASE . '/lib/Config/Container/XML.php',
-			'fbConfig_Container_XML'
-		);
+$GLOBALS['CONFIG_TYPES']['xml'] = array(
+	FREEBEER_BASE . '/lib/Config/Container/XML.php',
+	'fbConfig_Container_XML'
+);
 
 defined('FB_CONFIG_DEFAULT_EXTENSION') ||
  define('FB_CONFIG_DEFAULT_EXTENSION', 'xml');
@@ -79,6 +79,13 @@ class fbConfig {
 	/*!
 		\return \c string
 	*/
+	function getConf() {
+		return $this->_conf;
+	}
+
+	/*!
+		\return \c string
+	*/
 	function getFile() {
 		return $this->_file;
 	}
@@ -108,9 +115,9 @@ class fbConfig {
 		static $map = array(
 			'php'		=> 'phparray',
 			'xml'		=> 'xml',
-			'ini'			=> 'inifile',
+			'ini'		=> 'inifile',
 			'conf'		=> 'apache',
-			'gconf'	=> 'genericconf',
+			'gconf'		=> 'genericconf',
 		);
 
 		clearstatcache();
@@ -180,6 +187,18 @@ $this->__writeAll($conf);
 		return true;
 	}
 	
+	/*!
+TODO:
+
+NO! Use same function names as PEARs Config object
+getObjectConfig(&$obj);
+getConfig();	// entire config hash ($conf)
+getConfig($key);	// config hash for key $key ($conf[$key])
+getConfig(array($key1, $key2));	// config hash for keys $key1, $key2 ($conf[$key][$key2])
+	
+		\return \c bool
+		\static
+	*/
 	function getSection(&$obj, $path = null) {
 		if (!$path) {
 				$path = get_class($obj);
@@ -196,7 +215,7 @@ $this->__writeAll($conf);
 		$section = $path[count($path) - 1];
 		$s = $this->_conf;
 		if (!isset($s[$section])) {
-		    trigger_error(sprintf('Read error reading \'%s\': Can\t find section \'%s\'', $this->_file, $section), E_USER_WARNING);
+		    @trigger_error(sprintf('Read error reading \'%s\': Can\t find section \'%s\'', $this->_file, $section), E_USER_WARNING);
 			return false;
 		}
 
@@ -213,6 +232,8 @@ $this->__writeAll($conf);
 				$a = get_object_vars($obj);
 				if (isset($a[$var])) {
 					$obj->$var = $value;
+				} elseif (isset($a[$key])) {
+					$obj->$key = $value;
 				} else {
 					trigger_error(sprintf('Unknown option \'%s\' in section \'%s\' in \'%s\'',
 						$var, join(', ', $path), $this->_file));
@@ -223,6 +244,10 @@ $this->__writeAll($conf);
 		return true;
 	}
 
+	/*!
+		\return \c void
+		\static
+	*/
 	function _setupWrite() {
 		$GLOBALS['CONFIG_TYPES']['xml'] = array(
 			FREEBEER_BASE . '/lib/Config/Container/XML.php',
@@ -230,7 +255,10 @@ $this->__writeAll($conf);
 		);
 	}
 	
-
+	/*!
+		\return \c bool
+		\static
+	*/
 	function write() {
 		$conf = &new Config_Container('section', 'freebeer');
 		$cc = &$conf->createSection('https');
@@ -317,6 +345,10 @@ $this->_setupWrite();
 $this->__writeAll($config);
 	}		
 
+	/*!
+		\return \c bool
+		\static
+	*/
 	function __writeAll($config) {
 $this->_setupWrite();
 		foreach($GLOBALS['CONFIG_TYPES'] as $key => $value) {

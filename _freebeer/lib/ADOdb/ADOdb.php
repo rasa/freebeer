@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/ADOdb/ADOdb.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/ADOdb/ADOdb.php,v 1.2 2004/03/07 17:51:17 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 /*!
 	\file ADOdb/ADOdb.php
@@ -20,6 +20,8 @@ if (!defined('_ADODB_LAYER') && is_file(FREEBEER_BASE . '/opt/adodb/adodb.inc.ph
 if (phpversion() <= '5.0.0') {
 	include_once FREEBEER_BASE . '/lib/Backport.php'; // scandir()
 }
+
+require_once FREEBEER_BASE . '/lib/Config.php';
 
 /*!
 	\class fbADOdb
@@ -209,6 +211,9 @@ function &fbADONewConnection($db = '') {
 	if ($errorfn) {
 		$obj->raiseErrorFn = $errorfn;
 	}
+
+	$conf = &new fbConfig();
+	$conf->getSection($obj);
 
 	return $obj;
 }

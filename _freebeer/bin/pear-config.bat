@@ -1,10 +1,10 @@
 :: @echo off
 
-:: $CVSHeader: _freebeer/bin/pear-config.bat,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $
+:: $CVSHeader: _freebeer/bin/pear-config.bat,v 1.3 2004/03/07 19:32:21 ross Exp $
 
-verify other 2>nul
-setlocal enableextensions
-setlocal enabledelayedexpansion
+:: Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+:: Licensed under the BSD or LGPL License. See license.txt for details.
+
 
 if "%FREEBEER_BASE%"=="" set FREEBEER_BASE=%~dp0..
 
@@ -37,6 +37,7 @@ goto nopear
 set DIRS="%FREEBEER_BASE%\opt\pear\bin" "%FREEBEER_BASE%\var\cache\pear" "%FREEBEER_BASE%\opt\pear\data" "%FREEBEER_BASE%\opt\pear\doc" "%FREEBEER_BASE%\opt\pear\ext" "%FREEBEER_BASE%\opt\pear" "%FREEBEER_BASE%\opt\pear\tests"
 
 for %%i in (%DIRS%) do if not exist %%i mkdir %%i
+for %%i in (%DIRS%) do if not exist %%i\.cvsignore touch %%i\.cvsignore
 
 call pear config-set bin_dir	"%FREEBEER_BASE%\opt\pear\bin"
 call pear config-set cache_dir	"%FREEBEER_BASE%\var\cache\pear"

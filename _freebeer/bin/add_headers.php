@@ -1,5 +1,11 @@
 #!/bin/sh
 exec php $0 ${1+"$@"}
+
+# $CVSHeader: _freebeer/bin/add_headers.php,v 1.2 2004/03/07 17:51:14 ross Exp $
+
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
+
 <?php
 
 //if (php_sapi_name() != 'cli') {
@@ -31,7 +37,7 @@ $exts = array(
 	),
 	'htm'		=> array(
 		'prior'		=> '',
-		'start'		=> 3,
+		'start'		=> 1,
 		'prefix'	=> '<!-- ',
 		'suffix'		=> ' -->',
 	),
@@ -90,7 +96,7 @@ $exts['html'] = $exts['htm'];
 $exts['pot'] = $exts['po'];
 
 $search1 = array(
-	'|^(\S+)\s*\$CVSHeader[^\$]*|i'	=> '$CVSHeader: _freebeer/bin/add_headers.php,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $',
+	'|^(\S+)\s*\$CVSHeader[^\$]*|i'	=> '$' . 'CVSHeader$',
 	'|^\s*$|'	=> '',
 	'|^(\S+)\s*Copyright.*Ross\s+Smith|i'	=> 'Copyright (c) 2002-2004, Ross Smith.  All rights reserved.',
 	'|^(\S+)\s*Licensed\s+under\s+the\s+BSD|i'	=> 'Licensed under the BSD or LGPL License. See license.txt for details.',
@@ -120,6 +126,10 @@ foreach($files as $file) {
 	}
 
 	if (preg_match('~cvs2cl.pl~', $file)) {
+		continue;
+	}
+
+	if (preg_match('~license\.txt~', $file)) {
 		continue;
 	}
 
@@ -226,14 +236,13 @@ foreach($files as $file) {
 	
 	printf("\r%s rewritten\n", $file);
 	
-/*
 	if (!@rename($file, $file_bak)) {
 		die(sprintf("Can't rename '%s' to '%s': %s", $file, $file_bak, $php_errormsg));
 	}
 	if (!@rename($file_tmp, $file)) {
 		die(sprintf("Can't rename '%s' to '%s': %s", $file_tmp, $file, $php_errormsg));
 	}
-*/
+
 }
 
 printf("Command completed successfully\n");

@@ -1,4 +1,4 @@
-$CVSHeader: _freebeer/doc/coding_conventions.txt,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+$CVSHeader: _freebeer/doc/coding_conventions.txt,v 1.2 2004/03/04 00:13:28 ross Exp $
 
 This document is based on the Horde Coding Standards
 <http://cvs.horde.org/co.php/horde/docs/CODING_STANDARDS?r=HEAD>
@@ -172,19 +172,16 @@ short_open_tags turned off.
 All source code files should contain the following
 comment block as the header:
 
-/**
- * $Mercury: mercury/docs/coding_conventions.txt,v 1.2 2003/06/11 02:05:24 ross Exp $
- *
- * Copyright 1995-2003 Bold New World, LLC
- *
- */
+// $CVSHeader: _freebeer/doc/coding_conventions.txt,v 1.2 2004/03/04 00:13:28 ross Exp $
 
+// Copyright (c) 2003-2004, Your Name
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 -------------
 [10] CVS Tags
 =============
 
-Include the <dollar>Mercury<dollar> CVS vendor tag in each file. As each
+Include the <dollar>CVSHeader<dollar> CVS vendor tag in each file. As each
 file is edited, add this tag if it's not yet present (or replace existing
 forms such as <dollar>Id<dollar>, "Last Modified:", etc.).
 
@@ -503,9 +500,9 @@ Make sure that you do not continue to define the same variable within a
 loop. Instead, declare the variable a single time before the loop is run. 
 
 
-------------------
-[26] BNW Additions
-==================
+-----------------------
+[26] Freebeer Additions
+=======================
 
 * All class names should begin with fb.
 
@@ -540,7 +537,7 @@ $all_lower_case_variable_name
   should start with the following code:
 
 #!/usr/bin/env phpcli
-<?php # $Mercury: mercury/docs/coding_conventions.txt,v 1.2 2003/06/11 02:05:24 ross Exp $
+<?php # $CVSHeader: _freebeer/doc/coding_conventions.txt,v 1.2 2004/03/04 00:13:28 ross Exp $
 
 if (php_sapi_name() != 'cli') {
 	die(sprintf("Please run this script using the CLI version of PHP\nYou used: '%s'\n", $_ENV['_']));

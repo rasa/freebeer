@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <freebeer>
+  <!-- $CVSHeader: _freebeer/etc/freebeer.xml,v 1.2 2004/03/07 17:51:16 ross Exp $ -->
+
   <!-- HTTPS protocol configuration settings -->
   <!--	
   	Multiline
@@ -8,33 +10,52 @@
   	supported
   -->
 
-  <mysql>
-    <host>localhost</host>
-    <user>root</user>
-    <password></password>
-    <database></database>
-    <persistent>1</persistent>
-  </mysql>
-
   <adodb>
     <driver>mysqlt</driver>
+  </adodb>
+
+  <adodb_session>
+	<driver>mysqlt</driver>
     <host>localhost</host>
     <user>root</user>
     <password></password>
     <database>test</database>
-    <persistent>1</persistent>
-    <sessions>
-      <table>adodb_sessions</table>
-      <!--
-        <database></database>
-      	<lifetime></lifetime>
-        <sync_seconds></sync_seconds>
-        <clob></clob>
-        <data_field_name></data_field_name>
-        <encryption_key></encryption_key>
-      -->
-    </sessions>
-  </adodb>
+    <!-- persist>1</persist -->
+<!--  
+	<lifetime>1440</lifetime>
+	<debug></debug>
+	<table>sessions</table>
+	<optimize></optimize>
+	<syncSeconds>60</syncSeconds>
+	<clob></clob>
+	<dataFieldName>data</dataFieldName>
+	<encryptionKey>Enter your own encryption key here</encryptionKey>
+-->
+  </adodb_session>
+  
+  <adodb_mysqlt>
+    <host>localhost</host>
+    <user>root</user>
+    <password></password>
+    <database>test</database>
+    <!-- persist>1</persist -->
+  </adodb_mysqlt>
+
+  <adodb_mysqlt_debug>
+    <host>localhost</host>
+    <user>root</user>
+    <password></password>
+    <database>test</database>
+    <!-- persist>1</persist -->
+  </adodb_mysqlt_debug>
+  
+  <mysql>
+    <host>localhost</host>
+    <user>root</user>
+    <password></password>
+    <database>test</database>
+    <!-- persist>1</persist -->
+  </mysql>
   
   <https>
 

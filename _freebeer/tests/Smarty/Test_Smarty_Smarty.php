@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/tests/Smarty/Test_Smarty_Smarty.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/tests/Smarty/Test_Smarty_Smarty.php,v 1.3 2004/03/07 17:51:32 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once FREEBEER_BASE . '/tests/_init.php';
 
@@ -25,6 +25,10 @@ class _Test_Smarty_Smarty extends fbTestCase {
 			return fbSmarty::isAvailable();
 	}
 
+}
+
+# make PHPUnit_GUI_SetupDecorator() happy
+class _Smarty_Test_Smarty_Smarty extends _Test_Smarty_Smarty {
 }
 
 ?><?php /*
@@ -352,7 +356,7 @@ class _Test_Smarty_Smarty extends fbTestCase {
 	}
 */ ?>
 <?php /*
-	// \todo Implement test_unregister_object_1 in Test_Smarty_Smarty.php
+	// \todo Implement _unregister_est_unregister_object_1 in Test_Smarty_Smarty.php
 	function test_unregister_object_1() {
 //		$o =& new Smarty();
 //		$rv = $o->unregister_object();
@@ -395,4 +399,5 @@ class _Test_Smarty_Smarty extends fbTestCase {
 //		$expected = 0;
 //		$this->assertEquals($expected, $rv);
 	}
+	
 */ ?>

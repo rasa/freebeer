@@ -1,9 +1,16 @@
 <?php
 
-// $CVSHeader: _freebeer/www/lib/tests/_header.php,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+// $CVSHeader: _freebeer/www/lib/tests/_header.php,v 1.3 2004/03/08 04:29:18 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
+
+defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') : 
+ 	dirname(dirname(dirname(dirname(__FILE__)))));
+
+require_once FREEBEER_BASE . '/lib/HTTP.php';
+
+fbHTTP::sendNoCacheHeaders();
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -11,7 +18,7 @@
 
 <html>
 <!--
-$CVSHeader: _freebeer/www/lib/tests/_header.php,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+$CVSHeader: _freebeer/www/lib/tests/_header.php,v 1.3 2004/03/08 04:29:18 ross Exp $
 
 Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
 Licensed under the BSD or LGPL License. See doc/license.txt for details.
@@ -22,8 +29,11 @@ Licensed under the BSD or LGPL License. See doc/license.txt for details.
 <script language="JavaScript" type="text/javascript" src="/opt/jsunit.net/app/jsUnitCore.js"></script>
 <?php
 
-if (isset($test_name) && !is_file(FREEBEER_BASE . $test_name)) {
-	$file = FREEBEER_BASE . $test_name;
+defined('FREEBEER_WWWROOT') ||
+ define('FREEBEER_WWWROOT', FREEBEER_BASE . '/www');
+
+if (isset($test_name) && !is_file(FREEBEER_WWWROOT . $test_name)) {
+	$file = FREEBEER_WWWROOT . $test_name;
 	echo <<<EOD
 </head>
 <body>

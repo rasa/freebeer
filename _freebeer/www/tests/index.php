@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/tests/index.php,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+// $CVSHeader: _freebeer/www/tests/index.php,v 1.3 2004/03/07 17:51:36 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 error_reporting(2047);
 @set_time_limit(0);
@@ -30,6 +30,7 @@ $gui = &new PHPUnit_GUI_SetupDecorator(new PHPUnit_GUI_HTML());
 chdir(FREEBEER_BASE . '/tests') ||
 trigger_error(sprintf('Can\'t change directory to \'%s\'', FREEBEER_BASE . '/tests'), E_USER_ERROR);
 $gui->getSuitesFromDir('.', '^Test.*\.php$');
+error_reporting(0);
 $gui->show();
 
 ?>

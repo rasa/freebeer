@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/tests/BinarySearch/Test_BinarySearch_Array.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/tests/BinarySearch/Test_BinarySearch_Array.php,v 1.3 2004/03/07 17:51:27 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once FREEBEER_BASE . '/tests/_init.php';
 
@@ -95,6 +95,10 @@ class _Test_BinarySearch_Array extends fbTestCase {
 		}
 	}
 
+}
+
+# make PHPUnit_GUI_SetupDecorator() happy
+class _BinarySearch_Test_BinarySearch_Array extends _Test_BinarySearch_Array {
 }
 
 ?>

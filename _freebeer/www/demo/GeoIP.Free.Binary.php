@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/GeoIP.Free.Binary.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/GeoIP.Free.Binary.php,v 1.3 2004/03/07 17:51:33 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once './_demo.php';
 
@@ -40,11 +40,11 @@ foreach ($ips as $ip) {
 }
 
 echo "\n";
+flush();
 
 $hosts = array(
 	'localhost',
-	'grapevineproject.org',
-	'blacksapphire.com',
+	'sf.net',
 );
 
 foreach ($hosts as $host) {
@@ -54,7 +54,7 @@ foreach ($hosts as $host) {
 
 ?>
 <address>
-$CVSHeader: _freebeer/www/demo/GeoIP.Free.Binary.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/GeoIP.Free.Binary.php,v 1.3 2004/03/07 17:51:33 ross Exp $
 </address>
 
 </body>

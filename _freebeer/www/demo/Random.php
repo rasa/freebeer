@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/Random.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/Random.php,v 1.2 2004/03/07 17:51:33 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once './_demo.php';
 
@@ -18,10 +18,6 @@ require_once FREEBEER_BASE . '/lib/Random/LCG.php';
 require_once FREEBEER_BASE . '/lib/Random/GMP.php';
 
 echo html_header_demo('fbRandom_Best Class');
-
-echo "<pre>";
-echo "getrandmax=",getrandmax(),"\n";
-echo "mt_getrandmax=",mt_getrandmax(),"\n";
 
 $random = isset($_REQUEST['random']) ? $_REQUEST['random'] : false;
 
@@ -252,10 +248,14 @@ for ($i = 0; $i < $iterations; ++$i) {
 	echo 'nextBytes()=           ',htmlspecialchars($rv),"\n";
 }
 
+echo "<pre>";
+echo "getrandmax=",getrandmax(),"\n";
+echo "mt_getrandmax=",mt_getrandmax(),"\n";
+
 ?>
 </pre>
 <address>
-$CVSHeader: _freebeer/www/demo/Random.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/Random.php,v 1.2 2004/03/07 17:51:33 ross Exp $
 </address>
 
 </body>

@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# $CVSHeader: _freebeer/bin/getapps/cvs.sh,v 1.2 2004/01/18 02:40:51 ross Exp $
+# $CVSHeader: _freebeer/bin/getapps/cvs.sh,v 1.4 2004/03/07 19:32:21 ross Exp $
 
-# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
 
 if [ -z "$FREEBEER_BASE" ]; then
 	FREEBEER_BASE=`dirname $0`
@@ -16,12 +16,10 @@ if [ -z "$FREEBEER_BASE" ]; then
 	done
 fi
 
-# cygwin doesn't appear to support pushd/popd
-CWD=`pwd`
-#pushd $FREEBEER_BASE/var/tmp
-cd $FREEBEER_BASE/var/tmp
+pushd $FREEBEER_BASE/var/tmp
 
-rm -fr $DIR ${DIR}_docs
+# rm -fr $DIR ${DIR}_docs
+
 while [ true ];
 do
 	cvs -z3 -d$CVS_ROOT export -r $CVS_TAG -d $DIR ${DIR}$CVS_SUBDIR && break
@@ -30,5 +28,4 @@ done
 
 . $FREEBEER_BASE/bin/getapps/cvsimport.sh
 
-cd $CWD
-#popd
+popd

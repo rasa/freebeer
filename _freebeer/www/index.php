@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/index.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/index.php,v 1.2 2004/03/07 17:51:33 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 error_reporting(2047);
 
@@ -28,6 +28,7 @@ while ($file = readdir($dh)) {
 		preg_match('/^\.\.?$/', $file) ||
 		preg_match('/^cgi-bin$/', $file) ||
 		preg_match('/^css$/', $file) ||
+		preg_match('/^CVS$/', $file) ||
 		preg_match('/^img$/', $file) ||
 		preg_match('/^lib$/', $file) ||
 		preg_match('/^opt$/', $file)) {
@@ -75,7 +76,7 @@ echo $body_text;
 ?>
 <br />
 <address>
-$CVSHeader: _freebeer/www/index.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/index.php,v 1.2 2004/03/07 17:51:33 ross Exp $
 </address>
 </body>
 </html>

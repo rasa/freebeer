@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/Hmac_Login.MySQL.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/Hmac_Login.MySQL.php,v 1.3 2004/03/08 04:29:18 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once './_demo.php';
 
@@ -14,7 +14,7 @@ require_once FREEBEER_BASE . '/lib/HMAC_Login/MySQL.php';
 
 fbErrorHandler::init();
 
-echo html_header_demo($title, null, array('../opt/pajhome.org.uk/md5.js', '../lib/strutils.js'));
+echo html_header_demo($title, null, array('../opt/pajhome.org.uk/md5.js', '../lib/StrUtils.js'));
 
 $hmac_login = &new fbHMAC_Login_MySQL();
 
@@ -37,11 +37,11 @@ $hchallenge = htmlspecialchars($challenge);
 
 ?>
 <script type="text/javascript" language="JavaScript" src="../opt/pajhome.org.uk/md5.js"></script>
-<script type="text/javascript" language="JavaScript" src="../lib/strutils.js"></script>
+<script type="text/javascript" language="JavaScript" src="../lib/StrUtils.js"></script>
 <script type="text/javascript" language="JavaScript">
 <!-- // <![CDATA[
 function form_onsubmit(f) {
-	f['login'].value	= trim(f['login'].value);
+	f['login'].value	= StrUtils.trim(f['login'].value);
 	f['response'].value = hex_hmac_md5(f['challenge'].value, f['password'].value);
 	f['password'].value = '';
 	return true;
@@ -76,7 +76,7 @@ See
 </p>
 
 <address>
-$CVSHeader: _freebeer/www/demo/Hmac_Login.MySQL.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/Hmac_Login.MySQL.php,v 1.3 2004/03/08 04:29:18 ross Exp $
 </address>
 
 </body>

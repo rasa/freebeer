@@ -1,14 +1,14 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/ADOdb.adodb-session.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/ADOdb.adodb-session.php,v 1.4 2004/03/08 04:29:18 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once './_demo.php';
 
 require_once FREEBEER_BASE . '/lib/ADOdb/ADOdb.php';
-require_once FREEBEER_BASE . '/lib/ADOdb/adodb-session.php';
+require_once FREEBEER_BASE . '/opt/adodb/session/adodb-session.php';
 
 $html_header = html_header_demo('ADODB_Session Class');
 
@@ -31,22 +31,22 @@ $secret			= (int) fbHTTP::getRequestVar('secret');
 
 $filters = array();
 if ($gzip) {
-	if (include_once(FREEBEER_BASE . '/lib/ADOdb/adodb-compress-gzip.php')) {
+	if (include_once(ADODB_DIR . '/session/adodb-compress-gzip.php')) {
 		$filters[] = &new ADODB_Compress_Gzip();
 	}
 }
 if ($bzip2) {
-	if (include_once(FREEBEER_BASE . '/lib/ADOdb/adodb-compress-bzip2.php')) {
+	if (include_once(ADODB_DIR . '/session/adodb-compress-bzip2.php')) {
 		$filters[] = &new ADODB_Compress_Bzip2();
 	}
 }
 if ($md5) {
-	if (include_once(FREEBEER_BASE . '/lib/ADOdb/adodb-encrypt-md5.php')) {
+	if (include_once(ADODB_DIR . '/session/adodb-encrypt-md5.php')) {
 		$filters[] = &new ADODB_Encrypt_Md5();
 	}
 }
 if ($mcrypt) {
-	if (include_once(FREEBEER_BASE . '/lib/ADOdb/adodb-encrypt-mcrypt.php')) {
+	if (include_once(ADODB_DIR . '/session/adodb-encrypt-mcrypt.php')) {
 		$filters[] = &new ADODB_Encrypt_MCrypt();
 	}
 }
@@ -185,32 +185,38 @@ if ($expire_notify) {
 	}
 }
 
-$register = true;
-
-session_start();
-
-echo $html_header;
+$session = false;
 
 if (!empty($_REQUEST['submit'])) {
 	switch ($_REQUEST['submit']) {
 		case 'Change Driver':
 		case 'Delete Session':
+		case 'Disconnect':
+			session_start();
 			$_SESSION = array();
 			setcookie(session_name(), '', (time() - 2592000), '/', '', 0);
 			session_destroy();
-			$register = false;
+			break;
+
+		case 'Connect':
+			session_start();
+			$session = true;
 			break;
 
 		default:
+			$session = true;
+			session_start();
 	}
 }
 
-if ($register) {
+echo $html_header;
+
+if ($session) {
 	session_register('avar');
 	session_register('bigvar');
 }
 
-if ($register) {
+if ($session) {
 	if (!isset($_SESSION['avar'])) {
 		$_SESSION['avar'] = 0;
 	}
@@ -220,9 +226,9 @@ if ($register) {
 
 	echo "\$_SESSION['avar']={$_SESSION['avar']}<br />\n";
 	echo "\$_SESSION['bigdata']={$_SESSION['bigdata']}<br />\n";
-}
 
-session_write_close();
+	session_write_close();
+}
 
 ?>
 
@@ -251,11 +257,16 @@ session_write_close();
 <input type="submit" name="submit"	value="Refresh" />
 
 <input type="submit" name="submit"	value="Delete Session" />
+
 </form>
 </p>
 
 <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="driver"		value="<?php echo $driver ?>" />
+
+<input type="submit" name="submit"	value="Connect" />
+&nbsp;
+<input type="submit" name="submit"	value="Disconnect" />
 
 <table border="0">
 <tr>
@@ -503,6 +514,10 @@ foreach ($yesno_choices as $key => $value) {
 </td>
 <td>
 <input type="submit" name="submit"	value="Change Parameters" />
+&nbsp;
+<input type="submit" name="submit"	value="Connect" />
+&nbsp;
+<input type="submit" name="submit"	value="Disconnect" />
 </td>
 </tr>
 </table>
@@ -545,7 +560,7 @@ See
 </p>
 
 <address>
-$CVSHeader: _freebeer/www/demo/ADOdb.adodb-session.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/ADOdb.adodb-session.php,v 1.4 2004/03/08 04:29:18 ross Exp $
 </address>
 
 </body>

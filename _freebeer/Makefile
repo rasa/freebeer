@@ -1,4 +1,4 @@
-# $CVSHeader: _freebeer/Makefile,v 1.2 2004/01/18 02:40:50 ross Exp $
+# $CVSHeader: _freebeer/Makefile,v 1.1.1.1 2004/03/03 22:48:41 ross Exp $
 
 # Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
 # Licensed under the BSD or LGPL License. See doc/license.txt for details.

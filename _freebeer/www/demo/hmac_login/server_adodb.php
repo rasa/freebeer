@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/hmac_login/server_adodb.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/hmac_login/server_adodb.php,v 1.3 2004/03/07 17:51:34 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once '../_demo.php';
 
@@ -15,7 +15,7 @@ $html_header = html_header_demo($title, null, null, false);
 
 require_once FREEBEER_BASE . '/lib/HTTP.php' ;
 
-$client_url = dirname(dirname($_SERVER['PHP_SELF'])) . '/hmac_login_adodb.php';
+$client_url = dirname(dirname($_SERVER['PHP_SELF'])) . '/Hmac_Login.ADOdb.php';
 
 if (!isset($_REQUEST['challenge'])) {
 	fbHTTP::redirect($client_url);
@@ -55,7 +55,7 @@ echo $hmac_login->getLastError();
 </p>
 
 <address>
-$CVSHeader: _freebeer/www/demo/hmac_login/server_adodb.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/hmac_login/server_adodb.php,v 1.3 2004/03/07 17:51:34 ross Exp $
 </address>
 
 </body>

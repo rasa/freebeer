@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# $CVSHeader: _freebeer/bin/phpgrep.sh,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $
+# $CVSHeader: _freebeer/bin/phpgrep.sh,v 1.3 2004/03/07 19:32:21 ross Exp $
 
-# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
 
 if [ -z "$FREEBEER_BASE" ]; then
 	FREEBEER_BASE=`dirname $0`
@@ -18,15 +18,11 @@ fi
 
 DIRS="lib www"
 
-# cygwin doesn't appear to support pushd/popd
-CWD=`pwd`
-#pushd $FREEBEER_BASE
-cd $FREEBEER_BASE
+pushd $FREEBEER_BASE
 
 for dir in $DIRS
 do
 	find $dir -type f -name \*.php | xargs egrep -n $*
 done
 
-cd $CWD
-#popd
+popd

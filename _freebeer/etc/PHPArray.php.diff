@@ -1,0 +1,16 @@
+Index: PHPArray.php
+===================================================================
+RCS file: /home/cvs/freebeer/_pear/Config/Container/PHPArray.php,v
+retrieving revision 1.1.1.1
+diff -u -r1.1.1.1 PHPArray.php
+--- PHPArray.php	3 Mar 2004 23:10:41 -0000	1.1.1.1
++++ PHPArray.php	7 Mar 2004 09:28:50 -0000
+@@ -132,7 +132,7 @@
+                 $string .= "\n";
+                 break;
+             case 'comment':
+-                $string .= '// '.$obj->content."\n";
++                $string .= '/* '.$obj->content." */\n";
+                 break;
+             case 'directive':
+                 $attrString = '';

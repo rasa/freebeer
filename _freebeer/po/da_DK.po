@@ -1,9 +1,9 @@
 # Danish translation
-# $CVSHeader: _freebeer/po/da_DK.po,v 1.1.1.1 2004/01/18 00:12:05 ross Exp $
-# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+# $CVSHeader: _freebeer/po/da_DK.po,v 1.2 2004/03/07 17:51:24 ross Exp $
 
-msgid ""
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
+
 msgstr ""
 "Project-Id-Version: Freebeer 0.1-cvs\n"
 "POT-Creation-Date: 2003-08-20 00:00-0700\n"

@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/lib/tests/index.php,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+// $CVSHeader: _freebeer/www/lib/tests/index.php,v 1.3 2004/03/08 04:29:18 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 error_reporting(2047);
 
@@ -38,7 +38,8 @@ foreach ($files as $file) {
 	$files2[$path] = $path;
 	$dirname = dirname($file);
 	$files3[$dirname][$file] = $path;
-}
+
+} // foreach ($files as $file)
 
 $suites = '';	
 $main = '';
@@ -79,7 +80,8 @@ EOD;
 	$main .= "\t\tnewsuite.addTestSuite($suite_name);";
 
 	$suites .= $suite;
-}
+
+} // foreach ($dirs as $dir)
 
 $main = <<<EOD
 

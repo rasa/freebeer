@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/www/_header.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/_header.php,v 1.3 2004/03/07 19:16:21 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
 	dirname(dirname(__FILE__)));
@@ -102,7 +102,7 @@ function html_header($hash, $included_files = null, $path = null, $no_cache = tr
 		$bfile = basename($file);
 
 		$encfile = urlencode($file);
-		$hfiles .= "\n&nbsp;\n<a target='$file' href='{$path2}_source.php?file=$encfile'>$bfile</a>";
+		$hfiles .= "\n&nbsp;\n<a target='$file' href='/{$path2}_source.php?file=$encfile'>$bfile</a>";
 	}
 
 	if (preg_match('/wget/i', $_SERVER['HTTP_USER_AGENT'])) {

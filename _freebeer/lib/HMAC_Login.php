@@ -1,14 +1,19 @@
 <?php
 
-// $CVSHeader: _freebeer/lib/HMAC_Login.php,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+// $CVSHeader: _freebeer/lib/HMAC_Login.php,v 1.2 2004/03/07 17:51:17 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 /*!
 	\file HMAC_Login.php
 	\brief Secure login via HMAC authentication
 */
+
+defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? getenv('FREEBEER_BASE') :
+	dirname(dirname(__FILE__)));
+
+require_once FREEBEER_BASE . '/lib/Random.php';
 
 /*!
 	 \typedef FB_HMAC_LOGIN_MAX_ATTEMPTS
@@ -38,55 +43,55 @@ defined('FB_HMAC_LOGIN_PURGE_PERCENT') ||
 	\enum FB_HMAC_LOGIN_ERROR_OK
 	Safe login with correct password.
 */
-define('FB_HMAC_LOGIN_ERROR_OK',			 		 0); 
+define('FB_HMAC_LOGIN_ERROR_OK',			 		 0);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_NOT_CONNECTED
 	Not connected.
 */
-define('FB_HMAC_LOGIN_ERROR_NOT_CONNECTED',			-1); 
+define('FB_HMAC_LOGIN_ERROR_NOT_CONNECTED',			-1);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_LOGIN_EXPIRED
 	Login has expired (timeout exceeded).
 */
-define('FB_HMAC_LOGIN_ERROR_LOGIN_EXPIRED',			-2); 
+define('FB_HMAC_LOGIN_ERROR_LOGIN_EXPIRED',			-2);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_NO_CHALLENGE
 	No challenge (we we're not able to generate a challenge for some reason).
 */
-define('FB_HMAC_LOGIN_ERROR_NO_CHALLENGE',			-3); 
+define('FB_HMAC_LOGIN_ERROR_NO_CHALLENGE',			-3);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_INVALID_CHALLENGE
 	Challenge is bad or has already been used.
 */
-define('FB_HMAC_LOGIN_ERROR_INVALID_CHALLENGE',		-4); 
+define('FB_HMAC_LOGIN_ERROR_INVALID_CHALLENGE',		-4);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_BAD_CHALLENGE
 	Challenge is bad.
 */
-define('FB_HMAC_LOGIN_ERROR_BAD_CHALLENGE', 		-5); 
+define('FB_HMAC_LOGIN_ERROR_BAD_CHALLENGE', 		-5);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_BAD_PASSWORD
 	Safe login with incorrect password.
 */
-define('FB_HMAC_LOGIN_ERROR_BAD_PASSWORD',			-6); 
+define('FB_HMAC_LOGIN_ERROR_BAD_PASSWORD',			-6);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_UNSAFE_PASSWORD
 	Unsafe login with correct password.
 */
-define('FB_HMAC_LOGIN_ERROR_UNSAFE_PASSWORD',		-7); 
+define('FB_HMAC_LOGIN_ERROR_UNSAFE_PASSWORD',		-7);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_UNSAFE_BAD_PASSWORD
 	Unsafe login with incorrect password.
 */
-define('FB_HMAC_LOGIN_ERROR_UNSAFE_BAD_PASSWORD',	-8); 
+define('FB_HMAC_LOGIN_ERROR_UNSAFE_BAD_PASSWORD',	-8);
 
 /*!
 	\enum FB_HMAC_LOGIN_ERROR_INVALID_LOGIN
@@ -180,12 +185,12 @@ class fbHMAC_Login {
 
 	/*!
 		Set the last error/errno to \c $errno.
-		
+
 		\private
 	*/
 	function _setError($errno) {
 		static $errors;
-		
+
 		if (!isset($errors)) {
 			$errors = array(
 				FB_HMAC_LOGIN_ERROR_OK					=> 'Safe login with correct password',
@@ -201,7 +206,7 @@ class fbHMAC_Login {
 				FB_HMAC_LOGIN_ERROR_INVALID_PASSWORD	=> 'Invalid login/password',
 			);
 		}
-		
+
 		assert('isset($errors[$errno])');
 		$this->_last_errno = $errno;
 		$this->_last_error = $errors[$errno];
@@ -243,7 +248,7 @@ class fbHMAC_Login {
 
 		\param $challenge_table \c string Name for SQL table containing
 		challenges.
-		
+
 		\return \c void
 	*/
 	function setChallengeTable($challenge_table) {
@@ -253,52 +258,52 @@ class fbHMAC_Login {
 	/*!
 		Set name for SQL table containing login/password,
 		default is 'logins'.
-		
+
 		\param $login_table \c string name for SQL table containing
 		login/password.
-		
+
 		\return \c void
 	*/
 	function setLoginTable($login_table) {
 		$this->_login_table = $login_table;
 	}
-	
+
 	/*!
 		Set name for SQL field containing login name in login
 		table, default is 'login'.
-		
+
 		\param $login_field \c string name for SQL field containing login name
 		in login table.
-		
+
 		\return \c void
 	*/
 	function setLoginField($login_field) {
 		$this->_login_field = $login_field;
 	}
-	
+
 	/*!
 		Set name for SQL field containing password in login
 		table, default is 'password'.
-		
+
 		\param $password_field \c string name for SQL field containing password
 		in login table.
-		
+
 		\return \c void
 	*/
 	function setPasswordField($password_field) {
 		$this->_password_field = $password_field;
 	}
-	
+
 	/*!
 		Set the number of seconds to login before timing out, default is 15 minutes
-		
+
 		\param $seconds \c int The number of seconds to login before timing out
 		\private
 	*/
 	function setTimeout($seconds) {
 		$this->_timeout = (int) $seconds;
 	}
-	
+
 	/*!
 		Connect to the database.
 
@@ -307,7 +312,7 @@ class fbHMAC_Login {
 		\param $password \c string
 		\param $database \c string
 		\param $driver \c string
-		
+
 		\return \c true if successful, otherwise \c false.
 	*/
 	function connect($host = '', $user = '', $password = '', $database = '', $driver = '') {
@@ -317,20 +322,20 @@ class fbHMAC_Login {
 
 	/*!
 		Disconnect from the database.
-		
+
 		Can be safely called if we're already disconnected.
-		
+
 		\return \c true if successful, otherwise \c false.
-	
+
 	*/
 	function close() {
 		assert(false);
 		return false;
 	}
-	
+
 	/*!
 		Get the next random challenge.
-		
+
 		\return \c string A 22 character challenge, or \c false if unsuccessful.
 	*/
 	function getChallenge() {
@@ -340,36 +345,36 @@ class fbHMAC_Login {
 
 	/*!
 		Get the next random challenge.
-		
+
 		\return \c string A 22 character challenge, or \c false if unsuccessful.
 	*/
 	function _getChallenge($max_id, $attempts) {
 		$random = &fbRandom::getInstance();
-		
+
 		// sha1 needs 80
 		$entropy = $random->nextBytes(64) .
 			$random->getEntropy() .
 			sprintf('%20s', $max_id) .
 			sprintf('%03d', $attempts);
-		
+
 		// convert 32 byte hex string to 22 byte base 64 string
 		$challenge = base64_encode(pack('H*', md5($entropy)));
-		
+
 		// discard superfluous trailing '==' chars
 		$challenge	= substr($challenge, 0, 22);
 
 		return $challenge;
 	}
-			
+
 	/*!
 		Validate the \c $response.
 
 		Will work if JavaScript is turned off on the client,
 		but the password we be sent as clear text.
-		
+
 		\param $challenge \c string 22 character challenge generated via
 		getChallenge().
-		
+
 		\param $response \c string 32 character response generated on the
 		client.
 		\param $login \c string Login name entered by user.
@@ -383,7 +388,7 @@ class fbHMAC_Login {
 
 	/*!
 		Get the password associated with the login \c $login.
-		
+
 		\param $login \c string Login name to retrieve password for.
 		\return \c bool \c true if successful, otherwise \c false.
 	*/
@@ -399,10 +404,10 @@ class fbHMAC_Login {
 		These records were created when the user displayed the
 		login page, but the user never subsequently logged in, leaving
 		an used record in the challenges table.
-		
+
 		\param $days \c int The number of days old a record has to be
 		in order to be deleted.  If 0, or unspecified, all records older
-		than the timeout (default is 15 minutes) will be deleted. 
+		than the timeout (default is 15 minutes) will be deleted.
 
 		\return \c bool \c true if successful, otherwise \c false.
 	*/
@@ -416,7 +421,7 @@ class fbHMAC_Login {
 
 		\param $days \c int The number of days old a record has to be
 		in order to be deleted.  If 0, or unspecified, all records older
-		than the timeout (default is 15 minutes) will be deleted. 
+		than the timeout (default is 15 minutes) will be deleted.
 		\return \c bool \c true if successful, otherwise \c false.
 	*/
 	function deleteUsed($days) {
@@ -428,7 +433,7 @@ class fbHMAC_Login {
 		Delete a percentage of the oldest records in the challenges table.
 
 		Deletes the oldest records first.
-		
+
 		\param $percent \c int The percentage of records to delete,
 		0 for none, 100 for all.
 		\return \c bool \c true if successful, otherwise \c false.
@@ -446,7 +451,7 @@ class fbHMAC_Login {
 	*/
 	function checkAddress($check_address) {
 	}
-	
+
 	/*!
 		\todo Implement checkReferer() ?
 
@@ -455,7 +460,7 @@ class fbHMAC_Login {
 	*/
 	function checkReferer($check_referer) {
 	}
-	
+
 	/*!
 		\todo Implement checkUserAgent() ?
 
@@ -464,7 +469,7 @@ class fbHMAC_Login {
 	*/
 	function checkUserAgent($check_user_agent) {
 	}
-	
+
 }
 
 ?>

@@ -1,9 +1,9 @@
 <?php
 
-// $CVSHeader: _freebeer/tests/ADOdb/Test_ADOdb_ADOdb.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/tests/ADOdb/Test_ADOdb_ADOdb.php,v 1.3 2004/03/07 17:51:27 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 require_once FREEBEER_BASE . '/tests/_init.php';
 
@@ -27,6 +27,7 @@ class _Test_ADOdb_ADOdb extends fbTestCase {
 
 }
 
+# make PHPUnit_GUI_SetupDecorator() happy
 class _ADOdb_Test_ADOdb_ADOdb extends _Test_ADOdb_ADOdb {
 }
 
@@ -35,6 +36,15 @@ class _ADOdb_Test_ADOdb_ADOdb extends _Test_ADOdb_ADOdb {
 	function test_getdrivers_1() {
 //		$o =& new ADOdb();
 //		$rv = $o->getdrivers();
+//		$expected = 0;
+//		$this->assertEquals($expected, $rv);
+	}
+*/ ?>
+<?php /*
+	// \todo Implement test_isavailable_1 in Test_ADOdb_ADOdb.php
+	function test_isavailable_1() {
+//		$o =& new ADOdb();
+//		$rv = $o->isavailable();
 //		$expected = 0;
 //		$this->assertEquals($expected, $rv);
 	}

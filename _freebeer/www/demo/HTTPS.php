@@ -1,9 +1,15 @@
 <?php
 
-// $CVSHeader: _freebeer/www/demo/HTTPS.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+// $CVSHeader: _freebeer/www/demo/HTTPS.php,v 1.3 2004/03/08 04:29:18 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
+
+// \todo fix wget's continuously reporting "End of file while parsing headers."
+if (preg_match('/wget/i', $_SERVER['HTTP_USER_AGENT'])) {
+	echo "<html><body></body></html>";
+	exit(0);
+}
 
 require_once './_demo.php';
 
@@ -101,11 +107,6 @@ foreach($a_hrefs as $a_href) {
 	$a_hrefs_html .= $a_href . htmlspecialchars($a_href) . "</a><br />\n";
 }
 
-if (preg_match('/wget/i', $_SERVER['HTTP_USER_AGENT'])) {
-	echo "</body></html>";
-	exit(0);
-}
-
 $i_srcs = array(
 	'<input src="../img/php-small-trans-light.gif" type="image" />',
 	'<input src=../img/php-small-trans-light.gif type="image"/>',
@@ -151,7 +152,7 @@ echo $i_srcs_html;
 </pre>
 <br />
 <address>
-$CVSHeader: _freebeer/www/demo/HTTPS.php,v 1.1.1.1 2004/01/18 00:12:07 ross Exp $
+$CVSHeader: _freebeer/www/demo/HTTPS.php,v 1.3 2004/03/08 04:29:18 ross Exp $
 </address>
 
 </body>

@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# $CVSHeader: _freebeer/bin/getapps/cvsimport.sh,v 1.1.1.1 2004/01/18 00:12:04 ross Exp $
+# $CVSHeader: _freebeer/bin/getapps/cvsimport.sh,v 1.3 2004/03/07 17:51:15 ross Exp $
 
-# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
 
 if [ -z "$FREEBEER_BASE" ]; then
 	FREEBEER_BASE=`dirname $0`
@@ -19,26 +19,26 @@ fi
 VTAG=`echo "$APP" | tr "$,.:;@" "_"`
 
 if [ -d "$DIR" ]; then
-	mkdir ${APP}_docs
-	cd $DIR
-	if [ -n "$DOCDIR" ]; then
-		mv -f $DOCDIR ../${APP}_docs
-	fi
-	if [ -n "$DOCFILES" ]; then
-		if [ -n "$IMPORTDIR" ]; then
-			cd $IMPORTDIR
-			mv -f $DOCFILES ../../${APP}_docs
-			cd ..
-		else
-			mv -f $DOCFILES ../${APP}_docs
-		fi
-	fi
-	cd ..
-	if [ -n "$DOCDIR" -o -n "$DOCFILES" ]; then
-		cd ${APP}_docs
-		cvs import -I ! -m "Import of $URL to _${APP}_docs" _${APP}_docs $VTAG $RTAG
-		cd ..
-	fi
+#	mkdir ${APP}_docs
+#	cd $DIR
+#	if [ -n "$DOCDIR" ]; then
+#		mv -f $DOCDIR ../${APP}_docs
+#	fi
+#	if [ -n "$DOCFILES" ]; then
+#		if [ -n "$IMPORTDIR" ]; then
+#			cd $IMPORTDIR
+#			mv -f $DOCFILES ../../${APP}_docs
+#			cd ..
+#		else
+#			mv -f $DOCFILES ../${APP}_docs
+#		fi
+#	fi
+#	cd ..
+#	if [ -n "$DOCDIR" -o -n "$DOCFILES" ]; then
+#		cd ${APP}_docs
+#		cvs import -I ! -m "Import of $URL to _${APP}_docs" _${APP}_docs $VTAG $RTAG
+#		cd ..
+#	fi
 	cd $DIR/$IMPORTDIR
 	if [ -n "$RMFILES" ]; then
 		rm -fr $RMFILES

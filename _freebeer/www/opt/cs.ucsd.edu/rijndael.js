@@ -1,6 +1,6 @@
 /*
 
-$CVSHeader: _freebeer/www/opt/cs.ucsd.edu/rijndael.js,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+$CVSHeader: _freebeer/www/opt/cs.ucsd.edu/rijndael.js,v 1.1.1.1 2004/03/03 22:48:41 ross Exp $
 
 Source: http://www-cse.ucsd.edu/~fritz/rijndael.html
 

@@ -1,10 +1,10 @@
 #!/usr/bin/php
 <?php
 
-// $CVSHeader: _freebeer/bin/make_tests.php,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $
+// $CVSHeader: _freebeer/bin/make_tests.php,v 1.2 2004/03/07 17:51:14 ross Exp $
 
-// Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-// Licensed under the BSD or LGPL License. See doc/license.txt for details.
+// Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+// Licensed under the BSD or LGPL License. See license.txt for details.
 
 error_reporting(2047);
 @ini_set('html_errors', false);
@@ -41,7 +41,7 @@ foreach($files as $file) {
 //exit;
 
 foreach($test_files as $file => $dummy) {
-    include_once $file;
+	include_once $file;
 
 	$dirname = dirname($file);
 	$basename = basename($file);
@@ -103,7 +103,41 @@ foreach($test_files as $file => $dummy) {
 //echo "classname=$classname\n";
 	
 	$testname = 'Test_' . $test_prefix;
+	
+#rootDir=/home/ross/src/freebeer
+#filename=./ADOdb/Test_ADOdb_ADOdb.php
+#className=_ADOdb_Test_ADOdb_ADOdb
+	
+	$full_testname = substr(str_replace($file_dir, '', $file), 1);
+	$d = dirname($full_testname);
+	if ($d == '.') {
+		$d = '';
+	} else {
+		$d .= '/';
+	}
 
+	$full_testname2 = $d . 'Test_' . $d . basename($file,'.php');
+	$full_testname2 = strtr($full_testname2, '/', '_');
+	$full_testname2 = strtr($full_testname2, '\\', '_');
+	$full_testname2 = strtr($full_testname2, '.', '_');
+	$full_testname2 = strtr($full_testname2, '-', '_');
+
+echo "file=$file
+full_testname=$full_testname
+d=$d
+full_testname2=$full_testname2
+";
+	
+	$phpunit_code = '';
+	
+	if ($full_testname2 != $testname) {
+		$phpunit_code = "
+# make PHPUnit_GUI_SetupDecorator() happy
+class _{$full_testname2} extends _{$testname} {
+}
+";
+	}
+	
 //echo "testname=$testname\n";
 
 	if ($after_lib_name) {
@@ -158,7 +192,7 @@ class _{$testname} extends fbTestCase {
 	}
 
 }
-
+$phpunit_code
 ?>
 EOD;
 		fwrite($fp, $data);

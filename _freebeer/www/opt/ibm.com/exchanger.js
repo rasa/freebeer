@@ -1,4 +1,4 @@
-// $CVSHeader: _freebeer/www/opt/ibm.com/exchanger.js,v 1.1.1.1 2004/01/18 00:12:08 ross Exp $
+// $CVSHeader: _freebeer/www/opt/ibm.com/exchanger.js,v 1.1.1.1 2004/03/03 22:48:41 ross Exp $
 // Source: http://www-106.ibm.com/developerworks/web/library/wa-exrel/?dwzone=web
 //The browser detection function. 
 //This function can be used for other purposes also.

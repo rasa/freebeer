@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# $CVSHeader: _freebeer/bin/dist.sh,v 1.1.1.1 2004/01/18 00:12:03 ross Exp $
+# $CVSHeader: _freebeer/bin/dist.sh,v 1.3 2004/03/07 19:32:21 ross Exp $
 
-# Copyright (c) 2001-2003, Ross Smith.  All rights reserved.
-# Licensed under the BSD or LGPL License. See doc/license.txt for details.
+# Copyright (c) 2002-2004, Ross Smith.  All rights reserved.
+# Licensed under the BSD or LGPL License. See license.txt for details.
 
 if [ -z "$TAG" ]; then
 	TAG=$1
@@ -29,27 +29,19 @@ if [ -z "$FREEBEER_BASE" ]; then
 	done
 fi
 
-# cygwin doesn't appear to support pushd/popd
-CWD=`pwd`
-#pushd $FREEBEER_BASE/var/tmp
-cd $FREEBEER_BASE/var/tmp
+pushd $FREEBEER_BASE/var/tmp
 
 DIR=freebeer_$VER
 rm -fr $DIR
 cvs -z3 -q export -d $DIR -r $TAG freebeer
 
-CWD2=`pwd`
-#pushd $DIR
-cd $DIR
+pushd $DIR
 make
-#popd
-cd $CWD2
+popd
 
 tar -czf $DIR.tar.gz  $DIR
 tar -cjf $DIR.tar.bz2 $DIR
 rm -fr $DIR
 ls -l
 
-#popd
-cd $CWD
-
+popd
