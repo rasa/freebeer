@@ -20,12 +20,14 @@ defined('FREEBEER_BASE') || define('FREEBEER_BASE', getenv('FREEBEER_BASE') ? ge
 	dirname(dirname(__FILE__)));
 
 // CLI version doesn't define these
-defined('STDIN')	|| define('STDIN',  fopen('php://stdin', 'r'));
-defined('STDOUT')	|| define('STDOUT', fopen('php://stdout', 'w'));
-defined('STDERR')	|| define('STDERR', fopen('php://stderr', 'w'));
-register_shutdown_function(
-	create_function('' , 'fclose(STDIN); fclose(STDOUT); fclose(STDERR); return true;' )
-);
+if (!defined('STDIN')) {
+	@define('STDIN',  fopen('php://stdin', 'r'));
+	@define('STDOUT', fopen('php://stdout', 'w'));
+	@define('STDERR', fopen('php://stderr', 'w'));
+	register_shutdown_function(
+		create_function('' , '@fclose(STDIN); @fclose(STDOUT); @fclose(STDERR); return true;' )
+	);
+}
 
 // 5.0.0b3
 defined('E_STRICT') || define('E_STRICT', 2048);
