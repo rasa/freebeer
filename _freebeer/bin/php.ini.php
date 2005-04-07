@@ -95,23 +95,23 @@ echo '$error_log=',$error_log,"\n";
 //exit;
 
 $excludes = array(
-	'php_ifx.dll'		=> 'Requires external isqlt09a.dll',
-	'php_ingres.dll'	=> 'Requires external OIAPI.DLL',
-	'php_notes.dll'		=> 'Requires external nNOTES.dll',
-	'php_pspell.dll'	=> 'Requires external aspell-15.dll',
-	'php_sybase_ct.dll'	=> 'Requires external libct.dll',
-
-	'php_snmp.dll'		=> 'Reports: Cannot find module (IP-..): At line 0 in (none)',
-
-	'php_netools.dll'	=> 'Requires external lcrzo.dll',
-	'php_ntuser.dll'	=> 'Possibly buggy, research',
-	'php_phpdoc.dll'	=> 'Possibly buggy, research',
-	'php_radius.dll'	=> 'Possibly buggy, research',
-	'php_threads.dll'	=> 'Possibly buggy, research',
-	'php_tidy.dll'		=> 'Possibly buggy, research',
-
 	'php_apd.dll'		=> 'Possibly buggy, research',
 	'php_bcompiler.dll'	=> 'Possibly buggy, research',
+	'php_blenc.dll'		=> 'PHP quits at startup',
+	'php_ifx.dll'		=> 'Requires external isqlt09a.dll',
+	'php_ingres.dll'	=> 'Requires external OIAPI.DLL',
+	'php_maxdb.dll'		=> 'Requires external libSQLDBC_C.dll',
+	'php_netools.dll'	=> 'Requires external lcrzo.dll',
+	'php_notes.dll'		=> 'Requires external nNOTES.dll',
+	'php_ntuser.dll'	=> 'Possibly buggy, research',
+	'php_pdo_oci8.dll'	=> 'Invalid library',
+	'php_phpdoc.dll'	=> 'Possibly buggy, research',
+	'php_pspell.dll'	=> 'Requires external aspell-15.dll',
+	'php_radius.dll'	=> 'Possibly buggy, research',
+	'php_snmp.dll'		=> 'Reports: Cannot find module (IP-..): At line 0 in (none)',
+	'php_sybase_ct.dll'	=> 'Requires external libct.dll',
+	'php_threads.dll'	=> 'Possibly buggy, research',
+	'php_tidy.dll'		=> 'Possibly buggy, research',
 //	'php_lzf.dll'		=> 'Appears ok',
 //	'php_oggvorbis.dll'	=> 'Appears ok',
 //	'php_sqlite.dll'	=> 'Appears ok',
@@ -235,6 +235,9 @@ $builtin = array(
 	),
 );
 
+$builtin['5.0.4'] = $builtin['5.0.0'];
+$builtin['5.0.3'] = $builtin['5.0.0'];
+$builtin['5.0.2'] = $builtin['5.0.0'];
 $builtin['5.0.1'] = $builtin['5.0.0'];
 
 $builtin['5.0.0b3'] = $builtin['5.0.0b2'];
